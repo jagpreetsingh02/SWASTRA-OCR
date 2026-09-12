@@ -6,35 +6,39 @@
 <title>MediKiosk OCR — test bench</title>
 <style>
   :root { --bg:#f6f7f9; --card:#fff; --ink:#1b1f24; --muted:#5f6b7a; --line:#e3e7ec;
-          --ok:#1a7f4b; --warn:#a15c00; --warnbg:#fff4e0; --bad:#b42318; --badbg:#fdecea; --accent:#2457c5; }
+          --ok:#1a7f4b; --okbg:#e3f4ea; --warn:#a15c00; --warnbg:#fff4e0; --bad:#b42318; --badbg:#fdecea; --accent:#2457c5; }
   * { box-sizing: border-box; }
   body { margin:0; font:14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background:var(--bg); color:var(--ink); }
-  header { padding:14px 20px; background:var(--card); border-bottom:1px solid var(--line); display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-  header h1 { font-size:16px; margin:0 12px 0 0; }
+  header { padding:12px 20px; background:var(--card); border-bottom:1px solid var(--line); display:flex; gap:12px; align-items:baseline; flex-wrap:wrap; }
+  header h1 { font-size:16px; margin:0; }
   .note { color:var(--muted); font-size:12px; }
-  .banner { background:var(--warnbg); color:var(--warn); padding:8px 20px; font-size:13px; border-bottom:1px solid var(--line); }
-  main { display:grid; grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.4fr); gap:16px; padding:16px 20px; }
+  .bar { padding:8px 20px; font-size:13px; border-bottom:1px solid var(--line); }
+  .bar.info { background:#eef2fb; color:#243f7a; }
+  .bar.good { background:var(--okbg); color:var(--ok); }
+  .bar.bad { background:var(--badbg); color:var(--bad); }
+  .bar.warn { background:var(--warnbg); color:var(--warn); }
+  .bar code { background:rgba(0,0,0,.06); padding:1px 5px; border-radius:4px; }
+  main { display:grid; grid-template-columns: minmax(280px, 360px) minmax(320px, 1fr); gap:16px; padding:16px 20px; align-items:start; }
   @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
   .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px; min-width:0; }
   .card h2 { font-size:13px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin:0 0 10px; }
   #drop { border:2px dashed var(--line); border-radius:8px; padding:22px; text-align:center; color:var(--muted); cursor:pointer; }
   #drop.hover { border-color:var(--accent); color:var(--accent); }
-  #preview { margin-top:12px; max-width:100%; max-height:70vh; border:1px solid var(--line); border-radius:4px; display:none; }
+  #preview { margin-top:12px; max-width:100%; max-height:50vh; border:1px solid var(--line); border-radius:4px; display:none; }
   button { font:inherit; padding:7px 14px; border-radius:6px; border:1px solid var(--accent); background:var(--accent); color:#fff; cursor:pointer; }
   button:disabled { opacity:.5; cursor:default; }
   button.secondary { background:#fff; color:var(--accent); }
   .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:12px; }
   .pill { display:inline-block; padding:2px 8px; border-radius:99px; font-size:12px; font-weight:600; background:#eef1f5; }
-  .pill.ok { background:#e3f4ea; color:var(--ok); } .pill.low_confidence { background:var(--warnbg); color:var(--warn); }
+  .pill.ok { background:var(--okbg); color:var(--ok); } .pill.low_confidence { background:var(--warnbg); color:var(--warn); }
   .pill.unreadable, .pill.failed { background:var(--badbg); color:var(--bad); }
-  .summary { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:10px; }
-  .summary div span { display:block; color:var(--muted); font-size:12px; }
+  .grid { display:flex; gap:18px; flex-wrap:wrap; margin-bottom:12px; }
+  .grid div span { display:block; color:var(--muted); font-size:12px; }
   .scroll { overflow-x:auto; }
-  table { width:100%; border-collapse:collapse; margin-bottom:12px; }
+  table { width:100%; border-collapse:collapse; margin-bottom:10px; }
   th, td { text-align:left; padding:5px 6px; border-bottom:1px solid var(--line); vertical-align:top; }
   th { font-size:12px; color:var(--muted); font-weight:600; }
-  .value { display:inline-block; }
-  .review { background:var(--warnbg); border-radius:3px; padding:0 3px; }
+  .value.review { background:var(--warnbg); border-radius:3px; padding:0 3px; }
   .meta { color:var(--muted); font-size:11px; display:block; }
   .reason { color:var(--warn); font-size:11px; display:block; }
   .empty { color:var(--muted); font-style:italic; }
@@ -43,17 +47,21 @@
   .rawline.low { background:var(--warnbg); }
   .rawline.withheld { background:var(--badbg); text-decoration:line-through; }
   ul.warn { margin:0 0 10px; padding-left:18px; color:var(--warn); }
-  .error { color:var(--bad); font-weight:600; }
+  .error { color:var(--bad); }
   h3 { font-size:13px; margin:14px 0 6px; }
   #json { display:none; max-height:60vh; overflow:auto; background:#f3f5f8; padding:10px; border-radius:6px; }
+  #progress { display:none; margin-top:12px; padding:10px; background:#eef2fb; border-radius:6px; color:#243f7a; font-size:13px; }
+  #progress ol { margin:6px 0 0; padding-left:20px; }
+  #progress li.done { color:var(--ok); }
 </style>
 </head>
 <body>
 <header>
   <h1>MediKiosk OCR — test bench</h1>
-  <span class="note">Temporary testing UI for this engine only.</span>
+  <span class="note">Engineering test page for this engine. Values are unverified machine output.</span>
 </header>
-<div class="banner">Every value below is unverified machine output. Highlighted values have a specific reason for doubt, but unhighlighted values still need checking against the document.</div>
+<div id="server" class="bar info">Checking the API…</div>
+<div class="bar warn">Highlighted values have a specific reason for doubt. Unhighlighted values still need checking against the document: nothing here is verified.</div>
 <main>
   <section class="card">
     <h2>Document</h2>
@@ -61,32 +69,95 @@
     <div class="row">
       <button id="run" disabled>Extract</button>
       <span id="fname" class="note"></span>
-      <span id="busy" class="note"></span>
     </div>
-    <img id="preview" alt="preview">
+    <div id="progress">
+      <b id="stage">Working…</b> <span id="elapsed" class="note"></span>
+      <ol>
+        <li id="s1">Uploading the file</li>
+        <li id="s2">Preprocessing, OCR, validation and extraction on the server</li>
+        <li id="s3">Rendering the result</li>
+      </ol>
+      <span class="note">The API is synchronous, so these are stages, not live progress. Real per-stage timings arrive with the result.</span>
+    </div>
+    <img id="preview" alt="preview of the selected document">
   </section>
 
-  <section class="card" id="out">
+  <section class="card">
     <h2>Result</h2>
     <div id="result" class="empty">No document processed yet.</div>
-    <div class="row"><button class="secondary" id="toggleJson" style="display:none">Show JSON</button></div>
+    <div class="row"><button class="secondary" id="toggleJson" style="display:none">Show raw JSON</button></div>
     <pre id="json"></pre>
   </section>
 </main>
 
 <script>
+"use strict";
 const $ = (id) => document.getElementById(id);
+
+// Same-origin, resolved against this page's URL: correct when FastAPI serves the page, and when it is
+// mounted under a sub-path. If the page was opened from Live Server or the file system, these point at
+// that other server, which is exactly the case checkServer() reports below.
+const EXTRACT_URL = new URL("v1/extract", document.baseURI).href;
+const HEALTH_URL = new URL("health", document.baseURI).href;
+const WRONG_ORIGIN_HELP =
+  "Open the page from the SWASTRA-OCR API instead: run <code>.venv/bin/uvicorn medikiosk_ocr.api:app --host 127.0.0.1 --port 8000</code> " +
+  "and browse to <code>http://127.0.0.1:8000</code>. Opening static/index.html with Live Server or as a file sends the upload to that server, not to the API.";
+
 let file = null;
+let apiReady = false;
+
+class ApiProblem extends Error {
+  constructor(message, detail) { super(message); this.detail = detail; }
+}
+
+function esc(s) { return String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+function num(x) { return x == null ? "—" : Number(x).toFixed(2); }
+
+async function readResponse(response) {
+  // Never hand an unchecked body to JSON.parse: a wrong server answers with an HTML page.
+  const type = (response.headers.get("content-type") || "").toLowerCase();
+  const text = await response.text();
+  if (!type.includes("json")) {
+    const looksHtml = text.trimStart().startsWith("<");
+    throw new ApiProblem(
+      looksHtml
+        ? `The API returned HTML instead of JSON (HTTP ${response.status}). The request did not reach the SWASTRA-OCR API. ${WRONG_ORIGIN_HELP}`
+        : `The server answered HTTP ${response.status} with "${esc(type) || "an unknown content type"}" instead of JSON.`,
+      text.slice(0, 400));
+  }
+  try {
+    return JSON.parse(text);
+  } catch (err) {
+    throw new ApiProblem(`The server answered HTTP ${response.status} with a JSON content type but an unparsable body.`, text.slice(0, 400));
+  }
+}
+
+async function checkServer() {
+  const bar = $("server");
+  try {
+    const health = await readResponse(await fetch(HEALTH_URL, { cache: "no-store" }));
+    apiReady = true;
+    bar.className = "bar good";
+    bar.innerHTML = `API reachable at <code>${esc(new URL(document.baseURI).origin)}</code> · OCR <code>${esc(health.models?.ocr)}</code> · ` +
+      `extraction <code>${esc(health.models?.extraction)}</code> · device <code>${esc(health.device)}</code> · ` +
+      `models ${health.ready ? "loaded" : "not loaded yet (they load on first use)"}` +
+      (health.warm_up_error ? ` · <span class="error">warm-up error: ${esc(health.warm_up_error)}</span>` : "");
+  } catch (err) {
+    apiReady = false;
+    bar.className = "bar bad";
+    bar.innerHTML = `Not connected to the SWASTRA-OCR API. ${err instanceof ApiProblem ? esc(err.message).replace(/&lt;code&gt;/g, "<code>").replace(/&lt;\/code&gt;/g, "</code>") : WRONG_ORIGIN_HELP}`;
+  }
+  $("run").disabled = !(file && apiReady);
+}
 
 function pick(f) {
   if (!f) return;
   file = f;
-  $("fname").textContent = `${f.name} (${Math.round(f.size / 1024)} KB)`;
-  $("run").disabled = false;
+  $("fname").textContent = `${f.name} · ${(f.size / 1024).toFixed(0)} KB · ${f.type || "unknown type"}`;
+  $("run").disabled = !apiReady;
   const img = $("preview");
-  const browserCanShow = f.type.startsWith("image/") && !/heic|heif/i.test(f.type + f.name);
-  if (browserCanShow) { img.src = URL.createObjectURL(f); img.style.display = "block"; }
-  else { img.style.display = "none"; }
+  const showable = f.type.startsWith("image/") && !/heic|heif/i.test(f.type + f.name);
+  if (showable) { img.src = URL.createObjectURL(f); img.style.display = "block"; } else { img.style.display = "none"; }
 }
 
 $("drop").onclick = () => $("file").click();
@@ -94,94 +165,135 @@ $("file").onchange = (e) => pick(e.target.files[0]);
 $("drop").ondragover = (e) => { e.preventDefault(); $("drop").classList.add("hover"); };
 $("drop").ondragleave = () => $("drop").classList.remove("hover");
 $("drop").ondrop = (e) => { e.preventDefault(); $("drop").classList.remove("hover"); pick(e.dataTransfer.files[0]); };
+$("toggleJson").onclick = () => {
+  const shown = $("json").style.display !== "block";
+  $("json").style.display = shown ? "block" : "none";
+  $("toggleJson").textContent = shown ? "Hide raw JSON" : "Show raw JSON";
+};
 
 $("run").onclick = async () => {
   if (!file) return;
   $("run").disabled = true;
-  const t0 = performance.now();
-  const timer = setInterval(() => $("busy").textContent = `working… ${((performance.now() - t0) / 1000).toFixed(0)}s`, 500);
+  $("result").innerHTML = "";
+  $("progress").style.display = "block";
+  $("s1").className = ""; $("s2").className = ""; $("s3").className = "";
+  $("stage").textContent = "Uploading the document…";
+  const started = performance.now();
+  const timer = setInterval(() => { $("elapsed").textContent = `${((performance.now() - started) / 1000).toFixed(0)}s elapsed`; }, 250);
   try {
     const body = new FormData();
     body.append("file", file);
-    const res = await fetch("/v1/extract", { method: "POST", body });
-    render(await res.json());
+    const request = fetch(EXTRACT_URL, { method: "POST", body });
+    $("s1").className = "done";
+    $("stage").textContent = "Server is preprocessing, running OCR, validating and extracting…";
+    const result = await readResponse(await request);
+    $("s2").className = "done";
+    $("stage").textContent = "Rendering…";
+    render(result);
+    $("s3").className = "done";
   } catch (err) {
-    $("result").innerHTML = `<p class="error">Request failed: ${esc(String(err))}</p>`;
+    if (err instanceof ApiProblem) showProblem(err.message, err.detail);
+    else showProblem(`Could not reach the API at <code>${esc(EXTRACT_URL)}</code>: ${esc(err.message)}. ${WRONG_ORIGIN_HELP}`);
   } finally {
     clearInterval(timer);
-    $("busy").textContent = "";
-    $("run").disabled = false;
+    $("progress").style.display = "none";
+    $("run").disabled = !apiReady;
   }
 };
 
-$("toggleJson").onclick = () => {
-  const j = $("json"), show = j.style.display !== "block";
-  j.style.display = show ? "block" : "none";
-  $("toggleJson").textContent = show ? "Hide JSON" : "Show JSON";
-};
+function showProblem(messageHtml, detail) {
+  $("result").className = "";
+  $("result").innerHTML = `<p class="error"><b>${messageHtml}</b></p>` +
+    (detail ? `<h3>What the server sent</h3><pre>${esc(detail)}</pre>` : "");
+  $("toggleJson").style.display = "none";
+  $("json").style.display = "none";
+}
 
-function esc(s) { return String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
-function num(x) { return x == null ? "—" : x.toFixed(2); }
 function ent(e) {
   if (!e) return '<span class="empty">—</span>';
-  const meta = `${e.method} · page ${e.page + 1} · OCR token p ${num(e.ocr_confidence)} · extractor ${num(e.extractor_score)}`;
+  const meta = `${e.method} · page ${e.page + 1} · OCR token p ${num(e.ocr_confidence)} · extractor ${num(e.extractor_score)}` +
+               ` · needs review: ${e.needs_review ? "yes" : "no"}`;
   const reasons = (e.review_reasons || []).map((r) => `<span class="reason">⚠ ${esc(r)}</span>`).join("");
   return `<span class="value ${e.needs_review ? "review" : ""}">${esc(e.text)}</span><span class="meta">${meta}</span>${reasons}`;
 }
+
 function list(title, items) {
-  const body = items.length ? items.map((e) => `<tr><td>${ent(e)}</td></tr>`).join("") : '<tr><td class="empty">none found</td></tr>';
-  return `<h3>${title}</h3><table>${body}</table>`;
+  const rows = (items || []).length
+    ? items.map((e) => `<tr><td>${ent(e)}</td></tr>`).join("")
+    : '<tr><td class="empty">none found</td></tr>';
+  return `<h3>${title}</h3><table>${rows}</table>`;
 }
 
 function render(r) {
+  // A structured failure (bad file, engine error) is a normal, renderable result.
   const e = r.entities || {};
-  let html = `<div class="summary">
-    <div><span>Status</span><b class="pill ${r.status}">${esc(r.status)}</b></div>
-    <div><span>Type</span><b>${esc(r.document_type)}</b></div>
+  const t = r.timings_ms || {};
+  const timing = ["preprocess", "ocr", "extraction"].filter((k) => t[k] != null).map((k) => `${k} ${t[k]} ms`).join(" · ");
+  let html = `<div class="grid">
+    <div><span>Status</span><b class="pill ${esc(r.status)}">${esc(r.status)}</b></div>
+    <div><span>Document type</span><b>${esc(r.document_type)}</b></div>
+    <div><span>Processing time</span><b>${t.total != null ? t.total + " ms" : "—"}</b></div>
+    <div><span>Pages</span><b>${(r.pages || []).length}</b></div>
     <div><span>Mean OCR token probability</span><b>${num(r.ocr_confidence)}</b></div>
-    <div><span>Pages</span><b>${(r.pages || []).map((p) => `${p.index + 1}: ${p.source}/${p.status}`).join(", ") || "—"}</b></div>
-    <div><span>Time</span><b>${r.timings_ms?.total ?? "?"} ms</b></div>
+    <div><span>Verification required</span><b>${r.verification_required === true ? "yes" : "?"}</b></div>
   </div>`;
-  if (r.error) html += `<p class="error">${esc(r.error.code)}: ${esc(r.error.message)}</p>`;
-  if (r.warnings?.length) html += `<ul class="warn">${r.warnings.map((w) => `<li>${esc(w)}</li>`).join("")}</ul>`;
+  if (timing) html += `<p class="note">Stage timings: ${esc(timing)}</p>`;
+
+  if (r.error) {
+    html += `<p class="error"><b>${esc(r.error.code)}</b>: ${esc(r.error.message)}</p>`;
+  }
+  if ((r.warnings || []).length) {
+    html += `<h3>Warnings</h3><ul class="warn">${r.warnings.map((w) => `<li>${esc(w)}</li>`).join("")}</ul>`;
+  }
 
   html += `<h3>Header</h3><div class="scroll"><table>
     <tr><th>Patient</th><td>${ent(e.patient_name)}</td></tr>
     <tr><th>Doctor</th><td>${ent(e.doctor_name)}</td></tr>
     <tr><th>Date</th><td>${ent(e.date)}</td></tr></table></div>`;
 
-  html += `<h3>Medications</h3><div class="scroll"><table><tr><th>Name</th><th>Dosage</th><th>Frequency</th><th>Duration</th></tr>`;
-  html += (e.medications || []).length
-    ? e.medications.map((m) => `<tr><td>${ent(m.name)}</td><td>${ent(m.dosage)}</td><td>${ent(m.frequency)}</td><td>${ent(m.duration)}</td></tr>`).join("")
-    : '<tr><td colspan="4" class="empty">none found</td></tr>';
-  html += `</table></div>`;
+  html += `<h3>Medications</h3><div class="scroll"><table><tr><th>Name</th><th>Dose</th><th>Frequency</th><th>Duration</th></tr>` +
+    ((e.medications || []).length
+      ? e.medications.map((m) => `<tr><td>${ent(m.name)}</td><td>${ent(m.dosage)}</td><td>${ent(m.frequency)}</td><td>${ent(m.duration)}</td></tr>`).join("")
+      : '<tr><td colspan="4" class="empty">none found</td></tr>') + `</table></div>`;
 
-  html += `<h3>Test results</h3><div class="scroll"><table><tr><th>Test</th><th>Value</th><th>Unit</th><th>Reference range</th></tr>`;
-  html += (e.test_results || []).length
-    ? e.test_results.map((t) => `<tr><td>${ent(t.name)}</td><td>${ent(t.value)}</td><td>${ent(t.unit)}</td><td>${ent(t.reference_range)}</td></tr>`).join("")
-    : '<tr><td colspan="4" class="empty">none found</td></tr>';
-  html += `</table></div>`;
+  html += `<h3>Lab results</h3><div class="scroll"><table><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference range</th></tr>` +
+    ((e.test_results || []).length
+      ? e.test_results.map((x) => `<tr><td>${ent(x.name)}</td><td>${ent(x.value)}</td><td>${ent(x.unit)}</td><td>${ent(x.reference_range)}</td></tr>`).join("")
+      : '<tr><td colspan="4" class="empty">none found</td></tr>') + `</table></div>`;
 
-  html += list("Diagnoses", e.diagnoses || []) + list("Symptoms", e.symptoms || []) +
-          list("Tests mentioned", e.tests || []) + list("Allergies", e.allergies || []);
+  html += list("Diagnoses", e.diagnoses) + list("Symptoms", e.symptoms) +
+          list("Allergies", e.allergies) + list("Tests / imaging mentioned", e.tests);
 
-  html += `<h3>Raw text <span class="note">(amber: mean OCR token probability &lt; 0.80 · struck through: withheld from extraction)</span></h3><pre>`;
+  html += `<h3>Pages</h3><div class="scroll"><table><tr><th>#</th><th>Source</th><th>Status</th><th>Lines</th><th>Mean OCR token p</th></tr>` +
+    ((r.pages || []).length
+      ? r.pages.map((p) => {
+          const conf = p.lines.map((l) => l.ocr_confidence).filter((c) => c != null);
+          const mean = conf.length ? (conf.reduce((a, b) => a + b, 0) / conf.length).toFixed(2) : "—";
+          return `<tr><td>${p.index + 1}</td><td>${esc(p.source)}</td><td>${esc(p.status)}</td><td>${p.lines.length}</td><td>${mean}</td></tr>`;
+        }).join("")
+      : '<tr><td colspan="5" class="empty">no pages</td></tr>') + `</table></div>`;
+
+  html += `<h3>Raw OCR text <span class="note">(amber: line mean token probability &lt; 0.80 · struck through: withheld from extraction)</span></h3><pre>`;
   for (const p of r.pages || []) {
     html += `<span class="note">— page ${p.index + 1} (${esc(p.source)}, ${esc(p.status)}) —</span>\n`;
     html += p.lines.map((l) => {
-      const cls = l.review_reasons?.length ? "withheld" : (l.ocr_confidence != null && l.ocr_confidence < 0.8 ? "low" : "");
+      const cls = (l.review_reasons || []).length ? "withheld" : (l.ocr_confidence != null && l.ocr_confidence < 0.8 ? "low" : "");
       const title = [`OCR token p ${l.ocr_confidence ?? "n/a"}`, ...(l.review_reasons || [])].join(" · ");
       return `<span class="rawline ${cls}" title="${esc(title)}">${esc(l.text) || "&nbsp;"}</span>`;
     }).join("");
   }
-  if (!(r.pages || []).length) html += esc(r.raw_text);
+  if (!(r.pages || []).length) html += esc(r.raw_text || "(no text)");
   html += `</pre>`;
 
   $("result").className = "";
   $("result").innerHTML = html;
   $("json").textContent = JSON.stringify(r, null, 2);
   $("toggleJson").style.display = "inline-block";
+  $("toggleJson").textContent = "Show raw JSON";
+  $("json").style.display = "none";
 }
+
+checkServer();
 </script>
 </body>
 </html>
