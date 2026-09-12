@@ -1,5 +1,6 @@
 """HTTP behaviour with the pipeline stubbed. No weights needed."""
 
+import json
 import os
 
 os.environ["MEDIKIOSK_OCR_PRELOAD"] = "0"  # never load models from these tests
@@ -61,3 +62,33 @@ def test_bad_files_are_http_200_with_status_failed(client, payload, code):
     response = client.post("/v1/extract", files={"file": ("x.bin", payload, "application/octet-stream")})
     assert response.status_code == 200
     assert response.json()["status"] == "failed" and response.json()["error"]["code"] == code
+
+
+# ---------------------------------------------------------------- the test bench must never get HTML
+
+def test_the_ui_is_html_but_the_api_never_is(client, monkeypatch):
+    assert client.get("/").headers["content-type"].startswith("text/html")
+    monkeypatch.setattr(api, "extract_document", lambda data: ExtractionResult(status=Status.ok, raw_text="hi"))
+    responses = [
+        client.post("/v1/extract", files={"file": ("rx.png", b"\x89PNG bytes", "image/png")}),   # success path
+        client.post("/v1/extract", files={"file": ("empty.bin", b"", "application/octet-stream")}),  # handled failure
+        client.post("/v1/extract", data={"wrong": "field"}),                                     # request error
+    ]
+    for response in responses:
+        assert response.headers["content-type"].startswith("application/json"), response.text[:200]
+        assert not response.text.lstrip().startswith("<"), "the API must never answer an upload with HTML"
+        assert "status" in response.json()
+
+
+def test_unknown_paths_answer_json_not_an_html_error_page(client):
+    response = client.get("/v1/extarct")  # typo in the path: still JSON, so the page can report it
+    assert response.status_code == 404 and response.headers["content-type"].startswith("application/json")
+
+
+def test_health_reports_models_and_device_but_never_the_token(client, monkeypatch):
+    monkeypatch.setenv("HF_TOKEN", "hf_secret_value_that_must_not_leak")
+    body = client.get("/health").json()
+    assert body["models"] == {"ocr": "Qwen/Qwen3-VL-2B-Instruct", "extraction": "Ihor/gliner-biomed-large-v1.0"}
+    assert body["device"] in {"cuda", "mps", "cpu", "unavailable"}
+    assert body["huggingface_token_configured"] is True
+    assert "hf_secret_value_that_must_not_leak" not in json.dumps(body)
