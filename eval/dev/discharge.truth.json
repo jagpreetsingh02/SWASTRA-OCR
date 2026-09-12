@@ -1,0 +1,16 @@
+{
+ "document_type": "discharge_summary",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": "03/09/2024",
+ "medications": [
+  {"name": "AMOXICILLIN", "dosage": "625MG", "frequency": "TDS", "duration": "7 days"},
+  {"name": "LACTULOSE", "dosage": "15ML", "frequency": "HS", "duration": null}
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": ["Community acquired pneumonia"],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "'Pleural tap' is a procedure, not a test. Source: MediKiosk-2 fixtures."
+}

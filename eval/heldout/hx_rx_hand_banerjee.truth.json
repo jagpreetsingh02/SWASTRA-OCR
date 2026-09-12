@@ -1,0 +1,17 @@
+{
+ "document_type": "prescription",
+ "patient_name": "Arjun Das",
+ "doctor_name": "Dr. S. Banerjee",
+ "date": "02/09/2026",
+ "medications": [
+  {"name": "Azee", "dosage": "500", "frequency": "OD", "duration": "3 days"},
+  {"name": "Montair LC", "dosage": null, "frequency": "1-0-1", "duration": null},
+  {"name": "Pan", "dosage": "40", "frequency": "BBF", "duration": null},
+  {"name": "Grilinctus", "dosage": "2 tsp", "frequency": "TDS", "duration": null}
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": ["Acute bronchitis"],
+ "symptoms": [],
+ "allergies": []
+}

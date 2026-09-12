@@ -1,0 +1,21 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": "Dr. Sunita Rao",
+ "date": "03/03/2026",
+ "medications": [
+  {"name": "Metformin", "dosage": "500 mg", "frequency": "BD", "duration": null},
+  {"name": "Glimepiride", "dosage": "1 mg", "frequency": "OD", "duration": null},
+  {"name": "Insulin Glargine", "dosage": "10 units", "frequency": "at bedtime", "duration": null},
+  {"name": "Vitamin D3", "dosage": "60000 IU", "frequency": "once weekly", "duration": "8 weeks"},
+  {"name": "Lactulose", "dosage": "15 ml", "frequency": "HS", "duration": null},
+  {"name": "Paracetamol", "dosage": "650 mg", "frequency": "SOS", "duration": null},
+  {"name": "Mupirocin", "dosage": null, "frequency": "BD", "duration": "5 days"}
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Dev probe (text only): valid medication lines in varied formats, including two medicines on one line."
+}

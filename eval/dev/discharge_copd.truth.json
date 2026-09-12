@@ -1,0 +1,18 @@
+{
+ "document_type": "discharge_summary",
+ "patient_name": "Joseph Mathew",
+ "doctor_name": null,
+ "date": "10/06/2026",
+ "medications": [
+  {"name": "Azithromycin", "dosage": "500 mg", "frequency": "once daily", "duration": "3 days"},
+  {"name": "Budecort", "dosage": "200 mcg", "frequency": "BD", "duration": null},
+  {"name": "Prednisolone", "dosage": "20 mg", "frequency": "OD", "duration": "5 days"},
+  {"name": "Pantoprazole", "dosage": "40 mg", "frequency": "OD", "duration": null}
+ ],
+ "test_results": [],
+ "tests": ["chest X-ray"],
+ "diagnoses": ["Acute exacerbation of COPD", "Type 2 respiratory failure"],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Formerly held-out; moved to dev after it was used to find extraction misses."
+}

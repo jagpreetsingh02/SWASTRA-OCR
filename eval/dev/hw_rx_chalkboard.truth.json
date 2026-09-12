@@ -1,0 +1,17 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": "Dr M. Das",
+ "date": "05/06/2026",
+ "medications": [
+  {"name": "Omez", "dosage": "20", "frequency": "OD", "duration": "14d"},
+  {"name": "Dolo", "dosage": "650", "frequency": "SOS", "duration": null},
+  {"name": "Montek LC", "dosage": null, "frequency": "HS", "duration": "10d"}
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": ["acidity", "cough"],
+ "allergies": [],
+ "notes": "NKDA = no known drug allergies. Synthetic handwriting (Chalkboard), invented content."
+}

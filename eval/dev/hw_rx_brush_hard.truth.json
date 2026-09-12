@@ -1,0 +1,18 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": "Dr K. Singh",
+ "date": "30/05/2026",
+ "medications": [
+  {"name": "Thyronorm", "dosage": "50mcg", "frequency": "OD", "duration": null},
+  {"name": "Shelcal", "dosage": "500", "frequency": "BD", "duration": null}
+ ],
+ "test_results": [
+  {"name": "TSH", "value": "7.2", "unit": null, "reference_range": null}
+ ],
+ "tests": [],
+ "diagnoses": ["Hypothyroidism"],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Synthetic handwriting (Brush Script), invented content."
+}

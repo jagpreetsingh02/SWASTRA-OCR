@@ -1,0 +1,790 @@
+{
+ "engine": "khedim-trocr",
+ "load_s": 4.2,
+ "documents": [
+  {
+   "image": "prescription_scan.png",
+   "seconds": 0.6,
+   "cer": 0.939,
+   "error": null,
+   "text": "patient: John Doe Age: 20",
+   "critical_tokens": {
+    "expected": 18,
+    "found": 0
+   },
+   "missing": [
+    {
+     "category": "medicine_name",
+     "token": "METFORMIN",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "500MG",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "1-0-1",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "duration",
+     "token": "30 days",
+     "expected": 3,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "AMLODIPINE",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "5MG",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "OD",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "ATORVASTATIN",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "10MG",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "HS",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "OMEPRAZOLE",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "20MG",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "1-0-0",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "duration",
+     "token": "14 days",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "header",
+     "token": "Dr. R. Sharma",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "date",
+     "token": "14/03/2026",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  },
+  {
+   "image": "prescription_degraded.png",
+   "seconds": 0.2,
+   "cer": 0.963,
+   "error": null,
+   "text": "date: 2024-12-16",
+   "critical_tokens": {
+    "expected": 18,
+    "found": 0
+   },
+   "missing": [
+    {
+     "category": "medicine_name",
+     "token": "METFORMIN",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "500MG",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "1-0-1",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "duration",
+     "token": "30 days",
+     "expected": 3,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "AMLODIPINE",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "5MG",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "OD",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "ATORVASTATIN",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "10MG",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "HS",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "OMEPRAZOLE",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "20MG",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "1-0-0",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "duration",
+     "token": "14 days",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "header",
+     "token": "Dr. R. Sharma",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "date",
+     "token": "14/03/2026",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  },
+  {
+   "image": "prescription_photo_handheld.jpg",
+   "seconds": 0.3,
+   "cer": 0.963,
+   "error": null,
+   "text": "date: 2024-12-16",
+   "critical_tokens": {
+    "expected": 18,
+    "found": 0
+   },
+   "missing": [
+    {
+     "category": "medicine_name",
+     "token": "METFORMIN",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "500MG",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "1-0-1",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "duration",
+     "token": "30 days",
+     "expected": 3,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "AMLODIPINE",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "5MG",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "OD",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "ATORVASTATIN",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "10MG",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "HS",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "OMEPRAZOLE",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "20MG",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "1-0-0",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "duration",
+     "token": "14 days",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "header",
+     "token": "Dr. R. Sharma",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "date",
+     "token": "14/03/2026",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  },
+  {
+   "image": "lab_report_scan.png",
+   "seconds": 0.3,
+   "cer": 0.932,
+   "error": null,
+   "text": "patient: John Doe Age: 20",
+   "critical_tokens": {
+    "expected": 16,
+    "found": 0
+   },
+   "missing": [
+    {
+     "category": "lab_name",
+     "token": "Haemoglobin",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_value",
+     "token": "9.4",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_name",
+     "token": "HbA1c",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_value",
+     "token": "8.2",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_name",
+     "token": "Fasting Blood Sugar",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_value",
+     "token": "168",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_name",
+     "token": "Serum Creatinine",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_value",
+     "token": "1.1",
+     "expected": 2,
+     "found": 0
+    },
+    {
+     "category": "lab_name",
+     "token": "TSH",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_value",
+     "token": "6.8",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_name",
+     "token": "Total Cholesterol",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_value",
+     "token": "214",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_name",
+     "token": "ESR",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_value",
+     "token": "34",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "date",
+     "token": "02/02/2026",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  },
+  {
+   "image": "lab_report_degraded.png",
+   "seconds": 0.2,
+   "cer": 0.949,
+   "error": null,
+   "text": "date: 2024-12-16",
+   "critical_tokens": {
+    "expected": 16,
+    "found": 0
+   },
+   "missing": [
+    {
+     "category": "lab_name",
+     "token": "Haemoglobin",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_value",
+     "token": "9.4",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_name",
+     "token": "HbA1c",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_value",
+     "token": "8.2",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_name",
+     "token": "Fasting Blood Sugar",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_value",
+     "token": "168",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_name",
+     "token": "Serum Creatinine",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_value",
+     "token": "1.1",
+     "expected": 2,
+     "found": 0
+    },
+    {
+     "category": "lab_name",
+     "token": "TSH",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_value",
+     "token": "6.8",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_name",
+     "token": "Total Cholesterol",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_value",
+     "token": "214",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_name",
+     "token": "ESR",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_value",
+     "token": "34",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "date",
+     "token": "02/02/2026",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  },
+  {
+   "image": "discharge_scan.png",
+   "seconds": 0.3,
+   "cer": 0.917,
+   "error": null,
+   "text": "patient: John Doe Age: 20",
+   "critical_tokens": {
+    "expected": 8,
+    "found": 0
+   },
+   "missing": [
+    {
+     "category": "medicine_name",
+     "token": "AMOXICILLIN",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "625MG",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "TDS",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "duration",
+     "token": "7 days",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "LACTULOSE",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "15ML",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "HS",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "date",
+     "token": "03/09/2024",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  },
+  {
+   "image": "discharge_degraded.png",
+   "seconds": 0.2,
+   "cer": 0.953,
+   "error": null,
+   "text": "date: 2024-12-16",
+   "critical_tokens": {
+    "expected": 8,
+    "found": 0
+   },
+   "missing": [
+    {
+     "category": "medicine_name",
+     "token": "AMOXICILLIN",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "625MG",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "TDS",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "duration",
+     "token": "7 days",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "LACTULOSE",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "15ML",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "HS",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "date",
+     "token": "03/09/2024",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  },
+  {
+   "image": "prescription_handwritten.png",
+   "seconds": 0.2,
+   "cer": 0.896,
+   "error": null,
+   "text": "patient: John Doe Age: 20",
+   "critical_tokens": {
+    "expected": 15,
+    "found": 0
+   },
+   "missing": [
+    {
+     "category": "medicine_name",
+     "token": "Augmtin",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "625",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "BD",
+     "expected": 2,
+     "found": 0
+    },
+    {
+     "category": "duration",
+     "token": "5d",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "PCM",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "500",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "sos",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "Pantop",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "40",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "OD",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "Zerodol SP",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "duration",
+     "token": "3d",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "header",
+     "token": "Dr S. Menon",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "date",
+     "token": "04/09/2026",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  }
+ ],
+ "controls": {
+  "blank": {
+   "chars": 16,
+   "text": "date: 2024-12-16"
+  },
+  "noise": {
+   "chars": 16,
+   "text": "date: 2024-12-16"
+  }
+ },
+ "line_crops": [
+  {
+   "truth": "Tab Augmtin 625 BD x 5d",
+   "text": "medications: Take twice daily",
+   "cer": 1.087
+  },
+  {
+   "truth": "PCM 500 sos",
+   "text": "date: 2024-12-16",
+   "cer": 1.273
+  },
+  {
+   "truth": "Pantop 40 OD bf",
+   "text": "clinic_name: Jane Smith Age: 68",
+   "cer": 1.8
+  },
+  {
+   "truth": "Tab Zerodol SP BD x 3d",
+   "text": "clinic_address: Oak Rd.",
+   "cer": 0.864
+  }
+ ]
+}

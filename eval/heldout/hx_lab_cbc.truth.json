@@ -1,0 +1,19 @@
+{
+ "document_type": "lab_report",
+ "patient_name": ["Kavita Rao", "Mrs. Kavita Rao"],
+ "doctor_name": "Dr. P. Menon",
+ "date": "09/08/2026",
+ "medications": [],
+ "test_results": [
+  {"name": "Haemoglobin", "value": "10.8", "unit": "g/dL", "reference_range": "12.0 - 15.0"},
+  {"name": "RBC Count", "value": "4.12", "unit": "mill/cumm", "reference_range": "3.8 - 4.8"},
+  {"name": "PCV", "value": "33.5", "unit": "%", "reference_range": "36 - 46"},
+  {"name": "MCV", "value": "81.3", "unit": "fL", "reference_range": "83 - 101"},
+  {"name": "Total WBC Count", "value": "11500", "unit": "/cumm", "reference_range": "4000 - 10000"},
+  {"name": "Platelet Count", "value": "1.15", "unit": "lakhs/cumm", "reference_range": "1.5 - 4.1"}
+ ],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": []
+}

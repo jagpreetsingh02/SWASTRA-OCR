@@ -1,0 +1,17 @@
+{
+ "document_type": "discharge_summary",
+ "patient_name": "Lakshmi Iyer",
+ "doctor_name": "Dr. Anil Kapoor",
+ "date": "14/07/2026",
+ "medications": [
+  {"name": "Augmentin", "dosage": "625 mg", "frequency": "TDS", "duration": "5 days"},
+  {"name": "Glimepiride", "dosage": "1 mg", "frequency": "OD", "duration": null},
+  {"name": "Paracetamol", "dosage": "650 mg", "frequency": "SOS", "duration": null},
+  {"name": "Budecort", "dosage": "200 mcg", "frequency": "BD", "duration": null}
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": ["Community acquired pneumonia", "Type 2 diabetes mellitus"],
+ "symptoms": [],
+ "allergies": ["Sulfonamides"]
+}

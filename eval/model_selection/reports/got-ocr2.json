@@ -1,0 +1,320 @@
+{
+ "engine": "got-ocr2",
+ "load_s": 10.1,
+ "documents": [
+  {
+   "image": "prescription_scan.png",
+   "seconds": 6.7,
+   "cer": 0.0,
+   "error": null,
+   "text": "SHRI VENKATESHWARA POLYCLINIC \nDr. R. Sharma, MBBS MD (Gen Med)      Reg No. TN/12345 \n \nPatient: [synthetic]           Age: 64 / F \nDate: 14/03/2026 \n \nDiagnosis: Type 2 diabetes mellitus with hypertension \n \nRx \nTAB. METFORMIN 500MG 1-0-1 x 30 days \nTAB. AMLODIPINE 5MG OD x 30 days \nTAB. ATORVASTATIN 10MG HS x 30 days \nCAP. OMEPRAZOLE 20MG 1-0-0 x 14 days \n \nAdvice: review after one month with fasting sugar \n",
+   "critical_tokens": {
+    "expected": 18,
+    "found": 18
+   },
+   "missing": []
+  },
+  {
+   "image": "prescription_degraded.png",
+   "seconds": 6.4,
+   "cer": 0.296,
+   "error": null,
+   "text": "SHRI VENKATESHWARA POLYCLINIC \nDr. R. Sharma, MBBS MD (Gen Med) \nPatient: [synthetic] \nDate: 14/03/2026 \nRx \nTAB. METFORMIN 500MG 1-0-1 x 30 days \nTAB. AMLODIPINE 5MG OD x 30 days \nTAB. ATORVASTATIN 10MG HS x 30 days \nCAP. OMEPRAZOLE 20MG 1-0-0 x 14 days \nAdvice: review after one month with fasting sugar \nReg No. TN/12345 \nAge: 64 / F \n",
+   "critical_tokens": {
+    "expected": 18,
+    "found": 18
+   },
+   "missing": []
+  },
+  {
+   "image": "prescription_photo_handheld.jpg",
+   "seconds": 6.9,
+   "cer": 0.219,
+   "error": null,
+   "text": "SHRI VENKATESHWARA POLYCLINIC \nDr. R. Sharma, MBBS MD (Gen Med) \nPatient: [synthetic] \nDate: 14/03/2026 \nRx \nTAB. METFORMIN 500MG 1-0-1 x 30 days \nTAB. AMLODIPINE 5MG OD x 30 days \nTAB. ATORVASTATIN 10MG HS x 30 days \nCAP. OMEPRAZOLE 20MG 1-0-0 x 14 days \nAdvice: review after one month with fasting sugar \n",
+   "critical_tokens": {
+    "expected": 18,
+    "found": 18
+   },
+   "missing": []
+  },
+  {
+   "image": "lab_report_scan.png",
+   "seconds": 5.5,
+   "cer": 0.003,
+   "error": null,
+   "text": "METRO DIAGNOSTICS - BIOCHEMISTRY REPORT \nSample collected on 02/02/2026 \n \nHaemoglobin 9.4 g/dL              (12.0 - 15.0) \nHbAlc 8.2 %              (4.0 - 5.6) \nFasting Blood Sugar 168 mg/dL  (70 - 99) \nSerum Creatinine 1.1 mg/dL      (0.6 - 1.1) \nTSH 6.8 uIU/mL        (0.4 - 4.0) \nTotal Cholesterol 214 mg/dL    (0 - 200) \nESR 34 mm/hr              (0 - 20) \n",
+   "critical_tokens": {
+    "expected": 16,
+    "found": 15
+   },
+   "missing": [
+    {
+     "category": "lab_name",
+     "token": "HbA1c",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  },
+  {
+   "image": "lab_report_degraded.png",
+   "seconds": 6.1,
+   "cer": 0.441,
+   "error": null,
+   "text": "METRO DIAGNOSTICS - BIOCHEMISTRY REPORT \nSample collected on 02/02/2026 \nHaemoglobin 9.4 g/dL \nHbA1c 8.2 % \nFasting Blood Sugar 168 mg/dL \nSerum Creatinine 1.1 mg/dL \nTSH 6.8 uIU/mL \nTotal Cholesterol 214 mg/dL \nESR 34 mm/hr \n(12.0 - 15.0) \n(4.0 - 5.6) \n(70 - 99) \n(0.6 - 1.1) \n(0.4 - 4.0) \n(0 - 200) \n(0 - 20) \n",
+   "critical_tokens": {
+    "expected": 16,
+    "found": 16
+   },
+   "missing": []
+  },
+  {
+   "image": "discharge_scan.png",
+   "seconds": 4.2,
+   "cer": 0.0,
+   "error": null,
+   "text": "GOVERNMENT GENERAL HOSPITAL - DISCHARGE SUMMARY\nAdmitted: 03/09/2024      Discharged: 09/09/2024\nDiagnosis: Community acquired pneumonia\nProcedure: Pleural tap done on 05/09/2024\nDischarge medication:\nTAB. AMOXICILLIN 625MG TDS x 7 days\nSYP. LACTULOSE 15ML HS\n",
+   "critical_tokens": {
+    "expected": 8,
+    "found": 8
+   },
+   "missing": []
+  },
+  {
+   "image": "discharge_degraded.png",
+   "seconds": 4.1,
+   "cer": 0.0,
+   "error": null,
+   "text": "GOVERNMENT GENERAL HOSPITAL - DISCHARGE SUMMARY \nAdmitted: 03/09/2024 \nDischarged: 09/09/2024 \nDiagnosis: Community acquired pneumonia \nProcedure: Pleural tap done on 05/09/2024 \nDischarge medication: \nTAB. AMOXICILLIN 625MG TDS x 7 days \nSYP. LACTULOSE 15ML HS \n",
+   "critical_tokens": {
+    "expected": 8,
+    "found": 8
+   },
+   "missing": []
+  },
+  {
+   "image": "prescription_handwritten.png",
+   "seconds": 3.4,
+   "cer": 0.013,
+   "error": null,
+   "text": "Dr S. Menon MBBS MD \ncity clinic, Chennai \nDate 04/09/2026 \nRX \nTab Augustin 625 BD x 5d \nPCM 500 sos \nPantop 40 OD bf \nTab Zerodol SP BD x 3d \nReview after 5 days \n",
+   "critical_tokens": {
+    "expected": 15,
+    "found": 14
+   },
+   "missing": [
+    {
+     "category": "medicine_name",
+     "token": "Augmtin",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  },
+  {
+   "image": "hw_rx_bradley.png",
+   "seconds": 3.9,
+   "cer": 0.021,
+   "error": null,
+   "text": "Dr A. Kulkarni MBBS \nDate 12/08/2026 \nPt: Rohan Mehta 34/M \nc/o fever, sore throat x 2 days \nDx: URTI \nAllergy: sulfa drugs \nRX \nTab Azithral 500 OD x 3d \nsyp Crocin snl TDS \nTab cetirizine Iomg Hs x 5d \n",
+   "critical_tokens": {
+    "expected": 14,
+    "found": 12
+   },
+   "missing": [
+    {
+     "category": "dosage",
+     "token": "5ml",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "10mg",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  },
+  {
+   "image": "hw_rx_brush_hard.png",
+   "seconds": 3.4,
+   "cer": 0.323,
+   "error": null,
+   "text": "Dr K. Singh \nDate 3010512026 \nDx: H y p o t h y r o i d i s m \n75H 7.2 \n7ab 7 h y r o n o r m 50 mcg OD \n7ab 5hclcal 500 BD \n",
+   "critical_tokens": {
+    "expected": 10,
+    "found": 6
+   },
+   "missing": [
+    {
+     "category": "medicine_name",
+     "token": "Thyronorm",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "Shelcal",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "lab_name",
+     "token": "TSH",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "date",
+     "token": "30/05/2026",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  },
+  {
+   "image": "hw_rx_chalkboard.png",
+   "seconds": 3.1,
+   "cer": 0.0,
+   "error": null,
+   "text": "Dr M. Das \n05/06/2026 \nc/o acidity, cough \nNKDA \nCap Omez 20 OD bf x 14d \nTab Dolo 650 SOS \nTab Montek LC HS x 10d \n",
+   "critical_tokens": {
+    "expected": 12,
+    "found": 12
+   },
+   "missing": []
+  },
+  {
+   "image": "hw_rx_cursive.png",
+   "seconds": 3.1,
+   "cer": 0.441,
+   "error": null,
+   "text": "Dr Pri ya J yer Date 21/07/2026 Dx: 729. M, W. V R x Tab 8 cosp r in 7509 A do: Hb A ic, lipid prof ile",
+   "critical_tokens": {
+    "expected": 11,
+    "found": 1
+   },
+   "missing": [
+    {
+     "category": "medicine_name",
+     "token": "Glycomet",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "500",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "BD",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "Telma",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "40",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "OD",
+     "expected": 2,
+     "found": 0
+    },
+    {
+     "category": "medicine_name",
+     "token": "Ecosprin",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "75",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "header",
+     "token": "Dr Priya Iyer",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  },
+  {
+   "image": "mixed_printed_handwritten.png",
+   "seconds": 4.4,
+   "cer": 0.004,
+   "error": null,
+   "text": "SUNRISE MEDICAL CENTRE \nDr. Neha Kapoor, MD (Paediatrics)  Reg. No. MH/55821 \nPatient: Aarav Joshi \nDate: 18/08/2026 \nWt 18 kg \nc/o loose stools x 3 days \nDx: Acute gastroenteritis \nORS 1 sachet after each stool \nsyp Zinconia 5ml OD x 14d \nsyp Omdem 2ml sos \n",
+   "critical_tokens": {
+    "expected": 13,
+    "found": 12
+   },
+   "missing": [
+    {
+     "category": "medicine_name",
+     "token": "Ondem",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  }
+ ],
+ "controls": {
+  "blank": {
+   "chars": 9,
+   "text": "(0) = 1 +"
+  },
+  "noise": {
+   "chars": 2,
+   "text": "10"
+  },
+  "unreadable_blurred": {
+   "chars": 1024,
+   "text": "= 100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n100\n10"
+  },
+  "unreadable_dark": {
+   "chars": 1,
+   "text": "5"
+  },
+  "no_document_table": {
+   "chars": 1,
+   "text": "I"
+  }
+ },
+ "line_crops": [
+  {
+   "truth": "Tab Augmtin 625 BD x 5d",
+   "text": "Tab Augntin 625 BD x 5d",
+   "cer": 0.043
+  },
+  {
+   "truth": "PCM 500 sos",
+   "text": "PCM 500SOS",
+   "cer": 0.091
+  },
+  {
+   "truth": "Pantop 40 OD bf",
+   "text": "Pantop40OD6F",
+   "cer": 0.267
+  },
+  {
+   "truth": "Tab Zerodol SP BD x 3d",
+   "text": "Tab Zerodol SP BD X 3d",
+   "cer": 0.0
+  }
+ ]
+}

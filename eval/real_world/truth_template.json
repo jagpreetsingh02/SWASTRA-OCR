@@ -1,0 +1,17 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [
+  {"name": "", "dosage": null, "frequency": null, "duration": null}
+ ],
+ "test_results": [
+  {"name": "", "value": "", "unit": null, "reference_range": null}
+ ],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Copy to rw_<id>.truth.json. Remove the example rows you do not need. Values exactly as written on the page."
+}

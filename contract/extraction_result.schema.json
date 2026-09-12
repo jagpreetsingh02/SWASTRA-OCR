@@ -1,0 +1,523 @@
+{
+ "$defs": {
+  "DocumentType": {
+   "enum": [
+    "prescription",
+    "lab_report",
+    "discharge_summary",
+    "other_medical",
+    "unknown"
+   ],
+   "title": "DocumentType",
+   "type": "string"
+  },
+  "Entities": {
+   "properties": {
+    "patient_name": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Entity"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "date": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Entity"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "doctor_name": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Entity"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "medications": {
+     "default": [],
+     "items": {
+      "$ref": "#/$defs/Medication"
+     },
+     "title": "Medications",
+     "type": "array"
+    },
+    "dosages": {
+     "description": "The dosage of every medication, in order (same objects).",
+     "items": {
+      "$ref": "#/$defs/Entity"
+     },
+     "title": "Dosages",
+     "type": "array"
+    },
+    "frequencies": {
+     "description": "The frequency of every medication, in order (same objects).",
+     "items": {
+      "$ref": "#/$defs/Entity"
+     },
+     "title": "Frequencies",
+     "type": "array"
+    },
+    "diagnoses": {
+     "default": [],
+     "items": {
+      "$ref": "#/$defs/Entity"
+     },
+     "title": "Diagnoses",
+     "type": "array"
+    },
+    "symptoms": {
+     "default": [],
+     "items": {
+      "$ref": "#/$defs/Entity"
+     },
+     "title": "Symptoms",
+     "type": "array"
+    },
+    "tests": {
+     "description": "Tests mentioned or advised without a result.",
+     "items": {
+      "$ref": "#/$defs/Entity"
+     },
+     "title": "Tests",
+     "type": "array"
+    },
+    "test_results": {
+     "default": [],
+     "items": {
+      "$ref": "#/$defs/TestResult"
+     },
+     "title": "Test Results",
+     "type": "array"
+    },
+    "allergies": {
+     "default": [],
+     "items": {
+      "$ref": "#/$defs/Entity"
+     },
+     "title": "Allergies",
+     "type": "array"
+    }
+   },
+   "title": "Entities",
+   "type": "object"
+  },
+  "Entity": {
+   "properties": {
+    "text": {
+     "description": "Exactly raw_text[start:end]; never normalised or corrected.",
+     "title": "Text",
+     "type": "string"
+    },
+    "start": {
+     "description": "Character offset into raw_text.",
+     "title": "Start",
+     "type": "integer"
+    },
+    "end": {
+     "title": "End",
+     "type": "integer"
+    },
+    "page": {
+     "description": "0-based index into `pages`.",
+     "title": "Page",
+     "type": "integer"
+    },
+    "method": {
+     "$ref": "#/$defs/Method"
+    },
+    "ocr_confidence": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "description": "Lowest generative token probability (0-1) over these characters: how certain the OCR model was, NOT how likely the text is correct. null when the text came from a PDF text layer.",
+     "title": "Ocr Confidence"
+    },
+    "extractor_score": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "description": "Extraction model span score (0-1) for method=model; null for method=pattern. Not a probability of correctness.",
+     "title": "Extractor Score"
+    },
+    "needs_review": {
+     "description": "True when there is a specific reason to doubt this value (see review_reasons). False does NOT mean verified: every value still requires human verification.",
+     "title": "Needs Review",
+     "type": "boolean"
+    },
+    "review_reasons": {
+     "items": {
+      "type": "string"
+     },
+     "title": "Review Reasons",
+     "type": "array"
+    }
+   },
+   "required": [
+    "text",
+    "start",
+    "end",
+    "page",
+    "method",
+    "ocr_confidence",
+    "extractor_score",
+    "needs_review"
+   ],
+   "title": "Entity",
+   "type": "object"
+  },
+  "ErrorInfo": {
+   "properties": {
+    "code": {
+     "description": "One of: empty_file, unsupported_format, file_too_large, too_many_pages, ocr_failed, extraction_failed, internal_error, invalid_request",
+     "title": "Code",
+     "type": "string"
+    },
+    "message": {
+     "title": "Message",
+     "type": "string"
+    }
+   },
+   "required": [
+    "code",
+    "message"
+   ],
+   "title": "ErrorInfo",
+   "type": "object"
+  },
+  "Line": {
+   "properties": {
+    "text": {
+     "title": "Text",
+     "type": "string"
+    },
+    "start": {
+     "title": "Start",
+     "type": "integer"
+    },
+    "end": {
+     "title": "End",
+     "type": "integer"
+    },
+    "ocr_confidence": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "Mean generative token probability over the line's non-space characters; null for text-layer pages. Not a correctness score.",
+     "title": "Ocr Confidence"
+    },
+    "review_reasons": {
+     "items": {
+      "type": "string"
+     },
+     "title": "Review Reasons",
+     "type": "array"
+    }
+   },
+   "required": [
+    "text",
+    "start",
+    "end"
+   ],
+   "title": "Line",
+   "type": "object"
+  },
+  "Medication": {
+   "properties": {
+    "name": {
+     "$ref": "#/$defs/Entity"
+    },
+    "dosage": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Entity"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "frequency": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Entity"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "duration": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Entity"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "source_line": {
+     "title": "Source Line",
+     "type": "string"
+    }
+   },
+   "required": [
+    "name",
+    "source_line"
+   ],
+   "title": "Medication",
+   "type": "object"
+  },
+  "Method": {
+   "enum": [
+    "model",
+    "pattern"
+   ],
+   "title": "Method",
+   "type": "string"
+  },
+  "Page": {
+   "properties": {
+    "index": {
+     "title": "Index",
+     "type": "integer"
+    },
+    "source": {
+     "description": "PDF text layer, OCR of an image, or text given directly.",
+     "enum": [
+      "text_layer",
+      "ocr",
+      "text"
+     ],
+     "title": "Source",
+     "type": "string"
+    },
+    "status": {
+     "description": "blank: no ink, not sent to OCR. no_text: OCR found nothing legible. suspect: text returned that the page does not support; withheld from extraction.",
+     "enum": [
+      "ok",
+      "blank",
+      "no_text",
+      "suspect"
+     ],
+     "title": "Status",
+     "type": "string"
+    },
+    "lines": {
+     "default": [],
+     "items": {
+      "$ref": "#/$defs/Line"
+     },
+     "title": "Lines",
+     "type": "array"
+    }
+   },
+   "required": [
+    "index",
+    "source",
+    "status"
+   ],
+   "title": "Page",
+   "type": "object"
+  },
+  "Status": {
+   "enum": [
+    "ok",
+    "low_confidence",
+    "unreadable",
+    "failed"
+   ],
+   "title": "Status",
+   "type": "string"
+  },
+  "TestResult": {
+   "properties": {
+    "name": {
+     "$ref": "#/$defs/Entity"
+    },
+    "value": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Entity"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "The number only, e.g. '9.4'."
+    },
+    "unit": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Entity"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "e.g. 'g/dL', when written next to the value."
+    },
+    "reference_range": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Entity"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "e.g. '12.0 - 15.0', when written on the same line."
+    },
+    "source_line": {
+     "title": "Source Line",
+     "type": "string"
+    }
+   },
+   "required": [
+    "name",
+    "source_line"
+   ],
+   "title": "TestResult",
+   "type": "object"
+  }
+ },
+ "properties": {
+  "schema_version": {
+   "const": "2.0",
+   "default": "2.0",
+   "title": "Schema Version",
+   "type": "string"
+  },
+  "verification_required": {
+   "const": true,
+   "default": true,
+   "description": "Always true. Extracted values are unverified machine output.",
+   "title": "Verification Required",
+   "type": "boolean"
+  },
+  "status": {
+   "$ref": "#/$defs/Status"
+  },
+  "document_type": {
+   "$ref": "#/$defs/DocumentType",
+   "default": "unknown"
+  },
+  "raw_text": {
+   "default": "",
+   "description": "Everything read, pages joined by a blank line. Kept even when extraction fails.",
+   "title": "Raw Text",
+   "type": "string"
+  },
+  "ocr_confidence": {
+   "anyOf": [
+    {
+     "type": "number"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null,
+   "description": "Mean generative token probability over OCR'd characters; null if no page was OCR'd. Not a correctness score.",
+   "title": "Ocr Confidence"
+  },
+  "entities": {
+   "$ref": "#/$defs/Entities",
+   "default": {
+    "patient_name": null,
+    "date": null,
+    "doctor_name": null,
+    "medications": [],
+    "dosages": [],
+    "frequencies": [],
+    "diagnoses": [],
+    "symptoms": [],
+    "tests": [],
+    "test_results": [],
+    "allergies": []
+   }
+  },
+  "pages": {
+   "default": [],
+   "items": {
+    "$ref": "#/$defs/Page"
+   },
+   "title": "Pages",
+   "type": "array"
+  },
+  "warnings": {
+   "default": [],
+   "items": {
+    "type": "string"
+   },
+   "title": "Warnings",
+   "type": "array"
+  },
+  "error": {
+   "anyOf": [
+    {
+     "$ref": "#/$defs/ErrorInfo"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null
+  },
+  "engine": {
+   "additionalProperties": {
+    "type": "string"
+   },
+   "description": "Model identifiers, for audit only.",
+   "title": "Engine",
+   "type": "object"
+  },
+  "timings_ms": {
+   "additionalProperties": {
+    "type": "integer"
+   },
+   "title": "Timings Ms",
+   "type": "object"
+  }
+ },
+ "required": [
+  "status"
+ ],
+ "title": "ExtractionResult",
+ "type": "object"
+}

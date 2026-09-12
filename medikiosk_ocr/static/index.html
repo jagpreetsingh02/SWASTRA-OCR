@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MediKiosk OCR — test bench</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --ink:#1b1f24; --muted:#5f6b7a; --line:#e3e7ec;
+          --ok:#1a7f4b; --warn:#a15c00; --warnbg:#fff4e0; --bad:#b42318; --badbg:#fdecea; --accent:#2457c5; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+  header { padding:14px 20px; background:var(--card); border-bottom:1px solid var(--line); display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  header h1 { font-size:16px; margin:0 12px 0 0; }
+  .note { color:var(--muted); font-size:12px; }
+  .banner { background:var(--warnbg); color:var(--warn); padding:8px 20px; font-size:13px; border-bottom:1px solid var(--line); }
+  main { display:grid; grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.4fr); gap:16px; padding:16px 20px; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px; min-width:0; }
+  .card h2 { font-size:13px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin:0 0 10px; }
+  #drop { border:2px dashed var(--line); border-radius:8px; padding:22px; text-align:center; color:var(--muted); cursor:pointer; }
+  #drop.hover { border-color:var(--accent); color:var(--accent); }
+  #preview { margin-top:12px; max-width:100%; max-height:70vh; border:1px solid var(--line); border-radius:4px; display:none; }
+  button { font:inherit; padding:7px 14px; border-radius:6px; border:1px solid var(--accent); background:var(--accent); color:#fff; cursor:pointer; }
+  button:disabled { opacity:.5; cursor:default; }
+  button.secondary { background:#fff; color:var(--accent); }
+  .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:12px; }
+  .pill { display:inline-block; padding:2px 8px; border-radius:99px; font-size:12px; font-weight:600; background:#eef1f5; }
+  .pill.ok { background:#e3f4ea; color:var(--ok); } .pill.low_confidence { background:var(--warnbg); color:var(--warn); }
+  .pill.unreadable, .pill.failed { background:var(--badbg); color:var(--bad); }
+  .summary { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:10px; }
+  .summary div span { display:block; color:var(--muted); font-size:12px; }
+  .scroll { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; margin-bottom:12px; }
+  th, td { text-align:left; padding:5px 6px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-size:12px; color:var(--muted); font-weight:600; }
+  .value { display:inline-block; }
+  .review { background:var(--warnbg); border-radius:3px; padding:0 3px; }
+  .meta { color:var(--muted); font-size:11px; display:block; }
+  .reason { color:var(--warn); font-size:11px; display:block; }
+  .empty { color:var(--muted); font-style:italic; }
+  pre { white-space:pre-wrap; word-break:break-word; margin:0; font:12px/1.5 ui-monospace, Menlo, monospace; }
+  .rawline { display:block; padding:0 4px; border-radius:3px; }
+  .rawline.low { background:var(--warnbg); }
+  .rawline.withheld { background:var(--badbg); text-decoration:line-through; }
+  ul.warn { margin:0 0 10px; padding-left:18px; color:var(--warn); }
+  .error { color:var(--bad); font-weight:600; }
+  h3 { font-size:13px; margin:14px 0 6px; }
+  #json { display:none; max-height:60vh; overflow:auto; background:#f3f5f8; padding:10px; border-radius:6px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>MediKiosk OCR — test bench</h1>
+  <span class="note">Temporary testing UI for this engine only.</span>
+</header>
+<div class="banner">Every value below is unverified machine output. Highlighted values have a specific reason for doubt, but unhighlighted values still need checking against the document.</div>
+<main>
+  <section class="card">
+    <h2>Document</h2>
+    <div id="drop">Drop an image, HEIC photo or PDF here, or click to choose<input id="file" type="file" accept="image/*,.heic,.heif,application/pdf" hidden></div>
+    <div class="row">
+      <button id="run" disabled>Extract</button>
+      <span id="fname" class="note"></span>
+      <span id="busy" class="note"></span>
+    </div>
+    <img id="preview" alt="preview">
+  </section>
+
+  <section class="card" id="out">
+    <h2>Result</h2>
+    <div id="result" class="empty">No document processed yet.</div>
+    <div class="row"><button class="secondary" id="toggleJson" style="display:none">Show JSON</button></div>
+    <pre id="json"></pre>
+  </section>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let file = null;
+
+function pick(f) {
+  if (!f) return;
+  file = f;
+  $("fname").textContent = `${f.name} (${Math.round(f.size / 1024)} KB)`;
+  $("run").disabled = false;
+  const img = $("preview");
+  const browserCanShow = f.type.startsWith("image/") && !/heic|heif/i.test(f.type + f.name);
+  if (browserCanShow) { img.src = URL.createObjectURL(f); img.style.display = "block"; }
+  else { img.style.display = "none"; }
+}
+
+$("drop").onclick = () => $("file").click();
+$("file").onchange = (e) => pick(e.target.files[0]);
+$("drop").ondragover = (e) => { e.preventDefault(); $("drop").classList.add("hover"); };
+$("drop").ondragleave = () => $("drop").classList.remove("hover");
+$("drop").ondrop = (e) => { e.preventDefault(); $("drop").classList.remove("hover"); pick(e.dataTransfer.files[0]); };
+
+$("run").onclick = async () => {
+  if (!file) return;
+  $("run").disabled = true;
+  const t0 = performance.now();
+  const timer = setInterval(() => $("busy").textContent = `working… ${((performance.now() - t0) / 1000).toFixed(0)}s`, 500);
+  try {
+    const body = new FormData();
+    body.append("file", file);
+    const res = await fetch("/v1/extract", { method: "POST", body });
+    render(await res.json());
+  } catch (err) {
+    $("result").innerHTML = `<p class="error">Request failed: ${esc(String(err))}</p>`;
+  } finally {
+    clearInterval(timer);
+    $("busy").textContent = "";
+    $("run").disabled = false;
+  }
+};
+
+$("toggleJson").onclick = () => {
+  const j = $("json"), show = j.style.display !== "block";
+  j.style.display = show ? "block" : "none";
+  $("toggleJson").textContent = show ? "Hide JSON" : "Show JSON";
+};
+
+function esc(s) { return String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+function num(x) { return x == null ? "—" : x.toFixed(2); }
+function ent(e) {
+  if (!e) return '<span class="empty">—</span>';
+  const meta = `${e.method} · page ${e.page + 1} · OCR token p ${num(e.ocr_confidence)} · extractor ${num(e.extractor_score)}`;
+  const reasons = (e.review_reasons || []).map((r) => `<span class="reason">⚠ ${esc(r)}</span>`).join("");
+  return `<span class="value ${e.needs_review ? "review" : ""}">${esc(e.text)}</span><span class="meta">${meta}</span>${reasons}`;
+}
+function list(title, items) {
+  const body = items.length ? items.map((e) => `<tr><td>${ent(e)}</td></tr>`).join("") : '<tr><td class="empty">none found</td></tr>';
+  return `<h3>${title}</h3><table>${body}</table>`;
+}
+
+function render(r) {
+  const e = r.entities || {};
+  let html = `<div class="summary">
+    <div><span>Status</span><b class="pill ${r.status}">${esc(r.status)}</b></div>
+    <div><span>Type</span><b>${esc(r.document_type)}</b></div>
+    <div><span>Mean OCR token probability</span><b>${num(r.ocr_confidence)}</b></div>
+    <div><span>Pages</span><b>${(r.pages || []).map((p) => `${p.index + 1}: ${p.source}/${p.status}`).join(", ") || "—"}</b></div>
+    <div><span>Time</span><b>${r.timings_ms?.total ?? "?"} ms</b></div>
+  </div>`;
+  if (r.error) html += `<p class="error">${esc(r.error.code)}: ${esc(r.error.message)}</p>`;
+  if (r.warnings?.length) html += `<ul class="warn">${r.warnings.map((w) => `<li>${esc(w)}</li>`).join("")}</ul>`;
+
+  html += `<h3>Header</h3><div class="scroll"><table>
+    <tr><th>Patient</th><td>${ent(e.patient_name)}</td></tr>
+    <tr><th>Doctor</th><td>${ent(e.doctor_name)}</td></tr>
+    <tr><th>Date</th><td>${ent(e.date)}</td></tr></table></div>`;
+
+  html += `<h3>Medications</h3><div class="scroll"><table><tr><th>Name</th><th>Dosage</th><th>Frequency</th><th>Duration</th></tr>`;
+  html += (e.medications || []).length
+    ? e.medications.map((m) => `<tr><td>${ent(m.name)}</td><td>${ent(m.dosage)}</td><td>${ent(m.frequency)}</td><td>${ent(m.duration)}</td></tr>`).join("")
+    : '<tr><td colspan="4" class="empty">none found</td></tr>';
+  html += `</table></div>`;
+
+  html += `<h3>Test results</h3><div class="scroll"><table><tr><th>Test</th><th>Value</th><th>Unit</th><th>Reference range</th></tr>`;
+  html += (e.test_results || []).length
+    ? e.test_results.map((t) => `<tr><td>${ent(t.name)}</td><td>${ent(t.value)}</td><td>${ent(t.unit)}</td><td>${ent(t.reference_range)}</td></tr>`).join("")
+    : '<tr><td colspan="4" class="empty">none found</td></tr>';
+  html += `</table></div>`;
+
+  html += list("Diagnoses", e.diagnoses || []) + list("Symptoms", e.symptoms || []) +
+          list("Tests mentioned", e.tests || []) + list("Allergies", e.allergies || []);
+
+  html += `<h3>Raw text <span class="note">(amber: mean OCR token probability &lt; 0.80 · struck through: withheld from extraction)</span></h3><pre>`;
+  for (const p of r.pages || []) {
+    html += `<span class="note">— page ${p.index + 1} (${esc(p.source)}, ${esc(p.status)}) —</span>\n`;
+    html += p.lines.map((l) => {
+      const cls = l.review_reasons?.length ? "withheld" : (l.ocr_confidence != null && l.ocr_confidence < 0.8 ? "low" : "");
+      const title = [`OCR token p ${l.ocr_confidence ?? "n/a"}`, ...(l.review_reasons || [])].join(" · ");
+      return `<span class="rawline ${cls}" title="${esc(title)}">${esc(l.text) || "&nbsp;"}</span>`;
+    }).join("");
+  }
+  if (!(r.pages || []).length) html += esc(r.raw_text);
+  html += `</pre>`;
+
+  $("result").className = "";
+  $("result").innerHTML = html;
+  $("json").textContent = JSON.stringify(r, null, 2);
+  $("toggleJson").style.display = "inline-block";
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+ "document_type": "prescription",
+ "patient_name": "Fatima Shaikh",
+ "doctor_name": "Dr R. Iqbal",
+ "date": "18/07/2026",
+ "medications": [
+  {"name": "Norflox", "dosage": "400", "frequency": "BD", "duration": "5d"},
+  {"name": "Cyclopam", "dosage": null, "frequency": "SOS", "duration": null},
+  {"name": "Alkasol", "dosage": "10ml", "frequency": "TDS", "duration": null}
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": ["UTI"],
+ "symptoms": ["burning while passing urine"],
+ "allergies": []
+}

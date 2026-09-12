@@ -1,0 +1,9 @@
+{
+ "split": "real_world",
+ "mode": "ocr",
+ "documents": {},
+ "warnings": [
+  "no ocr cases in real_world"
+ ],
+ "heldout_integrity_problems": []
+}

@@ -1,0 +1,11 @@
+CITY PATHOLOGY LAB
+Patient Name : Mr. Vikram Rathod
+Collected On : 15/07/2026
+HAEMATOLOGY
+Test                    Result      Unit        Bio. Ref. Interval
+Hemoglobin              13.1        g/dL        13.0 - 17.0
+Total Leukocyte Count   11200       /cumm       4000 - 11000
+Platelet Count          1.8         lakhs/cumm  1.5 - 4.5
+Random Blood Glucose    212         mg/dL       70 - 140
+Serum Sodium            131         mEq/L       135 - 145
+Vitamin D (25-OH)       14.2        ng/mL       30 - 100
