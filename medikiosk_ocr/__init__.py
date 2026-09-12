@@ -4,7 +4,10 @@
     result = extract_document(open("rx.jpg", "rb").read())   # -> ExtractionResult
 """
 
+from .env import load_env
 from .schema import ExtractionResult
+
+load_env()  # local .env (e.g. HF_TOKEN); exported variables always win
 
 
 def extract_document(data: bytes) -> ExtractionResult:
@@ -13,4 +16,4 @@ def extract_document(data: bytes) -> ExtractionResult:
     return _run(data)
 
 
-__all__ = ["ExtractionResult", "extract_document"]
+__all__ = ["ExtractionResult", "extract_document", "load_env"]

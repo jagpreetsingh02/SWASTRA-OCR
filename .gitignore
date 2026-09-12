@@ -3,3 +3,21 @@ __pycache__/
 *.egg-info/
 .pytest_cache/
 .DS_Store
+
+# local secrets and settings: never commit a real token
+.env
+.env.*
+!.env.example
+
+# model weights and Hugging Face caches (gigabytes; fetched on demand)
+hf_cache/
+huggingface/
+models/
+*.safetensors
+*.gguf
+*.pt
+*.bin
+
+# uploaded or temporary documents (may contain patient data)
+uploads/
+tmp/

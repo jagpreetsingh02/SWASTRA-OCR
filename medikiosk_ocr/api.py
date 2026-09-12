@@ -21,6 +21,9 @@ from fastapi.concurrency import run_in_threadpool
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse
 
+from .env import huggingface_token_configured
+from .extract import NER_MODEL_ID
+from .ocr import MODEL_ID as OCR_MODEL_ID, device_name
 from .pipeline import engine_info, extract_document, models_loaded, warm_up
 from .preprocess import MAX_BYTES
 from .schema import SCHEMA_VERSION, ErrorInfo, ExtractionResult, Status
@@ -80,9 +83,20 @@ def ui() -> FileResponse:
 
 @app.get("/health")
 def health() -> dict:
+    """Service and model state. Never exposes the Hugging Face token, only whether one is configured."""
     loaded = models_loaded()
-    return {"status": "ok", "schema_version": SCHEMA_VERSION, "engine": engine_info(), "models_loaded": loaded,
-            "ready": all(loaded.values()), "warm_up_error": _warm_up_error}
+    return {
+        "status": "ok",
+        "service": "medikiosk-ocr",
+        "schema_version": SCHEMA_VERSION,
+        "engine": engine_info(),
+        "models": {"ocr": OCR_MODEL_ID, "extraction": NER_MODEL_ID},
+        "device": device_name(),
+        "models_loaded": loaded,
+        "ready": all(loaded.values()),
+        "huggingface_token_configured": huggingface_token_configured(),
+        "warm_up_error": _warm_up_error,
+    }
 
 
 @app.post(EXTRACT_PATH, response_model=ExtractionResult)
