@@ -37,6 +37,7 @@ class PageText:
 
 _model = None
 _processor = None
+_logits_classes: tuple | None = None   # (LogitsProcessor, LogitsProcessorList), imported once under the load lock
 _load_lock = threading.Lock()
 _infer_lock = threading.Lock()  # one generation at a time: the model is not safe to share across threads
 
@@ -52,17 +53,23 @@ def _device() -> str:
 
 
 def load():
-    """Load the model once per process (thread-safe). Returns (model, processor)."""
-    global _model, _processor
+    """Load the model once per process (thread-safe). Returns (model, processor).
+
+    Every heavy import happens here, under the lock: `transformers` is a lazy package, and importing a
+    name from it while another thread is still importing it raises ImportError. That is exactly what a
+    request arriving during start-up warm-up used to do.
+    """
+    global _model, _processor, _logits_classes
     with _load_lock:
         if _model is None:
             import torch
-            from transformers import AutoModelForImageTextToText, AutoProcessor
+            from transformers import AutoModelForImageTextToText, AutoProcessor, LogitsProcessor, LogitsProcessorList
 
             device = _device()
             dtype = torch.float32 if device == "cpu" else torch.bfloat16
             processor = AutoProcessor.from_pretrained(MODEL_ID)
             model = AutoModelForImageTextToText.from_pretrained(MODEL_ID, dtype=dtype).to(device).eval()
+            _logits_classes = (LogitsProcessor, LogitsProcessorList)
             _processor, _model = processor, model
     return _model, _processor
 
@@ -71,11 +78,19 @@ def is_loaded() -> bool:
     return _model is not None
 
 
-def read_page(image: Image.Image) -> PageText:
-    import torch
-    from transformers import LogitsProcessor, LogitsProcessorList
+def device_name() -> str:
+    """Which device inference will use ("cuda" / "mps" / "cpu"). Does not load the model."""
+    try:
+        return _device()
+    except Exception:  # torch missing or broken: report it instead of failing a health check
+        return "unavailable"
 
-    model, processor = load()
+
+def read_page(image: Image.Image) -> PageText:
+    model, processor = load()          # completes every import before anything below touches them
+    import torch                       # safe now: fully imported inside load()
+
+    LogitsProcessor, LogitsProcessorList = _logits_classes
     image = _fit(image)
     messages = [{"role": "user", "content": [{"type": "image", "image": image}, {"type": "text", "text": PROMPT}]}]
     inputs = processor.apply_chat_template(
