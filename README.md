@@ -20,13 +20,29 @@ FHIR, ABHA or red flags. See `CLAUDE.md` for the boundary.
 ## Quick start
 
 ```bash
+# 1. environment
 python3.12 -m venv .venv
 .venv/bin/pip install -e ".[dev]"
 
-.venv/bin/uvicorn medikiosk_ocr.api:app --port 8000     # models load in the background (~25 s)
-open http://localhost:8000                               # temporary test bench
-curl http://localhost:8000/health                        # "ready": true once both models are loaded
-curl -F "file=@prescription.jpg" http://localhost:8000/v1/extract
+# 2. optional local settings (only needed for gated/private Hugging Face repos; these models are public)
+cp .env.example .env        # then put HF_TOKEN=... in .env if you need one. .env is git-ignored.
+
+# 3. run the server (it serves BOTH the API and the test page)
+.venv/bin/uvicorn medikiosk_ocr.api:app --host 127.0.0.1 --port 8000
+
+# 4. open the test bench IN THE BROWSER at the address the server prints
+open http://127.0.0.1:8000
+```
+
+> **Open the page from the server, not from the file system.** `medikiosk_ocr/static/index.html` posts to
+> `v1/extract` relative to the page it is served from. Opening it with VS Code Live Server (or as a
+> `file://` URL) sends the upload to that server instead, which replies with an HTML page — the
+> `SyntaxError: Unexpected token '<' … is not valid JSON` error. The page now detects this and tells you.
+> One FastAPI process serves `GET /`, `GET /health` and `POST /v1/extract`, so there is no second port and no CORS.
+
+```bash
+curl http://127.0.0.1:8000/health                          # models, device, readiness (never the token)
+curl -F "file=@prescription.jpg" http://127.0.0.1:8000/v1/extract
 ```
 
 ```python
