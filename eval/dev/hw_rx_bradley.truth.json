@@ -1,0 +1,17 @@
+{
+ "document_type": "prescription",
+ "patient_name": "Rohan Mehta",
+ "doctor_name": "Dr A. Kulkarni",
+ "date": "12/08/2026",
+ "medications": [
+  {"name": "Azithral", "dosage": "500", "frequency": "OD", "duration": "3d"},
+  {"name": "Crocin", "dosage": "5ml", "frequency": "TDS", "duration": null},
+  {"name": "Cetirizine", "dosage": "10mg", "frequency": "HS", "duration": "5d"}
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": ["URTI"],
+ "symptoms": ["fever", "sore throat"],
+ "allergies": [["sulfa drugs", "sulfa"]],
+ "notes": "Synthetic handwriting (Bradley Hand), invented content."
+}

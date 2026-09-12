@@ -1,0 +1,17 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": "Dr Priya Iyer",
+ "date": "21/07/2026",
+ "medications": [
+  {"name": "Glycomet", "dosage": "500", "frequency": "BD", "duration": null},
+  {"name": "Telma", "dosage": "40", "frequency": "OD", "duration": null},
+  {"name": "Ecosprin", "dosage": "75", "frequency": "OD", "duration": null}
+ ],
+ "test_results": [],
+ "tests": ["HbA1c", "lipid profile"],
+ "diagnoses": ["T2DM", "HTN"],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Synthetic handwriting (Snell Roundhand cursive), invented content."
+}

@@ -1,0 +1,17 @@
+{
+ "document_type": "prescription",
+ "patient_name": "Farida Begum",
+ "doctor_name": "Dr. Sameer Khan",
+ "date": "02 Aug 2026",
+ "medications": [
+  {"name": "Nitrofurantoin", "dosage": "100 mg", "frequency": "1-0-1", "duration": "5 days"},
+  {"name": "Pan-D", "dosage": "40mg", "frequency": "OD", "duration": "7 days"},
+  {"name": "Cital", "dosage": "10 ml", "frequency": "TDS", "duration": null}
+ ],
+ "test_results": [],
+ "tests": ["Urine routine", "urine culture", "CBC"],
+ "diagnoses": ["Urinary tract infection"],
+ "symptoms": ["burning micturition", "lower abdominal pain"],
+ "allergies": ["Penicillin", "Ibuprofen"],
+ "notes": "Formerly held-out; moved to dev."
+}

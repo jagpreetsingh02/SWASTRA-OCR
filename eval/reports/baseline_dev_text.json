@@ -1,0 +1,1423 @@
+{
+ "split": "dev",
+ "mode": "text",
+ "summary": {
+  "fields": {
+   "allergies": {
+    "tp": 3,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "date": {
+    "tp": 14,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "diagnoses": {
+    "tp": 11,
+    "fp": 1,
+    "fn": 1,
+    "precision": 0.917,
+    "recall": 0.917
+   },
+   "doctor_name": {
+    "tp": 9,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication": {
+    "tp": 34,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication.dosage": {
+    "tp": 32,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication.duration": {
+    "tp": 17,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication.frequency": {
+    "tp": 34,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "patient_name": {
+    "tp": 5,
+    "fp": 0,
+    "fn": 1,
+    "precision": 1.0,
+    "recall": 0.833
+   },
+   "symptoms": {
+    "tp": 9,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "test_result": {
+    "tp": 13,
+    "fp": 0,
+    "fn": 1,
+    "precision": 1.0,
+    "recall": 0.929
+   },
+   "test_result.reference_range": {
+    "tp": 7,
+    "fp": 0,
+    "fn": 5,
+    "precision": 1.0,
+    "recall": 0.583
+   },
+   "test_result.unit": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 12,
+    "precision": null,
+    "recall": 0.0
+   },
+   "test_result.value": {
+    "tp": 6,
+    "fp": 7,
+    "fn": 7,
+    "precision": 0.462,
+    "recall": 0.462
+   },
+   "tests": {
+    "tp": 6,
+    "fp": 0,
+    "fn": 1,
+    "precision": 1.0,
+    "recall": 0.857
+   }
+  },
+  "overall": {
+   "tp": 200,
+   "fp": 8,
+   "fn": 28,
+   "precision": 0.962,
+   "recall": 0.877
+  },
+  "false_positives": 1,
+  "false_negatives": 21,
+  "wrong_values": 7,
+  "unflagged_errors": 7,
+  "placement_errors": 0,
+  "grounding_failures": 0,
+  "document_type_accuracy": 1.0,
+  "documents": 14,
+  "crashes": 0
+ },
+ "documents": {
+  "discharge.txt": {
+   "file": "discharge.txt",
+   "truth": "discharge",
+   "crashed": false,
+   "seconds": 26.38,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "GOVERNMENT GENERAL HOSPITAL - DISCHARGE SUMMARY\nAdmitted: 03/09/2024    Discharged: 09/09/2024\n\nDiagnosis: Community acquired pneumonia\nProcedure: Pleural tap done on 05/09/2024\n\nDischarge medication:\nTAB. AMOXICILLIN 625MG TDS x 7 days\nSYP. LACTULOSE 15ML HS\n",
+   "extraction": {
+    "document_type": {
+     "expected": "discharge_summary",
+     "got": "discharge_summary",
+     "ok": true
+    },
+    "fields": {
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.duration": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "diagnoses": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "discharge_copd.txt": {
+   "file": "discharge_copd.txt",
+   "truth": "discharge_copd",
+   "crashed": false,
+   "seconds": 0.77,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "ST. MARY'S HOSPITAL\nDISCHARGE SUMMARY\nPatient: Joseph Mathew   IP No: 22871\nDate of Admission: 10/06/2026   Date of Discharge: 14/06/2026\nFinal Diagnosis: Acute exacerbation of COPD; Type 2 respiratory failure\nTreatment given: Nebulisation, IV antibiotics, oxygen support\nMedications on discharge:\nTab Azithromycin 500 mg once daily x 3 days\nInh Budecort 200 mcg two puffs BD\nTab Prednisolone 20 mg OD for 5 days\nTab Pantoprazole 40 mg OD\nFollow up after 1 week with chest X-ray\n",
+   "extraction": {
+    "document_type": {
+     "expected": "discharge_summary",
+     "got": "discharge_summary",
+     "ok": true
+    },
+    "fields": {
+     "patient_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.duration": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "diagnoses": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.5,
+      "recall": 0.5
+     },
+     "tests": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "diagnoses",
+      "expected": "Acute exacerbation of COPD",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "diagnoses",
+      "expected": null,
+      "got": "COPD",
+      "needs_review": false
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": "chest X-ray",
+      "got": null,
+      "needs_review": null
+     }
+    ],
+    "unflagged_errors": [
+     {
+      "kind": "false_positive",
+      "field": "diagnoses",
+      "expected": null,
+      "got": "COPD",
+      "needs_review": false
+     }
+    ],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "hw_rx_bradley.txt": {
+   "file": "hw_rx_bradley.txt",
+   "truth": "hw_rx_bradley",
+   "crashed": false,
+   "seconds": 1.09,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "Dr A. Kulkarni  MBBS\nDate 12/08/2026\nPt: Rohan Mehta  34/M\nc/o fever, sore throat x 2 days\nDx: URTI\nAllergy: sulfa drugs\nRx\nTab Azithral 500 OD x 3d\nSyp Crocin 5ml TDS\nTab Cetirizine 10mg HS x 5d\n",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "prescription",
+     "ok": true
+    },
+    "fields": {
+     "patient_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "doctor_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.duration": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "diagnoses": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "symptoms": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "allergies": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "hw_rx_brush_hard.txt": {
+   "file": "hw_rx_brush_hard.txt",
+   "truth": "hw_rx_brush_hard",
+   "crashed": false,
+   "seconds": 0.84,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "Dr K. Singh\nDate 30/05/2026\nDx: Hypothyroidism\nTSH 7.2\nTab Thyronorm 50mcg OD\nTab Shelcal 500 BD\n",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "prescription",
+     "ok": true
+    },
+    "fields": {
+     "doctor_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result.value": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "diagnoses": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "hw_rx_chalkboard.txt": {
+   "file": "hw_rx_chalkboard.txt",
+   "truth": "hw_rx_chalkboard",
+   "crashed": false,
+   "seconds": 0.89,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "Dr M. Das\n05/06/2026\nc/o acidity, cough\nNKDA\nCap Omez 20 OD bf x 14d\nTab Dolo 650 SOS\nTab Montek LC HS x 10d\n",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "prescription",
+     "ok": true
+    },
+    "fields": {
+     "doctor_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.duration": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "symptoms": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "hw_rx_cursive.txt": {
+   "file": "hw_rx_cursive.txt",
+   "truth": "hw_rx_cursive",
+   "crashed": false,
+   "seconds": 0.97,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "Dr Priya Iyer\nDate 21/07/2026\nDx: T2DM, HTN\nRx\nTab Glycomet 500 BD\nTab Telma 40 OD\nTab Ecosprin 75 OD\nAdv: HbA1c, lipid profile\n",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "prescription",
+     "ok": true
+    },
+    "fields": {
+     "doctor_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "diagnoses": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "tests": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "lab_haematology_table.txt": {
+   "file": "lab_haematology_table.txt",
+   "truth": "lab_haematology_table",
+   "crashed": false,
+   "seconds": 1.57,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "CITY PATHOLOGY LAB\nPatient Name : Mr. Vikram Rathod\nCollected On : 15/07/2026\nHAEMATOLOGY\nTest                    Result      Unit        Bio. Ref. Interval\nHemoglobin              13.1        g/dL        13.0 - 17.0\nTotal Leukocyte Count   11200       /cumm       4000 - 11000\nPlatelet Count          1.8         lakhs/cumm  1.5 - 4.5\nRandom Blood Glucose    212         mg/dL       70 - 140\nSerum Sodium            131         mEq/L       135 - 145\nVitamin D (25-OH)       14.2        ng/mL       30 - 100\n",
+   "extraction": {
+    "document_type": {
+     "expected": "lab_report",
+     "got": "lab_report",
+     "ok": true
+    },
+    "fields": {
+     "patient_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result": {
+      "tp": 5,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.833
+     },
+     "test_result.value": {
+      "tp": 5,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result.unit": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 5,
+      "precision": null,
+      "recall": 0.0
+     },
+     "test_result.reference_range": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 5,
+      "precision": null,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "test_result.unit",
+      "expected": "g/dL",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.reference_range",
+      "expected": "13.0 - 17.0",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.unit",
+      "expected": "/cumm",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.reference_range",
+      "expected": "4000 - 11000",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.unit",
+      "expected": "lakhs/cumm",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.reference_range",
+      "expected": "1.5 - 4.5",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.unit",
+      "expected": "mg/dL",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.reference_range",
+      "expected": "70 - 140",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.unit",
+      "expected": "mEq/L",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.reference_range",
+      "expected": "135 - 145",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "test_result",
+      "expected": [
+       "Vitamin D (25-OH)",
+       "Vitamin D"
+      ],
+      "got": null,
+      "needs_review": null
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "lab_report.txt": {
+   "file": "lab_report.txt",
+   "truth": "lab_report",
+   "crashed": false,
+   "seconds": 1.66,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "METRO DIAGNOSTICS - BIOCHEMISTRY REPORT\nSample collected on 02/02/2026\n\nHaemoglobin 9.4 g/dL           (12.0 - 15.0)\nHbA1c 8.2 %                    (4.0 - 5.6)\nFasting Blood Sugar 168 mg/dL  (70 - 99)\nSerum Creatinine 1.1 mg/dL     (0.6 - 1.1)\nTSH 6.8 uIU/mL                 (0.4 - 4.0)\nTotal Cholesterol 214 mg/dL    (0 - 200)\nESR 34 mm/hr                   (0 - 20)\n",
+   "extraction": {
+    "document_type": {
+     "expected": "lab_report",
+     "got": "lab_report",
+     "ok": true
+    },
+    "fields": {
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result": {
+      "tp": 7,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result.value": {
+      "tp": 0,
+      "fp": 7,
+      "fn": 7,
+      "precision": 0.0,
+      "recall": 0.0
+     },
+     "test_result.unit": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 7,
+      "precision": null,
+      "recall": 0.0
+     },
+     "test_result.reference_range": {
+      "tp": 7,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "wrong_value",
+      "field": "test_result.value",
+      "expected": "9.4",
+      "got": "9.4 g/dL",
+      "needs_review": false
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.unit",
+      "expected": "g/dL",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "wrong_value",
+      "field": "test_result.value",
+      "expected": "8.2",
+      "got": "8.2 %",
+      "needs_review": false
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.unit",
+      "expected": "%",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "wrong_value",
+      "field": "test_result.value",
+      "expected": "168",
+      "got": "168 mg/dL",
+      "needs_review": true
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.unit",
+      "expected": "mg/dL",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "wrong_value",
+      "field": "test_result.value",
+      "expected": "1.1",
+      "got": "1.1 mg/dL",
+      "needs_review": false
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.unit",
+      "expected": "mg/dL",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "wrong_value",
+      "field": "test_result.value",
+      "expected": "6.8",
+      "got": "6.8 uIU/mL",
+      "needs_review": false
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.unit",
+      "expected": "uIU/mL",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "wrong_value",
+      "field": "test_result.value",
+      "expected": "214",
+      "got": "214 mg/dL",
+      "needs_review": false
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.unit",
+      "expected": "mg/dL",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "wrong_value",
+      "field": "test_result.value",
+      "expected": "34",
+      "got": "34 mm/hr",
+      "needs_review": false
+     },
+     {
+      "kind": "missing",
+      "field": "test_result.unit",
+      "expected": "mm/hr",
+      "got": null,
+      "needs_review": null
+     }
+    ],
+    "unflagged_errors": [
+     {
+      "kind": "wrong_value",
+      "field": "test_result.value",
+      "expected": "9.4",
+      "got": "9.4 g/dL",
+      "needs_review": false
+     },
+     {
+      "kind": "wrong_value",
+      "field": "test_result.value",
+      "expected": "8.2",
+      "got": "8.2 %",
+      "needs_review": false
+     },
+     {
+      "kind": "wrong_value",
+      "field": "test_result.value",
+      "expected": "1.1",
+      "got": "1.1 mg/dL",
+      "needs_review": false
+     },
+     {
+      "kind": "wrong_value",
+      "field": "test_result.value",
+      "expected": "6.8",
+      "got": "6.8 uIU/mL",
+      "needs_review": false
+     },
+     {
+      "kind": "wrong_value",
+      "field": "test_result.value",
+      "expected": "214",
+      "got": "214 mg/dL",
+      "needs_review": false
+     },
+     {
+      "kind": "wrong_value",
+      "field": "test_result.value",
+      "expected": "34",
+      "got": "34 mm/hr",
+      "needs_review": false
+     }
+    ],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "mixed_printed_handwritten.txt": {
+   "file": "mixed_printed_handwritten.txt",
+   "truth": "mixed_printed_handwritten",
+   "crashed": false,
+   "seconds": 1.25,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "SUNRISE MEDICAL CENTRE\nDr. Neha Kapoor, MD (Paediatrics)   Reg. No. MH/55821\nPatient: Aarav Joshi        Date: 18/08/2026\nWt 18 kg\nc/o loose stools x 3 days\nDx: Acute gastroenteritis\nORS 1 sachet after each stool\nSyp Zinconia 5ml OD x 14d\nSyp Ondem 2ml SOS\n",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "prescription",
+     "ok": true
+    },
+    "fields": {
+     "patient_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "doctor_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.duration": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "diagnoses": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "symptoms": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "nonmedical_invoice.txt": {
+   "file": "nonmedical_invoice.txt",
+   "truth": "nonmedical_invoice",
+   "crashed": false,
+   "seconds": 1.02,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "INVOICE #4471\nSharma Electricals, Pune\nDate: 03/08/2026\n2 x LED tube light 20W   Rs 480\n1 x Extension board 4 socket   Rs 350\nTotal: Rs 830\nThank you for your business\n",
+   "extraction": {
+    "document_type": {
+     "expected": "unknown",
+     "got": "unknown",
+     "ok": true
+    },
+    "fields": {
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "prescription.txt": {
+   "file": "prescription.txt",
+   "truth": "prescription",
+   "crashed": false,
+   "seconds": 1.6,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "SHRI VENKATESHWARA POLYCLINIC\nDr. R. Sharma, MBBS MD (Gen Med)    Reg No. TN/12345\n\nPatient: [synthetic]        Age: 64 / F\nDate: 14/03/2026\n\nDiagnosis: Type 2 diabetes mellitus with hypertension\n\nRx\nTAB. METFORMIN 500MG 1-0-1 x 30 days\nTAB. AMLODIPINE 5MG OD x 30 days\nTAB. ATORVASTATIN 10MG HS x 30 days\nCAP. OMEPRAZOLE 20MG 1-0-0 x 14 days\n\nAdvice: review after one month with fasting sugar\n",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "prescription",
+     "ok": true
+    },
+    "fields": {
+     "doctor_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.duration": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "diagnoses": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "tests": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "prescription_handwritten.txt": {
+   "file": "prescription_handwritten.txt",
+   "truth": "prescription_handwritten",
+   "crashed": false,
+   "seconds": 1.03,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "Dr S. Menon  MBBS MD\nCity Clinic, Chennai\nDate 04/09/2026\n\nRx\nTab Augmtin 625 BD x 5d\nPCM 500 sos\nPantop 40 OD bf\nTab Zerodol SP BD x 3d\n\nReview after 5 days\n",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "prescription",
+     "ok": true
+    },
+    "fields": {
+     "doctor_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.duration": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "rx_clinic_uti.txt": {
+   "file": "rx_clinic_uti.txt",
+   "truth": "rx_clinic_uti",
+   "crashed": false,
+   "seconds": 1.51,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "CARE & CURE CLINIC\nDr. Sameer Khan MBBS, DNB (Family Medicine)\nName: Farida Begum    Age/Sex: 52/F    Date: 02 Aug 2026\nChief complaints: burning micturition, lower abdominal pain since 4 days\nKnown allergies: Penicillin, Ibuprofen\nProvisional diagnosis: Urinary tract infection\n1. Tab. Nitrofurantoin 100 mg 1-0-1 for 5 days\n2. Tab. Pan-D 40mg OD before breakfast x 7 days\n3. Syrup Cital 10 ml TDS\nInvestigations advised: Urine routine, urine culture, CBC\n",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "prescription",
+     "ok": true
+    },
+    "fields": {
+     "patient_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "doctor_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.duration": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "diagnoses": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "symptoms": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "tests": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "allergies": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "rx_paediatric_opd.txt": {
+   "file": "rx_paediatric_opd.txt",
+   "truth": "rx_paediatric_opd",
+   "crashed": false,
+   "seconds": 1.2,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "Dr Anjali Deshpande\nOPD slip  19-08-2026\nPt Kiran Patil 7y/M\nfever 101F since yesterday, runny nose\nImp: viral fever\nSyp Calpol 250 5ml q6h prn\nSyp Levocet 2.5ml HS x 5 days\nNasal drops Nasivion P 2 drops TDS\nPlenty of oral fluids\n",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "prescription",
+     "ok": true
+    },
+    "fields": {
+     "patient_name": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     },
+     "doctor_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.duration": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "diagnoses": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "symptoms": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "patient_name",
+      "expected": "Kiran Patil",
+      "got": null,
+      "needs_review": null
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  }
+ },
+ "warnings": [],
+ "label": "baseline before fixes (current extractor)"
+}

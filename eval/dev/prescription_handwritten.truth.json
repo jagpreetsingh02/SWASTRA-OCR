@@ -1,0 +1,18 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": "Dr S. Menon",
+ "date": "04/09/2026",
+ "medications": [
+  {"name": "Augmtin", "dosage": "625", "frequency": "BD", "duration": "5d"},
+  {"name": "PCM", "dosage": "500", "frequency": "sos", "duration": null},
+  {"name": "Pantop", "dosage": "40", "frequency": "OD", "duration": null},
+  {"name": "Zerodol SP", "dosage": null, "frequency": "BD", "duration": "3d"}
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Names are as written (Augmtin is misspelt on the paper; PCM is not expanded). Source: SIH_test fixtures."
+}

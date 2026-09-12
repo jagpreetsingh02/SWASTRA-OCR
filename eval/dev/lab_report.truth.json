@@ -1,0 +1,21 @@
+{
+ "document_type": "lab_report",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": "02/02/2026",
+ "medications": [],
+ "test_results": [
+  {"name": "Haemoglobin", "value": "9.4", "unit": "g/dL", "reference_range": "12.0 - 15.0"},
+  {"name": "HbA1c", "value": "8.2", "unit": "%", "reference_range": "4.0 - 5.6"},
+  {"name": "Fasting Blood Sugar", "value": "168", "unit": "mg/dL", "reference_range": "70 - 99"},
+  {"name": "Serum Creatinine", "value": "1.1", "unit": "mg/dL", "reference_range": "0.6 - 1.1"},
+  {"name": "TSH", "value": "6.8", "unit": "uIU/mL", "reference_range": "0.4 - 4.0"},
+  {"name": "Total Cholesterol", "value": "214", "unit": "mg/dL", "reference_range": "0 - 200"},
+  {"name": "ESR", "value": "34", "unit": "mm/hr", "reference_range": "0 - 20"}
+ ],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Source: MediKiosk-2 fixtures."
+}

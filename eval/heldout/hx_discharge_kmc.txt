@@ -1,0 +1,12 @@
+KMC HOSPITAL - DISCHARGE SUMMARY
+Patient: Lakshmi Iyer    IP No: 55392    Age: 67 years
+Date of Admission: 14/07/2026    Date of Discharge: 19/07/2026
+Consultant: Dr. Anil Kapoor, MD (Medicine)
+Final Diagnosis: Community acquired pneumonia, Type 2 diabetes mellitus
+Known allergy: Sulfonamides
+Discharge Medications:
+Tab Augmentin 625 mg TDS x 5 days
+Tab Glimepiride 1 mg OD before breakfast
+Tab Paracetamol 650 mg SOS
+Inhaler Budecort 200 mcg 2 puffs BD
+Follow up after 1 week with chest X-ray

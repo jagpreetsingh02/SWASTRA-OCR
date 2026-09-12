@@ -1,0 +1,18 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": "Dr. R. Sharma",
+ "date": "14/03/2026",
+ "medications": [
+  {"name": "METFORMIN", "dosage": "500MG", "frequency": "1-0-1", "duration": "30 days"},
+  {"name": "AMLODIPINE", "dosage": "5MG", "frequency": "OD", "duration": "30 days"},
+  {"name": "ATORVASTATIN", "dosage": "10MG", "frequency": "HS", "duration": "30 days"},
+  {"name": "OMEPRAZOLE", "dosage": "20MG", "frequency": "1-0-0", "duration": "14 days"}
+ ],
+ "test_results": [],
+ "tests": ["fasting sugar"],
+ "diagnoses": ["Type 2 diabetes mellitus", "hypertension"],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Patient line reads '[synthetic]', which is not a name. Source: MediKiosk-2 fixtures."
+}

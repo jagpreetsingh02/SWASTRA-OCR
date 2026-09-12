@@ -1,0 +1,16 @@
+{
+ "document_type": "prescription",
+ "patient_name": ["Master Rohan K", "Rohan K"],
+ "doctor_name": "Dr. Kavya Reddy",
+ "date": "30/08/2026",
+ "medications": [
+  {"name": "Calpol", "dosage": "5 ml", "frequency": "TDS", "duration": "3d"},
+  {"name": "Ascoril LS", "dosage": "2.5 ml", "frequency": "BD", "duration": "5d"},
+  {"name": ["Nasal saline drops", "saline drops", "saline"], "dosage": "2 drops", "frequency": "TDS", "duration": null}
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": ["Viral URTI"],
+ "symptoms": ["Fever", "cough", "cold"],
+ "allergies": []
+}

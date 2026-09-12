@@ -1,0 +1,10 @@
+CITY HOSPITAL LABORATORY
+Name: Mr. Harish Kumar   UHID: 77120
+Sample Date: 21-08-2026
+LIVER & KIDNEY FUNCTION
+Serum Bilirubin (Total) 1.8 mg/dL [0.2 - 1.2]
+SGPT (ALT) 64 U/L [7 - 56]
+Serum Creatinine 1.42 mg/dL [0.7 - 1.3]
+Blood Urea 48 mg/dL [15 - 40]
+HbA1c 6.9 % [4.0 - 5.6]
+Serum Potassium 5.1 mEq/L [3.5 - 5.1]

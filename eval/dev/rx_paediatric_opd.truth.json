@@ -1,0 +1,17 @@
+{
+ "document_type": "prescription",
+ "patient_name": "Kiran Patil",
+ "doctor_name": "Dr Anjali Deshpande",
+ "date": "19-08-2026",
+ "medications": [
+  {"name": "Calpol", "dosage": "5ml", "frequency": ["q6h", "q6h prn"], "duration": null},
+  {"name": "Levocet", "dosage": "2.5ml", "frequency": "HS", "duration": "5 days"},
+  {"name": ["Nasivion P", "Nasivion"], "dosage": "2 drops", "frequency": "TDS", "duration": null}
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": ["viral fever"],
+ "symptoms": ["fever", "runny nose"],
+ "allergies": [],
+ "notes": "Formerly held-out; moved to dev after it was used to find the 'Pt <name>' header miss. 250 is the syrup strength, 5ml the dose."
+}

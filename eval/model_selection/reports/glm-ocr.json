@@ -1,0 +1,245 @@
+{
+ "engine": "glm-ocr",
+ "load_s": 13.6,
+ "documents": [
+  {
+   "image": "prescription_scan.png",
+   "seconds": 16.3,
+   "cer": 0.0,
+   "error": null,
+   "text": "SHRI VENKATESHWARA POLYCLINIC\nDr. R. Sharma, MBBS MD (Gen Med)    Reg No. TN/12345\n\nPatient: [synthetic]    Age: 64 / F\nDate: 14/03/2026\n\nDiagnosis: Type 2 diabetes mellitus with hypertension\n\nRx\nTAB. METFORMIN 500MG 1-0-1 x 30 days\nTAB. AMLODIPINE 5MG OD x 30 days\nTAB. ATORVASTATIN 10MG HS x 30 days\nCAP. OMEPRAZOLE 20MG 1-0-0 x 14 days\n\nAdvice: review after one month with fasting sugar",
+   "critical_tokens": {
+    "expected": 18,
+    "found": 18
+   },
+   "missing": []
+  },
+  {
+   "image": "prescription_degraded.png",
+   "seconds": 15.7,
+   "cer": 0.0,
+   "error": null,
+   "text": "SHRI VENKATESHWARA POLYCLINIC\nDr. R. Sharma, MBBS MD (Gen Med)    Reg No. TN/12345\n\nPatient: [synthetic]    Age: 64 / F\nDate: 14/03/2026\n\nDiagnosis: Type 2 diabetes mellitus with hypertension\n\nRx\nTAB. METFORMIN 500MG 1-0-1 x 30 days\nTAB. AMLODIPINE 5MG OD x 30 days\nTAB. ATORVASTATIN 10MG HS x 30 days\nCAP. OMEPRAZOLE 20MG 1-0-0 x 14 days\n\nAdvice: review after one month with fasting sugar",
+   "critical_tokens": {
+    "expected": 18,
+    "found": 18
+   },
+   "missing": []
+  },
+  {
+   "image": "prescription_photo_handheld.jpg",
+   "seconds": 38.3,
+   "cer": 0.0,
+   "error": null,
+   "text": "SHRI VENKATESHWARA POLYCLINIC\nDr. R. Sharma, MBBS MD (Gen Med)    Reg No. TN/12345\n\nPatient: [synthetic]    Age: 64 / F\nDate: 14/03/2026\n\nDiagnosis: Type 2 diabetes mellitus with hypertension\n\nRx\nTAB. METFORMIN 500MG 1-0-1 x 30 days\nTAB. AMLODIPINE 5MG OD x 30 days\nTAB. ATORVASTATIN 10MG HS x 30 days\nCAP. OMEPRAZOLE 20MG 1-0-0 x 14 days\n\nAdvice: review after one month with fasting sugar",
+   "critical_tokens": {
+    "expected": 18,
+    "found": 18
+   },
+   "missing": []
+  },
+  {
+   "image": "lab_report_scan.png",
+   "seconds": 12.7,
+   "cer": 0.0,
+   "error": null,
+   "text": "METRO DIAGNOSTICS - BIOCHEMISTRY REPORT\nSample collected on 02/02/2026\n\nHaemoglobin 9.4 g/dL (12.0 - 15.0)\nHbA1c 8.2 % (4.0 - 5.6)\nFasting Blood Sugar 168 mg/dL (70 - 99)\nSerum Creatinine 1.1 mg/dL (0.6 - 1.1)\nTSH 6.8 uIU/mL (0.4 - 4.0)\nTotal Cholesterol 214 mg/dL (0 - 200)\nESR 34 mm/hr (0 - 20)",
+   "critical_tokens": {
+    "expected": 16,
+    "found": 16
+   },
+   "missing": []
+  },
+  {
+   "image": "lab_report_degraded.png",
+   "seconds": 12.9,
+   "cer": 0.0,
+   "error": null,
+   "text": "METRO DIAGNOSTICS - BIOCHEMISTRY REPORT\nSample collected on 02/02/2026\n\nHaemoglobin 9.4 g/dL (12.0 - 15.0)\nHbA1c 8.2 % (4.0 - 5.6)\nFasting Blood Sugar 168 mg/dL (70 - 99)\nSerum Creatinine 1.1 mg/dL (0.6 - 1.1)\nTSH 6.8 uIU/mL (0.4 - 4.0)\nTotal Cholesterol 214 mg/dL (0 - 200)\nESR 34 mm/hr (0 - 20)",
+   "critical_tokens": {
+    "expected": 16,
+    "found": 16
+   },
+   "missing": []
+  },
+  {
+   "image": "discharge_scan.png",
+   "seconds": 11.4,
+   "cer": 0.0,
+   "error": null,
+   "text": "GOVERNMENT GENERAL HOSPITAL - DISCHARGE SUMMARY\nAdmitted: 03/09/2024    Discharged: 09/09/2024\n\nDiagnosis: Community acquired pneumonia\nProcedure: Pleural tap done on 05/09/2024\n\nDischarge medication:\nTAB. AMOXICILLIN 625MG TDS x 7 days\nSYP. LACTULOSE 15ML HS",
+   "critical_tokens": {
+    "expected": 8,
+    "found": 8
+   },
+   "missing": []
+  },
+  {
+   "image": "discharge_degraded.png",
+   "seconds": 11.2,
+   "cer": 0.0,
+   "error": null,
+   "text": "GOVERNMENT GENERAL HOSPITAL - DISCHARGE SUMMARY\nAdmitted: 03/09/2024    Discharged: 09/09/2024\n\nDiagnosis: Community acquired pneumonia\nProcedure: Pleural tap done on 05/09/2024\n\nDischarge medication:\nTAB. AMOXICILLIN 625MG TDS x 7 days\nSYP. LACTULOSE 15ML HS",
+   "critical_tokens": {
+    "expected": 8,
+    "found": 8
+   },
+   "missing": []
+  },
+  {
+   "image": "prescription_handwritten.png",
+   "seconds": 11.4,
+   "cer": 0.013,
+   "error": null,
+   "text": "Dr S. Menon MBBS MD\nCity Clinic, Chennai\nDate 04/09/2026\n\nRx\nTab Augmentin 625 BD x 5d\nPCM 500 sos\nPantop 40 OD bf\nTab Zerodol SP BD x 3d\n\nReview after 5 days",
+   "critical_tokens": {
+    "expected": 15,
+    "found": 14
+   },
+   "missing": [
+    {
+     "category": "medicine_name",
+     "token": "Augmtin",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  },
+  {
+   "image": "hw_rx_bradley.png",
+   "seconds": 11.4,
+   "cer": 0.0,
+   "error": null,
+   "text": "Dr A. Kulkarni MBBS\nDate 12/08/2026\nPt: Rohan Mehta 34/M\nc/o fever, sore throat x 2 days\nDx: URTI\nAllergy: sulfa drugs\nRx\nTab Azithral 500 OD x 3d\nSyp Crocin 5ml TDS\nTab Cetirizine 10mg HS x 5d",
+   "critical_tokens": {
+    "expected": 14,
+    "found": 14
+   },
+   "missing": []
+  },
+  {
+   "image": "hw_rx_brush_hard.png",
+   "seconds": 9.8,
+   "cer": 0.0,
+   "error": null,
+   "text": "Dr K. Singh\n\nDate 30/05/2026\n\nDx: Hypothyroidism\n\nTSH 7.2\n\nTab Thyronorm 50mcg OD\n\nTab Shelcal 500 BD",
+   "critical_tokens": {
+    "expected": 10,
+    "found": 10
+   },
+   "missing": []
+  },
+  {
+   "image": "hw_rx_chalkboard.png",
+   "seconds": 9.7,
+   "cer": 0.0,
+   "error": null,
+   "text": "Dr M. Das\n05/06/2026\nc/o acidity, cough\nNKDA\nCap Omez 20 OD bf x 14d\nTab Dolo 650 SOS\nTab Montek LC HS x 10d",
+   "critical_tokens": {
+    "expected": 12,
+    "found": 12
+   },
+   "missing": []
+  },
+  {
+   "image": "hw_rx_cursive.png",
+   "seconds": 10.2,
+   "cer": 0.039,
+   "error": null,
+   "text": "Dr Priya Tyer\nDate 21/07/2026\nDx: T2DM, HTN\nRx\nTab Glycomet 500 BD\nTab Telma 400 D\nTab Ecosprin 750 D\nAdv: HbA1c, lipid profile",
+   "critical_tokens": {
+    "expected": 11,
+    "found": 6
+   },
+   "missing": [
+    {
+     "category": "dosage",
+     "token": "40",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "frequency",
+     "token": "OD",
+     "expected": 2,
+     "found": 0
+    },
+    {
+     "category": "dosage",
+     "token": "75",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "header",
+     "token": "Dr Priya Iyer",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  },
+  {
+   "image": "mixed_printed_handwritten.png",
+   "seconds": 9.9,
+   "cer": 0.457,
+   "error": null,
+   "text": "Wt 18 kg\n\nc/o loose stools x 3 days\n\nDx: Acute gastroenteritis\n\nORS 1 sachet after each stool\n\nSyp Zinconia 5ml OD x 14d\n\nSyp Ondem 2ml SOS",
+   "critical_tokens": {
+    "expected": 13,
+    "found": 10
+   },
+   "missing": [
+    {
+     "category": "header",
+     "token": "Aarav Joshi",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "header",
+     "token": "Dr. Neha Kapoor",
+     "expected": 1,
+     "found": 0
+    },
+    {
+     "category": "date",
+     "token": "18/08/2026",
+     "expected": 1,
+     "found": 0
+    }
+   ]
+  }
+ ],
+ "controls": {
+  "blank": {
+   "chars": 16,
+   "text": "```markdown\n\n```"
+  },
+  "noise": {
+   "chars": 1115,
+   "text": "# 1. \u4ec0\u4e48\u662f\u533a\u5757\u94fe\uff1f\n\n\u533a\u5757\u94fe\u662f\u4e00\u79cd\u57fa\u4e8e\u533a\u5757\u94fe\u6280\u672f\u7684\u6570\u5b57\u8d27\u5e01\u7cfb\u7edf\uff0c\u5b83\u5229\u7528\u533a\u5757\u94fe\u6280\u672f\u5c06\u6570\u5b57\u8d44\u4ea7\u4ece\u4e00\u4e2a\u8282\u70b9\u4f20\u9012\u5230\u53e6\u4e00\u4e2a\u8282\u70b9\uff0c\u5e76\u901a\u8fc7\u5171\u8bc6\u673a\u5236\u786e\u4fdd\u6240\u6709\u8282\u70b9\u90fd\u9075\u5b88\u76f8\u540c\u7684\u89c4\u5219\u3002\u533a\u5757\u94fe\u5177\u6709\u53bb\u4e2d\u5fc3\u5316\u3001\u4e0d\u53ef\u8ffd\u6eaf\u3001\u4e0d\u53ef\u7be1\u6539\u7b49\u7279\u70b9\uff0c\u4f7f\u5f97\u6570\u5b57\u8d44\u4ea7\u7684\u5b89\u5168\u6027\u548c\u53ef\u4fe1\u6027\u5f97\u5230\u4fdd\u969c\u3002\n\n2. \u533a\u5757\u94fe\u7684\u4f18\u70b9\u6709\u54ea\u4e9b\uff1f\n\n\u533a\u5757\u94fe\u5177\u6709\u4ee5\u4e0b\u4f18\u70b9\uff1a\n\n- **\u53bb\u4e2d\u5fc3\u5316**: \u533a\u5757\u94fe\u4e0d\u9700\u8981\u4e2d\u5fc3\u8282\u70b9\u6765\u7ba1\u7406\u6570\u636e\uff0c\u6570\u636e\u5b58\u50a8\u5728\u591a\u4e2a\u8282\u70b9\u4e0a\uff0c\u964d\u4f4e\u4e86\u4e2d\u5fc3\u5316\u98ce\u9669\u3002\n- **\u4e0d\u53ef\u7be1\u6539**: \u533a\u5757\u94fe\u4e2d\u7684\u6570\u636e\u4e00\u65e6\u88ab\u8bb0\u5f55\uff0c\u5c31\u65e0\u6cd5\u88ab\u4fee\u6539\u6216\u5220\u9664\uff0c\u786e\u4fdd\u4e86\u6570\u636e\u7684\u771f\u5b9e\u6027\u548c\u5b8c\u6574\u6027\u3002\n- **\u9690\u79c1\u6027**: \u533a\u5757\u94fe\u63d0\u4f9b\u4e86\u4e00\u79cd\u5b89\u5168\u3001\u9690\u79c1\u7684\u5b58\u50a8\u65b9\u5f0f\uff0c\u4fdd\u62a4\u7528\u6237\u7684\u6570\u636e\u5b89\u5168\u3002\n- **\u6548"
+  }
+ },
+ "line_crops": [
+  {
+   "truth": "Tab Augmtin 625 BD x 5d",
+   "text": "Tab Augm tin 625 BD x 5d",
+   "cer": 0.043
+  },
+  {
+   "truth": "PCM 500 sos",
+   "text": "PCM 500 SOS",
+   "cer": 0.0
+  },
+  {
+   "truth": "Pantop 40 OD bf",
+   "text": "Pantop 40 OD bf",
+   "cer": 0.0
+  },
+  {
+   "truth": "Tab Zerodol SP BD x 3d",
+   "text": "Tab Zero dol SP BD x 3d",
+   "cer": 0.045
+  }
+ ]
+}

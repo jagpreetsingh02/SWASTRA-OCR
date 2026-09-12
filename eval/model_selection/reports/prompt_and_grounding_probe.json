@@ -1,0 +1,694 @@
+{
+ "prompts": {
+  "production": {
+   "critical_accuracy": 0.977,
+   "substitutions": 9,
+   "seconds": 140.8,
+   "pages": {
+    "prescription_scan.png": {
+     "seconds": 27.6,
+     "critical": {
+      "expected": 18,
+      "found": 18
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "prescription_degraded.png": {
+     "seconds": 13.1,
+     "critical": {
+      "expected": 18,
+      "found": 18
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "prescription_photo_handheld.jpg": {
+     "seconds": 12.7,
+     "critical": {
+      "expected": 18,
+      "found": 18
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "lab_report_scan.png": {
+     "seconds": 12.2,
+     "critical": {
+      "expected": 16,
+      "found": 15
+     },
+     "cer": 0.003,
+     "missing": [
+      {
+       "category": "lab_name",
+       "token": "HbA1c",
+       "expected": 1,
+       "found": 0
+      }
+     ],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "HbA1c",
+       "read": "HbAlc"
+      }
+     ]
+    },
+    "lab_report_degraded.png": {
+     "seconds": 12.6,
+     "critical": {
+      "expected": 16,
+      "found": 15
+     },
+     "cer": 0.003,
+     "missing": [
+      {
+       "category": "lab_name",
+       "token": "HbA1c",
+       "expected": 1,
+       "found": 0
+      }
+     ],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "HbA1c",
+       "read": "HbAlc"
+      }
+     ]
+    },
+    "discharge_scan.png": {
+     "seconds": 9.1,
+     "critical": {
+      "expected": 8,
+      "found": 8
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "discharge_degraded.png": {
+     "seconds": 8.8,
+     "critical": {
+      "expected": 8,
+      "found": 8
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "prescription_handwritten.png": {
+     "seconds": 7.3,
+     "critical": {
+      "expected": 15,
+      "found": 14
+     },
+     "cer": 0.013,
+     "missing": [
+      {
+       "category": "medicine_name",
+       "token": "Augmtin",
+       "expected": 1,
+       "found": 0
+      }
+     ],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "Rx",
+       "read": "RX"
+      },
+      {
+       "op": "replace",
+       "written": "Augmtin",
+       "read": "Augmentin"
+      }
+     ]
+    },
+    "hw_rx_bradley.png": {
+     "seconds": 8.6,
+     "critical": {
+      "expected": 14,
+      "found": 14
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "Rx",
+       "read": "RX"
+      }
+     ]
+    },
+    "hw_rx_brush_hard.png": {
+     "seconds": 5.9,
+     "critical": {
+      "expected": 10,
+      "found": 9
+     },
+     "cer": 0.031,
+     "missing": [
+      {
+       "category": "date",
+       "token": "30/05/2026",
+       "expected": 1,
+       "found": 0
+      }
+     ],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "30/05/2026",
+       "read": "30|05|2026"
+      },
+      {
+       "op": "replace",
+       "written": "50mcg",
+       "read": "50 mcg"
+      }
+     ]
+    },
+    "hw_rx_chalkboard.png": {
+     "seconds": 6.4,
+     "critical": {
+      "expected": 12,
+      "found": 12
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "hw_rx_cursive.png": {
+     "seconds": 7.1,
+     "critical": {
+      "expected": 11,
+      "found": 11
+     },
+     "cer": 0.031,
+     "missing": [],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "T2DM, HTN",
+       "read": "T2D.M, H T N"
+      },
+      {
+       "op": "replace",
+       "written": "Adv:",
+       "read": "Ado:"
+      }
+     ]
+    },
+    "mixed_printed_handwritten.png": {
+     "seconds": 9.3,
+     "critical": {
+      "expected": 13,
+      "found": 13
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    }
+   }
+  },
+  "literal": {
+   "critical_accuracy": 0.977,
+   "substitutions": 9,
+   "seconds": 130.0,
+   "pages": {
+    "prescription_scan.png": {
+     "seconds": 13.0,
+     "critical": {
+      "expected": 18,
+      "found": 18
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "prescription_degraded.png": {
+     "seconds": 12.7,
+     "critical": {
+      "expected": 18,
+      "found": 18
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "prescription_photo_handheld.jpg": {
+     "seconds": 12.6,
+     "critical": {
+      "expected": 18,
+      "found": 18
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "lab_report_scan.png": {
+     "seconds": 12.3,
+     "critical": {
+      "expected": 16,
+      "found": 15
+     },
+     "cer": 0.003,
+     "missing": [
+      {
+       "category": "lab_name",
+       "token": "HbA1c",
+       "expected": 1,
+       "found": 0
+      }
+     ],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "HbA1c",
+       "read": "HbAlc"
+      }
+     ]
+    },
+    "lab_report_degraded.png": {
+     "seconds": 12.1,
+     "critical": {
+      "expected": 16,
+      "found": 15
+     },
+     "cer": 0.003,
+     "missing": [
+      {
+       "category": "lab_name",
+       "token": "HbA1c",
+       "expected": 1,
+       "found": 0
+      }
+     ],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "HbA1c",
+       "read": "HbAlc"
+      }
+     ]
+    },
+    "discharge_scan.png": {
+     "seconds": 9.6,
+     "critical": {
+      "expected": 8,
+      "found": 8
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "discharge_degraded.png": {
+     "seconds": 9.7,
+     "critical": {
+      "expected": 8,
+      "found": 8
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "prescription_handwritten.png": {
+     "seconds": 7.6,
+     "critical": {
+      "expected": 15,
+      "found": 14
+     },
+     "cer": 0.006,
+     "missing": [
+      {
+       "category": "medicine_name",
+       "token": "Augmtin",
+       "expected": 1,
+       "found": 0
+      }
+     ],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "Rx",
+       "read": "RX"
+      },
+      {
+       "op": "replace",
+       "written": "Augmtin",
+       "read": "Augmin"
+      }
+     ]
+    },
+    "hw_rx_bradley.png": {
+     "seconds": 9.0,
+     "critical": {
+      "expected": 14,
+      "found": 14
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "Rx",
+       "read": "RX"
+      }
+     ]
+    },
+    "hw_rx_brush_hard.png": {
+     "seconds": 6.9,
+     "critical": {
+      "expected": 10,
+      "found": 9
+     },
+     "cer": 0.031,
+     "missing": [
+      {
+       "category": "date",
+       "token": "30/05/2026",
+       "expected": 1,
+       "found": 0
+      }
+     ],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "30/05/2026",
+       "read": "30|05|2026"
+      },
+      {
+       "op": "replace",
+       "written": "50mcg",
+       "read": "50 mcg"
+      }
+     ]
+    },
+    "hw_rx_chalkboard.png": {
+     "seconds": 7.1,
+     "critical": {
+      "expected": 12,
+      "found": 12
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "hw_rx_cursive.png": {
+     "seconds": 7.5,
+     "critical": {
+      "expected": 11,
+      "found": 11
+     },
+     "cer": 0.031,
+     "missing": [],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "T2DM, HTN",
+       "read": "T2D.M, H T N"
+      },
+      {
+       "op": "replace",
+       "written": "Adv:",
+       "read": "Ado:"
+      }
+     ]
+    },
+    "mixed_printed_handwritten.png": {
+     "seconds": 9.9,
+     "critical": {
+      "expected": 13,
+      "found": 13
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    }
+   }
+  },
+  "ocr_engine": {
+   "critical_accuracy": 0.977,
+   "substitutions": 9,
+   "seconds": 137.5,
+   "pages": {
+    "prescription_scan.png": {
+     "seconds": 13.6,
+     "critical": {
+      "expected": 18,
+      "found": 18
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "prescription_degraded.png": {
+     "seconds": 13.3,
+     "critical": {
+      "expected": 18,
+      "found": 18
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "prescription_photo_handheld.jpg": {
+     "seconds": 13.7,
+     "critical": {
+      "expected": 18,
+      "found": 18
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "lab_report_scan.png": {
+     "seconds": 13.1,
+     "critical": {
+      "expected": 16,
+      "found": 15
+     },
+     "cer": 0.003,
+     "missing": [
+      {
+       "category": "lab_name",
+       "token": "HbA1c",
+       "expected": 1,
+       "found": 0
+      }
+     ],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "HbA1c",
+       "read": "HbAlc"
+      }
+     ]
+    },
+    "lab_report_degraded.png": {
+     "seconds": 12.7,
+     "critical": {
+      "expected": 16,
+      "found": 15
+     },
+     "cer": 0.003,
+     "missing": [
+      {
+       "category": "lab_name",
+       "token": "HbA1c",
+       "expected": 1,
+       "found": 0
+      }
+     ],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "HbA1c",
+       "read": "HbAlc"
+      }
+     ]
+    },
+    "discharge_scan.png": {
+     "seconds": 9.2,
+     "critical": {
+      "expected": 8,
+      "found": 8
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "discharge_degraded.png": {
+     "seconds": 9.4,
+     "critical": {
+      "expected": 8,
+      "found": 8
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "prescription_handwritten.png": {
+     "seconds": 7.7,
+     "critical": {
+      "expected": 15,
+      "found": 14
+     },
+     "cer": 0.006,
+     "missing": [
+      {
+       "category": "medicine_name",
+       "token": "Augmtin",
+       "expected": 1,
+       "found": 0
+      }
+     ],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "City Clinic,",
+       "read": "city clinic,"
+      },
+      {
+       "op": "replace",
+       "written": "Augmtin",
+       "read": "Augmin"
+      }
+     ]
+    },
+    "hw_rx_bradley.png": {
+     "seconds": 9.2,
+     "critical": {
+      "expected": 14,
+      "found": 14
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "Rx",
+       "read": "RX"
+      }
+     ]
+    },
+    "hw_rx_brush_hard.png": {
+     "seconds": 6.7,
+     "critical": {
+      "expected": 10,
+      "found": 9
+     },
+     "cer": 0.031,
+     "missing": [
+      {
+       "category": "date",
+       "token": "30/05/2026",
+       "expected": 1,
+       "found": 0
+      }
+     ],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "30/05/2026",
+       "read": "30|05|2026"
+      },
+      {
+       "op": "replace",
+       "written": "50mcg",
+       "read": "50 mcg"
+      }
+     ]
+    },
+    "hw_rx_chalkboard.png": {
+     "seconds": 7.9,
+     "critical": {
+      "expected": 12,
+      "found": 12
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    },
+    "hw_rx_cursive.png": {
+     "seconds": 8.7,
+     "critical": {
+      "expected": 11,
+      "found": 11
+     },
+     "cer": 0.031,
+     "missing": [],
+     "substitutions": [
+      {
+       "op": "replace",
+       "written": "T2DM, HTN",
+       "read": "T2D.M, H T N"
+      },
+      {
+       "op": "replace",
+       "written": "Adv:",
+       "read": "Ado:"
+      }
+     ]
+    },
+    "mixed_printed_handwritten.png": {
+     "seconds": 12.2,
+     "critical": {
+      "expected": 13,
+      "found": 13
+     },
+     "cer": 0.0,
+     "missing": [],
+     "substitutions": []
+    }
+   }
+  }
+ },
+ "grounding": {
+  "prescription_scan.png": {
+   "seconds": 44.8,
+   "parsed": true,
+   "lines": 12,
+   "raw": "[{\"bbox_2d\": [57, 48, 420, 64], \"text\": \"SHRI VENKATESHWARA POLYCLINIC\"}, {\"bbox_2d\": [57, 64, 488, 80], \"text\": \"Dr. R. Sharma, MBBS MD (Gen Med)  Reg No. TN/12345\"}, {\"bbox_2d\": [57, 117, 305, 133], \"text\": \"Patient: [synthetic]\"}, {\"bbox_2d\": [315, 117, 548, 133], \"text\": \"Age: 64 / F\"}, {\"bbox_2d\": [57, 140, 255, 156], \"text\": \"Date: 14/03/2026\"}, {\"bbox_2d\": [57, 183, 725, 200], \"text\": \"Diagnosis: Type 2 diabetes mellitus with hypertension\"}, {\"bbox_2d\": [57, 247, 100, 263], \"text\": \"Rx\"}, {\"bbox_2d\": [57, 263, 508, 280], \"text\": \"TAB. METFORMIN 500MG 1-0-1 x 30 days\"}, {\"bbox_2d\": [57, 280, 488, 297], \"text\": \"TAB. AMLODIPINE 5MG OD x 30 days\"}, {\"bbox_2d\": [57, 297, 488, 314], \"text\": \"TAB. ATORVASTATIN 10MG HS x 30 days\"}, {\"bbox_2d\": [57, 314, 488, 331], \"text\": \"CAP. OMEPRAZOLE 20MG 1-0-0 x 14 days\"}, {\"bbox_2d\": [57, 378, 655, 395], \"text\": \"Advice: review after one month with fasting sugar\"}]",
+   "image_size": [
+    995,
+    1407
+   ]
+  },
+  "prescription_handwritten.png": {
+   "seconds": 27.0,
+   "parsed": true,
+   "lines": 9,
+   "raw": "[{\"bbox_2d\": [102, 80, 410, 103], \"text\": \"Dr S. Menon MBBS MD\"}, {\"bbox_2d\": [102, 111, 352, 137], \"text\": \"city clinic, Chennai\"}, {\"bbox_2d\": [102, 149, 307, 175], \"text\": \"Date 04/09/2026\"}, {\"bbox_2d\": [98, 211, 134, 228], \"text\": \"Rx\"}, {\"bbox_2d\": [98, 245, 429, 270], \"text\": \"Tab Augmin 625 BD x 5d\"}, {\"bbox_2d\": [98, 281, 252, 302], \"text\": \"PCM 500 sos\"}, {\"bbox_2d\": [98, 317, 300, 343], \"text\": \"Pantop 40 OD bf\"}, {\"bbox_2d\": [98, 349, 387, 375], \"text\": \"Tab Zerodol SP BD x 3d\"}, {\"bbox_2d\": [90, 410, 328, 439], \"text\": \"Review after 5 days\"}]",
+   "image_size": [
+    995,
+    1407
+   ]
+  },
+  "hw_rx_bradley.png": {
+   "seconds": 27.2,
+   "parsed": true,
+   "lines": 10,
+   "raw": "[{\"bbox_2d\": [117, 52, 500, 87], \"text\": \"Dr A. Kulkarni MBBS\"}, {\"bbox_2d\": [117, 102, 405, 131], \"text\": \"Date 12/08/2026\"}, {\"bbox_2d\": [110, 144, 494, 175], \"text\": \"Pt: Rohan Mehta 34/M\"}, {\"bbox_2d\": [110, 185, 611, 233], \"text\": \"c/o fever, sore throat x 2 days\"}, {\"bbox_2d\": [107, 228, 258, 255], \"text\": \"Dx: URTI\"}, {\"bbox_2d\": [107, 272, 458, 315], \"text\": \"Allergy: sulfa drugs\"}, {\"bbox_2d\": [100, 325, 150, 348], \"text\": \"RX\"}, {\"bbox_2d\": [98, 364, 530, 407], \"text\": \"Tab Azithral 500 OD x 3d\"}, {\"bbox_2d\": [98, 412, 440, 445], \"text\": \"Syp Crocin 5ml TDS\"}, {\"bbox_2d\": [96, 452, 597, 493], \"text\": \"Tab Cetirizine 10mg HS x 5d\"}]",
+   "image_size": [
+    995,
+    1407
+   ]
+  },
+  "lab_report_scan.png": {
+   "seconds": 40.6,
+   "parsed": true,
+   "lines": 16,
+   "raw": "[{\"bbox_2d\": [57, 48, 544, 65], \"text\": \"METRO DIAGNOSTICS - BIOCHEMISTRY REPORT\"}, {\"bbox_2d\": [57, 71, 434, 88], \"text\": \"Sample collected on 02/02/2026\"}, {\"bbox_2d\": [57, 117, 304, 133], \"text\": \"Haemoglobin 9.4 g/dL\"}, {\"bbox_2d\": [444, 117, 584, 133], \"text\": \"(12.0 - 15.0)\"}, {\"bbox_2d\": [57, 140, 220, 156], \"text\": \"HbAlc 8.2 %\"}, {\"bbox_2d\": [444, 140, 584, 156], \"text\": \"(4.0 - 5.6)\"}, {\"bbox_2d\": [57, 163, 394, 179], \"text\": \"Fasting Blood Sugar 168 mg/dL\"}, {\"bbox_2d\": [444, 163, 584, 179], \"text\": \"(70 - 99)\"}, {\"bbox_2d\": [57, 186, 384, 202], \"text\": \"Serum Creatinine 1.1 mg/dL\"}, {\"bbox_2d\": [444, 186, 584, 202], \"text\": \"(0.6 - 1.1)\"}, {\"bbox_2d\": [57, 209, 244, 225], \"text\": \"TSH 6.8 uIU/mL\"}, {\"bbox_2d\": [444, 209, 584, 225], \"text\": \"(0.4 - 4.0)\"}, {\"bbox_2d\": [57, 232, 394, 248], \"text\": \"Total Cholesterol 214 mg/dL\"}, {\"bbox_2d\": [444, 232, 584, 248], \"text\": \"(0 - 200)\"}, {\"bbox_2d\": [57, 255, 220, 271], \"text\": \"ESR 34 mm/hr\"}, {\"bbox_2d\": [444, 255, 584, 271], \"text\": \"(0 - 20)\"}]",
+   "image_size": [
+    995,
+    1407
+   ]
+  }
+ }
+}

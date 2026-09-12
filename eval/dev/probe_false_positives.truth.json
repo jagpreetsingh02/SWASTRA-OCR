@@ -1,0 +1,17 @@
+{
+ "document_type": "other_medical",
+ "patient_name": "Nisha Verma",
+ "doctor_name": "Dr. Rakesh Gupta",
+ "date": "07/07/2026",
+ "medications": [],
+ "test_results": [
+  {"name": "Random sugar", "value": "210", "unit": "mg%", "reference_range": null},
+  {"name": "Serum Iron", "value": "45", "unit": "mcg/dL", "reference_range": null},
+  {"name": "Vitamin B12", "value": "180", "unit": "pg/mL", "reference_range": null}
+ ],
+ "tests": ["CBC"],
+ "diagnoses": ["Hypertension", "Iron deficiency anaemia"],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Dev probe (text only): lines that must NOT become medicines -- vitals, a lab value in mg%, advice with 'twice daily', a vitamin lab test."
+}

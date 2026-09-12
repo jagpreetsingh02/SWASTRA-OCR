@@ -1,0 +1,20 @@
+{
+ "document_type": "lab_report",
+ "patient_name": ["Vikram Rathod", "Mr. Vikram Rathod"],
+ "doctor_name": null,
+ "date": "15/07/2026",
+ "medications": [],
+ "test_results": [
+  {"name": "Hemoglobin", "value": "13.1", "unit": "g/dL", "reference_range": "13.0 - 17.0"},
+  {"name": "Total Leukocyte Count", "value": "11200", "unit": "/cumm", "reference_range": "4000 - 11000"},
+  {"name": "Platelet Count", "value": "1.8", "unit": "lakhs/cumm", "reference_range": "1.5 - 4.5"},
+  {"name": "Random Blood Glucose", "value": "212", "unit": "mg/dL", "reference_range": "70 - 140"},
+  {"name": "Serum Sodium", "value": "131", "unit": "mEq/L", "reference_range": "135 - 145"},
+  {"name": ["Vitamin D (25-OH)", "Vitamin D"], "value": "14.2", "unit": "ng/mL", "reference_range": "30 - 100"}
+ ],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Formerly held-out; moved to dev after it was used to find extraction misses (Vitamin D row)."
+}

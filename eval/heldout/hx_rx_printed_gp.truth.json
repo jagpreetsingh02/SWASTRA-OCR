@@ -1,0 +1,16 @@
+{
+ "document_type": "prescription",
+ "patient_name": "Suresh Pillai",
+ "doctor_name": "Dr. Meera Nair",
+ "date": "11/08/2026",
+ "medications": [
+  {"name": "Telmisartan", "dosage": "40 mg", "frequency": "1-0-0", "duration": "30 days"},
+  {"name": "Rosuvastatin", "dosage": "10 mg", "frequency": "0-0-1", "duration": "30 days"},
+  {"name": "Aspirin", "dosage": "75 mg", "frequency": "OD", "duration": null}
+ ],
+ "test_results": [],
+ "tests": ["lipid profile"],
+ "diagnoses": ["Essential hypertension", "Dyslipidaemia"],
+ "symptoms": ["giddiness", "headache"],
+ "allergies": []
+}

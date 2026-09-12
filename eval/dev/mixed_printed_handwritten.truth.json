@@ -1,0 +1,17 @@
+{
+ "document_type": "prescription",
+ "patient_name": "Aarav Joshi",
+ "doctor_name": "Dr. Neha Kapoor",
+ "date": "18/08/2026",
+ "medications": [
+  {"name": "ORS", "dosage": "1 sachet", "frequency": "after each stool", "duration": null},
+  {"name": "Zinconia", "dosage": "5ml", "frequency": "OD", "duration": "14d"},
+  {"name": "Ondem", "dosage": "2ml", "frequency": "SOS", "duration": null}
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": ["Acute gastroenteritis"],
+ "symptoms": ["loose stools"],
+ "allergies": [],
+ "notes": "Printed letterhead + synthetic handwriting (Bradley Hand), invented content."
+}
