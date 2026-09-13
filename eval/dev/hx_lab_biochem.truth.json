@@ -4,6 +4,7 @@
  "doctor_name": null,
  "date": "21-08-2026",
  "medications": [],
+ "panels": ["LIVER & KIDNEY FUNCTION"],
  "test_results": [
   {"name": ["Serum Bilirubin (Total)", "Serum Bilirubin"], "value": "1.8", "unit": "mg/dL", "reference_range": "0.2 - 1.2"},
   {"name": ["SGPT (ALT)", "SGPT"], "value": "64", "unit": "U/L", "reference_range": "7 - 56"},

@@ -179,6 +179,92 @@ def test_a_medicine_named_in_an_invoice_line_is_never_promoted_to_prescribed():
     assert [m.name.text for m in result.entities.medication_mentions] == ["Amoxicillin"]
 
 
+# ------------------------------------------------------------------------------ clinical categories
+# A number with a unit is not automatically a lab result, and a name the model recognises is not
+# automatically a test. Each of these was a real miscategorisation.
+
+def test_an_analyte_alias_inside_a_row_is_not_a_second_test():
+    """"SGPT (ALT) 64 U/L" is one result. The alias used to escape as a bare test mention."""
+    result = run("SGPT (ALT) 64 U/L [7 - 56]")
+    assert [r.name.text for r in result.entities.test_results] == ["SGPT"]
+    assert result.entities.tests == []
+
+
+def test_short_analytes_are_still_read_as_results():
+    """A two-letter analyte is a real test. They are read as one document because a single short line is
+    below the pipeline's minimum-legible-text gate and is correctly reported as unreadable."""
+    rows = {r.name.text: r.value.text
+            for r in run("Hb 10.8 g/dL\nNa 138 mEq/L\nK 4.2 mEq/L\nALT 52 U/L\nTSH 6.8 uIU/mL").entities.test_results}
+    assert rows == {"Hb": "10.8", "Na": "138", "K": "4.2", "ALT": "52", "TSH": "6.8"}
+
+
+def test_observations_are_vitals_not_lab_results():
+    e = run("BP 150/90 mmHg  Pulse 88/min  Wt 72 kg  SpO2 98%").entities
+    assert [(v.name.text, v.value.text, v.unit.text) for v in e.vitals] == [
+        ("BP", "150/90", "mmHg"), ("Pulse", "88", "/min"), ("Wt", "72", "kg"), ("SpO2", "98", "%")]
+    assert e.test_results == [] and e.tests == [] and e.symptoms == []   # not labs, not tests, not symptoms
+
+
+def test_a_labelled_vitals_line_is_also_not_a_lab_row():
+    """The guard used to be anchored to the start of the line, so a "Vitals:" prefix defeated it."""
+    e = run("Vitals: BP 120/80 mmHg, Pulse 84/min, Temp 98.6 F, SpO2 97%").entities
+    assert {v.name.text for v in e.vitals} == {"BP", "Pulse", "Temp", "SpO2"}
+    assert e.test_results == []
+
+
+def test_vitals_never_swallow_a_prescribed_medicine():
+    assert [m.name.text for m in run("Inj Insulin 10 units BD, BP 140/90 mmHg").entities.medications] == ["Insulin"]
+
+
+def test_a_panel_heading_groups_its_rows_instead_of_becoming_a_test():
+    result = run("COMPLETE BLOOD COUNT\nHaemoglobin 10.8 g/dL 12.0 - 15.0\nPlatelet Count 1.15 lakhs/cumm 1.5 - 4.1")
+    assert [p.text for p in result.entities.panels] == ["COMPLETE BLOOD COUNT"]
+    assert [r.name.text for r in result.entities.test_results] == ["Haemoglobin", "Platelet Count"]
+    assert result.entities.tests == []
+
+
+@pytest.mark.parametrize("text,expected", [
+    ("Review after 2 weeks with CBC", "CBC"),
+    ("Follow up after 1 week with chest X-ray", "chest X-ray"),
+])
+def test_a_test_or_imaging_study_that_is_advised_stays_a_test_mention(text, expected):
+    result = run(text)
+    assert [t.text for t in result.entities.tests] == [expected]
+    assert result.entities.panels == [] and result.entities.diagnoses == []   # neither a heading nor a diagnosis
+
+
+@pytest.mark.parametrize("line", ["Allergies: None known", "Allergies: None", "Allergy: Nil", "NKDA"])
+def test_a_recorded_absence_of_allergies_yields_no_allergy(line):
+    assert run(line).entities.allergies == []
+
+
+def test_real_allergens_are_still_read():
+    assert [a.text for a in run("Allergy: Penicillin, Ibuprofen").entities.allergies] == ["Penicillin", "Ibuprofen"]
+
+
+@pytest.mark.parametrize("header,expected", [
+    ("Patient: Anita Rao   IP No: 4412", "Anita Rao"),
+    ("Patient: Anita Rao   UHID: 77120", "Anita Rao"),
+    ("Patient: Anita Rao   Ward: 3B", "Anita Rao"),
+    ("Patient Name: Anita Rao   Age/Sex: 58/F", "Anita Rao"),
+])
+def test_the_next_field_label_does_not_stick_to_the_patient_name(header, expected):
+    """"Lakshmi Iyer IP" was read as a name because the following field's label ran into it."""
+    assert run(f"{header}\nRx\nTab Dolo 650 SOS").entities.patient_name.text == expected
+
+
+def test_an_abbreviated_cell_count_unit_is_read_with_its_range():
+    """"mill/cumm" is how RBC counts are printed; without the unit the reference range was lost too."""
+    (row,) = run("RBC Count                4.12      mill/cumm      3.8 - 4.8").entities.test_results
+    assert (row.name.text, row.value.text, row.unit.text, row.reference_range.text) == (
+        "RBC Count", "4.12", "mill/cumm", "3.8 - 4.8")
+
+
+def test_negated_findings_do_not_become_positive_ones():
+    assert run("C/o No fever, no cough").entities.symptoms == []
+    assert [s.text for s in run("C/o fever, no vomiting").entities.symptoms] == ["fever"]
+
+
 # ------------------------------------------------------------------------------ safety
 
 def test_non_medical_text_yields_nothing_medical():

@@ -96,9 +96,12 @@ DEMOGRAPHIC_CONTEXT = re.compile(
 NOT_PATIENT_CONTEXT = re.compile(
     r"\b(?:bank|ifsc|a/c|account|beneficiary|branch|cheque|upi|paytm|gstin|gst|company|firm|manufactur\w*|marketed"
     r"|proprietor|customer|vendor|supplier|dealer|consignee|invoice|father|guardian|nominee|witness|signature)\b", re.I)
-NOT_NAME_WORDS = {"age", "date", "sex", "gender", "dob", "id", "uhid", "no", "mrn"}
+# Label words that sit beside a name on the same line ("Patient: Lakshmi Iyer   IP No: 55392"). They are
+# trimmed off the end of a captured name, or the next field's label becomes part of the patient.
+NOT_NAME_WORDS = {"age", "date", "sex", "gender", "dob", "id", "uhid", "no", "mrn", "ip", "op",
+                  "reg", "ref", "ward", "bed", "room", "opd", "ipd"}
 LAB_UNIT = (r"g/dl|mg/dl|mcg/dl|µg/dl|mg%|mmol/l|µiu/ml|uiu/ml|miu/l|iu/l|u/l|ng/ml|pg/ml|mm/hr|fl|pg|meq/l"
-            r"|µmol/l|umol/l|g/l|mg/l|cells/cumm|/cumm|lakhs/cumm|million/cumm|/µl|/ul|x10\^?\d+/l|%")
+            r"|µmol/l|umol/l|g/l|mg/l|cells/cumm|/cumm|lakhs/cumm|million/cumm|mill/cumm|/µl|/ul|x10\^?\d+/l|%")
 LAB_RANGE = r"\d+(?:\.\d+)?[ \t]*[-–][ \t]*\d+(?:\.\d+)?|[<>][ \t]*\d+(?:\.\d+)?"
 LAB_ROW = re.compile(  # what follows an analyte name the model found
     r"(?:[ \t]*\([^()\n]{1,20}\))?[ \t:=]*(?P<value>\d+(?:\.\d+)?)"
@@ -114,7 +117,24 @@ LAB_ROW_LINE = re.compile(  # a whole line shaped like a lab row, for analytes t
     rf"(?:[ \t]*[(\[]?[ \t]*(?P<range>{LAB_RANGE})[ \t]*[)\]]?)?[ \t]*$",
     re.I,
 )
-VITALS_LINE = re.compile(r"^\s*(?:bp|pulse|temp|spo2|wt|weight|ht|height|bmi|rr|hr)\b", re.I)
+# Physiological observations: measured on the patient, never laboratory results. "SpO2 98%" has a number
+# and a unit-like symbol but is an observation. Matched ANYWHERE on the line -- a line-anchored check let a
+# "Vitals: ..." prefix through, and SpO2 was then read as a lab row.
+VITAL_NAME = (r"bp|b\.p\.|blood\s+pressure|pulse|hr|heart\s+rate|rr|resp(?:iratory)?\s*rate|spo2|sao2|"
+              r"o2\s*sats?|temp(?:erature)?|wt|weight|ht|height|bmi")
+VITAL_MEASURE = re.compile(
+    rf"\b(?P<name>{VITAL_NAME})\b\s*[:=]?\s*(?P<value>\d+(?:\.\d+)?(?:\s*/\s*\d+(?:\.\d+)?)?)"
+    r"\s*(?P<unit>mmhg|bpm|/min|kg|lbs|cm|mm|%|°\s?[cf]|\b[cf]\b)?", re.I)
+# A panel groups analytes. Alone on a line it is a HEADING and the analytes follow as rows; inside a
+# sentence ("Review after 2 weeks with CBC") it is a test being advised, which belongs in `tests`.
+PANEL_HEADING = re.compile(
+    r"^\W*(?:complete\s+blood\s+count|cbc|liver\s+function\s+tests?|lft|kidney\s+function\s+tests?|"
+    r"renal\s+function\s+tests?|kft|rft|lipid\s+profile|thyroid\s+(?:profile|function\s+tests?)|tft|"
+    r"haematology|hematology|biochemistry|pathology|iron\s+studies|coagulation\s+profile|urine\s+routine|"
+    r"[A-Za-z][A-Za-z&/ ]*(?:function|profile|panel|count|studies))\W*$", re.I)
+# A section body that records the absence of something: "Allergies: None known", "No fever", "Nil", "NAD".
+NO_CONTENT = re.compile(
+    r"^\W*(?:none(?:\s+known)?|nil|nad|negative|not\s+known|(?:no|denies|denied|without)\s+\S.*?)\W*$", re.I)
 DX_LINE = re.compile(r"^\s*(?:provisional\s+|final\s+)?(?:dx|diagnosis|diagnoses|impression|imp|diag)\b\s*[:.\-]?\s*", re.I)
 COMPLAINT_LINE = re.compile(r"\b(?:c/o|complain(?:s|ts?|ing)?\s+of|chief\s+complaints?|presenting\s+complaints?)\s*[:.\-]?\s*", re.I)
 ALLERGY_LINE = re.compile(r"\ballerg\w*\s*(?:to\b|:)?\s*", re.I)
@@ -319,10 +339,12 @@ def extract_entities(text: str, char_confidence: list[float | None] | None = Non
         on_line = [s for s in ner if ls <= s.start < le]
 
         # allergies: everything named on an allergy line is an allergen, never a prescription
-        if ALLERGY_LINE.search(line) or NO_ALLERGY.search(line):
-            if not NO_ALLERGY.search(line):
-                named = [s for s in on_line if s.kind in ("drug", "allergy", "disease")]
-                body = ls + ALLERGY_LINE.search(line).end()
+        if (label := ALLERGY_LINE.search(line)) or NO_ALLERGY.search(line):
+            body = ls + label.end() if label else le
+            # "Allergies: None known" and "NKDA" record that there is nothing to list, so nothing is taken.
+            # Spans must start after the label, or the word "Allergies" itself becomes an allergen.
+            if not NO_ALLERGY.search(line) and not NO_CONTENT.match(text[body:le]):
+                named = [s for s in on_line if s.kind in ("drug", "allergy", "disease") and s.start >= body]
                 ents.allergies += ([make(s.start, s.end, Method.model, s.score) for s in named] if named
                                    else _items(text, body, le, [], make))
             continue
@@ -336,7 +358,21 @@ def extract_entities(text: str, char_confidence: list[float | None] | None = Non
             continue
 
         looks_prescribed = bool(FREQ_CODE.search(line) or MED_UNIT.search(line) or FORM_PREFIX.match(line.lstrip()))
-        if not looks_prescribed and _lab_results(text, ls, le, on_line, ents, make, results=not VITALS_LINE.match(line)):
+
+        # Vitals are handled here and nowhere else, so "SpO2 98%" cannot become a lab result and the
+        # model's "Pulse" span cannot become a symptom. Skipped when the line is prescription-shaped, so
+        # "Inj Insulin 10 units, BP 140/90" does not lose its medicine.
+        if not looks_prescribed and (vitals := _vitals(text, ls, le, make)):
+            ents.vitals += vitals
+            continue
+
+        if PANEL_HEADING.match(line.strip()):   # a heading: the analytes are the rows beneath it
+            start, end = _tidy(text, ls, le)
+            if end > start:
+                ents.panels.append(make(start, end, Method.pattern))
+            continue
+
+        if not looks_prescribed and _lab_results(text, ls, le, on_line, ents, make):
             continue
 
         # Selling, listing or advertising a medicine is a mention; only prescription context prescribes it.
@@ -417,11 +453,29 @@ def _block_around(text: str, position: int, radius: int = 2) -> str:
     return "\n".join(lines[max(0, index - radius): index + radius + 1])
 
 
-def _lab_results(text: str, ls: int, le: int, on_line: list[Span], ents: Entities, make, results: bool = True) -> bool:
+def _vitals(text: str, ls: int, le: int, make) -> list[TestResult]:
+    """Observations on one line: "BP 120/80 mmHg", "Pulse 84/min", "SpO2 98%", "Temp 98.6 F".
+
+    Same name/value/unit shape as a lab row, and deliberately the same type, but kept in a separate field:
+    these are measured on the patient, not run in a laboratory.
+    """
+    line = text[ls:le]
+    out = []
+    for m in VITAL_MEASURE.finditer(line):
+        out.append(TestResult(
+            name=make(ls + m.start("name"), ls + m.end("name"), Method.pattern),
+            value=make(ls + m.start("value"), ls + m.end("value"), Method.pattern),
+            unit=make(ls + m.start("unit"), ls + m.end("unit"), Method.pattern) if m.group("unit") else None,
+            source_line=line.strip(),
+        ))
+    return out
+
+
+def _lab_results(text: str, ls: int, le: int, on_line: list[Span], ents: Entities, make) -> bool:
     """Lab rows: '<analyte> [(qualifier)] <value> [unit] [range]'. A span the model called a drug counts
-    only with lab evidence (a lab unit or a reference range) -- vitamins and hormones are both.
-    `results=False` (vitals lines): test names are still mentions, but no values are taken."""
+    only with lab evidence (a lab unit or a reference range) -- vitamins and hormones are both."""
     found = False
+    consumed: list[tuple[int, int]] = []   # stretches a row has already explained
     line = text[ls:le]
 
     def add(name: Entity, row: re.Match, base: int) -> None:
@@ -433,9 +487,9 @@ def _lab_results(text: str, ls: int, le: int, on_line: list[Span], ents: Entitie
             source_line=line.strip(),
         ))
 
-    if not results:  # vitals line ("BP 150/90  SpO2 98%"): measurements, not tests or results
-        return False
-    for s in (s for s in on_line if s.kind in ("test", "drug")):
+    for s in sorted((s for s in on_line if s.kind in ("test", "drug")), key=lambda s: s.start):
+        if any(a <= s.start < b for a, b in consumed):
+            continue    # an alias inside a row already read: "SGPT (ALT) 64 U/L" is one result, not two
         row = LAB_ROW.match(text, s.end, le)
         if not row or DATE.match(text, row.start("value")):
             if s.kind == "test":
@@ -445,9 +499,10 @@ def _lab_results(text: str, ls: int, le: int, on_line: list[Span], ents: Entitie
         if s.kind == "drug" and not (row.group("unit") or row.group("range")):
             continue
         add(make(s.start, s.end, Method.model, s.score), row, 0)
+        consumed.append((s.start, row.end()))
         found = True
 
-    if not found and results and not NOT_MED_LINE.match(line) and not DATE.search(line):
+    if not found and not NOT_MED_LINE.match(line) and not DATE.search(line):
         row = LAB_ROW_LINE.match(line)
         if row and (row.group("unit") or row.group("range")):
             name = make(ls + row.start("name"), ls + row.end("name"), Method.pattern,
@@ -553,6 +608,8 @@ def _items(text: str, start: int, end: int, named: list[Span], make) -> list[Ent
         pos += len(part)
         if part in (",", ";", "and") or e - s < 2 or not re.search(r"[A-Za-z]", text[s:e]):
             continue
+        if NO_CONTENT.match(text[s:e]):
+            continue    # "No fever", "none", "nil": the document records an absence, which is not a finding
         inside = [n for n in named if s <= n.start < e]
         if len(inside) == 1 and (inside[0].end - inside[0].start) < 0.6 * (e - s):
             out.append(make(s, e, Method.model, inside[0].score))

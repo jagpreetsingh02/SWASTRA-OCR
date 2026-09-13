@@ -23,7 +23,7 @@ def test_health_reports_version_engine_and_load_state_without_loading_models(cli
 
     before = pipeline.models_loaded()           # whatever earlier tests in this process left loaded
     body = client.get("/health").json()
-    assert body["status"] == "ok" and body["schema_version"] == "2.1"
+    assert body["status"] == "ok" and body["schema_version"] == "2.2"
     assert set(body["models_loaded"]) == {"ocr", "extractor"}
     assert body["models_loaded"] == before and body["ready"] == all(before.values())
     assert pipeline.models_loaded() == before, "/health must not load models"
@@ -46,7 +46,7 @@ def test_missing_file_field_is_a_structured_422(client):
     response = client.post("/v1/extract", data={"not_file": "x"})
     body = response.json()
     assert response.status_code == 422
-    assert body["status"] == "failed" and body["error"]["code"] == "invalid_request" and body["schema_version"] == "2.1"
+    assert body["status"] == "failed" and body["error"]["code"] == "invalid_request" and body["schema_version"] == "2.2"
 
 
 def test_oversized_upload_is_refused_with_a_structured_413(client, monkeypatch):

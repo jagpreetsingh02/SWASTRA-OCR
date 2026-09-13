@@ -97,7 +97,7 @@
      "type": "array"
     },
     "tests": {
-     "description": "Tests mentioned or advised without a result.",
+     "description": "Tests, panels or imaging mentioned or advised without a result.",
      "items": {
       "$ref": "#/$defs/Entity"
      },
@@ -110,6 +110,22 @@
       "$ref": "#/$defs/TestResult"
      },
      "title": "Test Results",
+     "type": "array"
+    },
+    "vitals": {
+     "description": "Physiological observations measured on the patient -- blood pressure, pulse, SpO2, temperature, weight, height, BMI. Same shape as a lab result because they are also name/value/unit, but they are NOT laboratory tests and never appear in test_results.",
+     "items": {
+      "$ref": "#/$defs/TestResult"
+     },
+     "title": "Vitals",
+     "type": "array"
+    },
+    "panels": {
+     "description": "Panel or test-group headings the document reports under (Complete Blood Count, Liver Function Test). The analytes inside them are the rows in test_results; this is the heading itself, kept so the grouping is not lost. A panel merely advised is a `tests` entry instead.",
+     "items": {
+      "$ref": "#/$defs/Entity"
+     },
+     "title": "Panels",
      "type": "array"
     },
     "allergies": {
@@ -428,8 +444,8 @@
  },
  "properties": {
   "schema_version": {
-   "const": "2.1",
-   "default": "2.1",
+   "const": "2.2",
+   "default": "2.2",
    "title": "Schema Version",
    "type": "string"
   },
@@ -480,6 +496,8 @@
     "symptoms": [],
     "tests": [],
     "test_results": [],
+    "vitals": [],
+    "panels": [],
     "allergies": []
    }
   },

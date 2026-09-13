@@ -4,6 +4,12 @@
  "doctor_name": "Dr. Rakesh Gupta",
  "date": "07/07/2026",
  "medications": [],
+ "vitals": [
+  {"name": "BP", "value": "150/90", "unit": "mmHg"},
+  {"name": "Pulse", "value": "88", "unit": "/min"},
+  {"name": "Wt", "value": "72", "unit": "kg"},
+  {"name": "SpO2", "value": "98", "unit": "%"}
+ ],
  "test_results": [
   {"name": "Random sugar", "value": "210", "unit": "mg%", "reference_range": null},
   {"name": "Serum Iron", "value": "45", "unit": "mcg/dL", "reference_range": null},

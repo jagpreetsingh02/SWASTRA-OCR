@@ -8,6 +8,7 @@
   {"name": "Zinconia", "dosage": "5ml", "frequency": "OD", "duration": "14d"},
   {"name": "Ondem", "dosage": "2ml", "frequency": "SOS", "duration": null}
  ],
+ "vitals": [{"name": "Wt", "value": "18", "unit": "kg"}],
  "test_results": [],
  "tests": [],
  "diagnoses": ["Acute gastroenteritis"],

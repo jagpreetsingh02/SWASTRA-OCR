@@ -20,7 +20,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-SCHEMA_VERSION = "2.1"
+SCHEMA_VERSION = "2.2"
 
 ERROR_CODES = {
     "empty_file": "The upload contained no bytes.",
@@ -106,16 +106,28 @@ class Entities(BaseModel):
     frequencies: list[Entity] = Field(default_factory=list, description="The frequency of every medication, in order (same objects).")
     diagnoses: list[Entity] = []
     symptoms: list[Entity] = []
-    tests: list[Entity] = Field(default_factory=list, description="Tests mentioned or advised without a result.")
+    tests: list[Entity] = Field(default_factory=list,
+                                description="Tests, panels or imaging mentioned or advised without a result.")
     test_results: list[TestResult] = []
+    vitals: list[TestResult] = Field(
+        default_factory=list,
+        description="Physiological observations measured on the patient -- blood pressure, pulse, SpO2, "
+                    "temperature, weight, height, BMI. Same shape as a lab result because they are also "
+                    "name/value/unit, but they are NOT laboratory tests and never appear in test_results.")
+    panels: list[Entity] = Field(
+        default_factory=list,
+        description="Panel or test-group headings the document reports under (Complete Blood Count, Liver "
+                    "Function Test). The analytes inside them are the rows in test_results; this is the heading "
+                    "itself, kept so the grouping is not lost. A panel merely advised is a `tests` entry instead.")
     allergies: list[Entity] = []
 
     def values(self) -> list[Entity]:
         """Every extracted value once (dosages/frequencies are the medication fields, not repeated)."""
-        out = [self.patient_name, self.doctor_name, self.date, *self.diagnoses, *self.symptoms, *self.tests, *self.allergies]
+        out = [self.patient_name, self.doctor_name, self.date, *self.diagnoses, *self.symptoms, *self.tests,
+               *self.allergies, *self.panels]
         for m in [*self.medications, *self.medication_mentions]:
             out += [m.name, m.dosage, m.frequency, m.duration]
-        for r in self.test_results:
+        for r in [*self.test_results, *self.vitals]:
             out += [r.name, r.value, r.unit, r.reference_range]
         return [v for v in out if v is not None]
 
@@ -147,7 +159,7 @@ class ErrorInfo(BaseModel):
 
 
 class ExtractionResult(BaseModel):
-    schema_version: Literal["2.1"] = SCHEMA_VERSION
+    schema_version: Literal["2.2"] = SCHEMA_VERSION
     verification_required: Literal[True] = Field(True, description="Always true. Extracted values are unverified machine output.")
     status: Status
     document_type: DocumentType = DocumentType.unknown
