@@ -1,239 +1,53 @@
 # Evaluation summary
 
-Generated 2026-09-13 23:05 by `eval/run.py`.
-
-## dev / text
-
-
-Documents: 23 · crashes: 0 · document-type accuracy: 1.0
-Extraction overall: precision 0.998 · recall 1.0 (tp 407, fp 1, fn 0)
-False positives 1 · false negatives 0 · wrong values 0 · **unflagged errors 1** · placement errors 0 · grounding failures 0
-
-| field | tp | fp | fn | precision | recall |
-|---|---|---|---|---|---|
-| allergies | 4 | 0 | 0 | 1.0 | 1.0 |
-| date | 22 | 0 | 0 | 1.0 | 1.0 |
-| diagnoses | 19 | 0 | 0 | 1.0 | 1.0 |
-| doctor_name | 15 | 0 | 0 | 1.0 | 1.0 |
-| medication | 51 | 0 | 0 | 1.0 | 1.0 |
-| medication.dosage | 48 | 0 | 0 | 1.0 | 1.0 |
-| medication.duration | 24 | 0 | 0 | 1.0 | 1.0 |
-| medication.frequency | 51 | 0 | 0 | 1.0 | 1.0 |
-| medication_mention | 4 | 0 | 0 | 1.0 | 1.0 |
-| medication_mention.dosage | 2 | 0 | 0 | 1.0 | 1.0 |
-| panel | 3 | 0 | 0 | 1.0 | 1.0 |
-| patient_name | 12 | 0 | 0 | 1.0 | 1.0 |
-| symptoms | 14 | 0 | 0 | 1.0 | 1.0 |
-| test_result | 29 | 0 | 0 | 1.0 | 1.0 |
-| test_result.reference_range | 25 | 0 | 0 | 1.0 | 1.0 |
-| test_result.unit | 28 | 0 | 0 | 1.0 | 1.0 |
-| test_result.value | 29 | 0 | 0 | 1.0 | 1.0 |
-| tests | 9 | 1 | 0 | 0.9 | 1.0 |
-| vital | 6 | 0 | 0 | 1.0 | 1.0 |
-| vital.unit | 6 | 0 | 0 | 1.0 | 1.0 |
-| vital.value | 6 | 0 | 0 | 1.0 | 1.0 |
-
-| document | status | tp/fp/fn | unflagged | critical tokens | CER | problems |
-|---|---|---|---|---|---|---|
-| discharge.txt | ok | 9/0/0 | 0 |  |  | — |
-| discharge_copd.txt | ok | 19/0/0 | 0 |  |  | — |
-| hw_rx_bradley.txt | ok | 18/0/0 | 0 |  |  | — |
-| hw_rx_brush_hard.txt | ok | 11/0/0 | 0 |  |  | — |
-| hw_rx_chalkboard.txt | ok | 14/0/0 | 0 |  |  | — |
-| hw_rx_cursive.txt | ok | 15/0/0 | 0 |  |  | — |
-| hx_discharge_kmc.txt | ok | 19/1/0 | 1 |  |  | false_positive tests: expected None got 'chest X-ray' (**NOT flagged**) |
-| hx_lab_biochem.txt | ok | 27/0/0 | 0 |  |  | — |
-| hx_lab_cbc.txt | ok | 28/0/0 | 0 |  |  | — |
-| hx_mixed_paed.txt | ok | 21/0/0 | 0 |  |  | — |
-| hx_rx_printed_gp.txt | ok | 19/0/0 | 0 |  |  | — |
-| invoice_pharmacy_gst.txt | ok | 5/0/0 | 0 |  |  | — |
-| lab_haematology_table.txt | ok | 27/0/0 | 0 |  |  | — |
-| lab_report.txt | ok | 29/0/0 | 0 |  |  | — |
-| mixed_printed_handwritten.txt | ok | 18/0/0 | 0 |  |  | — |
-| nonmedical_invoice.txt | ok | 1/0/0 | 0 |  |  | — |
-| pharma_info_minipress_letter.txt | ok | 2/0/0 | 0 |  |  | — |
-| prescription.txt | ok | 21/0/0 | 0 |  |  | — |
-| prescription_handwritten.txt | ok | 15/0/0 | 0 |  |  | — |
-| probe_false_positives.txt | ok | 27/0/0 | 0 |  |  | — |
-| probe_medication_formats.txt | ok | 24/0/0 | 0 |  |  | — |
-| rx_clinic_uti.txt | ok | 22/0/0 | 0 |  |  | — |
-| rx_paediatric_opd.txt | ok | 16/0/0 | 0 |  |  | — |
-
-## dev / ocr
-
-
-Documents: 25 · crashes: 0 · document-type accuracy: 1.0
-Extraction overall: precision 0.984 · recall 0.987 (tp 442, fp 7, fn 6)
-False positives 6 · false negatives 5 · wrong values 1 · **unflagged errors 1** · placement errors 0 · grounding failures 0
-
-OCR critical tokens: accuracy 0.988 (date 23/24 · dosage 54/54 · duration 33/33 · frequency 53/53 · header 27/27 · lab_name 38/40 · lab_value 44/44 · medicine_name 56/57)
-OCR mean CER 0.0114 · unsupported (invented/garbled) lines 0 · mean 13.34 s/file
-Output distinctness (closest to its own source): 25/25
-
-| field | tp | fp | fn | precision | recall |
-|---|---|---|---|---|---|
-| allergies | 2 | 0 | 0 | 1.0 | 1.0 |
-| date | 23 | 1 | 1 | 0.958 | 0.958 |
-| diagnoses | 21 | 2 | 2 | 0.913 | 0.913 |
-| doctor_name | 16 | 0 | 0 | 1.0 | 1.0 |
-| medication | 52 | 1 | 1 | 0.981 | 0.981 |
-| medication.dosage | 50 | 0 | 0 | 1.0 | 1.0 |
-| medication.duration | 32 | 0 | 0 | 1.0 | 1.0 |
-| medication.frequency | 52 | 0 | 0 | 1.0 | 1.0 |
-| medication_mention | 4 | 0 | 0 | 1.0 | 1.0 |
-| medication_mention.dosage | 2 | 0 | 0 | 1.0 | 1.0 |
-| panel | 3 | 0 | 0 | 1.0 | 1.0 |
-| patient_name | 9 | 0 | 0 | 1.0 | 1.0 |
-| symptoms | 12 | 0 | 0 | 1.0 | 1.0 |
-| test_result | 38 | 2 | 2 | 0.95 | 0.95 |
-| test_result.reference_range | 37 | 0 | 0 | 1.0 | 1.0 |
-| test_result.unit | 37 | 0 | 0 | 1.0 | 1.0 |
-| test_result.value | 38 | 0 | 0 | 1.0 | 1.0 |
-| tests | 8 | 1 | 0 | 0.889 | 1.0 |
-| vital | 2 | 0 | 0 | 1.0 | 1.0 |
-| vital.unit | 2 | 0 | 0 | 1.0 | 1.0 |
-| vital.value | 2 | 0 | 0 | 1.0 | 1.0 |
-
-| document | status | tp/fp/fn | unflagged | critical tokens | CER | problems |
-|---|---|---|---|---|---|---|
-| discharge.pdf | ok | 9/0/0 | 0 | 8/8 | 0.0 | — |
-| discharge_degraded.png | ok | 9/0/0 | 0 | 8/8 | 0.0 | — |
-| discharge_scan.png | ok | 9/0/0 | 0 | 8/8 | 0.0 | — |
-| hw_rx_bradley.png | low_confidence | 18/0/0 | 0 | 14/14 | 0.0 | OCR read 'Rx' as 'RX' |
-| hw_rx_brush_hard.png | ok | 10/1/1 | 0 | 9/10 | 0.031 | wrong_value date: expected '30/05/2026' got '30|05|2026' (flagged)<br>OCR missed date '30/05/2026'<br>OCR read '30/05/2026' as '30|05|2026'<br>OCR read '50mcg' as '50 mcg' |
-| hw_rx_chalkboard.png | ok | 14/0/0 | 0 | 12/12 | 0.0 | — |
-| hw_rx_cursive.png | ok | 13/2/2 | 0 | 11/11 | 0.031 | missing diagnoses: expected 'T2DM' got None<br>missing diagnoses: expected 'HTN' got None<br>false_positive diagnoses: expected None got 'T2D' (flagged)<br>false_positive diagnoses: expected None got 'H T N' (flagged)<br>OCR read 'T2DM, HTN' as 'T2D.M, H T N'<br>OCR read 'Adv:' as 'Ado:' |
-| hx_discharge_kmc.png | ok | 19/1/0 | 1 | 16/16 | 0.0 | false_positive tests: expected None got 'chest X-ray' (**NOT flagged**) |
-| hx_lab_biochem.png | ok | 27/0/0 | 0 | 15/15 | 0.0 | — |
-| hx_lab_cbc.png | low_confidence | 28/0/0 | 0 | 15/15 | 0.084 | — |
-| hx_lab_cbc_degraded.jpg | low_confidence | 28/0/0 | 0 | 15/15 | 0.084 | — |
-| hx_mixed_paed.png | ok | 21/0/0 | 0 | 15/15 | 0.0 | — |
-| hx_rx_printed_gp.png | ok | 19/0/0 | 0 | 15/15 | 0.0 | — |
-| hx_rx_printed_gp_photo.heic | ok | 19/0/0 | 0 | 15/15 | 0.0 | — |
-| invoice_pharmacy_gst.png | ok | 5/0/0 | 0 | 5/5 | 0.0 | — |
-| lab_report.pdf | ok | 29/0/0 | 0 | 16/16 | 0.0 | — |
-| lab_report_degraded.png | ok | 25/1/1 | 0 | 15/16 | 0.003 | missing test_result: expected 'HbA1c' got None<br>false_positive test_result: expected None got 'HbAlc' (flagged)<br>OCR missed lab_name 'HbA1c'<br>OCR read 'HbA1c' as 'HbAlc' |
-| lab_report_scan.png | ok | 25/1/1 | 0 | 15/16 | 0.003 | missing test_result: expected 'HbA1c' got None<br>false_positive test_result: expected None got 'HbAlc' (flagged)<br>OCR missed lab_name 'HbA1c'<br>OCR read 'HbA1c' as 'HbAlc' |
-| mixed_printed_handwritten.png | ok | 18/0/0 | 0 | 13/13 | 0.0 | — |
-| pharma_info_minipress_letter.png | ok | 2/0/0 | 0 | 2/2 | 0.037 | OCR read 'finally cooled down.' as 'fina' |
-| prescription.pdf | ok | 21/0/0 | 0 | 18/18 | 0.0 | — |
-| prescription_degraded.png | ok | 21/0/0 | 0 | 18/18 | 0.0 | — |
-| prescription_handwritten.png | ok | 11/1/1 | 0 | 14/15 | 0.013 | missing medication: expected 'Augmtin' got None<br>false_positive medication: expected None got 'Augmentin' (flagged)<br>OCR missed medicine_name 'Augmtin'<br>OCR read 'Rx' as 'RX'<br>OCR read 'Augmtin' as 'Augmentin' |
-| prescription_photo_handheld.jpg | ok | 21/0/0 | 0 | 18/18 | 0.0 | — |
-| prescription_scan.png | ok | 21/0/0 | 0 | 18/18 | 0.0 | — |
-
-## heldout / text
-
-
-Documents: 4 · crashes: 0 · document-type accuracy: 1.0
-Extraction overall: precision 0.975 · recall 0.963 (tp 79, fp 2, fn 3)
-False positives 0 · false negatives 1 · wrong values 2 · **unflagged errors 2** · placement errors 0 · grounding failures 0
-
-| field | tp | fp | fn | precision | recall |
-|---|---|---|---|---|---|
-| date | 3 | 1 | 1 | 0.75 | 0.75 |
-| diagnoses | 2 | 0 | 0 | 1.0 | 1.0 |
-| doctor_name | 3 | 0 | 0 | 1.0 | 1.0 |
-| medication | 7 | 0 | 0 | 1.0 | 1.0 |
-| medication.dosage | 4 | 1 | 1 | 0.8 | 0.8 |
-| medication.duration | 2 | 0 | 0 | 1.0 | 1.0 |
-| medication.frequency | 6 | 0 | 1 | 1.0 | 0.857 |
-| patient_name | 3 | 0 | 0 | 1.0 | 1.0 |
-| symptoms | 1 | 0 | 0 | 1.0 | 1.0 |
-| test_result | 12 | 0 | 0 | 1.0 | 1.0 |
-| test_result.reference_range | 12 | 0 | 0 | 1.0 | 1.0 |
-| test_result.unit | 12 | 0 | 0 | 1.0 | 1.0 |
-| test_result.value | 12 | 0 | 0 | 1.0 | 1.0 |
-
-| document | status | tp/fp/fn | unflagged | critical tokens | CER | problems |
-|---|---|---|---|---|---|---|
-| hx_labs_2page.txt | ok | 50/1/1 | 1 |  |  | wrong_value date: expected '09/08/2026' got '21-08-2026' (**NOT flagged**) |
-| hx_nonmedical_notice.txt | ok | 1/0/0 | 0 |  |  | — |
-| hx_rx_hand_banerjee.txt | ok | 14/1/2 | 1 |  |  | missing medication.frequency: expected 'BBF' got None<br>wrong_value medication.dosage: expected '2 tsp' got '2' (**NOT flagged**) |
-| hx_rx_hand_iqbal.txt | ok | 14/0/0 | 0 |  |  | — |
-
-## heldout / ocr
-
-
-Documents: 4 · crashes: 0 · document-type accuracy: 1.0
-Extraction overall: precision 0.975 · recall 0.963 (tp 79, fp 2, fn 3)
-False positives 0 · false negatives 1 · wrong values 2 · **unflagged errors 2** · placement errors 0 · grounding failures 0
-
-OCR critical tokens: accuracy 1.0 (date 4/4 · dosage 5/5 · duration 2/2 · frequency 7/7 · header 6/6 · lab_name 12/12 · lab_value 13/13 · medicine_name 7/7)
-OCR mean CER 0.0115 · unsupported (invented/garbled) lines 0 · mean 16.85 s/file
-Output distinctness (closest to its own source): 4/4
-
-| field | tp | fp | fn | precision | recall |
-|---|---|---|---|---|---|
-| date | 3 | 1 | 1 | 0.75 | 0.75 |
-| diagnoses | 2 | 0 | 0 | 1.0 | 1.0 |
-| doctor_name | 3 | 0 | 0 | 1.0 | 1.0 |
-| medication | 7 | 0 | 0 | 1.0 | 1.0 |
-| medication.dosage | 4 | 1 | 1 | 0.8 | 0.8 |
-| medication.duration | 2 | 0 | 0 | 1.0 | 1.0 |
-| medication.frequency | 6 | 0 | 1 | 1.0 | 0.857 |
-| patient_name | 3 | 0 | 0 | 1.0 | 1.0 |
-| symptoms | 1 | 0 | 0 | 1.0 | 1.0 |
-| test_result | 12 | 0 | 0 | 1.0 | 1.0 |
-| test_result.reference_range | 12 | 0 | 0 | 1.0 | 1.0 |
-| test_result.unit | 12 | 0 | 0 | 1.0 | 1.0 |
-| test_result.value | 12 | 0 | 0 | 1.0 | 1.0 |
-
-| document | status | tp/fp/fn | unflagged | critical tokens | CER | problems |
-|---|---|---|---|---|---|---|
-| hx_labs_2page.pdf | low_confidence | 50/1/1 | 1 | 28/28 | 0.046 | wrong_value date: expected '09/08/2026' got '21-08-2026' (**NOT flagged**) |
-| hx_nonmedical_notice.png | ok | 1/0/0 | 0 | 1/1 | 0.0 | — |
-| hx_rx_hand_banerjee.png | ok | 14/1/2 | 1 | 15/15 | 0.0 | missing medication.frequency: expected 'BBF' got None<br>wrong_value medication.dosage: expected '2 tsp' got '2' (**NOT flagged**) |
-| hx_rx_hand_iqbal.png | ok | 14/0/0 | 0 | 12/12 | 0.0 | OCR read 'Syp' as 'syp' |
-
-## real_world / text
-
-- no text cases in real_world
-
-_No documents._
+Generated 2026-09-14 03:09 by `eval/run.py`.
 
 ## real_world / ocr
 
-- no ocr cases in real_world
 
-_No documents._
+Documents: 21 · crashes: 0 · document-type accuracy: 0.095
+Extraction overall: precision 0.383 · recall 0.218 (tp 36, fp 58, fn 129)
+False positives 55 · false negatives 126 · wrong values 3 · **unflagged errors 4** · placement errors 3 · grounding failures 0
 
-## Reliability
+OCR critical tokens: accuracy 0.589 (date 5/6 · dosage 45/59 · duration 1/4 · frequency 20/29 · medicine_name 32/77)
+OCR mean CER None · unsupported (invented/garbled) lines 0 · mean 50.42 s/file
+Output distinctness (closest to its own source): 0/0
 
-Non-documents returning `unreadable` with no entities: **7/7**
+| field | tp | fp | fn | precision | recall |
+|---|---|---|---|---|---|
+| date | 4 | 0 | 2 | 1.0 | 0.667 |
+| diagnoses | 2 | 7 | 10 | 0.222 | 0.167 |
+| medication | 10 | 14 | 67 | 0.417 | 0.13 |
+| medication.dosage | 3 | 2 | 4 | 0.6 | 0.429 |
+| medication.duration | 0 | 1 | 2 | 0.0 | 0.0 |
+| medication.frequency | 2 | 0 | 3 | 1.0 | 0.4 |
+| symptoms | 2 | 6 | 1 | 0.25 | 0.667 |
+| tests | 5 | 27 | 28 | 0.156 | 0.152 |
+| vital | 3 | 0 | 11 | 1.0 | 0.214 |
+| vital.unit | 3 | 0 | 0 | 1.0 | 1.0 |
+| vital.value | 2 | 1 | 1 | 0.667 | 0.667 |
 
-- no_document_table.jpg: pass (unreadable)
-- unreadable_blurred.jpg: pass (unreadable)
-- unreadable_dark.jpg: pass (unreadable)
-- white_page.png: pass (unreadable)
-- noise.png: pass (unreadable)
-- dust.png: pass (unreadable)
-- dark_object.png: pass (unreadable)
+| document | status | tp/fp/fn | unflagged | critical tokens | CER | problems |
+|---|---|---|---|---|---|---|
+| rw_001.jpeg | unreadable | 0/0/4 | 0 | 2/3 | None | missing medication: expected 'Levipil' got None<br>missing vital: expected 'BP' got None<br>missing diagnoses: expected ['Trigeminal schwannoma', 'Trigeminal schwannoma (Lt)'] got None<br>missing tests: expected ['MRI of brain', 'MRI'] got None<br>OCR missed frequency '1+0+1' |
+| rw_002.jpeg | low_confidence | 0/2/0 | 0 | 0/0 | None | false_positive tests: expected None got 'X-ray' (flagged)<br>false_positive tests: expected None got 'Laserdr' (flagged) |
+| rw_003.jpeg | low_confidence | 2/3/5 | 0 | 6/8 | None | wrong_value medication.dosage: expected '1 gm/10ml' got '10ml' (flagged)<br>missing medication: expected 'Ace' got None<br>missing medication: expected ['DNS', '5% DNS'] got None<br>false_positive medication: expected None got 'Aee' (flagged)<br>missing diagnoses: expected ['Bronchiolitis'] got None<br>missing diagnoses: expected ['Bronchopneumonia'] got None<br>false_positive diagnoses: expected None got 'Oromalubilto' (flagged)<br>OCR missed medicine_name 'Ace'<br>OCR missed medicine_name 'DNS' |
+| rw_004.jpeg | ok | 2/6/11 | 1 | 24/31 | None | missing date: expected '26/11/25' got None<br>missing medication: expected 'Ecosprin' got None<br>missing medication: expected 'Clopid' got None<br>missing medication: expected 'Tiginor' got None<br>missing medication: expected 'Bislol' got None<br>missing medication: expected ['Nidocard RTD', 'Nidocard'] got None<br>missing medication: expected 'Ramace' got None<br>missing medication: expected 'Cardinex' got None<br>missing medication: expected 'Pethidine' got None<br>missing medication: expected 'Pantobex' got None<br>missing medication: expected 'Panderta' got None<br>false_positive medication: expected None got 'O2 inhalation' (flagged)<br>false_positive medication: expected None got '1 PFS S/C' (flagged)<br>false_positive medication: expected None got '50mg I/V slowly' (flagged)<br>false_positive medication: expected None got '1 amp I/V' (flagged)<br>false_positive tests: expected None got 'A/M' (flagged)<br>false_positive tests: expected None got 'B/M' (**NOT flagged**)<br>OCR missed medicine_name 'Tiginor'<br>OCR missed medicine_name 'Bislol'<br>OCR missed medicine_name 'Nidocard RTD'<br>OCR missed frequency '1+1+0'<br>OCR missed medicine_name 'Ramace'<br>OCR missed medicine_name 'Panderta'<br>OCR missed date '26/11/25' |
+| rw_005.jpeg | low_confidence | 2/2/8 | 0 | 0/0 | None | wrong_value vital.value: expected '100/70' got '160/700' (flagged)<br>missing tests: expected ['SGPT'] got None<br>missing tests: expected ['SGOT'] got None<br>missing tests: expected ['CBC'] got None<br>missing tests: expected ['Urea'] got None<br>missing tests: expected ['Creatinine'] got None<br>missing tests: expected ['RBS'] got None<br>missing tests: expected ['CXR'] got None<br>false_positive tests: expected None got 'Luna RPB' (flagged) |
+| rw_006.jpeg | low_confidence | 0/0/4 | 0 | 0/0 | None | missing vital: expected 'BP' got None<br>missing tests: expected ['CBC'] got None<br>missing tests: expected ['CXR'] got None<br>missing tests: expected ['RBS'] got None |
+| rw_007.jpeg | low_confidence | 0/4/4 | 0 | 3/4 | None | missing medication: expected ['Flexi-SR', 'Flexi'] got None<br>missing medication: expected 'Progut' got None<br>false_positive diagnoses: expected None got 'Backache' (flagged)<br>missing symptoms: expected ['Backache'] got None<br>false_positive symptoms: expected None got 'No long journey' (flagged)<br>missing tests: expected ['X-ray Lumbosacral Spines', 'X-ray Lumbosacral Spine'] got None<br>false_positive tests: expected None got 'X-ray' (flagged)<br>false_positive tests: expected None got 'Kms' (flagged)<br>OCR missed frequency '1+0+1' |
+| rw_008.jpeg | low_confidence | 1/2/5 | 0 | 4/11 | None | missing medication: expected 'Actrapid' got None<br>missing medication: expected 'Emistat' got None<br>missing medication: expected 'Ceftriaxone' got None<br>missing medication: expected 'Omep' got None<br>missing medication: expected ['N/S', 'NS'] got None<br>false_positive diagnoses: expected None got 'Diab' (flagged)<br>false_positive diagnoses: expected None got 'Diabatic' (flagged)<br>OCR missed medicine_name 'Actrapid'<br>OCR missed medicine_name 'Emistat'<br>OCR missed medicine_name 'Ceftriaxone'<br>OCR missed dosage '1gm'<br>OCR missed medicine_name 'Omep'<br>OCR missed medicine_name 'N/S'<br>OCR missed dosage '1L' |
+| rw_009.jpeg | low_confidence | 1/4/3 | 0 | 1/3 | None | missing medication: expected ['Axicet plus', 'Axicet'] got None<br>missing medication: expected 'Trilock' got None<br>false_positive medication: expected None got 'Axiced plus' (flagged)<br>false_positive medication: expected None got 'Timbal Pay' (flagged)<br>false_positive medication: expected None got 'Triloch' (flagged)<br>missing tests: expected ['CXR P/A', 'CXR'] got None<br>false_positive tests: expected None got 'Adv' (flagged)<br>OCR missed medicine_name 'Axicet plus'<br>OCR missed medicine_name 'Trilock' |
+| rw_010.jpeg | unreadable | 0/0/2 | 0 | 0/3 | None | missing medication: expected ['Oxynex', 'Oxynex Nasal Drop'] got None<br>missing medication: expected ['Lorix Plus Lotion', 'LORIX Plus'] got None<br>OCR missed medicine_name 'Oxynex'<br>OCR missed dosage '0.05/0.05%'<br>OCR missed medicine_name 'Lorix Plus Lotion' |
+| rw_011.jpeg | unreadable | 0/0/6 | 0 | 2/9 | None | missing medication: expected 'Clopid' got None<br>missing medication: expected ['Cifixet', 'Cifixet 100'] got None<br>missing medication: expected ['Alphapres', 'Alphapres-2'] got None<br>missing medication: expected 'Olmesan' got None<br>missing medication: expected ['Maxpro', 'Maxpro 40'] got None<br>missing vital: expected 'BP' got None<br>OCR missed medicine_name 'Clopid'<br>OCR missed dosage '75'<br>OCR missed medicine_name 'Cifixet'<br>OCR missed dosage '100'<br>OCR missed medicine_name 'Alphapres'<br>OCR missed medicine_name 'Olmesan'<br>OCR missed medicine_name 'Maxpro' |
+| rw_012.jpeg | unreadable | 0/0/11 | 0 | 9/10 | None | missing date: expected '04/12/25' got None<br>missing medication: expected ['DNS', '5% DNS'] got None<br>missing medication: expected 'Emistat' got None<br>missing medication: expected 'Napa' got None<br>missing medication: expected 'Napa' got None<br>missing vital: expected 'BP' got None<br>missing tests: expected ['CBC'] got None<br>missing tests: expected ['S. Ferritin', 'Ferritin'] got None<br>missing tests: expected ['PT'] got None<br>missing tests: expected ['INR'] got None<br>missing tests: expected ['Albumin'] got None<br>OCR missed dosage '8mg/4mL' |
+| rw_013.jpeg | low_confidence | 4/5/12 | 0 | 7/13 | None | wrong_value medication.duration: expected '7 days' got '7 day' (flagged)<br>missing medication.dosage: expected '150' got None<br>missing medication.duration: expected '7 days' got None<br>missing medication: expected ['Nausifr MPS', 'Nausifr'] got None<br>missing medication: expected 'Entakerv' got None<br>missing vital: expected 'BP' got None<br>missing diagnoses: expected ['Parotitis'] got None<br>false_positive diagnoses: expected None got 'Paothip' (flagged)<br>false_positive symptoms: expected None got 'Gargling' (flagged)<br>missing tests: expected ['Urine R/E'] got None<br>missing tests: expected ['Hb'] got None<br>missing tests: expected ['TC'] got None<br>missing tests: expected ['DC'] got None<br>missing tests: expected ['ESR'] got None<br>false_positive tests: expected None got 'Shell 12000' (flagged)<br>false_positive tests: expected None got 'Urine' (flagged)<br>OCR missed duration '7 days'<br>OCR missed dosage '150'<br>OCR missed medicine_name 'Nausifr MPS'<br>OCR missed medicine_name 'Entakerv' |
+| rw_014.jpeg | unreadable | 0/0/1 | 0 | 0/2 | None | missing medication: expected 'Maxpro' got None<br>OCR missed medicine_name 'Maxpro'<br>OCR missed dosage '20mg' |
+| rw_015.jpeg | ok | 2/2/7 | 1 | 7/8 | None | missing medication: expected ['DNS', '5% DNS'] got None<br>missing medication: expected 'Omeprazole' got None<br>missing medication: expected 'Algin' got None<br>false_positive medication: expected None got '1 amp. IV' (flagged)<br>missing vital: expected 'Wt' got None<br>missing vital: expected 'Height' got None<br>missing vital: expected 'BMI' got None<br>missing diagnoses: expected ['DF', 'DF (NS1 +ve)'] got None<br>false_positive tests: expected None got 'DNS' (**NOT flagged**)<br>OCR missed dosage '40mg/10mL' |
+| rw_016.jpeg | low_confidence | 5/3/5 | 0 | 7/14 | None | missing medication: expected 'Zemicet' got None<br>missing medication.frequency: expected '1+1+1' got None<br>missing medication.frequency: expected '1+1+1' got None<br>missing medication: expected 'Progut' got None<br>unexpected_value medication.dosage: expected None got '01100' (flagged)<br>missing medication.frequency: expected '0+1+0' got None<br>false_positive medication: expected None got 'Zemieet' (flagged)<br>false_positive medication: expected None got 'progul' (flagged)<br>OCR missed medicine_name 'Zemicet'<br>OCR missed frequency '1+0+1'<br>OCR missed frequency '1+1+1'<br>OCR missed medicine_name 'Progut'<br>OCR missed frequency '0+1+0' |
+| rw_017.jpeg | low_confidence | 8/6/10 | 1 | 9/21 | None | missing medication: expected 'Moxaclav' got None<br>missing medication: expected 'Lasix' got None<br>missing medication: expected 'Budecort' got None<br>missing medication: expected 'Sulprex' got None<br>missing medication: expected 'Hintacin' got None<br>missing medication: expected ['Calbo-D', 'Calbo'] got None<br>missing medication: expected 'B-complex' got None<br>missing medication: expected 'Cofan' got None<br>missing medication: expected ['Fomotacle', 'Fomotacle'] got None<br>false_positive medication: expected None got '1 amp UV' (flagged)<br>missing diagnoses: expected ['Pneumonia'] got None<br>false_positive symptoms: expected None got 'Pneumonia' (flagged)<br>false_positive tests: expected None got 'BmK' (flagged)<br>false_positive tests: expected None got 'INF' (**NOT flagged**)<br>false_positive tests: expected None got 'lung BP' (flagged)<br>false_positive tests: expected None got 'Tab. B complex' (flagged)<br>OCR missed medicine_name 'Moxaclav'<br>OCR missed dosage '1.2g/20ml'<br>OCR missed medicine_name 'Lasix'<br>OCR missed medicine_name 'Budecort'<br>OCR missed medicine_name 'Hintacin'<br>OCR missed dosage '1 tsf'<br>OCR missed medicine_name 'Calbo-D'<br>OCR missed medicine_name 'B-complex'<br>OCR missed medicine_name 'Cofan'<br>OCR missed medicine_name 'Fomotacle'<br>OCR missed dosage '1/2 tsf'<br>OCR missed frequency 'once daily' |
+| rw_018.jpeg | low_confidence | 0/0/3 | 0 | 2/4 | None | missing medication: expected 'Acitra' got None<br>missing medication: expected 'Lactobac' got None<br>missing medication: expected 'Septovit' got None<br>OCR missed medicine_name 'Acitra'<br>OCR missed medicine_name 'Septovit' |
+| rw_019.jpeg | low_confidence | 2/2/1 | 1 | 0/0 | None | missing diagnoses: expected ['Secondaries in the liver'] got None<br>false_positive diagnoses: expected None got 'Secundarius' (flagged)<br>false_positive tests: expected None got 'Primary' (**NOT flagged**) |
+| rw_020.jpeg | low_confidence | 2/6/12 | 0 | 11/17 | None | missing medication: expected 'Anilin' got None<br>missing medication: expected 'Deprex' got None<br>missing medication: expected ['Ovocal-D', 'Ovocal'] got None<br>missing medication: expected ['Surgel-40', 'Surgel'] got None<br>missing medication: expected ['Reservip', 'Reservip 100'] got None<br>missing medication: expected 'Cortam' got None<br>missing medication: expected 'Regicr' got None<br>missing medication: expected 'Tolfen' got None<br>false_positive medication: expected None got 'Regier' (flagged)<br>false_positive medication: expected None got 'Tolfert' (flagged)<br>missing vital: expected 'P' got None<br>missing vital: expected 'BP' got None<br>missing tests: expected ['S. Uric Acid', 'Uric Acid'] got None<br>missing tests: expected ['RBS'] got None<br>false_positive tests: expected None got 'HA' (flagged)<br>false_positive tests: expected None got 'C001d' (flagged)<br>false_positive tests: expected None got 'P-32n' (flagged)<br>false_positive tests: expected None got 'PMA' (flagged)<br>OCR missed medicine_name 'Deprex'<br>OCR missed medicine_name 'Ovocal-D'<br>OCR missed medicine_name 'Reservip'<br>OCR missed medicine_name 'Cortam'<br>OCR missed medicine_name 'Regicr'<br>OCR missed medicine_name 'Tolfen' |
+| rw_021.jpeg | low_confidence | 5/11/15 | 0 | 9/14 | None | missing medication: expected ['Oflacin', 'Oflacin (400)'] got None<br>missing medication.dosage: expected '60m' got None<br>missing medication: expected ['Citra-K', 'Citra'] got None<br>missing medication: expected 'Napadol' got None<br>missing medication: expected 'Epiclon' got None<br>missing medication.dosage: expected '0.4' got None<br>missing medication: expected 'Cilocab' got None<br>missing medication: expected 'Rostab' got None<br>missing vital: expected 'BP' got None<br>missing diagnoses: expected ['UTI'] got None<br>missing diagnoses: expected ['BEP'] got None<br>missing diagnoses: expected ['Epididymoorchitis'] got None<br>false_positive diagnoses: expected None got 'DM' (flagged)<br>false_positive symptoms: expected None got 'Lower abdominal pain' (flagged)<br>false_positive symptoms: expected None got 'crackling' (flagged)<br>false_positive symptoms: expected None got 'Urinary discharge' (flagged)<br>missing tests: expected ['Urine R/E'] got None<br>missing tests: expected ['CBC'] got None<br>missing tests: expected ['USG KUB', 'USG'] got None<br>false_positive tests: expected None got 'BP' (flagged)<br>false_positive tests: expected None got 'Hg' (flagged)<br>false_positive tests: expected None got 'Clair' (flagged)<br>false_positive tests: expected None got 'CRL' (flagged)<br>false_positive tests: expected None got 'USS' (flagged)<br>false_positive tests: expected None got 'KLI' (flagged)<br>false_positive tests: expected None got 'SFP' (flagged)<br>OCR missed medicine_name 'Oflacin'<br>OCR missed dosage '60m'<br>OCR missed medicine_name 'Citra-K'<br>OCR missed medicine_name 'Epiclon'<br>OCR missed dosage '0.5' |
 
-Hallucination detector (OCR stubbed with the true text plus one invented line): detected **21/25**, invented-line entities not flagged **16**, false alarms on clean text 0/25
-
-- dev/discharge_degraded.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/discharge_scan.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/hw_rx_bradley.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/hw_rx_brush_hard.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/hw_rx_chalkboard.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/hw_rx_cursive.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/hx_discharge_kmc.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/hx_lab_biochem.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/hx_lab_cbc.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/hx_lab_cbc_degraded.jpg: detected=True unflagged_invented=0 false_alarm=False
-- dev/hx_mixed_paed.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/hx_rx_printed_gp.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/hx_rx_printed_gp_photo.heic: detected=False unflagged_invented=4 false_alarm=False
-- dev/invoice_pharmacy_gst.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/lab_report_degraded.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/lab_report_scan.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/mixed_printed_handwritten.png: detected=False unflagged_invented=4 false_alarm=False
-- dev/pharma_info_minipress_letter.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/prescription_degraded.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/prescription_handwritten.png: detected=True unflagged_invented=0 false_alarm=False
-- dev/prescription_photo_handheld.jpg: detected=False unflagged_invented=4 false_alarm=False
-- dev/prescription_scan.png: detected=True unflagged_invented=0 false_alarm=False
-- heldout/hx_nonmedical_notice.png: detected=True unflagged_invented=0 false_alarm=False
-- heldout/hx_rx_hand_banerjee.png: detected=True unflagged_invented=0 false_alarm=False
-- heldout/hx_rx_hand_iqbal.png: detected=False unflagged_invented=4 false_alarm=False

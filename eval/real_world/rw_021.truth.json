@@ -1,0 +1,109 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [
+  {
+   "name": [
+    "Oflacin",
+    "Oflacin (400)"
+   ],
+   "dosage": "400",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": [
+    "Dexilond",
+    "Dexilon"
+   ],
+   "dosage": "60m",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": [
+    "Citra-K",
+    "Citra"
+   ],
+   "dosage": null,
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Napadol",
+   "dosage": null,
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Epiclon",
+   "dosage": "0.5",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Uromax",
+   "dosage": "0.4",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Cilocab",
+   "dosage": "5",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Rostab",
+   "dosage": "5",
+   "frequency": null,
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [
+  [
+   "Urine R/E"
+  ],
+  [
+   "CBC"
+  ],
+  [
+   "USG KUB",
+   "USG"
+  ],
+  [
+   "RBS"
+  ]
+ ],
+ "diagnoses": [
+  [
+   "UTI"
+  ],
+  [
+   "BEP"
+  ],
+  [
+   "Epididymoorchitis"
+  ]
+ ],
+ "symptoms": [
+  [
+   "Fever"
+  ],
+  [
+   "Burning micturition"
+  ]
+ ],
+ "allergies": [],
+ "vitals": [
+  {
+   "name": "BP",
+   "value": "150/80",
+   "unit": null
+  }
+ ],
+ "notes": "Legible. DM 2 yrs noted as history."
+}

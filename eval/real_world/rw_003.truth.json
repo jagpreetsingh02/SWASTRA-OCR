@@ -1,0 +1,45 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": [
+  "07.12.25",
+  "08.12.25"
+ ],
+ "medications": [
+  {
+   "name": "Ceftriaxone",
+   "dosage": "1 gm/10ml",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Ace",
+   "dosage": "1.5ml",
+   "frequency": "QDS",
+   "duration": null
+  },
+  {
+   "name": [
+    "DNS",
+    "5% DNS"
+   ],
+   "dosage": "480 ml",
+   "frequency": null,
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [
+  [
+   "Bronchiolitis"
+  ],
+  [
+   "Bronchopneumonia"
+  ]
+ ],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Legible English inpatient order. Also present but not scored: O2 inhalation via nasal cannula, nebulisation with 3% NaCl, Solo nasal drop."
+}

@@ -1,0 +1,47 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [
+  {
+   "name": "Zemicet",
+   "dosage": "200 mg",
+   "frequency": "1+0+1",
+   "duration": null
+  },
+  {
+   "name": "Isovent",
+   "dosage": "200 mg",
+   "frequency": "1+1+1",
+   "duration": null
+  },
+  {
+   "name": "Napa",
+   "dosage": "500 mg",
+   "frequency": "1+1+1",
+   "duration": null
+  },
+  {
+   "name": "Progut",
+   "dosage": "20 mg",
+   "frequency": "1+0+1",
+   "duration": null
+  },
+  {
+   "name": [
+    "Ceevit",
+    "Ceevit - DS"
+   ],
+   "dosage": null,
+   "frequency": "0+1+0",
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Very legible Rx. Durations are written in Bangla numerals and are therefore left null rather than converted to Latin digits."
+}

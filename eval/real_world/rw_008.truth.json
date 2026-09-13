@@ -1,0 +1,47 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": "3/11/25",
+ "medications": [
+  {
+   "name": "Actrapid",
+   "dosage": "100IU",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Emistat",
+   "dosage": "8",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Ceftriaxone",
+   "dosage": "1gm",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Omep",
+   "dosage": "40",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": [
+    "N/S",
+    "NS"
+   ],
+   "dosage": "1L",
+   "frequency": null,
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Legible English inpatient order (diabetic diet, insulin infusion)."
+}

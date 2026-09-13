@@ -1,0 +1,93 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": "20.12.2025",
+ "medications": [
+  {
+   "name": "Moxaclav",
+   "dosage": "1.2g/20ml",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Lasix",
+   "dosage": "1 amp",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Budecort",
+   "dosage": "1ml",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Sulprex",
+   "dosage": "0.5ml",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Hintacin",
+   "dosage": "1 tsf",
+   "frequency": "BD",
+   "duration": null
+  },
+  {
+   "name": [
+    "Calbo-D",
+    "Calbo"
+   ],
+   "dosage": null,
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "B-complex",
+   "dosage": null,
+   "frequency": "1+0+1",
+   "duration": null
+  },
+  {
+   "name": "Cofan",
+   "dosage": "20mg",
+   "frequency": "2+0+0",
+   "duration": null
+  },
+  {
+   "name": [
+    "Fomotacle",
+    "Fomotacle"
+   ],
+   "dosage": "1/2 tsf",
+   "frequency": "once daily",
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [
+  [
+   "Nephrotic Syndrome"
+  ],
+  [
+   "Pneumonia"
+  ]
+ ],
+ "symptoms": [],
+ "allergies": [],
+ "vitals": [
+  {
+   "name": "Wt",
+   "value": "19",
+   "unit": "kg"
+  },
+  {
+   "name": "Ht",
+   "value": "108",
+   "unit": "cm"
+  }
+ ],
+ "notes": "Legible paediatric nephrotic-syndrome order. A BP centile chart is printed on the page; those are reference values, not this patient's measurements, and are not recorded."
+}

@@ -1,0 +1,32 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [
+  {
+   "name": [
+    "Oxynex",
+    "Oxynex Nasal Drop"
+   ],
+   "dosage": "0.05/0.05%",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": [
+    "Lorix Plus Lotion",
+    "LORIX Plus"
+   ],
+   "dosage": null,
+   "frequency": null,
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Largely Bangla and poorly legible; the two recorded names come from PRINTED labels on the page, not from the handwriting. Handwritten syrup names were not read with confidence."
+}

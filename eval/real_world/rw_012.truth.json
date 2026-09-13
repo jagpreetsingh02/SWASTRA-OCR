@@ -1,0 +1,65 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": "04/12/25",
+ "medications": [
+  {
+   "name": [
+    "DNS",
+    "5% DNS"
+   ],
+   "dosage": "234mL",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Emistat",
+   "dosage": "8mg/4mL",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Napa",
+   "dosage": "120mg/5mL",
+   "frequency": "6hrly",
+   "duration": null
+  },
+  {
+   "name": "Napa",
+   "dosage": "250mg",
+   "frequency": null,
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [
+  [
+   "CBC"
+  ],
+  [
+   "S. Ferritin",
+   "Ferritin"
+  ],
+  [
+   "PT"
+  ],
+  [
+   "INR"
+  ],
+  [
+   "Albumin"
+  ]
+ ],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "vitals": [
+  {
+   "name": "BP",
+   "value": "90/65",
+   "unit": "mmHg"
+  }
+ ],
+ "notes": "Very legible fluid/drug order sheet with timed entries."
+}

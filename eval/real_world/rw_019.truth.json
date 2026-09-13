@@ -1,0 +1,24 @@
+{
+ "document_type": "other_medical",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [],
+ "test_results": [],
+ "tests": [
+  [
+   "Endoscopy"
+  ],
+  [
+   "Colonoscopy"
+  ]
+ ],
+ "diagnoses": [
+  [
+   "Secondaries in the liver"
+  ]
+ ],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "A short clinical note, not a prescription: no medicines are written on it."
+}

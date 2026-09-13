@@ -1,0 +1,37 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [
+  {
+   "name": "Levipil",
+   "dosage": "500",
+   "frequency": "1+0+1",
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [
+  [
+   "MRI of brain",
+   "MRI"
+  ]
+ ],
+ "diagnoses": [
+  [
+   "Trigeminal schwannoma",
+   "Trigeminal schwannoma (Lt)"
+  ]
+ ],
+ "symptoms": [],
+ "allergies": [],
+ "vitals": [
+  {
+   "name": "BP",
+   "value": "110/60",
+   "unit": null
+  }
+ ],
+ "notes": "Legible English. Dosing written 1+0+1. Advice line: MRI of brain c contrast (1.5T)."
+}

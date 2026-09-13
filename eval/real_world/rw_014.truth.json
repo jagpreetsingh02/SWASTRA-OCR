@@ -1,0 +1,20 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [
+  {
+   "name": "Maxpro",
+   "dosage": "20mg",
+   "frequency": null,
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Bangla-mixed, moderate legibility. Only one drug name was read with confidence; the other seven lines were not, so they are omitted rather than guessed."
+}

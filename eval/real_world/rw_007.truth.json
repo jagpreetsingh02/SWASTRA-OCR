@@ -1,0 +1,38 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [
+  {
+   "name": [
+    "Flexi-SR",
+    "Flexi"
+   ],
+   "dosage": null,
+   "frequency": "1+0+1",
+   "duration": null
+  },
+  {
+   "name": "Progut",
+   "dosage": "40 mg",
+   "frequency": null,
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [
+  [
+   "X-ray Lumbosacral Spines",
+   "X-ray Lumbosacral Spine"
+  ]
+ ],
+ "diagnoses": [],
+ "symptoms": [
+  [
+   "Backache"
+  ]
+ ],
+ "allergies": [],
+ "notes": "Legible. A third drug (Beklo 10mg?) was not read with enough confidence to record."
+}

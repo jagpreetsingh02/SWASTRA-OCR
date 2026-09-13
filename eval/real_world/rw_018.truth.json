@@ -1,0 +1,32 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [
+  {
+   "name": "Acitra",
+   "dosage": "10mg",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Lactobac",
+   "dosage": null,
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Septovit",
+   "dosage": null,
+   "frequency": null,
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Moderate legibility; dosing written in Bangla so left null."
+}

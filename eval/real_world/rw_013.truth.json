@@ -1,0 +1,68 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [
+  {
+   "name": "TREXYDIN",
+   "dosage": null,
+   "frequency": "twice daily",
+   "duration": "7 days"
+  },
+  {
+   "name": "ROXITEM",
+   "dosage": "150",
+   "frequency": "twice daily",
+   "duration": "7 days"
+  },
+  {
+   "name": [
+    "Nausifr MPS",
+    "Nausifr"
+   ],
+   "dosage": null,
+   "frequency": "twice daily",
+   "duration": "7 days"
+  },
+  {
+   "name": "Entakerv",
+   "dosage": null,
+   "frequency": "0-0-0",
+   "duration": "7 days"
+  }
+ ],
+ "test_results": [],
+ "tests": [
+  [
+   "Urine R/E"
+  ],
+  [
+   "Hb"
+  ],
+  [
+   "TC"
+  ],
+  [
+   "DC"
+  ],
+  [
+   "ESR"
+  ]
+ ],
+ "diagnoses": [
+  [
+   "Parotitis"
+  ]
+ ],
+ "symptoms": [],
+ "allergies": [],
+ "vitals": [
+  {
+   "name": "BP",
+   "value": "130/90",
+   "unit": null
+  }
+ ],
+ "notes": "PRIVACY: this page carries a handwritten patient name despite the corpus being described as de-identified. It is deliberately NOT transcribed here. If the engine extracts a patient_name on this document that is a CORRECT extraction, and any resulting false positive must be discounted."
+}

@@ -1,0 +1,83 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": "26/11/25",
+ "medications": [
+  {
+   "name": "Ecosprin",
+   "dosage": "75mg",
+   "frequency": "0+1+0",
+   "duration": null
+  },
+  {
+   "name": "Clopid",
+   "dosage": "75mg",
+   "frequency": "0+1+0",
+   "duration": null
+  },
+  {
+   "name": "Tiginor",
+   "dosage": "40mg",
+   "frequency": "0+0+1",
+   "duration": null
+  },
+  {
+   "name": "Bislol",
+   "dosage": "2.5mg",
+   "frequency": "1+0+0",
+   "duration": null
+  },
+  {
+   "name": [
+    "Nidocard RTD",
+    "Nidocard"
+   ],
+   "dosage": "2.6mg",
+   "frequency": "1+1+0",
+   "duration": null
+  },
+  {
+   "name": "Ramace",
+   "dosage": "2.5mg",
+   "frequency": "0+0+1",
+   "duration": null
+  },
+  {
+   "name": "Cardinex",
+   "dosage": "60mg",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Pethidine",
+   "dosage": "100mg",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Emistat",
+   "dosage": "8mg",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Pantobex",
+   "dosage": "20mg",
+   "frequency": "1+0+1",
+   "duration": null
+  },
+  {
+   "name": "Panderta",
+   "dosage": "0.5mg",
+   "frequency": "0+0+1",
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "The most legible page in the sample: a neat eleven-drug chart with strengths and 0+1+0 dosing."
+}

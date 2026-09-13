@@ -1,0 +1,30 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [],
+ "test_results": [],
+ "tests": [
+  [
+   "CBC"
+  ],
+  [
+   "CXR"
+  ],
+  [
+   "RBS"
+  ]
+ ],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "vitals": [
+  {
+   "name": "BP",
+   "value": "130/80",
+   "unit": "mmHg"
+  }
+ ],
+ "notes": "Mostly Bangla and poorly legible. Only BP and the investigation list were read with confidence."
+}

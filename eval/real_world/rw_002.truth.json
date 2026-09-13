@@ -1,0 +1,13 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "ILLEGIBLE to the annotator. Dense cursive; medicine names could not be read with confidence. Left empty deliberately rather than guessed; this page measures almost nothing."
+}

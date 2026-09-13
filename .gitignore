@@ -21,3 +21,9 @@ models/
 # uploaded or temporary documents (may contain patient data)
 uploads/
 tmp/
+
+# real-world validation documents: real (CC BY 4.0) de-identified medical images.
+# Kept local by default -- manifest.json, hashes, truth files and docs are committed instead.
+eval/real_world/rw_*.jpeg
+eval/real_world/rw_*.jpg
+eval/real_world/rw_*.png

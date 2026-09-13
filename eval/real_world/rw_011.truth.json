@@ -1,0 +1,60 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [
+  {
+   "name": "Clopid",
+   "dosage": "75",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": [
+    "Cifixet",
+    "Cifixet 100"
+   ],
+   "dosage": "100",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": [
+    "Alphapres",
+    "Alphapres-2"
+   ],
+   "dosage": null,
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Olmesan",
+   "dosage": "40",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": [
+    "Maxpro",
+    "Maxpro 40"
+   ],
+   "dosage": "40",
+   "frequency": null,
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "vitals": [
+  {
+   "name": "BP",
+   "value": "200/120",
+   "unit": null
+  }
+ ],
+ "notes": "Latin drug names over a Bangla form; dosing in Bangla numerals so left null. Syp: Maxicon appears as a printed label. One further drug (Indalix?) was uncertain."
+}

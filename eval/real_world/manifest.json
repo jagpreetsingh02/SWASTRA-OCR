@@ -1,0 +1,177 @@
+{
+ "source": {
+  "title": "A Curated Bangladesh-Based Dataset of Handwritten and Printed Prescription Images",
+  "repository": "Mendeley Data k62rfd23kz v2",
+  "url": "https://data.mendeley.com/datasets/k62rfd23kz/2",
+  "licence": "CC BY 4.0",
+  "archive_sha256": "ced4394523998386b274e549469c144fa9718402b4c52764552914182bb331db",
+  "archive_bytes": 21829651
+ },
+ "selection": {
+  "seed": 20260913,
+  "pool": 200,
+  "method": "seeded random sample drawn before any annotation or OCR; not chosen by legibility"
+ },
+ "document_category": "handwritten prescription (all 21; no lab reports, printed-only or table-heavy pages exist in this corpus)",
+ "baseline": [
+  {
+   "id": "rw_001",
+   "file": "rw_001.jpeg",
+   "source_image": "25.jpeg",
+   "sha256": "b89df6546172790d1b385742c42ecb69fede4b3ce8f93a7b5b9834e080ae6f86",
+   "bytes": 110429
+  },
+  {
+   "id": "rw_002",
+   "file": "rw_002.jpeg",
+   "source_image": "160.jpeg",
+   "sha256": "b94a2b8d30bbae0087077554c87ee9a7f67d07483bfc653cb64677d1e811c068",
+   "bytes": 135270
+  },
+  {
+   "id": "rw_003",
+   "file": "rw_003.jpeg",
+   "source_image": "49.jpeg",
+   "sha256": "94fdcbc2e3897e71f934e20dc6bdc6d940d860f11a8b0e51bba58128d07b325d",
+   "bytes": 137920
+  },
+  {
+   "id": "rw_004",
+   "file": "rw_004.jpeg",
+   "source_image": "60.jpeg",
+   "sha256": "a55cb49c27579e4b198b60951a4f16485ca400245cc6981a06676fb34a9f49fd",
+   "bytes": 94473
+  },
+  {
+   "id": "rw_005",
+   "file": "rw_005.jpeg",
+   "source_image": "96.jpeg",
+   "sha256": "4e2b23cc6dc09ff8da130102da982bc961181eae6113b80195139340d20a31d7",
+   "bytes": 77190
+  },
+  {
+   "id": "rw_006",
+   "file": "rw_006.jpeg",
+   "source_image": "97.jpeg",
+   "sha256": "a0e96319a1f7a80d88b7dcf28b57353e13d3bfc8c541809274250aeb17306ff2",
+   "bytes": 117342
+  },
+  {
+   "id": "rw_007",
+   "file": "rw_007.jpeg",
+   "source_image": "108.jpeg",
+   "sha256": "b138eab048e32c6fd7358e47843de654949b29ee6ae65203de30fa3b644c3164",
+   "bytes": 68720
+  },
+  {
+   "id": "rw_008",
+   "file": "rw_008.jpeg",
+   "source_image": "86.jpeg",
+   "sha256": "100a692fd92f59becfc10befc6980abee7f21be4f1a37b0778a0572c602635d0",
+   "bytes": 94088
+  },
+  {
+   "id": "rw_009",
+   "file": "rw_009.jpeg",
+   "source_image": "14.jpeg",
+   "sha256": "c374559e1ac6ac8707e11348d56f78ea90230bf0a77a123e1f62d27d66afcdca",
+   "bytes": 106737
+  },
+  {
+   "id": "rw_010",
+   "file": "rw_010.jpeg",
+   "source_image": "94.jpeg",
+   "sha256": "8312b9217f6a393164ea7dfb7be10e8ec8f1734c8d9ac0a144031ac97b3d4443",
+   "bytes": 160632
+  },
+  {
+   "id": "rw_011",
+   "file": "rw_011.jpeg",
+   "source_image": "102.jpeg",
+   "sha256": "74d316dbb80aa187c2e8a5d1729a01da3cb054250985231942c775cbe8fbbb90",
+   "bytes": 116482
+  },
+  {
+   "id": "rw_012",
+   "file": "rw_012.jpeg",
+   "source_image": "54.jpeg",
+   "sha256": "5f062a46c177b1c74d6f3a4c3297e1e7f892139209952079be8b140b61c2fc6e",
+   "bytes": 94295
+  },
+  {
+   "id": "rw_013",
+   "file": "rw_013.jpeg",
+   "source_image": "139.jpeg",
+   "sha256": "0f937e3b1eb0c1db6ac5acab302f15bca2ae9a9f16325b47490d05ce895930b8",
+   "bytes": 110350
+  },
+  {
+   "id": "rw_014",
+   "file": "rw_014.jpeg",
+   "source_image": "177.jpeg",
+   "sha256": "1e4c6fcd912ef9d965be463b1bb2bb77b9770eef80403074814ecffa48306168",
+   "bytes": 156653
+  },
+  {
+   "id": "rw_015",
+   "file": "rw_015.jpeg",
+   "source_image": "35.jpeg",
+   "sha256": "1a6c6745742bdb12e05ff604b928865debc8bd25087e620db5b6c417d3d832e7",
+   "bytes": 72073
+  },
+  {
+   "id": "rw_016",
+   "file": "rw_016.jpeg",
+   "source_image": "187.jpeg",
+   "sha256": "e0c9230012d790132af3c635a20c530a1f8b8766334f1a2ae8f0d00395b78564",
+   "bytes": 93597
+  },
+  {
+   "id": "rw_017",
+   "file": "rw_017.jpeg",
+   "source_image": "42.jpeg",
+   "sha256": "8def455d575e17dc7aea356b0b0b0405be055dac66b1d2b4d9a253796de7e255",
+   "bytes": 83082
+  },
+  {
+   "id": "rw_018",
+   "file": "rw_018.jpeg",
+   "source_image": "178.jpeg",
+   "sha256": "a204dffdb19701e1fd4696bb3cfe8e4cf416d643855c195a74aec231a64716ce",
+   "bytes": 175832
+  },
+  {
+   "id": "rw_019",
+   "file": "rw_019.jpeg",
+   "source_image": "15.jpeg",
+   "sha256": "6c689edd4d5735f6daa65a8091a8b8cffcb18397a13bbf61fa47bd627ba197a7",
+   "bytes": 35048
+  },
+  {
+   "id": "rw_020",
+   "file": "rw_020.jpeg",
+   "source_image": "127.jpeg",
+   "sha256": "8b8057a0a8272e56ed1eabaebdfa92cc5cc083b9cdfe6eaed768407018e19380",
+   "bytes": 62144
+  },
+  {
+   "id": "rw_021",
+   "file": "rw_021.jpeg",
+   "source_image": "128.jpeg",
+   "sha256": "d474bb30697d6ac78caaf9c720659efe51f6b5fb92b615c78967cd8d27664e8a",
+   "bytes": 94554
+  }
+ ],
+ "holdout_source_images": [
+  "37.jpeg",
+  "104.jpeg",
+  "126.jpeg",
+  "110.jpeg",
+  "32.jpeg",
+  "66.jpeg",
+  "22.jpeg",
+  "172.jpeg",
+  "80.jpeg"
+ ],
+ "holdout_note": "Deliberately NOT staged, annotated or inspected in this session. Reserved to verify future fixes."
+}

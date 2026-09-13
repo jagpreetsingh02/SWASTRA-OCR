@@ -1,0 +1,97 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [
+  {
+   "name": "Anilin",
+   "dosage": "10",
+   "frequency": "0+0+1",
+   "duration": null
+  },
+  {
+   "name": "Deprex",
+   "dosage": null,
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": [
+    "Ovocal-D",
+    "Ovocal"
+   ],
+   "dosage": null,
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": [
+    "Surgel-40",
+    "Surgel"
+   ],
+   "dosage": "40",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": [
+    "Reservip",
+    "Reservip 100"
+   ],
+   "dosage": "100",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Cortam",
+   "dosage": "10",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Regicr",
+   "dosage": "30mg",
+   "frequency": "1+0+1",
+   "duration": null
+  },
+  {
+   "name": "Tolfen",
+   "dosage": "200mg",
+   "frequency": "1+0+1",
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [
+  [
+   "RA"
+  ],
+  [
+   "S. Uric Acid",
+   "Uric Acid"
+  ],
+  [
+   "TSH"
+  ],
+  [
+   "RBS"
+  ]
+ ],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "vitals": [
+  {
+   "name": "P",
+   "value": "72",
+   "unit": null
+  },
+  {
+   "name": "BP",
+   "value": "100/60",
+   "unit": null
+  }
+ ],
+ "notes": "Regicr and Tolfen come from a PRINTED label pasted on the page; the rest are handwritten."
+}

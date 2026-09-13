@@ -1,9 +1,3573 @@
 {
  "split": "real_world",
  "mode": "ocr",
- "documents": {},
- "warnings": [
-  "no ocr cases in real_world"
- ],
+ "summary": {
+  "fields": {
+   "date": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 2,
+    "precision": 1.0,
+    "recall": 0.667
+   },
+   "diagnoses": {
+    "tp": 2,
+    "fp": 7,
+    "fn": 10,
+    "precision": 0.222,
+    "recall": 0.167
+   },
+   "medication": {
+    "tp": 10,
+    "fp": 14,
+    "fn": 67,
+    "precision": 0.417,
+    "recall": 0.13
+   },
+   "medication.dosage": {
+    "tp": 3,
+    "fp": 2,
+    "fn": 4,
+    "precision": 0.6,
+    "recall": 0.429
+   },
+   "medication.duration": {
+    "tp": 0,
+    "fp": 1,
+    "fn": 2,
+    "precision": 0.0,
+    "recall": 0.0
+   },
+   "medication.frequency": {
+    "tp": 2,
+    "fp": 0,
+    "fn": 3,
+    "precision": 1.0,
+    "recall": 0.4
+   },
+   "symptoms": {
+    "tp": 2,
+    "fp": 6,
+    "fn": 1,
+    "precision": 0.25,
+    "recall": 0.667
+   },
+   "tests": {
+    "tp": 5,
+    "fp": 27,
+    "fn": 28,
+    "precision": 0.156,
+    "recall": 0.152
+   },
+   "vital": {
+    "tp": 3,
+    "fp": 0,
+    "fn": 11,
+    "precision": 1.0,
+    "recall": 0.214
+   },
+   "vital.unit": {
+    "tp": 3,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "vital.value": {
+    "tp": 2,
+    "fp": 1,
+    "fn": 1,
+    "precision": 0.667,
+    "recall": 0.667
+   }
+  },
+  "overall": {
+   "tp": 36,
+   "fp": 58,
+   "fn": 129,
+   "precision": 0.383,
+   "recall": 0.218
+  },
+  "false_positives": 55,
+  "false_negatives": 126,
+  "wrong_values": 3,
+  "unflagged_errors": 4,
+  "placement_errors": 3,
+  "grounding_failures": 0,
+  "document_type_accuracy": 0.095,
+  "documents": 21,
+  "crashes": 0,
+  "outputs_closest_to_own_source": "0/0",
+  "output_distinctness_problems": [],
+  "ocr_critical_tokens": {
+   "by_category": {
+    "medicine_name": {
+     "expected": 77,
+     "found": 32,
+     "accuracy": 0.416
+    },
+    "dosage": {
+     "expected": 59,
+     "found": 45,
+     "accuracy": 0.763
+    },
+    "frequency": {
+     "expected": 29,
+     "found": 20,
+     "accuracy": 0.69
+    },
+    "date": {
+     "expected": 6,
+     "found": 5,
+     "accuracy": 0.833
+    },
+    "duration": {
+     "expected": 4,
+     "found": 1,
+     "accuracy": 0.25
+    }
+   },
+   "accuracy": 0.589
+  },
+  "ocr_unsupported_lines": 0,
+  "ocr_mean_cer": null,
+  "mean_seconds_per_file": 50.42
+ },
+ "documents": {
+  "rw_001.jpeg": {
+   "file": "rw_001.jpeg",
+   "truth": "rw_001",
+   "crashed": false,
+   "seconds": 153.39,
+   "status": "unreadable",
+   "error": null,
+   "warnings": [
+    "Page 1: OCR output for page 1 hit the length limit; text may be incomplete or repeated.",
+    "Page 1: far more text was returned than the page can hold; nothing was extracted from this page."
+   ],
+   "raw_text": "2. Trigeminal schwann (1)  D1D  Cavernous sinus\n  - meningioma exty\n  - in IHF Postdm\n  - a supraventricular\n  - 13P: 110/100/4\n  - Ph: 60g\n  - 2. 8. Levipil (500)\n  - 120.1 8w\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1\n  - 1",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "unknown",
+     "ok": false
+    },
+    "fields": {
+     "medication": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     },
+     "vital": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     },
+     "diagnoses": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     },
+     "tests": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Levipil",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "vital",
+      "expected": "BP",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "diagnoses",
+      "expected": [
+       "Trigeminal schwannoma",
+       "Trigeminal schwannoma (Lt)"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "MRI of brain",
+       "MRI"
+      ],
+      "got": null,
+      "needs_review": null
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 1,
+      "found": 1
+     },
+     "dosage": {
+      "expected": 1,
+      "found": 1
+     },
+     "frequency": {
+      "expected": 1,
+      "found": 0
+     }
+    },
+    "critical_total": {
+     "expected": 3,
+     "found": 2
+    },
+    "missing": [
+     {
+      "category": "frequency",
+      "token": "1+0+1",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_002.jpeg": {
+   "file": "rw_002.jpeg",
+   "truth": "rw_002",
+   "crashed": false,
+   "seconds": 156.38,
+   "status": "low_confidence",
+   "error": null,
+   "warnings": [
+    "Page 1: OCR output for page 1 hit the length limit; text may be incomplete or repeated.",
+    "10 line(s) were read with low OCR token probability; check them against the document."
+   ],
+   "raw_text": "40.387\nHypH2Pant\nSau 10dau\n4y/5-5mals stabilisch.\n+4y/5 Dasech...\nOrden 104/24 auf J344\nNc: X-ray d.5 Sprat\nNVS 1996\nLaserdr.\n182.\nPhysiolog 1F2x1.2\n2\nTaz. Et0219000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "unknown",
+     "ok": false
+    },
+    "fields": {
+     "tests": {
+      "tp": 0,
+      "fp": 2,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null
+     }
+    },
+    "errors": [
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "X-ray",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "Laserdr",
+      "needs_review": true
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {},
+    "critical_total": {
+     "expected": 0,
+     "found": 0
+    },
+    "missing": [],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_003.jpeg": {
+   "file": "rw_003.jpeg",
+   "truth": "rw_003",
+   "crashed": false,
+   "seconds": 23.1,
+   "status": "low_confidence",
+   "error": null,
+   "warnings": [
+    "2 line(s) were read with low OCR token probability; check them against the document."
+   ],
+   "raw_text": "Oromalubilto\nA Bronchopneumonia\n\nDiet - Alfor 100 DROPPERS 100g\nOP-NP Suction - 6 L/min\nout t O2 inhalation via Nasal cannula\n2L - 50s\nout t E / Int. 5% DMS (480 ml)\nIN (2) 20 ud/m 24 L/min\n24 L/min\nInj. Ceftriaxone 1 gm/10ml\n(4.8 ml) + 10 ml IV flow d stat\n(3) 30 ud/m stat - Once daily\nSolen nasal drop\n1 drop in each nostril\n- 6 L/min\nDrop. Aee\n(1.5 ml) - 22 drops p/10\n- QDS\n\nP/A < 07.12.25\n010.00AM\n/ Nebulization 3% Nacel\n3ml - stat & hourly\n\nP/A < 08.12.25\n01.00PM\n- Diet: (Bread milk)\nNG- feed -\n40ml x 2hrly - 12 feed.",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "prescription",
+     "ok": true
+    },
+    "fields": {
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 2,
+      "precision": 0.5,
+      "recall": 0.333
+     },
+     "medication.dosage": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0
+     },
+     "diagnoses": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "wrong_value",
+      "field": "medication.dosage",
+      "expected": "1 gm/10ml",
+      "got": "10ml",
+      "needs_review": true
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Ace",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "DNS",
+       "5% DNS"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "medication",
+      "expected": null,
+      "got": "Aee",
+      "needs_review": true
+     },
+     {
+      "kind": "missing",
+      "field": "diagnoses",
+      "expected": [
+       "Bronchiolitis"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "diagnoses",
+      "expected": [
+       "Bronchopneumonia"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "diagnoses",
+      "expected": null,
+      "got": "Oromalubilto",
+      "needs_review": true
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 3,
+      "found": 1
+     },
+     "dosage": {
+      "expected": 3,
+      "found": 3
+     },
+     "frequency": {
+      "expected": 1,
+      "found": 1
+     },
+     "date": {
+      "expected": 1,
+      "found": 1
+     }
+    },
+    "critical_total": {
+     "expected": 8,
+     "found": 6
+    },
+    "missing": [
+     {
+      "category": "medicine_name",
+      "token": "Ace",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "DNS",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_004.jpeg": {
+   "file": "rw_004.jpeg",
+   "truth": "rw_004",
+   "crashed": false,
+   "seconds": 16.94,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "0/A < 1.45pm\n\u2022 Diet \u2014 Liquid\n\u2022 O2 inhalation sos\n\u2022 Complete Bed rest\n\u2022 Tab. Ecosprin (75mg)\n0+1+0 \u2014\u2014 (A/M)\n\u2022 Tab. Clopid (75mg)\n0+1+0 \u2014\u2014 (A/M)\n\u2022 Tab. Tiginorc (40mg)\n0+0+1 \u2014\u2014 (B/M)\n\u2022 Tab. Bislal (2.5mg)\n1+0+0\n\u2022 Tab. Nidecard RTD (2.6mg)\nH+1+0\n\u2022 Tab. B Ramae (2.5mg)\n0+0+1\n\u2022 Inj. Cardinex (60mg)\n1 PFS S/C stat & BD\n\u2022 Inj. pethidine (100mg)\n50mg I/V slowly stat & sos\n\u2022 Inj. Emistat (8mg)\n1 amp I/V stat & sos\n\u2022 Tab. Pantobex (20mg)\n1+0+1 \u2014\u2014 (B/M)\n\u2022 Tab. Pandurta (0.5mg)\n0+0+1",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "other_medical",
+     "ok": false
+    },
+    "fields": {
+     "date": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     },
+     "medication": {
+      "tp": 1,
+      "fp": 4,
+      "fn": 10,
+      "precision": 0.2,
+      "recall": 0.091
+     },
+     "medication.dosage": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "tests": {
+      "tp": 0,
+      "fp": 2,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "date",
+      "expected": "26/11/25",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Ecosprin",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Clopid",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Tiginor",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Bislol",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Nidocard RTD",
+       "Nidocard"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Ramace",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Cardinex",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Pethidine",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Pantobex",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Panderta",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "medication",
+      "expected": null,
+      "got": "O2 inhalation",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "medication",
+      "expected": null,
+      "got": "1 PFS S/C",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "medication",
+      "expected": null,
+      "got": "50mg I/V slowly",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "medication",
+      "expected": null,
+      "got": "1 amp I/V",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "A/M",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "B/M",
+      "needs_review": false
+     }
+    ],
+    "unflagged_errors": [
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "B/M",
+      "needs_review": false
+     }
+    ],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 11,
+      "found": 6
+     },
+     "dosage": {
+      "expected": 11,
+      "found": 11
+     },
+     "frequency": {
+      "expected": 8,
+      "found": 7
+     },
+     "date": {
+      "expected": 1,
+      "found": 0
+     }
+    },
+    "critical_total": {
+     "expected": 31,
+     "found": 24
+    },
+    "missing": [
+     {
+      "category": "medicine_name",
+      "token": "Tiginor",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Bislol",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Nidocard RTD",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "frequency",
+      "token": "1+1+0",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Ramace",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Panderta",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "date",
+      "token": "26/11/25",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_005.jpeg": {
+   "file": "rw_005.jpeg",
+   "truth": "rw_005",
+   "crashed": false,
+   "seconds": 8.92,
+   "status": "low_confidence",
+   "error": null,
+   "warnings": [
+    "Page 1: 12 lines were read on page 1 but only about 10 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout.",
+    "7 line(s) were read with low OCR token probability; check them against the document."
+   ],
+   "raw_text": "Vaccines after 3 days for\nAd. 2 SGP, SGP, CBE.\nLuna, Credimini\nLuna RPB\nex.2\nBp: 160/700mmHg\nB. Ta. Prog. 100% 100%\n2+0+0. 200%\n, 100 Pn. 100% 50%\n2+2+2 -> 200%\nerror 25\ny",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "unknown",
+     "ok": false
+    },
+    "fields": {
+     "vital": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "vital.value": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0
+     },
+     "vital.unit": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "tests": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 7,
+      "precision": 0.0,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "wrong_value",
+      "field": "vital.value",
+      "expected": "100/70",
+      "got": "160/700",
+      "needs_review": true
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "SGPT"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "SGOT"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "CBC"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "Urea"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "Creatinine"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "RBS"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "CXR"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "Luna RPB",
+      "needs_review": true
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {},
+    "critical_total": {
+     "expected": 0,
+     "found": 0
+    },
+    "missing": [],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_006.jpeg": {
+   "file": "rw_006.jpeg",
+   "truth": "rw_006",
+   "crashed": false,
+   "seconds": 94.94,
+   "status": "low_confidence",
+   "error": null,
+   "warnings": [
+    "Page 1: OCR output for page 1 hit the length limit; text may be incomplete or repeated.",
+    "Page 1: about 18 lines of writing are visible on page 1 but only 5 were read; text may be missing.",
+    "2 line(s) were read with low OCR token probability; check them against the document.",
+    "Text was read but no medical information was recognised."
+   ],
+   "raw_text": "Congr.\nTo ITF 2 112\nAdi: 2\ncase\nBCE: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "unknown",
+     "ok": false
+    },
+    "fields": {
+     "vital": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     },
+     "tests": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "precision": null,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "vital",
+      "expected": "BP",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "CBC"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "CXR"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "RBS"
+      ],
+      "got": null,
+      "needs_review": null
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {},
+    "critical_total": {
+     "expected": 0,
+     "found": 0
+    },
+    "missing": [],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_007.jpeg": {
+   "file": "rw_007.jpeg",
+   "truth": "rw_007",
+   "crashed": false,
+   "seconds": 10.55,
+   "status": "low_confidence",
+   "error": null,
+   "warnings": [
+    "Page 1: 21 lines were read on page 1 but only about 17 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout.",
+    "5 line(s) were read with low OCR token probability; check them against the document."
+   ],
+   "raw_text": "Backache &  \nNo long journey  \nnot radiate to lower limbs  \n\nR+  \n\" \u0995\u09cb\u09b0\u09cd\u09b8 \u09b8\u09cd\u099f\u09cd\u09b0\u09be\u0987\u0995  \n\u09aa\u09cd\u09b0\u09be\u09af\u09bc \u09ea\u09e6\u09e6 \u0997\u09cd\u09b0\u09be\u09ae  \n\u09aa\u09cd\u09b0\u09be\u09af\u09bc \u09e8\u09eb\u09e6 \u098f\u09ae.  \n= 9 \u0997\u09cd\u09b0\u09be\u09ae  \n\nAd.  \nX-ray Lumbar sacral spines  \nAp, lateral view  \n\nUrgent  \nPlease supply  \n\"Kms  \n\nR+  \n\"Ab. Flexi-SR  \n+0+2  \n\"Ab. Beko 1000  \n+2+2  \n\"Cap Progut 40 mg  \n+0+2> 9 \u0997\u09cd\u09b0\u09be\u09ae",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "unknown",
+     "ok": false
+    },
+    "fields": {
+     "medication": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "precision": null,
+      "recall": 0.0
+     },
+     "diagnoses": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null
+     },
+     "symptoms": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0
+     },
+     "tests": {
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Flexi-SR",
+       "Flexi"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Progut",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "diagnoses",
+      "expected": null,
+      "got": "Backache",
+      "needs_review": true,
+      "placement": "symptoms"
+     },
+     {
+      "kind": "missing",
+      "field": "symptoms",
+      "expected": [
+       "Backache"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "symptoms",
+      "expected": null,
+      "got": "No long journey",
+      "needs_review": true
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "X-ray Lumbosacral Spines",
+       "X-ray Lumbosacral Spine"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "X-ray",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "Kms",
+      "needs_review": true
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [
+     {
+      "kind": "false_positive",
+      "field": "diagnoses",
+      "expected": null,
+      "got": "Backache",
+      "needs_review": true,
+      "placement": "symptoms"
+     }
+    ],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 2,
+      "found": 2
+     },
+     "frequency": {
+      "expected": 1,
+      "found": 0
+     },
+     "dosage": {
+      "expected": 1,
+      "found": 1
+     }
+    },
+    "critical_total": {
+     "expected": 4,
+     "found": 3
+    },
+    "missing": [
+     {
+      "category": "frequency",
+      "token": "1+0+1",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_008.jpeg": {
+   "file": "rw_008.jpeg",
+   "truth": "rw_008",
+   "crashed": false,
+   "seconds": 11.75,
+   "status": "low_confidence",
+   "error": null,
+   "warnings": [
+    "2 line(s) were read with low OCR token probability; check them against the document."
+   ],
+   "raw_text": "01A < 1 AM\n3/11/25\nDiab. Diabatic\nInf. N1s (14)\nYv @ 500 ml running\nThen, Yv @ 20 d/min star\nInf. N1s (99 ml)\n+ \nInf. Atropi'd (100 IU)\n1 m) in Drip.\n1/2 @ 15 micro drops (min star\nInf. amis S4 (8)\n1 amp 1/2 star & 505\nInf. euf max on (9 ml)\n1 vial Yv star & 30\nInf. Omip (40)\n1 vial 1/2 star & 30\ncontinous Cmar\n2",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "unknown",
+     "ok": false
+    },
+    "fields": {
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 5,
+      "precision": null,
+      "recall": 0.0
+     },
+     "diagnoses": {
+      "tp": 0,
+      "fp": 2,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Actrapid",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Emistat",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Ceftriaxone",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Omep",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "N/S",
+       "NS"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "diagnoses",
+      "expected": null,
+      "got": "Diab",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "diagnoses",
+      "expected": null,
+      "got": "Diabatic",
+      "needs_review": true
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 5,
+      "found": 0
+     },
+     "dosage": {
+      "expected": 5,
+      "found": 3
+     },
+     "date": {
+      "expected": 1,
+      "found": 1
+     }
+    },
+    "critical_total": {
+     "expected": 11,
+     "found": 4
+    },
+    "missing": [
+     {
+      "category": "medicine_name",
+      "token": "Actrapid",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Emistat",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Ceftriaxone",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "dosage",
+      "token": "1gm",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Omep",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "N/S",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "dosage",
+      "token": "1L",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_009.jpeg": {
+   "file": "rw_009.jpeg",
+   "truth": "rw_009",
+   "crashed": false,
+   "seconds": 9.42,
+   "status": "low_confidence",
+   "error": null,
+   "warnings": [
+    "Page 1: 19 lines were read on page 1 but only about 14 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout.",
+    "3 line(s) were read with low OCR token probability; check them against the document."
+   ],
+   "raw_text": "\u09b0\u09cb\u0997\n\u09a4\u09be\u09b0\u09bf\u0996\nP\n\u099a\u09bf\u0995\u09bf\u09ce\u09b8\u09be\nTab. Axiced plus\n(250mg\n200) \u2014 9ml\nTab. Timbal Pay\n2000 \u2014 25ml\nTab. Triloch (100\n8701) \u2014 3ml\nTab. Doxoven\n(200mg\n200) \u2014 20ml\nAdv\nCXR P/1A\nnew\n2021442\n2(N)",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "other_medical",
+     "ok": false
+    },
+    "fields": {
+     "medication": {
+      "tp": 1,
+      "fp": 3,
+      "fn": 2,
+      "precision": 0.25,
+      "recall": 0.333
+     },
+     "tests": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Axicet plus",
+       "Axicet"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Trilock",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "medication",
+      "expected": null,
+      "got": "Axiced plus",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "medication",
+      "expected": null,
+      "got": "Timbal Pay",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "medication",
+      "expected": null,
+      "got": "Triloch",
+      "needs_review": true
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "CXR P/A",
+       "CXR"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "Adv",
+      "needs_review": true
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 3,
+      "found": 1
+     }
+    },
+    "critical_total": {
+     "expected": 3,
+     "found": 1
+    },
+    "missing": [
+     {
+      "category": "medicine_name",
+      "token": "Axicet plus",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Trilock",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_010.jpeg": {
+   "file": "rw_010.jpeg",
+   "truth": "rw_010",
+   "crashed": false,
+   "seconds": 110.07,
+   "status": "unreadable",
+   "error": null,
+   "warnings": [
+    "Page 1: OCR output for page 1 hit the length limit; text may be incomplete or repeated.",
+    "Page 1: far more text was returned than the page can hold; nothing was extracted from this page."
+   ],
+   "raw_text": "Wt. 9 May 1 Comp. and 2nd & 3rd\n1st Sup. Lindel 6\n2nd Sup. Shining 10\n3rd Sup. Xifel (10m)\n4th Sup. 2016\n5th Sup. 2016\n6th Sup. 2016\n7th Sup. 2016\n8th Sup. 2016\n9th Sup. 2016\nOxyne\u00ae No.1 Drop 0.05/0.025\n2 \u09ab\u09cb\u099f\u09be \u0995\u09b0\u09c7 \u09a8\u09be\u0995\u09c7\u09b0 2 \u099b\u09bf\u09a6\u09cd\u09b0\u09c7\n\u09a6\u09bf\u09a8\u09c7........2 \u09ac\u09be\u09b0...........\u09a6\u09bf\u09a8\u0964\n(5) Feid He Green\n(6) 2016\n(7) 2016\n(8) 2016\n(9) 2016\n(10) 2016\n(11) 2016\n(12) 2016\n(13) 2016\n(14) 2016\n(15) 2016\n(16) 2016\n(17) 2016\n(18) 2016\n(19) 2016\n(20) 2016\n(21) 2016\n(22) 2016\n(23) 2016\n(24) 2016\n(25) 2016\n(26) 2016\n(27) 2016\n(28) 2016\n(29) 2016\n(30) 2016\n(31) 2016\n(32) 2016\n(33) 2016\n(34) 2016\n(35) 2016\n(36) 2016\n(37) 2016\n(38) 2016\n(39) 2016\n(40) 2016\n(41) 2016\n(42) 2016\n(43) 2016\n(44) 2016\n(45) 2016\n(46) 2016\n(47) 2016\n(48) 2016\n(49) 2016\n(50) 2016\n(51) 2016\n(52) 2016\n(53) 2016\n(54) 2016\n(55) 2016\n(56) 2016\n(57) 2016\n(58) 2016\n(59) 2016\n(60) 2016\n(61) 2016\n(62) 2016\n(63) 2016\n(64) 2016\n(65) 2016\n(66) 2016\n(67) 2016\n(68) 2016\n(69) 2016\n(70) 2016\n(71) 2016\n(72) 2016\n(73) 2016\n(74) 2016\n(75) 2016\n(76) 2016\n(77) 2016\n(78) 2016\n(79) 2016\n(80) 2016\n(81) 2016\n(82) 2016\n(83) 2016\n(84) 2016\n(85) 2016\n(86) 2016\n(87) 2016\n(88) 2016\n(89) 2016\n(90) 2016\n(91) 2016\n(92) 2016\n(93) 2016\n(94) 2016\n(95) 2016\n(96) 2016\n(97) 2016\n(98) 2016\n(99) 2016\n(100) 2016\n(101) 2016\n(102) 2016\n(103) 2016\n(104) 2016\n(105) 2016\n(106) 2016\n(107) 2016\n(108) 2016\n(109) 2016\n(110) 2016\n(111) 2016\n(112) 2016\n(113) 2016\n(114) 2016\n(115) 2016\n(116) 2016\n(117) 2016\n(118) 2016\n(119) 2016\n(120) 2016\n(121) 2016\n(122) 2016\n(123) 2016\n(124) 2016\n(125) 2016\n(126) 2016\n(127) 2016\n(128) 2016\n(129) 2016\n(130) 2016\n(131) 2016\n(132) 2016\n(133) 2016\n(134) 2016\n(135) 2016\n(136) 2016\n(137) 2016",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "unknown",
+     "ok": false
+    },
+    "fields": {
+     "medication": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "precision": null,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Oxynex",
+       "Oxynex Nasal Drop"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Lorix Plus Lotion",
+       "LORIX Plus"
+      ],
+      "got": null,
+      "needs_review": null
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 2,
+      "found": 0
+     },
+     "dosage": {
+      "expected": 1,
+      "found": 0
+     }
+    },
+    "critical_total": {
+     "expected": 3,
+     "found": 0
+    },
+    "missing": [
+     {
+      "category": "medicine_name",
+      "token": "Oxynex",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "dosage",
+      "token": "0.05/0.05%",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Lorix Plus Lotion",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_011.jpeg": {
+   "file": "rw_011.jpeg",
+   "truth": "rw_011",
+   "crashed": false,
+   "seconds": 114.78,
+   "status": "unreadable",
+   "error": null,
+   "warnings": [
+    "Page 1: OCR output for page 1 hit the length limit; text may be incomplete or repeated.",
+    "Page 1: far more text was returned than the page can hold; nothing was extracted from this page."
+   ],
+   "raw_text": "40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40\n40",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "unknown",
+     "ok": false
+    },
+    "fields": {
+     "medication": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 5,
+      "precision": null,
+      "recall": 0.0
+     },
+     "vital": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Clopid",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Cifixet",
+       "Cifixet 100"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Alphapres",
+       "Alphapres-2"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Olmesan",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Maxpro",
+       "Maxpro 40"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "vital",
+      "expected": "BP",
+      "got": null,
+      "needs_review": null
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 5,
+      "found": 0
+     },
+     "dosage": {
+      "expected": 4,
+      "found": 2
+     }
+    },
+    "critical_total": {
+     "expected": 9,
+     "found": 2
+    },
+    "missing": [
+     {
+      "category": "medicine_name",
+      "token": "Clopid",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "dosage",
+      "token": "75",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Cifixet",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "dosage",
+      "token": "100",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Alphapres",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Olmesan",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Maxpro",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_012.jpeg": {
+   "file": "rw_012.jpeg",
+   "truth": "rw_012",
+   "crashed": false,
+   "seconds": 109.67,
+   "status": "unreadable",
+   "error": null,
+   "warnings": [
+    "Page 1: OCR output for page 1 hit the length limit; text may be incomplete or repeated.",
+    "Page 1: far more text was returned than the page can hold; nothing was extracted from this page."
+   ],
+   "raw_text": "DSS\nFresh Order 04/12/25\n9:54am\n\u2022 Diet: Normal\n3mL/kg\n\u2022 Inf 5/1 DNS (234mL)\nIV @ 39\u00b5d/min stat over 6hr\nupto 9:40pm\nAdv\nCO2\n5. Ferritin\nPT & INR\nAlbumin\nSent\nD\n\u2022 Inf Emistat (8mg/1mL)\n4mL IV @ 505\n\u2022 Syp Napa (120mg/5mL)\n2T6F x 6hrly [if temp >100\u00b0F]\n\u2022 Supp Napa (250mg)\n2/3stik PIR - 505 [if temp >102\u00b0F]\n09:12 monitor vital signs regularly\n& maintain temp chart.\nP/A\n04/12/25\n11:50AM\nInf. 5/1 DNS (468mL)\nIV @ 20 drops/min\nover 24 hours up to\n11:50 AM\n1\nP/A < 5/12.25\n8.50am\n\u2022 Inf 5/1 DNS (58-5mL)\nBP-95/100 mmHg\nP/A < 4/12.25\n10:40pm\n\u2022 Inf 5/1 DNS (935mL)\nIV @ 20 \u00b5d/min over 10 hrs\nupto 0 am\n2mL/1kg/hr\nD/P 90/65 mmHg\n412.25\n3:45 PM\nInf. 5% DNS (234mL)\nIV @ 39 \u00b5d/min over 6hr\nupto 9:45 PM\n1.5mL/kg/hr\nP/A < 5/12.25\n8.50am\n\u2022 Inf 5/1 DNS (58-5mL)\nBP-95/100 mmHg\nP/A < 4/12.25\n10:40pm\n\u2022 Inf 5/1 DNS (935mL)\nIV @ 20 \u00b5d/min over 10 hrs\nupto 0 am\n2mL/1kg/hr\nD/P 90/65 mmHg\n412.25\n3:45 PM\nP/A < 5/12.25\n8.50am\n\u2022 Inf 5/1 DNS (58-5mL)\nBP-95/100 mmHg\nP/A < 4/12.25\n10:40pm\n\u2022 Inf 5/1 DNS (935mL)\nIV @ 20 \u00b5d/min over 10 hrs\nupto 0 am\n2mL/1kg/hr\nD/P 90/65 mmHg\n412.25\n3:45 PM\nP/A < 5/12.25\n8.50am\n\u2022 Inf 5/1 DNS (58-5mL)\nBP-95/100 mmHg\nP/A < 4/12.25\n10:40pm\n\u2022 Inf 5/1 DNS (935mL)\nIV @ 20 \u00b5d/min over 10 hrs\nupto 0 am\n2mL/1kg/hr\nD/P 90/65 mmHg\n412.25\n3:45 PM\nP/A < 5/12.25\n8.50am\n\u2022 Inf 5/1 DNS (58-5mL)\nBP-95/100 mmHg\nP/A < 4/12.25\n10:40pm\n\u2022 Inf 5/1 DNS (935mL)\nIV @ 20 \u00b5d/min over 10 hrs\nupto 0 am\n2mL/1kg/hr\nD/P 90/65 mmHg\n412.25\n3:45 PM\nP/A < 5/12.25\n8.50am\n\u2022 Inf 5/1 DNS (58-5mL)\nBP-95/100 mmHg\nP/A < 4/12.25\n10:40pm\n\u2022 Inf 5/1 DNS (935mL)\nIV @ 20 \u00b5d/min over 10 hrs\nupto 0 am\n2mL/1kg/hr\nD/P 90/65 mmHg\n412.25\n3:45 PM\nP/A < 5/12.25\n8.50am\n\u2022 Inf 5/1 DNS (58-5mL)\nBP-95/100 mmHg\nP/A < 4/12.25\n10:40pm\n\u2022 Inf 5/1 DNS (935mL)\nIV @ 20 \u00b5d/min over 10 hrs\nupto 0 am\n2mL/1kg/hr\nD/P 90/65 mmHg\n412.25\n3:45 PM\nP/A < 5/12.25\n8.50am\n\u2022 Inf 5/1 DNS (58-5mL)\nBP-95/100 mmHg\nP/A < 4/12.25\n10:40pm\n\u2022 Inf 5/1 DNS (935mL)\nIV @ 20 \u00b5d/min over 10 hrs\nupto 0 am\n2mL/1kg/hr\nD/P 90/65 mmHg\n412.25\n3:45 PM\nP/A < 5/12.25\n8.50am\n\u2022 Inf 5/1 DNS (58-5mL)\nBP-95/100 mmHg\nP/A < 4/12.25\n10:40pm\n\u2022 Inf 5/1 DNS (935mL)\nIV @ 20 \u00b5d/min over 10 hrs\nupto 0 am\n2mL/1kg/hr\nD/P 90/65 mmHg\n412.25\n3:45 PM\nP/A < 5/12.25\n8.50am\n\u2022 Inf 5/1 DNS (58-5mL)\nBP-95/100 mmHg\nP/A < 4/12.25\n10:40pm",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "unknown",
+     "ok": false
+    },
+    "fields": {
+     "date": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     },
+     "medication": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 4,
+      "precision": null,
+      "recall": 0.0
+     },
+     "vital": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     },
+     "tests": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 5,
+      "precision": null,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "date",
+      "expected": "04/12/25",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "DNS",
+       "5% DNS"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Emistat",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Napa",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Napa",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "vital",
+      "expected": "BP",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "CBC"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "S. Ferritin",
+       "Ferritin"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "PT"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "INR"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "Albumin"
+      ],
+      "got": null,
+      "needs_review": null
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 4,
+      "found": 4
+     },
+     "dosage": {
+      "expected": 4,
+      "found": 3
+     },
+     "frequency": {
+      "expected": 1,
+      "found": 1
+     },
+     "date": {
+      "expected": 1,
+      "found": 1
+     }
+    },
+    "critical_total": {
+     "expected": 10,
+     "found": 9
+    },
+    "missing": [
+     {
+      "category": "dosage",
+      "token": "8mg/4mL",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_013.jpeg": {
+   "file": "rw_013.jpeg",
+   "truth": "rw_013",
+   "crashed": false,
+   "seconds": 18.56,
+   "status": "low_confidence",
+   "error": null,
+   "warnings": [
+    "Page 1: 20 lines were read on page 1 but only about 12 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout.",
+    "5 line(s) were read with low OCR token probability; check them against the document."
+   ],
+   "raw_text": "Paothip. - 2 weeks ago\nShell 12000 (upper)\nSubmucular Glands\neulaged stivers.\nChest\nLVS\nBp - 130/50\nS A I K A T Chattaiee - 31/4.\n(1) W. Saline + 2 kg althymo)\nMOUTH WASH] twice daily\n+ Gargling x 7 days\n(2) TREXYDIN twice daily. x 7 day.\n(3) ROXITEM (ISO) twice daily half an hr\nbefore meal x 7 day.\n(4) Nanoilw M.PS 24 times daily\nbefme meal x 7 day\n[Urine + 2 E\nHb 710 C & R 1100\n[Entakav\n0-0-0-0 x 7 day]",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "unknown",
+     "ok": false
+    },
+    "fields": {
+     "medication": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 2,
+      "precision": 1.0,
+      "recall": 0.5
+     },
+     "medication.frequency": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.duration": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0
+     },
+     "medication.dosage": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     },
+     "vital": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     },
+     "diagnoses": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0
+     },
+     "symptoms": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null
+     },
+     "tests": {
+      "tp": 0,
+      "fp": 2,
+      "fn": 5,
+      "precision": 0.0,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "wrong_value",
+      "field": "medication.duration",
+      "expected": "7 days",
+      "got": "7 day",
+      "needs_review": true
+     },
+     {
+      "kind": "missing",
+      "field": "medication.dosage",
+      "expected": "150",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication.duration",
+      "expected": "7 days",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Nausifr MPS",
+       "Nausifr"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Entakerv",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "vital",
+      "expected": "BP",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "diagnoses",
+      "expected": [
+       "Parotitis"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "diagnoses",
+      "expected": null,
+      "got": "Paothip",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "symptoms",
+      "expected": null,
+      "got": "Gargling",
+      "needs_review": true
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "Urine R/E"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "Hb"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "TC"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "DC"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "ESR"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "Shell 12000",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "Urine",
+      "needs_review": true
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 4,
+      "found": 2
+     },
+     "frequency": {
+      "expected": 4,
+      "found": 4
+     },
+     "duration": {
+      "expected": 4,
+      "found": 1
+     },
+     "dosage": {
+      "expected": 1,
+      "found": 0
+     }
+    },
+    "critical_total": {
+     "expected": 13,
+     "found": 7
+    },
+    "missing": [
+     {
+      "category": "duration",
+      "token": "7 days",
+      "expected": 4,
+      "found": 1
+     },
+     {
+      "category": "dosage",
+      "token": "150",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Nausifr MPS",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Entakerv",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_014.jpeg": {
+   "file": "rw_014.jpeg",
+   "truth": "rw_014",
+   "crashed": false,
+   "seconds": 114.55,
+   "status": "unreadable",
+   "error": null,
+   "warnings": [
+    "Page 1: OCR output for page 1 hit the length limit; text may be incomplete or repeated.",
+    "Page 1: far more text was returned than the page can hold; nothing was extracted from this page."
+   ],
+   "raw_text": "Tal U30N (400mg)\nDHT) - 95, 3\nTal Crestarel - 9g/m2\nof 30\n2.20\nTal Shelloall - 6mg\n2.00\nTal Moxa (400mg) 2\n20 +) - 205\nTal Cenitis - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20\nTal 200mg - 2mg\n20",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "unknown",
+     "ok": false
+    },
+    "fields": {
+     "medication": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Maxpro",
+      "got": null,
+      "needs_review": null
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 1,
+      "found": 0
+     },
+     "dosage": {
+      "expected": 1,
+      "found": 0
+     }
+    },
+    "critical_total": {
+     "expected": 2,
+     "found": 0
+    },
+    "missing": [
+     {
+      "category": "medicine_name",
+      "token": "Maxpro",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "dosage",
+      "token": "20mg",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_015.jpeg": {
+   "file": "rw_015.jpeg",
+   "truth": "rw_015",
+   "crashed": false,
+   "seconds": 12.28,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "a DF (NS1 tve) warning sign\n\u0394 Dengue Shock syndrome.\nF/O [ 24.12.25\n10:00 AM\n. Diet: Normal e plenty of fluid\n3mlyj Inf. 57. DNS (410 mL)\nIV @ 68 \u00b5d/min over 6 hours\nupto 4 PM.\n. Inj. Omeprazole (40ng/10mL)\n5.7mL IV \u2014 OD\n. Inj. Algin\n1 amp. IV Stat & SOS",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "other_medical",
+     "ok": false
+    },
+    "fields": {
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 3,
+      "precision": 0.0,
+      "recall": 0.0
+     },
+     "vital": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "precision": null,
+      "recall": 0.0
+     },
+     "diagnoses": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.5
+     },
+     "tests": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "DNS",
+       "5% DNS"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Omeprazole",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Algin",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "medication",
+      "expected": null,
+      "got": "1 amp. IV",
+      "needs_review": true
+     },
+     {
+      "kind": "missing",
+      "field": "vital",
+      "expected": "Wt",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "vital",
+      "expected": "Height",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "vital",
+      "expected": "BMI",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "diagnoses",
+      "expected": [
+       "DF",
+       "DF (NS1 +ve)"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "DNS",
+      "needs_review": false,
+      "placement": "medication"
+     }
+    ],
+    "unflagged_errors": [
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "DNS",
+      "needs_review": false,
+      "placement": "medication"
+     }
+    ],
+    "placement_errors": [
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "DNS",
+      "needs_review": false,
+      "placement": "medication"
+     }
+    ],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 3,
+      "found": 3
+     },
+     "dosage": {
+      "expected": 3,
+      "found": 2
+     },
+     "frequency": {
+      "expected": 1,
+      "found": 1
+     },
+     "date": {
+      "expected": 1,
+      "found": 1
+     }
+    },
+    "critical_total": {
+     "expected": 8,
+     "found": 7
+    },
+    "missing": [
+     {
+      "category": "dosage",
+      "token": "40mg/10mL",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_016.jpeg": {
+   "file": "rw_016.jpeg",
+   "truth": "rw_016",
+   "crashed": false,
+   "seconds": 18.2,
+   "status": "low_confidence",
+   "error": null,
+   "warnings": [
+    "Page 1: 15 lines were read on page 1 but only about 14 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
+   ],
+   "raw_text": "Name & Address :  \nDate :  \nAge :  \nSex :  \n\nRx  \nCap. Zemieet (200 mg) 9 \u09a6\u09bf\u09a8  \ntab. Isovent (200 mg) \u09eb \u09a6\u09bf\u09a8  \ntab. Napa (500 mg) \u09eb \u09a6\u09bf\u09a8  \ntab. progul (20 mg) 20 \u09a6\u09bf\u09a8  \ntab. Ceevit 01100 DS 20 \u09a6\u09bf\u09a8  \n\n* viodin *  \n* \u09aa\u09cd\u09b0\u09a4\u09bf\u09ac\u09be\u09b0 \u099f\u09cd\u09af\u09c1\u09ae\u09c7\u09a8\u09cd\u099f \u09a6\u09c7\u0996\u09be\u09a4\u09c7 \u0986\u09b8\u09be\u09b0 \u09aa\u09b0\u09c7 \u0995\u09c1\u09ae\u09c1\u09a6 \u0997\u09b0\u09ae \u09aa\u09be\u09a8\u09bf\u09a4\u09c7  \nviodin - \u09ae\u09bf\u09b6\u09cd\u09b0\u09c7 \u098f\u0987 \u09aa\u09be\u09a8\u09bf\u09a4\u09c7 \u09eb\u09e6 \u09ae\u09bf\u09a8\u09bf\u099f \u0995\u09be\u09a8 \u09ac\u09b8\u09ae\u09c7\u09a8 \u09aa\u09be\u09a8  \n\u09aa\u09be\u09a8\u09c7 \u09aa\u09b0\u09bf\u09b7\u09cd\u0995\u09be\u09b0 - \u0995\u09be\u09aa\u09a1\u09bc \u09a6\u09bf\u09af\u09bc\u09c7 - \u09b8\u09ae\u09a4\u09c1\u09b2\u09cd\u09af \u09a4\u09be\u09a8 \u0995\u09b0\u09c7  \n- \u09b8\u09c1\u09a4\u09cd\u09b0 \u09b6\u09c1\u0995\u09a8\u09be - \u09b0\u09be\u0996\u09c7\u09a8\u0964",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "prescription",
+     "ok": true
+    },
+    "fields": {
+     "medication": {
+      "tp": 3,
+      "fp": 2,
+      "fn": 2,
+      "precision": 0.6,
+      "recall": 0.6
+     },
+     "medication.dosage": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.667,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "precision": null,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Zemicet",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication.frequency",
+      "expected": "1+1+1",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication.frequency",
+      "expected": "1+1+1",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Progut",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "unexpected_value",
+      "field": "medication.dosage",
+      "expected": null,
+      "got": "01100",
+      "needs_review": true
+     },
+     {
+      "kind": "missing",
+      "field": "medication.frequency",
+      "expected": "0+1+0",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "medication",
+      "expected": null,
+      "got": "Zemieet",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "medication",
+      "expected": null,
+      "got": "progul",
+      "needs_review": true
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 5,
+      "found": 3
+     },
+     "dosage": {
+      "expected": 4,
+      "found": 4
+     },
+     "frequency": {
+      "expected": 5,
+      "found": 0
+     }
+    },
+    "critical_total": {
+     "expected": 14,
+     "found": 7
+    },
+    "missing": [
+     {
+      "category": "medicine_name",
+      "token": "Zemicet",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "frequency",
+      "token": "1+0+1",
+      "expected": 2,
+      "found": 0
+     },
+     {
+      "category": "frequency",
+      "token": "1+1+1",
+      "expected": 2,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Progut",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "frequency",
+      "token": "0+1+0",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_017.jpeg": {
+   "file": "rw_017.jpeg",
+   "truth": "rw_017",
+   "crashed": false,
+   "seconds": 20.74,
+   "status": "low_confidence",
+   "error": null,
+   "warnings": [
+    "1 line(s) were read with low OCR token probability; check them against the document."
+   ],
+   "raw_text": "Wt: 19kg\nHt: 108cm\nBSA: 0.76 m\u00b2\nNephrotic Syndrome Initial attack & Pneumonia\n\u2022 fresh order: < 20.12.2025\n\u2022 Diet: Fluid restriction.\n\u2022 Fluid: PDO + 280ml\n1. 90g. Mexacav (1.2g/20mg)\n\u2022 BmK + 10ml INF\nIV stat slowly & 8hly\n\u2022 90g. Laxix\n1 amp UV stat & BD < 8am\nafter the lung BP.\nNebulization 2 Budcoft.\n1ml + 2ml Ns \u2014 8hly\nNebulization 2 sulprex:\n0.5ml + 2.5ml Ns \u2014 8hly\n\u2022 90g. Hintonin:\n1 + 5f x 80.\n\u2022 Tab. talbo-D\n1/2 + 0 + 1/2\n\u2022 Tab. B complex:\n1 + 0 + 1.\n\u2022 Tab. catorn (20mg)\n2 + 0 + 0.\n\u2022 90g. formatcull:\n1/2 tss x ones daily\nBP centile chart:\n50th - 93/55\n90th - 105/69\n95th - 110/73\n90th - 117/80",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "other_medical",
+     "ok": false
+    },
+    "fields": {
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 9,
+      "precision": 0.0,
+      "recall": 0.0
+     },
+     "vital": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "vital.value": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "vital.unit": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "diagnoses": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.5
+     },
+     "symptoms": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null
+     },
+     "tests": {
+      "tp": 0,
+      "fp": 4,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Moxaclav",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Lasix",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Budecort",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Sulprex",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Hintacin",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Calbo-D",
+       "Calbo"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "B-complex",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Cofan",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Fomotacle",
+       "Fomotacle"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "medication",
+      "expected": null,
+      "got": "1 amp UV",
+      "needs_review": true
+     },
+     {
+      "kind": "missing",
+      "field": "diagnoses",
+      "expected": [
+       "Pneumonia"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "symptoms",
+      "expected": null,
+      "got": "Pneumonia",
+      "needs_review": true,
+      "placement": "diagnoses"
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "BmK",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "INF",
+      "needs_review": false
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "lung BP",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "Tab. B complex",
+      "needs_review": true
+     }
+    ],
+    "unflagged_errors": [
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "INF",
+      "needs_review": false
+     }
+    ],
+    "placement_errors": [
+     {
+      "kind": "false_positive",
+      "field": "symptoms",
+      "expected": null,
+      "got": "Pneumonia",
+      "needs_review": true,
+      "placement": "diagnoses"
+     }
+    ],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 9,
+      "found": 1
+     },
+     "dosage": {
+      "expected": 7,
+      "found": 4
+     },
+     "frequency": {
+      "expected": 4,
+      "found": 3
+     },
+     "date": {
+      "expected": 1,
+      "found": 1
+     }
+    },
+    "critical_total": {
+     "expected": 21,
+     "found": 9
+    },
+    "missing": [
+     {
+      "category": "medicine_name",
+      "token": "Moxaclav",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "dosage",
+      "token": "1.2g/20ml",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Lasix",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Budecort",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Hintacin",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "dosage",
+      "token": "1 tsf",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Calbo-D",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "B-complex",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Cofan",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Fomotacle",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "dosage",
+      "token": "1/2 tsf",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "frequency",
+      "token": "once daily",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_018.jpeg": {
+   "file": "rw_018.jpeg",
+   "truth": "rw_018",
+   "crashed": false,
+   "seconds": 7.31,
+   "status": "low_confidence",
+   "error": null,
+   "warnings": [
+    "Page 1: 11 lines were read on page 1 but only about 9 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout.",
+    "4 line(s) were read with low OCR token probability; check them against the document.",
+    "Text was read but no medical information was recognised."
+   ],
+   "raw_text": "Treatment\nUL\n/ML\nB.\n1.5. Acibax 10mg\n100ml\n\u2014 200ml\n2. Lactobac\n10ml \u2014 200ml\n3. Sepbvi\n60ml x 200ml \u2014 200ml",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "unknown",
+     "ok": false
+    },
+    "fields": {
+     "medication": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "precision": null,
+      "recall": 0.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Acitra",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Lactobac",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Septovit",
+      "got": null,
+      "needs_review": null
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 3,
+      "found": 1
+     },
+     "dosage": {
+      "expected": 1,
+      "found": 1
+     }
+    },
+    "critical_total": {
+     "expected": 4,
+     "found": 2
+    },
+    "missing": [
+     {
+      "category": "medicine_name",
+      "token": "Acitra",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Septovit",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_019.jpeg": {
+   "file": "rw_019.jpeg",
+   "truth": "rw_019",
+   "crashed": false,
+   "seconds": 3.86,
+   "status": "low_confidence",
+   "error": null,
+   "warnings": [
+    "3 line(s) were read with low OCR token probability; check them against the document."
+   ],
+   "raw_text": "Secundarius in The liver\nPrimary ?\nEndoscopy - Primary\nColonoscopy - not deteched\nNetd h\noot",
+   "extraction": {
+    "document_type": {
+     "expected": "other_medical",
+     "got": "unknown",
+     "ok": false
+    },
+    "fields": {
+     "diagnoses": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0
+     },
+     "tests": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.667,
+      "recall": 1.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "diagnoses",
+      "expected": [
+       "Secondaries in the liver"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "diagnoses",
+      "expected": null,
+      "got": "Secundarius",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "Primary",
+      "needs_review": false
+     }
+    ],
+    "unflagged_errors": [
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "Primary",
+      "needs_review": false
+     }
+    ],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {},
+    "critical_total": {
+     "expected": 0,
+     "found": 0
+    },
+    "missing": [],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_020.jpeg": {
+   "file": "rw_020.jpeg",
+   "truth": "rw_020",
+   "crashed": false,
+   "seconds": 18.75,
+   "status": "low_confidence",
+   "error": null,
+   "warnings": [
+    "Page 1: 27 lines were read on page 1 but only about 26 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout.",
+    "3 line(s) were read with low OCR token probability; check them against the document."
+   ],
+   "raw_text": "= HA (C001d)\n= 9m50mm/m\nP-32n = 5T Pevin\nmV-10V)60\nAV:\n= RA\n= S. Unc. Ail\n= TSH\n= PMA\n3. Anilin 10\n0+0+2 \u2192 2am\n3. Deprenyl\n0+0+3 \u2192 2am\n3. D. Ovocel - D\n0+0+2) \u2192 2am\n3. Surgel -40\n0+0+1) w. Gm\n3. Reservi 10\n0+0+1) w. Gm\n3. Cetom 10\n0+0+0 \u2192 91mV\n0+0+0 \u2192 91mV\n\u092e\u093e\u0925\u093e \u092c\u093e\u0926\u093e \u092c\u0947\u0936\u093f \u0939\u093e\u0902 1\nCap. Regier (30mg)\n1+0+1 \u0925\u093e\u092f\u0930 \u091c\u093e\u0928\u0947 10. \u0932\u093f\u0928\nTab. Tolfert (200mg)\n1+0+1 \u0925\u093e\u092f\u0930 \u092a\u093e\u0930 4 \u0932\u093f\u0928",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "other_medical",
+     "ok": false
+    },
+    "fields": {
+     "medication": {
+      "tp": 0,
+      "fp": 2,
+      "fn": 8,
+      "precision": 0.0,
+      "recall": 0.0
+     },
+     "vital": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "precision": null,
+      "recall": 0.0
+     },
+     "tests": {
+      "tp": 2,
+      "fp": 4,
+      "fn": 2,
+      "precision": 0.333,
+      "recall": 0.5
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Anilin",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Deprex",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Ovocal-D",
+       "Ovocal"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Surgel-40",
+       "Surgel"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Reservip",
+       "Reservip 100"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Cortam",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Regicr",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Tolfen",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "medication",
+      "expected": null,
+      "got": "Regier",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "medication",
+      "expected": null,
+      "got": "Tolfert",
+      "needs_review": true
+     },
+     {
+      "kind": "missing",
+      "field": "vital",
+      "expected": "P",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "vital",
+      "expected": "BP",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "S. Uric Acid",
+       "Uric Acid"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "RBS"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "HA",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "C001d",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "P-32n",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "PMA",
+      "needs_review": true
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 8,
+      "found": 2
+     },
+     "dosage": {
+      "expected": 6,
+      "found": 6
+     },
+     "frequency": {
+      "expected": 3,
+      "found": 3
+     }
+    },
+    "critical_total": {
+     "expected": 17,
+     "found": 11
+    },
+    "missing": [
+     {
+      "category": "medicine_name",
+      "token": "Deprex",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Ovocal-D",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Reservip",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Cortam",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Regicr",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Tolfen",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  },
+  "rw_021.jpeg": {
+   "file": "rw_021.jpeg",
+   "truth": "rw_021",
+   "crashed": false,
+   "seconds": 24.6,
+   "status": "low_confidence",
+   "error": null,
+   "warnings": [
+    "Page 1: 45 lines were read on page 1 but only about 26 are visible; some text may be invented.",
+    "8 line(s) were read with low OCR token probability; check them against the document."
+   ],
+   "raw_text": "DM - 2 yrs.\nCIC H2N - 2 yrs.\nFever - 10 days.\nBurning micturition.\nO/E Lower abdominal pain.\ncrackling\n& swelling.\nUrinary discharge.\nie:\nO/E\nnp: BP - 150/80 mmHg\nemia: Hg - Clair.\ners: edema (-)\nabdomen\n- soft.\nTest+3\nswollen\n- red.\n44\nU \u2192 20 R/E\n- CRL\n- USS & KLI\nregion.\n- RBS.\nUT!\nBEP\nBpididymoarchis3.\n\u09a4\u09be\u09b0\u09bf\u0996\n11/11\n1. R. oflicin (400)/Rutix (400)\n> 10-2 (2020-2021) - 20 mg\n11. cap. Dexilond (600)\n> 10-2 (2020-2021) 256\n11. SFP. like-K\n2-0-2 (24-0-2) 20-20\n(\u09ae\u09bf\u09b6\u09cd\u09b0\u09a3)\n12. Napadol\n> 10-2 (2020-2021)\n13. Epilod (0.51)\n0-20-2) - 28 mg\n14. cap. Uromax (0.4)\n> 10-2) - 20 mg\n15. 18. Cilocab (5) - 0-20-2 - 50 mg\n16. 18. Rostab (5) - 0-20-2) - 50 mg\n28. \u09a6\u09bf\u09a8/",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "other_medical",
+     "ok": false
+    },
+    "fields": {
+     "medication": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 6,
+      "precision": 1.0,
+      "recall": 0.25
+     },
+     "medication.dosage": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "precision": null,
+      "recall": 0.0
+     },
+     "vital": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0
+     },
+     "diagnoses": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 3,
+      "precision": 0.0,
+      "recall": 0.0
+     },
+     "symptoms": {
+      "tp": 2,
+      "fp": 3,
+      "fn": 0,
+      "precision": 0.4,
+      "recall": 1.0
+     },
+     "tests": {
+      "tp": 1,
+      "fp": 7,
+      "fn": 3,
+      "precision": 0.125,
+      "recall": 0.25
+     }
+    },
+    "errors": [
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Oflacin",
+       "Oflacin (400)"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication.dosage",
+      "expected": "60m",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": [
+       "Citra-K",
+       "Citra"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Napadol",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Epiclon",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication.dosage",
+      "expected": "0.4",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Cilocab",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "medication",
+      "expected": "Rostab",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "vital",
+      "expected": "BP",
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "diagnoses",
+      "expected": [
+       "UTI"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "diagnoses",
+      "expected": [
+       "BEP"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "diagnoses",
+      "expected": [
+       "Epididymoorchitis"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "diagnoses",
+      "expected": null,
+      "got": "DM",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "symptoms",
+      "expected": null,
+      "got": "Lower abdominal pain",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "symptoms",
+      "expected": null,
+      "got": "crackling",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "symptoms",
+      "expected": null,
+      "got": "Urinary discharge",
+      "needs_review": true
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "Urine R/E"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "CBC"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "missing",
+      "field": "tests",
+      "expected": [
+       "USG KUB",
+       "USG"
+      ],
+      "got": null,
+      "needs_review": null
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "BP",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "Hg",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "Clair",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "CRL",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "USS",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "KLI",
+      "needs_review": true
+     },
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "SFP",
+      "needs_review": true
+     }
+    ],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 8,
+      "found": 5
+     },
+     "dosage": {
+      "expected": 6,
+      "found": 4
+     }
+    },
+    "critical_total": {
+     "expected": 14,
+     "found": 9
+    },
+    "missing": [
+     {
+      "category": "medicine_name",
+      "token": "Oflacin",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "dosage",
+      "token": "60m",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Citra-K",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "medicine_name",
+      "token": "Epiclon",
+      "expected": 1,
+      "found": 0
+     },
+     {
+      "category": "dosage",
+      "token": "0.5",
+      "expected": 1,
+      "found": 0
+     }
+    ],
+    "cer": null,
+    "unsupported_lines": [],
+    "substitutions": []
+   }
+  }
+ },
+ "warnings": [],
  "heldout_integrity_problems": []
 }

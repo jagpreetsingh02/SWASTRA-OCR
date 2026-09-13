@@ -1,0 +1,40 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [
+  {
+   "name": [
+    "Axicet plus",
+    "Axicet"
+   ],
+   "dosage": null,
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Trilock",
+   "dosage": null,
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Doxoven",
+   "dosage": null,
+   "frequency": null,
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [
+  [
+   "CXR P/A",
+   "CXR"
+  ]
+ ],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "Bangla form with Latin drug names. Dosing and duration are Bangla numerals, so left null. A fourth drug (Timabil?) was too uncertain to record."
+}

@@ -1,0 +1,42 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": null,
+ "medications": [],
+ "test_results": [],
+ "tests": [
+  [
+   "SGPT"
+  ],
+  [
+   "SGOT"
+  ],
+  [
+   "CBC"
+  ],
+  [
+   "Urea"
+  ],
+  [
+   "Creatinine"
+  ],
+  [
+   "RBS"
+  ],
+  [
+   "CXR"
+  ]
+ ],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "vitals": [
+  {
+   "name": "BP",
+   "value": "100/70",
+   "unit": "mmHg"
+  }
+ ],
+ "notes": "Investigations and BP legible; the Rx lines are not, so no medications are recorded."
+}

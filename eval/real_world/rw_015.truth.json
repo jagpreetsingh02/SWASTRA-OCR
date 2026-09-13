@@ -1,0 +1,60 @@
+{
+ "document_type": "prescription",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": "24.12.25",
+ "medications": [
+  {
+   "name": [
+    "DNS",
+    "5% DNS"
+   ],
+   "dosage": "410 mL",
+   "frequency": null,
+   "duration": null
+  },
+  {
+   "name": "Omeprazole",
+   "dosage": "40mg/10mL",
+   "frequency": "OD",
+   "duration": null
+  },
+  {
+   "name": "Algin",
+   "dosage": "1 amp",
+   "frequency": null,
+   "duration": null
+  }
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [
+  [
+   "Dengue Shock Syndrome"
+  ],
+  [
+   "DF",
+   "DF (NS1 +ve)"
+  ]
+ ],
+ "symptoms": [],
+ "allergies": [],
+ "vitals": [
+  {
+   "name": "Wt",
+   "value": "22.8",
+   "unit": "kg"
+  },
+  {
+   "name": "Height",
+   "value": "136",
+   "unit": "cm"
+  },
+  {
+   "name": "BMI",
+   "value": "12.3",
+   "unit": "kg/m2"
+  }
+ ],
+ "notes": "Very legible paediatric dengue order with weight, height and BMI recorded on the page."
+}
