@@ -318,6 +318,20 @@ differences above are modest and partly run-to-run variance; what changed delibe
 token probabilities kept as device tensors instead of one GPU sync per token, JPEG decoded at reduced
 size, PDF pages rasterised with a size cap, and both models loaded once and warmed at start-up.
 
+**Timing here is noisy, so only large differences mean anything.** The same page with the same settings
+measured 51.9, 59.0 and 83.2 ms per generated token in three separate runs (12.5 s, 13.8 s and 18.8 s for
+the same 172 tokens). A page that looks slow is often the state of the machine rather than the document:
+an evaluation run measured a *digital* PDF, which never reaches OCR, at 0.52 s and 21.16 s in two runs,
+the difference being where the model load landed. Benchmark with nothing else running, and distrust any
+reported gain smaller than the spread above. Transcriptions, unlike timings, are deterministic.
+
+**Cropping blank margins before OCR was measured and rejected.** It does cut prefill -- a page fell from
+1364 to 588 image tokens and 2.2 s on one measurement -- but it changes the framing the vision encoder
+sees, and pages are already fed below the pixel cap, so it adds no resolution. Dev OCR lost two medicine
+names (critical tokens 0.984 -> 0.977, medicine_name 46/47 -> 44/47, `Ecosprin` read as `Ecospin`), so it
+was removed rather than kept for its speed. Float16 instead of bfloat16 produced byte-identical text with
+no reproducible speed difference, and was likewise not adopted.
+
 **Resource behaviour:** both models stay resident (~4.7 GB GPU + ~3.8 GB RSS). Memory is flat across
 repeated requests — no growth, no reloads. One document is processed at a time
 (`MEDIKIOSK_OCR_MAX_CONCURRENT`, default 1), so concurrent uploads queue instead of multiplying memory;

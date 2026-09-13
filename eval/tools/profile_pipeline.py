@@ -10,6 +10,7 @@ eval/reports/profile_<label>.json.
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import resource
 import sys
@@ -17,14 +18,28 @@ import time
 from pathlib import Path
 
 import torch
+from PIL import Image
 
 from medikiosk_ocr import extract, ocr, pipeline
 
 ROOT = Path(__file__).resolve().parents[2]
 DEV = ROOT / "eval" / "dev"
 FILES = ["prescription_scan.png", "prescription_photo_handheld.jpg", "lab_report_scan.png",
-         "prescription_handwritten.png", "hw_rx_bradley.png", "prescription.pdf"]
+         "prescription_handwritten.png", "hw_rx_bradley.png", "mixed_printed_handwritten.png",
+         "pharma_info_minipress_letter.png", "prescription.pdf"]
+MULTIPAGE = "2page_scan.tiff (synthesised)"   # two dev pages in one file: multi-page latency and memory
 STAGES: dict[str, float] = {}
+
+
+def document(name: str) -> bytes:
+    """The bytes for one profiled request. The multi-page case is built from two dev pages rather than
+    kept as a fixture, so profiling never reaches into the held-out split."""
+    if name != MULTIPAGE:
+        return (DEV / name).read_bytes()
+    buf = io.BytesIO()
+    Image.open(DEV / "prescription_scan.png").save(
+        buf, format="TIFF", save_all=True, append_images=[Image.open(DEV / "lab_report_scan.png")])
+    return buf.getvalue()
 
 
 def timed(label, fn):
@@ -82,10 +97,10 @@ def main() -> None:
     patch(extract, "_ner_spans", "extract.gliner")
 
     rows = []
-    for name in FILES + [FILES[0]] * args.repeat:
+    for name in FILES + [MULTIPAGE] + [FILES[0]] * args.repeat:
         STAGES.clear()
         start = time.perf_counter()
-        result = pipeline.extract_document((DEV / name).read_bytes())
+        result = pipeline.extract_document(document(name))
         total = time.perf_counter() - start
         rows.append({"file": name, "status": result.status.value, "total_s": round(total, 2),
                      "stages_s": {k: round(v, 3) for k, v in sorted(STAGES.items())}, "memory": memory()})
