@@ -4,6 +4,7 @@
  "doctor_name": null,
  "date": "15/07/2026",
  "medications": [],
+ "panels": ["HAEMATOLOGY"],
  "test_results": [
   {"name": "Hemoglobin", "value": "13.1", "unit": "g/dL", "reference_range": "13.0 - 17.0"},
   {"name": "Total Leukocyte Count", "value": "11200", "unit": "/cumm", "reference_range": "4000 - 11000"},

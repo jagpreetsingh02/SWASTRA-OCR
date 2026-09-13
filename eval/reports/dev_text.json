@@ -4,56 +4,56 @@
  "summary": {
   "fields": {
    "allergies": {
-    "tp": 3,
+    "tp": 4,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "date": {
-    "tp": 19,
+    "tp": 22,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "diagnoses": {
-    "tp": 15,
+    "tp": 19,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "doctor_name": {
-    "tp": 12,
+    "tp": 15,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "medication": {
-    "tp": 44,
+    "tp": 51,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "medication.dosage": {
-    "tp": 41,
+    "tp": 48,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "medication.duration": {
-    "tp": 21,
+    "tp": 24,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "medication.frequency": {
-    "tp": 44,
+    "tp": 51,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
@@ -73,71 +73,99 @@
     "precision": 1.0,
     "recall": 1.0
    },
-   "patient_name": {
-    "tp": 9,
+   "panel": {
+    "tp": 3,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
-   "symptoms": {
+   "patient_name": {
     "tp": 12,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
+   "symptoms": {
+    "tp": 14,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
    "test_result": {
-    "tp": 23,
+    "tp": 29,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "test_result.reference_range": {
-    "tp": 19,
+    "tp": 25,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "test_result.unit": {
-    "tp": 22,
+    "tp": 28,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "test_result.value": {
-    "tp": 23,
+    "tp": 29,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "tests": {
-    "tp": 8,
-    "fp": 2,
+    "tp": 9,
+    "fp": 1,
     "fn": 0,
-    "precision": 0.8,
+    "precision": 0.9,
+    "recall": 1.0
+   },
+   "vital": {
+    "tp": 6,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "vital.unit": {
+    "tp": 6,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "vital.value": {
+    "tp": 6,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
     "recall": 1.0
    }
   },
   "overall": {
-   "tp": 321,
-   "fp": 2,
+   "tp": 407,
+   "fp": 1,
    "fn": 0,
-   "precision": 0.994,
+   "precision": 0.998,
    "recall": 1.0
   },
-  "false_positives": 2,
+  "false_positives": 1,
   "false_negatives": 0,
   "wrong_values": 0,
   "unflagged_errors": 1,
   "placement_errors": 0,
   "grounding_failures": 0,
   "document_type_accuracy": 1.0,
-  "documents": 20,
+  "documents": 23,
   "crashes": 0
  },
  "documents": {
@@ -145,7 +173,7 @@
    "file": "discharge.txt",
    "truth": "discharge",
    "crashed": false,
-   "seconds": 18.92,
+   "seconds": 11.62,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -210,7 +238,7 @@
    "file": "discharge_copd.txt",
    "truth": "discharge_copd",
    "crashed": false,
-   "seconds": 0.41,
+   "seconds": 0.32,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -289,7 +317,7 @@
    "file": "hw_rx_bradley.txt",
    "truth": "hw_rx_bradley",
    "crashed": false,
-   "seconds": 0.33,
+   "seconds": 0.24,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -382,7 +410,7 @@
    "file": "hw_rx_brush_hard.txt",
    "truth": "hw_rx_brush_hard",
    "crashed": false,
-   "seconds": 0.24,
+   "seconds": 0.2,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -461,7 +489,7 @@
    "file": "hw_rx_chalkboard.txt",
    "truth": "hw_rx_chalkboard",
    "crashed": false,
-   "seconds": 0.25,
+   "seconds": 0.2,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -533,7 +561,7 @@
    "file": "hw_rx_cursive.txt",
    "truth": "hw_rx_cursive",
    "crashed": false,
-   "seconds": 0.25,
+   "seconds": 0.21,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -601,11 +629,120 @@
     "ungrounded": []
    }
   },
+  "hx_discharge_kmc.txt": {
+   "file": "hx_discharge_kmc.txt",
+   "truth": "hx_discharge_kmc",
+   "crashed": false,
+   "seconds": 0.32,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "KMC HOSPITAL - DISCHARGE SUMMARY\nPatient: Lakshmi Iyer    IP No: 55392    Age: 67 years\nDate of Admission: 14/07/2026    Date of Discharge: 19/07/2026\nConsultant: Dr. Anil Kapoor, MD (Medicine)\nFinal Diagnosis: Community acquired pneumonia, Type 2 diabetes mellitus\nKnown allergy: Sulfonamides\nDischarge Medications:\nTab Augmentin 625 mg TDS x 5 days\nTab Glimepiride 1 mg OD before breakfast\nTab Paracetamol 650 mg SOS\nInhaler Budecort 200 mcg 2 puffs BD\nFollow up after 1 week with chest X-ray\n",
+   "extraction": {
+    "document_type": {
+     "expected": "discharge_summary",
+     "got": "discharge_summary",
+     "ok": true
+    },
+    "fields": {
+     "patient_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "doctor_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.duration": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "diagnoses": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "tests": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null
+     },
+     "allergies": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "chest X-ray",
+      "needs_review": false
+     }
+    ],
+    "unflagged_errors": [
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "chest X-ray",
+      "needs_review": false
+     }
+    ],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
   "hx_lab_biochem.txt": {
    "file": "hx_lab_biochem.txt",
    "truth": "hx_lab_biochem",
    "crashed": false,
-   "seconds": 0.52,
+   "seconds": 0.33,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -659,32 +796,95 @@
       "precision": 1.0,
       "recall": 1.0
      },
-     "tests": {
-      "tp": 0,
-      "fp": 1,
+     "panel": {
+      "tp": 1,
+      "fp": 0,
       "fn": 0,
-      "precision": 0.0,
-      "recall": null
+      "precision": 1.0,
+      "recall": 1.0
      }
     },
-    "errors": [
-     {
-      "kind": "false_positive",
-      "field": "tests",
-      "expected": null,
-      "got": "ALT",
-      "needs_review": false
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "hx_lab_cbc.txt": {
+   "file": "hx_lab_cbc.txt",
+   "truth": "hx_lab_cbc",
+   "crashed": false,
+   "seconds": 0.32,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "SRL DIAGNOSTICS PVT LTD\nPatient : Mrs. Kavita Rao          Age : 36 Y   Sex : F\nRef. By : Dr. P. Menon             Reported : 09/08/2026\nCOMPLETE BLOOD COUNT\nInvestigation            Result    Units          Reference Range\nHaemoglobin              10.8      g/dL           12.0 - 15.0\nRBC Count                4.12      mill/cumm      3.8 - 4.8\nPCV                      33.5      %              36 - 46\nMCV                      81.3      fL             83 - 101\nTotal WBC Count          11500     /cumm          4000 - 10000\nPlatelet Count           1.15      lakhs/cumm     1.5 - 4.1\n",
+   "extraction": {
+    "document_type": {
+     "expected": "lab_report",
+     "got": "lab_report",
+     "ok": true
+    },
+    "fields": {
+     "patient_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "doctor_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result.value": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result.unit": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result.reference_range": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "panel": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
      }
-    ],
-    "unflagged_errors": [
-     {
-      "kind": "false_positive",
-      "field": "tests",
-      "expected": null,
-      "got": "ALT",
-      "needs_review": false
-     }
-    ],
+    },
+    "errors": [],
+    "unflagged_errors": [],
     "placement_errors": [],
     "ungrounded": []
    }
@@ -693,7 +893,7 @@
    "file": "hx_mixed_paed.txt",
    "truth": "hx_mixed_paed",
    "crashed": false,
-   "seconds": 0.36,
+   "seconds": 0.28,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -754,6 +954,27 @@
       "precision": 1.0,
       "recall": 1.0
      },
+     "vital": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "vital.value": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "vital.unit": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
      "diagnoses": {
       "tp": 1,
       "fp": 0,
@@ -775,11 +996,104 @@
     "ungrounded": []
    }
   },
+  "hx_rx_printed_gp.txt": {
+   "file": "hx_rx_printed_gp.txt",
+   "truth": "hx_rx_printed_gp",
+   "crashed": false,
+   "seconds": 0.32,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "DR. MEERA NAIR CLINIC\nDr. Meera Nair, MBBS, DNB (Family Medicine)   Reg. No. KL/40218\nPatient Name: Suresh Pillai        Age/Sex: 58/M\nDate: 11/08/2026\nComplaints: giddiness, headache\nDiagnosis: Essential hypertension; Dyslipidaemia\nRx\n1. Tab. Telmisartan 40 mg 1-0-0 x 30 days\n2. Tab. Rosuvastatin 10 mg 0-0-1 x 30 days\n3. Tab. Aspirin 75 mg OD after lunch\nAllergies: None known\nReview with lipid profile after 1 month\n",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "prescription",
+     "ok": true
+    },
+    "fields": {
+     "patient_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "doctor_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.duration": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "diagnoses": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "symptoms": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "tests": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
   "invoice_pharmacy_gst.txt": {
    "file": "invoice_pharmacy_gst.txt",
    "truth": "invoice_pharmacy_gst",
    "crashed": false,
-   "seconds": 0.53,
+   "seconds": 0.36,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -823,7 +1137,7 @@
    "file": "lab_haematology_table.txt",
    "truth": "lab_haematology_table",
    "crashed": false,
-   "seconds": 0.39,
+   "seconds": 0.32,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -876,6 +1190,13 @@
       "fn": 0,
       "precision": 1.0,
       "recall": 1.0
+     },
+     "panel": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
      }
     },
     "errors": [],
@@ -888,7 +1209,7 @@
    "file": "lab_report.txt",
    "truth": "lab_report",
    "crashed": false,
-   "seconds": 0.44,
+   "seconds": 0.32,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -946,7 +1267,7 @@
    "file": "mixed_printed_handwritten.txt",
    "truth": "mixed_printed_handwritten",
    "crashed": false,
-   "seconds": 0.39,
+   "seconds": 0.24,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1007,6 +1328,27 @@
       "precision": 1.0,
       "recall": 1.0
      },
+     "vital": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "vital.value": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "vital.unit": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
      "diagnoses": {
       "tp": 1,
       "fp": 0,
@@ -1032,7 +1374,7 @@
    "file": "nonmedical_invoice.txt",
    "truth": "nonmedical_invoice",
    "crashed": false,
-   "seconds": 0.26,
+   "seconds": 0.21,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1062,7 +1404,7 @@
    "file": "pharma_info_minipress_letter.txt",
    "truth": "pharma_info_minipress_letter",
    "crashed": false,
-   "seconds": 0.49,
+   "seconds": 0.37,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1092,7 +1434,7 @@
    "file": "prescription.txt",
    "truth": "prescription",
    "crashed": false,
-   "seconds": 0.38,
+   "seconds": 0.31,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1171,7 +1513,7 @@
    "file": "prescription_handwritten.txt",
    "truth": "prescription_handwritten",
    "crashed": false,
-   "seconds": 0.32,
+   "seconds": 0.23,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1236,7 +1578,7 @@
    "file": "probe_false_positives.txt",
    "truth": "probe_false_positives",
    "crashed": false,
-   "seconds": 0.4,
+   "seconds": 0.29,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1290,6 +1632,27 @@
       "precision": 1.0,
       "recall": 1.0
      },
+     "vital": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "vital.value": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "vital.unit": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
      "diagnoses": {
       "tp": 2,
       "fp": 0,
@@ -1299,21 +1662,13 @@
      },
      "tests": {
       "tp": 1,
-      "fp": 1,
+      "fp": 0,
       "fn": 0,
-      "precision": 0.5,
+      "precision": 1.0,
       "recall": 1.0
      }
     },
-    "errors": [
-     {
-      "kind": "false_positive",
-      "field": "tests",
-      "expected": null,
-      "got": "SpO2",
-      "needs_review": true
-     }
-    ],
+    "errors": [],
     "unflagged_errors": [],
     "placement_errors": [],
     "ungrounded": []
@@ -1323,7 +1678,7 @@
    "file": "probe_medication_formats.txt",
    "truth": "probe_medication_formats",
    "crashed": false,
-   "seconds": 0.34,
+   "seconds": 0.29,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1388,7 +1743,7 @@
    "file": "rx_clinic_uti.txt",
    "truth": "rx_clinic_uti",
    "crashed": false,
-   "seconds": 0.35,
+   "seconds": 0.29,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1488,7 +1843,7 @@
    "file": "rx_paediatric_opd.txt",
    "truth": "rx_paediatric_opd",
    "crashed": false,
-   "seconds": 0.38,
+   "seconds": 0.23,
    "status": "ok",
    "error": null,
    "warnings": [],

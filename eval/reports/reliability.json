@@ -250,7 +250,7 @@
    "false_alarm": false,
    "unflagged_invented_entities": []
   },
-  "dev/hx_lab_biochem.png": {
+  "dev/hx_discharge_kmc.png": {
    "clean": {
     "status": "ok",
     "suspicion_warnings": [],
@@ -259,7 +259,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 11 lines were read on page 1 but only about 10 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
+     "Page 1: 13 lines were read on page 1 but only about 12 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -284,7 +284,7 @@
    "false_alarm": false,
    "unflagged_invented_entities": []
   },
-  "dev/hx_mixed_paed.png": {
+  "dev/hx_lab_biochem.png": {
    "clean": {
     "status": "ok",
     "suspicion_warnings": [],
@@ -293,7 +293,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 10 lines were read on page 1 but only about 9 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
+     "Page 1: 11 lines were read on page 1 but only about 10 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -317,6 +317,191 @@
    "detected": true,
    "false_alarm": false,
    "unflagged_invented_entities": []
+  },
+  "dev/hx_lab_cbc.png": {
+   "clean": {
+    "status": "ok",
+    "suspicion_warnings": [],
+    "invented_line_entities": []
+   },
+   "injected": {
+    "status": "low_confidence",
+    "suspicion_warnings": [
+     "Page 1: 12 lines were read on page 1 but only about 11 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
+    ],
+    "invented_line_entities": [
+     {
+      "text": "Warfarin",
+      "needs_review": true
+     },
+     {
+      "text": "5 mg",
+      "needs_review": true
+     },
+     {
+      "text": "OD",
+      "needs_review": true
+     },
+     {
+      "text": "10 days",
+      "needs_review": true
+     }
+    ]
+   },
+   "detected": true,
+   "false_alarm": false,
+   "unflagged_invented_entities": []
+  },
+  "dev/hx_lab_cbc_degraded.jpg": {
+   "clean": {
+    "status": "ok",
+    "suspicion_warnings": [],
+    "invented_line_entities": []
+   },
+   "injected": {
+    "status": "low_confidence",
+    "suspicion_warnings": [
+     "Page 1: 12 lines were read on page 1 but only about 11 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
+    ],
+    "invented_line_entities": [
+     {
+      "text": "Serum Potassium",
+      "needs_review": true
+     },
+     {
+      "text": "7.9",
+      "needs_review": true
+     },
+     {
+      "text": "mEq/L",
+      "needs_review": true
+     },
+     {
+      "text": "3.5 - 5.1",
+      "needs_review": true
+     }
+    ]
+   },
+   "detected": true,
+   "false_alarm": false,
+   "unflagged_invented_entities": []
+  },
+  "dev/hx_mixed_paed.png": {
+   "clean": {
+    "status": "ok",
+    "suspicion_warnings": [],
+    "invented_line_entities": []
+   },
+   "injected": {
+    "status": "low_confidence",
+    "suspicion_warnings": [
+     "Page 1: 10 lines were read on page 1 but only about 9 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
+    ],
+    "invented_line_entities": [
+     {
+      "text": "Warfarin",
+      "needs_review": true
+     },
+     {
+      "text": "5 mg",
+      "needs_review": true
+     },
+     {
+      "text": "OD",
+      "needs_review": true
+     },
+     {
+      "text": "10 days",
+      "needs_review": true
+     }
+    ]
+   },
+   "detected": true,
+   "false_alarm": false,
+   "unflagged_invented_entities": []
+  },
+  "dev/hx_rx_printed_gp.png": {
+   "clean": {
+    "status": "ok",
+    "suspicion_warnings": [],
+    "invented_line_entities": []
+   },
+   "injected": {
+    "status": "low_confidence",
+    "suspicion_warnings": [
+     "Page 1: 13 lines were read on page 1 but only about 12 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
+    ],
+    "invented_line_entities": [
+     {
+      "text": "Serum Potassium",
+      "needs_review": true
+     },
+     {
+      "text": "7.9",
+      "needs_review": true
+     },
+     {
+      "text": "mEq/L",
+      "needs_review": true
+     },
+     {
+      "text": "3.5 - 5.1",
+      "needs_review": true
+     }
+    ]
+   },
+   "detected": true,
+   "false_alarm": false,
+   "unflagged_invented_entities": []
+  },
+  "dev/hx_rx_printed_gp_photo.heic": {
+   "clean": {
+    "status": "ok",
+    "suspicion_warnings": [],
+    "invented_line_entities": []
+   },
+   "injected": {
+    "status": "ok",
+    "suspicion_warnings": [],
+    "invented_line_entities": [
+     {
+      "text": "Warfarin",
+      "needs_review": false
+     },
+     {
+      "text": "5 mg",
+      "needs_review": false
+     },
+     {
+      "text": "OD",
+      "needs_review": false
+     },
+     {
+      "text": "10 days",
+      "needs_review": false
+     }
+    ]
+   },
+   "detected": false,
+   "false_alarm": false,
+   "unflagged_invented_entities": [
+    {
+     "text": "Warfarin",
+     "needs_review": false
+    },
+    {
+     "text": "5 mg",
+     "needs_review": false
+    },
+    {
+     "text": "OD",
+     "needs_review": false
+    },
+    {
+     "text": "10 days",
+     "needs_review": false
+    }
+   ]
   },
   "dev/invoice_pharmacy_gst.png": {
    "clean": {
@@ -348,40 +533,6 @@
     ],
     "invented_line_entities": [
      {
-      "text": "Serum Potassium",
-      "needs_review": true
-     },
-     {
-      "text": "7.9",
-      "needs_review": true
-     },
-     {
-      "text": "mEq/L",
-      "needs_review": true
-     },
-     {
-      "text": "3.5 - 5.1",
-      "needs_review": true
-     }
-    ]
-   },
-   "detected": true,
-   "false_alarm": false,
-   "unflagged_invented_entities": []
-  },
-  "dev/lab_report_scan.png": {
-   "clean": {
-    "status": "ok",
-    "suspicion_warnings": [],
-    "invented_line_entities": []
-   },
-   "injected": {
-    "status": "low_confidence",
-    "suspicion_warnings": [
-     "Page 1: 10 lines were read on page 1 but only about 9 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
-    ],
-    "invented_line_entities": [
-     {
       "text": "Warfarin",
       "needs_review": true
      },
@@ -403,6 +554,40 @@
    "false_alarm": false,
    "unflagged_invented_entities": []
   },
+  "dev/lab_report_scan.png": {
+   "clean": {
+    "status": "ok",
+    "suspicion_warnings": [],
+    "invented_line_entities": []
+   },
+   "injected": {
+    "status": "low_confidence",
+    "suspicion_warnings": [
+     "Page 1: 10 lines were read on page 1 but only about 9 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
+    ],
+    "invented_line_entities": [
+     {
+      "text": "Serum Potassium",
+      "needs_review": true
+     },
+     {
+      "text": "7.9",
+      "needs_review": true
+     },
+     {
+      "text": "mEq/L",
+      "needs_review": true
+     },
+     {
+      "text": "3.5 - 5.1",
+      "needs_review": true
+     }
+    ]
+   },
+   "detected": true,
+   "false_alarm": false,
+   "unflagged_invented_entities": []
+  },
   "dev/mixed_printed_handwritten.png": {
    "clean": {
     "status": "ok",
@@ -414,19 +599,19 @@
     "suspicion_warnings": [],
     "invented_line_entities": [
      {
-      "text": "Serum Potassium",
+      "text": "Warfarin",
       "needs_review": false
      },
      {
-      "text": "7.9",
+      "text": "5 mg",
       "needs_review": false
      },
      {
-      "text": "mEq/L",
+      "text": "OD",
       "needs_review": false
      },
      {
-      "text": "3.5 - 5.1",
+      "text": "10 days",
       "needs_review": false
      }
     ]
@@ -435,19 +620,19 @@
    "false_alarm": false,
    "unflagged_invented_entities": [
     {
-     "text": "Serum Potassium",
+     "text": "Warfarin",
      "needs_review": false
     },
     {
-     "text": "7.9",
+     "text": "5 mg",
      "needs_review": false
     },
     {
-     "text": "mEq/L",
+     "text": "OD",
      "needs_review": false
     },
     {
-     "text": "3.5 - 5.1",
+     "text": "10 days",
      "needs_review": false
     }
    ]
@@ -482,19 +667,19 @@
     ],
     "invented_line_entities": [
      {
-      "text": "Serum Potassium",
+      "text": "Warfarin",
       "needs_review": true
      },
      {
-      "text": "7.9",
+      "text": "5 mg",
       "needs_review": true
      },
      {
-      "text": "mEq/L",
+      "text": "OD",
       "needs_review": true
      },
      {
-      "text": "3.5 - 5.1",
+      "text": "10 days",
       "needs_review": true
      }
     ]
@@ -516,19 +701,19 @@
     ],
     "invented_line_entities": [
      {
-      "text": "Warfarin",
+      "text": "Serum Potassium",
       "needs_review": true
      },
      {
-      "text": "5 mg",
+      "text": "7.9",
       "needs_review": true
      },
      {
-      "text": "OD",
+      "text": "mEq/L",
       "needs_review": true
      },
      {
-      "text": "10 days",
+      "text": "3.5 - 5.1",
       "needs_review": true
      }
     ]
@@ -548,19 +733,19 @@
     "suspicion_warnings": [],
     "invented_line_entities": [
      {
-      "text": "Serum Potassium",
+      "text": "Warfarin",
       "needs_review": false
      },
      {
-      "text": "7.9",
+      "text": "5 mg",
       "needs_review": false
      },
      {
-      "text": "mEq/L",
+      "text": "OD",
       "needs_review": false
      },
      {
-      "text": "3.5 - 5.1",
+      "text": "10 days",
       "needs_review": false
      }
     ]
@@ -569,126 +754,24 @@
    "false_alarm": false,
    "unflagged_invented_entities": [
     {
-     "text": "Serum Potassium",
+     "text": "Warfarin",
      "needs_review": false
     },
     {
-     "text": "7.9",
+     "text": "5 mg",
      "needs_review": false
     },
     {
-     "text": "mEq/L",
+     "text": "OD",
      "needs_review": false
     },
     {
-     "text": "3.5 - 5.1",
+     "text": "10 days",
      "needs_review": false
     }
    ]
   },
   "dev/prescription_scan.png": {
-   "clean": {
-    "status": "ok",
-    "suspicion_warnings": [],
-    "invented_line_entities": []
-   },
-   "injected": {
-    "status": "low_confidence",
-    "suspicion_warnings": [
-     "Page 1: 12 lines were read on page 1 but only about 11 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
-    ],
-    "invented_line_entities": [
-     {
-      "text": "Warfarin",
-      "needs_review": true
-     },
-     {
-      "text": "5 mg",
-      "needs_review": true
-     },
-     {
-      "text": "OD",
-      "needs_review": true
-     },
-     {
-      "text": "10 days",
-      "needs_review": true
-     }
-    ]
-   },
-   "detected": true,
-   "false_alarm": false,
-   "unflagged_invented_entities": []
-  },
-  "heldout/hx_discharge_kmc.png": {
-   "clean": {
-    "status": "ok",
-    "suspicion_warnings": [],
-    "invented_line_entities": []
-   },
-   "injected": {
-    "status": "low_confidence",
-    "suspicion_warnings": [
-     "Page 1: 13 lines were read on page 1 but only about 12 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
-    ],
-    "invented_line_entities": [
-     {
-      "text": "Serum Potassium",
-      "needs_review": true
-     },
-     {
-      "text": "7.9",
-      "needs_review": true
-     },
-     {
-      "text": "mEq/L",
-      "needs_review": true
-     },
-     {
-      "text": "3.5 - 5.1",
-      "needs_review": true
-     }
-    ]
-   },
-   "detected": true,
-   "false_alarm": false,
-   "unflagged_invented_entities": []
-  },
-  "heldout/hx_lab_cbc.png": {
-   "clean": {
-    "status": "ok",
-    "suspicion_warnings": [],
-    "invented_line_entities": []
-   },
-   "injected": {
-    "status": "low_confidence",
-    "suspicion_warnings": [
-     "Page 1: 12 lines were read on page 1 but only about 11 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
-    ],
-    "invented_line_entities": [
-     {
-      "text": "Warfarin",
-      "needs_review": true
-     },
-     {
-      "text": "5 mg",
-      "needs_review": true
-     },
-     {
-      "text": "OD",
-      "needs_review": true
-     },
-     {
-      "text": "10 days",
-      "needs_review": true
-     }
-    ]
-   },
-   "detected": true,
-   "false_alarm": false,
-   "unflagged_invented_entities": []
-  },
-  "heldout/hx_lab_cbc_degraded.jpg": {
    "clean": {
     "status": "ok",
     "suspicion_warnings": [],
@@ -791,89 +874,6 @@
    "unflagged_invented_entities": []
   },
   "heldout/hx_rx_hand_iqbal.png": {
-   "clean": {
-    "status": "ok",
-    "suspicion_warnings": [],
-    "invented_line_entities": []
-   },
-   "injected": {
-    "status": "ok",
-    "suspicion_warnings": [],
-    "invented_line_entities": [
-     {
-      "text": "Warfarin",
-      "needs_review": false
-     },
-     {
-      "text": "5 mg",
-      "needs_review": false
-     },
-     {
-      "text": "OD",
-      "needs_review": false
-     },
-     {
-      "text": "10 days",
-      "needs_review": false
-     }
-    ]
-   },
-   "detected": false,
-   "false_alarm": false,
-   "unflagged_invented_entities": [
-    {
-     "text": "Warfarin",
-     "needs_review": false
-    },
-    {
-     "text": "5 mg",
-     "needs_review": false
-    },
-    {
-     "text": "OD",
-     "needs_review": false
-    },
-    {
-     "text": "10 days",
-     "needs_review": false
-    }
-   ]
-  },
-  "heldout/hx_rx_printed_gp.png": {
-   "clean": {
-    "status": "ok",
-    "suspicion_warnings": [],
-    "invented_line_entities": []
-   },
-   "injected": {
-    "status": "low_confidence",
-    "suspicion_warnings": [
-     "Page 1: 13 lines were read on page 1 but only about 12 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
-    ],
-    "invented_line_entities": [
-     {
-      "text": "Serum Potassium",
-      "needs_review": true
-     },
-     {
-      "text": "7.9",
-      "needs_review": true
-     },
-     {
-      "text": "mEq/L",
-      "needs_review": true
-     },
-     {
-      "text": "3.5 - 5.1",
-      "needs_review": true
-     }
-    ]
-   },
-   "detected": true,
-   "false_alarm": false,
-   "unflagged_invented_entities": []
-  },
-  "heldout/hx_rx_printed_gp_photo.heic": {
    "clean": {
     "status": "ok",
     "suspicion_warnings": [],

@@ -4,6 +4,7 @@
  "doctor_name": "Dr. P. Menon",
  "date": "09/08/2026",
  "medications": [],
+ "panels": ["COMPLETE BLOOD COUNT"],
  "test_results": [
   {"name": "Haemoglobin", "value": "10.8", "unit": "g/dL", "reference_range": "12.0 - 15.0"},
   {"name": "RBC Count", "value": "4.12", "unit": "mill/cumm", "reference_range": "3.8 - 4.8"},

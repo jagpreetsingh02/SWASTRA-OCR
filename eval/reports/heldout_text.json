@@ -3,353 +3,121 @@
  "mode": "text",
  "summary": {
   "fields": {
-   "allergies": {
-    "tp": 1,
-    "fp": 2,
-    "fn": 0,
-    "precision": 0.333,
-    "recall": 1.0
-   },
    "date": {
-    "tp": 6,
+    "tp": 3,
     "fp": 1,
     "fn": 1,
-    "precision": 0.857,
-    "recall": 0.857
+    "precision": 0.75,
+    "recall": 0.75
    },
    "diagnoses": {
-    "tp": 6,
+    "tp": 2,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "doctor_name": {
-    "tp": 6,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "medication": {
-    "tp": 14,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "medication.dosage": {
-    "tp": 11,
-    "fp": 1,
-    "fn": 1,
-    "precision": 0.917,
-    "recall": 0.917
-   },
-   "medication.duration": {
-    "tp": 5,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "medication.frequency": {
-    "tp": 13,
-    "fp": 0,
-    "fn": 1,
-    "precision": 1.0,
-    "recall": 0.929
-   },
-   "patient_name": {
-    "tp": 6,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "symptoms": {
     "tp": 3,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
+   "medication": {
+    "tp": 7,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication.dosage": {
+    "tp": 4,
+    "fp": 1,
+    "fn": 1,
+    "precision": 0.8,
+    "recall": 0.8
+   },
+   "medication.duration": {
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication.frequency": {
+    "tp": 6,
+    "fp": 0,
+    "fn": 1,
+    "precision": 1.0,
+    "recall": 0.857
+   },
+   "patient_name": {
+    "tp": 3,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "symptoms": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
    "test_result": {
-    "tp": 18,
+    "tp": 12,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "test_result.reference_range": {
-    "tp": 16,
-    "fp": 0,
-    "fn": 2,
-    "precision": 1.0,
-    "recall": 0.889
-   },
-   "test_result.unit": {
-    "tp": 16,
-    "fp": 0,
-    "fn": 2,
-    "precision": 1.0,
-    "recall": 0.889
-   },
-   "test_result.value": {
-    "tp": 18,
+    "tp": 12,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
-   "tests": {
-    "tp": 1,
-    "fp": 3,
+   "test_result.unit": {
+    "tp": 12,
+    "fp": 0,
     "fn": 0,
-    "precision": 0.25,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "test_result.value": {
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
     "recall": 1.0
    }
   },
   "overall": {
-   "tp": 140,
-   "fp": 7,
-   "fn": 7,
-   "precision": 0.952,
-   "recall": 0.952
+   "tp": 79,
+   "fp": 2,
+   "fn": 3,
+   "precision": 0.975,
+   "recall": 0.963
   },
-  "false_positives": 5,
-  "false_negatives": 5,
+  "false_positives": 0,
+  "false_negatives": 1,
   "wrong_values": 2,
-  "unflagged_errors": 6,
+  "unflagged_errors": 2,
   "placement_errors": 0,
   "grounding_failures": 0,
   "document_type_accuracy": 1.0,
-  "documents": 7,
+  "documents": 4,
   "crashes": 0
  },
  "documents": {
-  "hx_discharge_kmc.txt": {
-   "file": "hx_discharge_kmc.txt",
-   "truth": "hx_discharge_kmc",
-   "crashed": false,
-   "seconds": 0.38,
-   "status": "ok",
-   "error": null,
-   "warnings": [],
-   "raw_text": "KMC HOSPITAL - DISCHARGE SUMMARY\nPatient: Lakshmi Iyer    IP No: 55392    Age: 67 years\nDate of Admission: 14/07/2026    Date of Discharge: 19/07/2026\nConsultant: Dr. Anil Kapoor, MD (Medicine)\nFinal Diagnosis: Community acquired pneumonia, Type 2 diabetes mellitus\nKnown allergy: Sulfonamides\nDischarge Medications:\nTab Augmentin 625 mg TDS x 5 days\nTab Glimepiride 1 mg OD before breakfast\nTab Paracetamol 650 mg SOS\nInhaler Budecort 200 mcg 2 puffs BD\nFollow up after 1 week with chest X-ray\n",
-   "extraction": {
-    "document_type": {
-     "expected": "discharge_summary",
-     "got": "discharge_summary",
-     "ok": true
-    },
-    "fields": {
-     "patient_name": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "doctor_name": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "date": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication": {
-      "tp": 4,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication.dosage": {
-      "tp": 4,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication.frequency": {
-      "tp": 4,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication.duration": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "diagnoses": {
-      "tp": 2,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "tests": {
-      "tp": 0,
-      "fp": 1,
-      "fn": 0,
-      "precision": 0.0,
-      "recall": null
-     },
-     "allergies": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     }
-    },
-    "errors": [
-     {
-      "kind": "false_positive",
-      "field": "tests",
-      "expected": null,
-      "got": "chest X-ray",
-      "needs_review": false
-     }
-    ],
-    "unflagged_errors": [
-     {
-      "kind": "false_positive",
-      "field": "tests",
-      "expected": null,
-      "got": "chest X-ray",
-      "needs_review": false
-     }
-    ],
-    "placement_errors": [],
-    "ungrounded": []
-   }
-  },
-  "hx_lab_cbc.txt": {
-   "file": "hx_lab_cbc.txt",
-   "truth": "hx_lab_cbc",
-   "crashed": false,
-   "seconds": 0.37,
-   "status": "ok",
-   "error": null,
-   "warnings": [],
-   "raw_text": "SRL DIAGNOSTICS PVT LTD\nPatient : Mrs. Kavita Rao          Age : 36 Y   Sex : F\nRef. By : Dr. P. Menon             Reported : 09/08/2026\nCOMPLETE BLOOD COUNT\nInvestigation            Result    Units          Reference Range\nHaemoglobin              10.8      g/dL           12.0 - 15.0\nRBC Count                4.12      mill/cumm      3.8 - 4.8\nPCV                      33.5      %              36 - 46\nMCV                      81.3      fL             83 - 101\nTotal WBC Count          11500     /cumm          4000 - 10000\nPlatelet Count           1.15      lakhs/cumm     1.5 - 4.1\n",
-   "extraction": {
-    "document_type": {
-     "expected": "lab_report",
-     "got": "lab_report",
-     "ok": true
-    },
-    "fields": {
-     "patient_name": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "doctor_name": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "date": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "test_result": {
-      "tp": 6,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "test_result.value": {
-      "tp": 6,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "test_result.unit": {
-      "tp": 5,
-      "fp": 0,
-      "fn": 1,
-      "precision": 1.0,
-      "recall": 0.833
-     },
-     "test_result.reference_range": {
-      "tp": 5,
-      "fp": 0,
-      "fn": 1,
-      "precision": 1.0,
-      "recall": 0.833
-     },
-     "tests": {
-      "tp": 0,
-      "fp": 1,
-      "fn": 0,
-      "precision": 0.0,
-      "recall": null
-     }
-    },
-    "errors": [
-     {
-      "kind": "missing",
-      "field": "test_result.unit",
-      "expected": "mill/cumm",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "3.8 - 4.8",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "false_positive",
-      "field": "tests",
-      "expected": null,
-      "got": "COMPLETE BLOOD COUNT",
-      "needs_review": false
-     }
-    ],
-    "unflagged_errors": [
-     {
-      "kind": "false_positive",
-      "field": "tests",
-      "expected": null,
-      "got": "COMPLETE BLOOD COUNT",
-      "needs_review": false
-     }
-    ],
-    "placement_errors": [],
-    "ungrounded": []
-   }
-  },
   "hx_labs_2page.txt": {
    "file": "hx_labs_2page.txt",
    "truth": "hx_labs_2page",
    "crashed": false,
-   "seconds": 0.89,
+   "seconds": 0.77,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -397,25 +165,18 @@
       "recall": 1.0
      },
      "test_result.unit": {
-      "tp": 11,
+      "tp": 12,
       "fp": 0,
-      "fn": 1,
+      "fn": 0,
       "precision": 1.0,
-      "recall": 0.917
+      "recall": 1.0
      },
      "test_result.reference_range": {
-      "tp": 11,
+      "tp": 12,
       "fp": 0,
-      "fn": 1,
-      "precision": 1.0,
-      "recall": 0.917
-     },
-     "tests": {
-      "tp": 0,
-      "fp": 1,
       "fn": 0,
-      "precision": 0.0,
-      "recall": null
+      "precision": 1.0,
+      "recall": 1.0
      }
     },
     "errors": [
@@ -425,27 +186,6 @@
       "expected": "09/08/2026",
       "got": "21-08-2026",
       "needs_review": false
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.unit",
-      "expected": "mill/cumm",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "3.8 - 4.8",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "false_positive",
-      "field": "tests",
-      "expected": null,
-      "got": "ALT",
-      "needs_review": false
      }
     ],
     "unflagged_errors": [
@@ -454,13 +194,6 @@
       "field": "date",
       "expected": "09/08/2026",
       "got": "21-08-2026",
-      "needs_review": false
-     },
-     {
-      "kind": "false_positive",
-      "field": "tests",
-      "expected": null,
-      "got": "ALT",
       "needs_review": false
      }
     ],
@@ -472,7 +205,7 @@
    "file": "hx_nonmedical_notice.txt",
    "truth": "hx_nonmedical_notice",
    "crashed": false,
-   "seconds": 0.31,
+   "seconds": 0.37,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -502,7 +235,7 @@
    "file": "hx_rx_hand_banerjee.txt",
    "truth": "hx_rx_hand_banerjee",
    "crashed": false,
-   "seconds": 0.26,
+   "seconds": 0.28,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -604,7 +337,7 @@
    "file": "hx_rx_hand_iqbal.txt",
    "truth": "hx_rx_hand_iqbal",
    "crashed": false,
-   "seconds": 0.25,
+   "seconds": 0.24,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -682,129 +415,6 @@
     },
     "errors": [],
     "unflagged_errors": [],
-    "placement_errors": [],
-    "ungrounded": []
-   }
-  },
-  "hx_rx_printed_gp.txt": {
-   "file": "hx_rx_printed_gp.txt",
-   "truth": "hx_rx_printed_gp",
-   "crashed": false,
-   "seconds": 0.35,
-   "status": "ok",
-   "error": null,
-   "warnings": [],
-   "raw_text": "DR. MEERA NAIR CLINIC\nDr. Meera Nair, MBBS, DNB (Family Medicine)   Reg. No. KL/40218\nPatient Name: Suresh Pillai        Age/Sex: 58/M\nDate: 11/08/2026\nComplaints: giddiness, headache\nDiagnosis: Essential hypertension; Dyslipidaemia\nRx\n1. Tab. Telmisartan 40 mg 1-0-0 x 30 days\n2. Tab. Rosuvastatin 10 mg 0-0-1 x 30 days\n3. Tab. Aspirin 75 mg OD after lunch\nAllergies: None known\nReview with lipid profile after 1 month\n",
-   "extraction": {
-    "document_type": {
-     "expected": "prescription",
-     "got": "prescription",
-     "ok": true
-    },
-    "fields": {
-     "patient_name": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "doctor_name": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "date": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication": {
-      "tp": 3,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication.dosage": {
-      "tp": 3,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication.frequency": {
-      "tp": 3,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication.duration": {
-      "tp": 2,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "diagnoses": {
-      "tp": 2,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "symptoms": {
-      "tp": 2,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "tests": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "allergies": {
-      "tp": 0,
-      "fp": 2,
-      "fn": 0,
-      "precision": 0.0,
-      "recall": null
-     }
-    },
-    "errors": [
-     {
-      "kind": "false_positive",
-      "field": "allergies",
-      "expected": null,
-      "got": "Allergies",
-      "needs_review": false
-     },
-     {
-      "kind": "false_positive",
-      "field": "allergies",
-      "expected": null,
-      "got": "None known",
-      "needs_review": true
-     }
-    ],
-    "unflagged_errors": [
-     {
-      "kind": "false_positive",
-      "field": "allergies",
-      "expected": null,
-      "got": "Allergies",
-      "needs_review": false
-     }
-    ],
     "placement_errors": [],
     "ungrounded": []
    }

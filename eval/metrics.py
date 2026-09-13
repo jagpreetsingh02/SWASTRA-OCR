@@ -24,7 +24,9 @@ TRUTH_KEYS = {"document_type", "patient_name", "doctor_name", "date", "medicatio
               "tests", "diagnoses", "symptoms", "allergies"}
 # medication_mentions: medicines the document only names (invoice lines, product literature). Optional so
 # that truth files for documents without any mention stay short; absent means "none expected".
-OPTIONAL_KEYS = {"notes", "medication_mentions"}
+# vitals: observations measured on the patient (BP, pulse, SpO2) -- same shape as a lab result but never one.
+# panels: test-group headings a lab report groups its analytes under (Complete Blood Count).
+OPTIONAL_KEYS = {"notes", "medication_mentions", "vitals", "panels"}
 MED_KEYS = {"name", "dosage", "frequency", "duration"}
 RESULT_KEYS = {"name", "value", "unit", "reference_range"}
 LIST_FIELDS = ("diagnoses", "symptoms", "tests", "allergies")
@@ -49,6 +51,9 @@ def load_truth(path: Path | str) -> dict:
     for r in t.get("test_results", []):
         if set(r) != RESULT_KEYS:
             problems.append(f"test_result keys must be {sorted(RESULT_KEYS)}: {r}")
+    for v in t.get("vitals", []):
+        if not set(v) <= RESULT_KEYS:
+            problems.append(f"vitals keys must be a subset of {sorted(RESULT_KEYS)}: {v}")
     if problems:
         raise ValueError(f"{path}: " + "; ".join(problems))
     return t
@@ -188,10 +193,11 @@ def substitutions(transcription: str, ocr_text: str) -> list[dict]:
 # ------------------------------------------------------------------------------ extraction scoring
 
 def _entities(e) -> list:
-    out = [e.patient_name, e.doctor_name, e.date, *e.diagnoses, *e.symptoms, *e.tests, *e.allergies]
+    out = [e.patient_name, e.doctor_name, e.date, *e.diagnoses, *e.symptoms, *e.tests, *e.allergies,
+           *getattr(e, "panels", [])]
     for m in e.medications:
         out += [m.name, m.dosage, m.frequency, m.duration]
-    for r in e.test_results:
+    for r in [*e.test_results, *getattr(e, "vitals", [])]:
         out += [r.name, r.value, getattr(r, "unit", None), r.reference_range]
     return [x for x in out if x is not None]
 
@@ -270,10 +276,46 @@ def score_extraction(result, truth: dict) -> dict:
         bump("test_result", "fp")
         err("false_positive", "test_result", None, e.test_results[i].name.text, e.test_results[i].name)
 
+    # vitals (observations) and panels (test-group headings) are scored ONLY where a truth file declares
+    # them. They were added after the held-out split was frozen, so scoring them against a truth file that
+    # cannot mention them would turn correct extractions into false positives -- and invite editing frozen
+    # labels to hide it. Dev truth files declare them, so dev measures them properly.
+    if "vitals" in truth:
+        vitals = list(getattr(e, "vitals", []))
+        remaining = list(range(len(vitals)))
+        for tv in truth["vitals"]:
+            idx = next((i for i in remaining if name_match(vitals[i].name.text, tv["name"])), None)
+            if idx is None:
+                bump("vital", "fn")
+                err("missing", "vital", tv["name"], None)
+                continue
+            remaining.remove(idx)
+            bump("vital", "tp")
+            for sub in ("value", "unit"):
+                if sub in tv:
+                    compare(f"vital.{sub}", getattr(vitals[idx], sub, None), tv[sub], value_match)
+        for i in remaining:
+            bump("vital", "fp")
+            err("false_positive", "vital", None, vitals[i].name.text, vitals[i].name)
+
+    if "panels" in truth:
+        pred = list(getattr(e, "panels", []))
+        for item in truth["panels"]:
+            idx = next((i for i, p in enumerate(pred) if name_match(p.text, item)), None)
+            if idx is None:
+                bump("panel", "fn")
+                err("missing", "panel", item, None)
+            else:
+                pred.pop(idx)
+                bump("panel", "tp")
+        for p in pred:
+            bump("panel", "fp")
+            err("false_positive", "panel", None, p.text, p)
+
     # simple lists
     for field in LIST_FIELDS:
-        pred = list(getattr(e, field))
-        for item in truth[field]:
+        pred = list(getattr(e, field, []))
+        for item in truth.get(field, []):
             idx = next((i for i, p in enumerate(pred) if name_match(p.text, item)), None)
             if idx is None:
                 bump(field, "fn")

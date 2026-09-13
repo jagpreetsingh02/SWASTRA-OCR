@@ -19,11 +19,11 @@ def test_top_level_shape_and_version():
     data = json.loads(ExtractionResult(status=Status.ok).model_dump_json())
     assert set(data) == {"schema_version", "verification_required", "status", "document_type", "raw_text", "ocr_confidence",
                          "entities", "pages", "warnings", "error", "engine", "timings_ms"}
-    assert data["schema_version"] == SCHEMA_VERSION == "2.1"
+    assert data["schema_version"] == SCHEMA_VERSION == "2.2"
     assert data["verification_required"] is True
     assert set(data["entities"]) == {"patient_name", "date", "doctor_name", "medications", "medication_mentions",
                                      "dosages", "frequencies", "diagnoses", "symptoms", "tests", "test_results",
-                                     "allergies"}
+                                     "vitals", "panels", "allergies"}
 
 
 def test_values_carry_provenance_and_honest_scores():

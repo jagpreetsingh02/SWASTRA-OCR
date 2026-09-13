@@ -268,8 +268,15 @@ function render(r) {
       ? e.test_results.map((x) => `<tr><td>${ent(x.name)}</td><td>${ent(x.value)}</td><td>${ent(x.unit)}</td><td>${ent(x.reference_range)}</td></tr>`).join("")
       : '<tr><td colspan="4" class="empty">none found</td></tr>') + `</table></div>`;
 
+  html += `<h3>Vitals / observations <span class="note">(measured on the patient — not laboratory results)</span></h3>` +
+    `<div class="scroll"><table><tr><th>Observation</th><th>Value</th><th>Unit</th></tr>` +
+    ((e.vitals || []).length
+      ? e.vitals.map((x) => `<tr><td>${ent(x.name)}</td><td>${ent(x.value)}</td><td>${ent(x.unit)}</td></tr>`).join("")
+      : '<tr><td colspan="3" class="empty">none found</td></tr>') + `</table></div>`;
+
   html += list("Diagnoses", e.diagnoses) + list("Symptoms", e.symptoms) +
-          list("Allergies", e.allergies) + list("Tests / imaging mentioned", e.tests);
+          list("Allergies", e.allergies) + list("Tests / imaging mentioned", e.tests) +
+          list("Panels reported", e.panels);
 
   html += `<h3>Pages</h3><div class="scroll"><table><tr><th>#</th><th>Source</th><th>Status</th><th>Lines</th><th>Mean OCR token p</th></tr>` +
     ((r.pages || []).length

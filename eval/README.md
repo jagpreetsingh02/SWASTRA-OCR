@@ -17,7 +17,7 @@ whether each error was flagged `needs_review`) plus one JSON report per split/mo
 | Folder | What | May be used to tune rules/prompts? |
 |---|---|---|
 | `dev/` | Everything used while building: MediKiosk-2 / SIH_test fixtures, generated handwriting, probes, and five texts that were held out in an earlier round and then used to find bugs | **Yes** — so dev numbers are optimistic by construction |
-| `heldout/` | Eight documents (+ rendered variants) written **before** the current extraction rules and never used to tune them. `MANIFEST.sha256` freezes them; `run.py` warns loudly if anything changed | **No** |
+| `heldout/` | Four documents (+ rendered variants) written **before** the current extraction rules and never used to tune them. `MANIFEST.sha256` freezes them; `run.py` warns loudly if anything changed. It began as eight: five have since been moved to `dev/` under the rule below, so the split is thin and fresh documents are the most useful thing to add | **No** |
 | `real_world/` | Real, consented, de-identified documents. Empty until someone adds them | **No** |
 | `controls/` | Non-documents (blurred, dark, table photo) used by the reliability check | — |
 
@@ -63,8 +63,8 @@ For a document `<stem>`:
 }
 ```
 
-- Every key except `notes` and `medication_mentions` is required; unknown keys are rejected (typos cannot
-  silently score as misses).
+- Every key except `notes`, `medication_mentions`, `vitals` and `panels` is required; unknown keys are
+  rejected (typos cannot silently score as misses).
 - `document_type`: `prescription`, `lab_report`, `discharge_summary`, `medical_invoice`,
   `pharmaceutical_information`, `other_medical`, `unknown`.
 - Values are **as written on the page** — misspellings, abbreviations and units included
@@ -78,6 +78,11 @@ For a document `<stem>`:
   `medication_mentions` (same shape, optional) are medicines the document only **names** — invoice line
   items, package inserts, advertising. A medicine belongs to one list or the other, never both; absent
   means none expected.
+- `vitals` (optional, `name`/`value`/`unit`) are observations measured on the patient — BP, pulse, SpO2,
+  temperature, weight. They are never `test_results`, and a vital reported as a lab result scores as a
+  false positive in both fields rather than as a match.
+- `panels` (optional) are panel headings a lab report groups its analytes under (`COMPLETE BLOOD COUNT`).
+  A panel merely advised ("review with CBC") is a `tests` entry instead.
 
 ## Matching (strict)
 

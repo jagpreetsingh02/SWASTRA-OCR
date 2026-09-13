@@ -210,7 +210,9 @@ api.py         POST /v1/extract, GET /health
 ```
 
 - The integration contract is `medikiosk_ocr/schema.py`, published as `contract/extraction_result.schema.json`
-  (schema_version 2.1). `document_type` is decided from document-level evidence only, never from the
+  (schema_version 2.2). Observations measured on the patient (BP, pulse, SpO2) are `vitals`, never
+  `test_results`; a panel heading is `panels`, its analytes are the rows in `test_results`.
+  `document_type` is decided from document-level evidence only, never from the
   entities found, and it routes meaning: medicines a bill or a package insert merely names go to
   `medication_mentions`, never to `medications`, which is reserved for what a document presents as
   prescribed to a patient. The conceptual "Expected Output" above maps to it: `confidence` is split into
