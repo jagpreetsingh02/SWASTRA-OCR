@@ -1,0 +1,17 @@
+{
+ "document_type": "medical_invoice",
+ "patient_name": null,
+ "doctor_name": null,
+ "date": "03/09/2026",
+ "medications": [],
+ "medication_mentions": [
+  {"name": "Paracetamol", "dosage": "500mg", "frequency": null, "duration": null},
+  {"name": ["Cough Syrup", "Syrup"], "dosage": "100ml", "frequency": null, "duration": null}
+ ],
+ "test_results": [],
+ "tests": [],
+ "diagnoses": [],
+ "symptoms": [],
+ "allergies": [],
+ "notes": "From a real manual test. A pharmacy GST invoice: the products are medication MENTIONS, not prescribed medicines. 'Name: Kamal' is the bank account holder and must never become patient_name; 'Bill To' is a customer, not a patient. Face Mask is not a medicine."
+}

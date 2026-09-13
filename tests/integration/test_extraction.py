@@ -108,6 +108,77 @@ def test_advice_with_a_dosing_phrase_is_not_a_medicine():
     assert run("Exercise twice daily for 30 minutes\nDrink water 3 times a day").entities.medications == []
 
 
+# ------------------------------------------------------------------------------ what the document IS
+# Naming a medicine is not prescribing it. Both cases below came from real manual tests where the engine
+# read a pharmacy bill and a package insert as if a patient had been prescribed something.
+
+def test_pharmacy_invoice_sells_products_it_does_not_prescribe_them():
+    result = run("invoice_pharmacy_gst.txt")
+    assert result.document_type == DocumentType.medical_invoice
+    assert result.entities.medications == []
+    assert [(m.name.text, m.dosage and m.dosage.text) for m in result.entities.medication_mentions] == [
+        ("Paracetamol", "500mg"), ("Cough Syrup", "100ml")]        # "Face Mask (3 ply)" is merchandise
+    assert not (result.entities.diagnoses or result.entities.symptoms or result.entities.test_results)
+
+
+def test_the_bank_account_holder_on_an_invoice_is_not_the_patient():
+    assert run("invoice_pharmacy_gst.txt").entities.patient_name is None
+
+
+def test_a_bare_name_label_in_a_payee_block_is_never_a_patient():
+    assert run("Bank: State Bank of India\nIFSC: SBIN0004321\nBranch: Jayanagar\nName: Kamal").entities.patient_name is None
+
+
+@pytest.mark.parametrize("label", ["Patient: Kamal", "Patient Name: Kamal", "Pt: Kamal", "Name of patient: Kamal"])
+def test_an_explicit_patient_label_is_still_read(label):
+    assert run(f"Rx\n{label}\nTab Dolo 650 SOS").entities.patient_name.text == "Kamal"
+
+
+def test_a_bare_name_beside_patient_demographics_is_read_but_flagged():
+    patient = run("City Clinic\nName: Kamal Raj    Age: 45/M\nRx\nTab Dolo 650 SOS").entities.patient_name
+    assert patient.text == "Kamal Raj" and patient.needs_review
+
+
+def test_product_information_is_not_a_prescription():
+    result = run("pharma_info_minipress_letter.txt")
+    assert result.document_type == DocumentType.pharmaceutical_information
+    assert result.entities.medications == []
+    assert [m.name.text for m in result.entities.medication_mentions] == ["MINIPRESS", "prazosin HCl"]
+    assert all(m.dosage is None for m in result.entities.medication_mentions)   # 1mg/2mg/5mg is the product range
+
+
+def test_indications_and_adverse_reactions_are_not_a_patients_findings():
+    e = run("pharma_info_minipress_letter.txt").entities
+    assert (e.diagnoses, e.symptoms, e.allergies, e.test_results) == ([], [], [], [])
+
+
+def test_a_product_sold_in_several_strengths_is_a_mention_with_no_dose():
+    # deliberately not the fixture's words: several strengths on one line state what a product is sold in
+    result = run("ZOLTAN Tablets\n(cetirizine hydrochloride)\n5 mg, 10 mg and 20 mg\n\nCOMPOSITION\n"
+                 "Each tablet contains cetirizine hydrochloride 5 mg.\nADVERSE REACTIONS\nSedation, dry mouth.\n"
+                 "Manufactured by Acme Pharma Limited, Pune")
+    assert result.document_type == DocumentType.pharmaceutical_information
+    assert result.entities.medications == []
+    first = result.entities.medication_mentions[0]
+    assert first.name.text.startswith("ZOLTAN")   # the document's own wording is kept, never normalised
+    assert first.dosage is None                   # "5 mg, 10 mg and 20 mg" is a product range, not a dose
+
+
+def test_a_prescription_still_prescribes_and_mentions_nothing():
+    result = run("prescription.txt")
+    assert result.document_type == DocumentType.prescription
+    assert len(result.entities.medications) == 4 and result.entities.medication_mentions == []
+
+
+def test_a_medicine_named_in_an_invoice_line_is_never_promoted_to_prescribed():
+    result = run("GSTIN: 29ABCDE1234F1Z5   Tax Invoice\nInvoice No: 7/2026   Date: 03/09/2026\n"
+                 "S.No  Item            HSN    Qty  Rate   Amount\n1   Amoxicillin 500mg Cap  3004  10  4.00  40.00\n"
+                 "Grand Total   40.00")
+    assert result.document_type == DocumentType.medical_invoice
+    assert result.entities.medications == []
+    assert [m.name.text for m in result.entities.medication_mentions] == ["Amoxicillin"]
+
+
 # ------------------------------------------------------------------------------ safety
 
 def test_non_medical_text_yields_nothing_medical():

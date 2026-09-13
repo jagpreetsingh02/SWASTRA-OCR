@@ -11,91 +11,105 @@
     "recall": 1.0
    },
    "date": {
-    "tp": 15,
+    "tp": 18,
     "fp": 1,
     "fn": 1,
-    "precision": 0.938,
-    "recall": 0.938
+    "precision": 0.947,
+    "recall": 0.947
    },
    "diagnoses": {
-    "tp": 14,
+    "tp": 15,
     "fp": 2,
     "fn": 2,
-    "precision": 0.875,
-    "recall": 0.875
+    "precision": 0.882,
+    "recall": 0.882
    },
    "doctor_name": {
-    "tp": 10,
+    "tp": 11,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "medication": {
-    "tp": 39,
+    "tp": 42,
     "fp": 1,
     "fn": 1,
-    "precision": 0.975,
-    "recall": 0.975
+    "precision": 0.977,
+    "recall": 0.977
    },
    "medication.dosage": {
-    "tp": 37,
+    "tp": 40,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "medication.duration": {
-    "tp": 25,
+    "tp": 27,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "medication.frequency": {
-    "tp": 39,
+    "tp": 42,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
-   "patient_name": {
+   "medication_mention": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication_mention.dosage": {
     "tp": 2,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
+   "patient_name": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
    "symptoms": {
-    "tp": 5,
+    "tp": 8,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "test_result": {
-    "tp": 20,
+    "tp": 26,
     "fp": 2,
     "fn": 2,
-    "precision": 0.909,
-    "recall": 0.909
+    "precision": 0.929,
+    "recall": 0.929
    },
    "test_result.reference_range": {
-    "tp": 19,
+    "tp": 25,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "test_result.unit": {
-    "tp": 19,
+    "tp": 25,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "test_result.value": {
-    "tp": 20,
+    "tp": 26,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
@@ -103,85 +117,85 @@
    },
    "tests": {
     "tp": 6,
-    "fp": 0,
+    "fp": 1,
     "fn": 0,
-    "precision": 1.0,
+    "precision": 0.857,
     "recall": 1.0
    }
   },
   "overall": {
-   "tp": 271,
-   "fp": 6,
+   "tp": 322,
+   "fp": 7,
    "fn": 6,
-   "precision": 0.978,
-   "recall": 0.978
+   "precision": 0.979,
+   "recall": 0.982
   },
-  "false_positives": 5,
+  "false_positives": 6,
   "false_negatives": 5,
   "wrong_values": 1,
-  "unflagged_errors": 0,
+  "unflagged_errors": 1,
   "placement_errors": 0,
   "grounding_failures": 0,
   "document_type_accuracy": 1.0,
-  "documents": 16,
+  "documents": 20,
   "crashes": 0,
-  "outputs_closest_to_own_source": "16/16",
+  "outputs_closest_to_own_source": "20/20",
   "output_distinctness_problems": [],
   "ocr_critical_tokens": {
    "by_category": {
     "medicine_name": {
-     "expected": 40,
-     "found": 39,
-     "accuracy": 0.975
+     "expected": 47,
+     "found": 46,
+     "accuracy": 0.979
     },
     "dosage": {
-     "expected": 38,
-     "found": 38,
+     "expected": 44,
+     "found": 44,
      "accuracy": 1.0
     },
     "frequency": {
-     "expected": 40,
-     "found": 40,
+     "expected": 43,
+     "found": 43,
      "accuracy": 1.0
     },
     "duration": {
-     "expected": 26,
-     "found": 26,
+     "expected": 28,
+     "found": 28,
      "accuracy": 1.0
     },
     "date": {
-     "expected": 16,
-     "found": 15,
-     "accuracy": 0.938
+     "expected": 19,
+     "found": 18,
+     "accuracy": 0.947
     },
     "header": {
-     "expected": 12,
-     "found": 12,
+     "expected": 15,
+     "found": 15,
      "accuracy": 1.0
     },
     "lab_name": {
-     "expected": 22,
-     "found": 20,
-     "accuracy": 0.909
+     "expected": 28,
+     "found": 26,
+     "accuracy": 0.929
     },
     "lab_value": {
-     "expected": 25,
-     "found": 25,
+     "expected": 32,
+     "found": 32,
      "accuracy": 1.0
     }
    },
-   "accuracy": 0.982
+   "accuracy": 0.984
   },
   "ocr_unsupported_lines": 0,
-  "ocr_mean_cer": 0.0051,
-  "mean_seconds_per_file": 9.06
+  "ocr_mean_cer": 0.0059,
+  "mean_seconds_per_file": 14.13
  },
  "documents": {
   "discharge.pdf": {
    "file": "discharge.pdf",
    "truth": "discharge",
    "crashed": false,
-   "seconds": 0.48,
+   "seconds": 0.52,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -284,7 +298,7 @@
    "file": "discharge_degraded.png",
    "truth": "discharge",
    "crashed": false,
-   "seconds": 25.63,
+   "seconds": 32.9,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -387,7 +401,7 @@
    "file": "discharge_scan.png",
    "truth": "discharge",
    "crashed": false,
-   "seconds": 9.93,
+   "seconds": 10.38,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -490,7 +504,7 @@
    "file": "hw_rx_bradley.png",
    "truth": "hw_rx_bradley",
    "crashed": false,
-   "seconds": 8.91,
+   "seconds": 12.01,
    "status": "low_confidence",
    "error": null,
    "warnings": [
@@ -633,7 +647,7 @@
    "file": "hw_rx_brush_hard.png",
    "truth": "hw_rx_brush_hard",
    "crashed": false,
-   "seconds": 6.0,
+   "seconds": 8.52,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -784,7 +798,7 @@
    "file": "hw_rx_chalkboard.png",
    "truth": "hw_rx_chalkboard",
    "crashed": false,
-   "seconds": 6.36,
+   "seconds": 8.62,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -898,7 +912,7 @@
    "file": "hw_rx_cursive.png",
    "truth": "hw_rx_cursive",
    "crashed": false,
-   "seconds": 7.13,
+   "seconds": 10.32,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1044,11 +1058,335 @@
     "own_is_closest": true
    }
   },
+  "hx_lab_biochem.png": {
+   "file": "hx_lab_biochem.png",
+   "truth": "hx_lab_biochem",
+   "crashed": false,
+   "seconds": 23.58,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "CITY HOSPITAL LABORATORY\nName: Mr. Harish Kumar  UHID: 77120\nSample Date: 21-08-2026\nLIVER & KIDNEY FUNCTION\nSerum Bilirubin (Total) 1.8 mg/dL [0.2 - 1.2]\nSGPT (ALT) 64 U/L [7 - 56]\nSerum Creatinine 1.42 mg/dL [0.7 - 1.3]\nBlood Urea 48 mg/dL [15 - 40]\nHbA1c 6.9 % [4.0 - 5.6]\nSerum Potassium 5.1 mEq/L [3.5 - 5.1]",
+   "extraction": {
+    "document_type": {
+     "expected": "lab_report",
+     "got": "lab_report",
+     "ok": true
+    },
+    "fields": {
+     "patient_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result.value": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result.unit": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result.reference_range": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "tests": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null
+     }
+    },
+    "errors": [
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "ALT",
+      "needs_review": false
+     }
+    ],
+    "unflagged_errors": [
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "ALT",
+      "needs_review": false
+     }
+    ],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "lab_name": {
+      "expected": 6,
+      "found": 6
+     },
+     "lab_value": {
+      "expected": 7,
+      "found": 7
+     },
+     "header": {
+      "expected": 1,
+      "found": 1
+     },
+     "date": {
+      "expected": 1,
+      "found": 1
+     }
+    },
+    "critical_total": {
+     "expected": 15,
+     "found": 15
+    },
+    "missing": [],
+    "cer": 0.0,
+    "unsupported_lines": [],
+    "substitutions": []
+   },
+   "closest_other_source": {
+    "document": "lab_haematology_table",
+    "cer": 0.697,
+    "own_cer": 0.0,
+    "own_is_closest": true
+   }
+  },
+  "hx_mixed_paed.png": {
+   "file": "hx_mixed_paed.png",
+   "truth": "hx_mixed_paed",
+   "crashed": false,
+   "seconds": 16.3,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "LIFELINE CHILDREN'S CLINIC\nDr. Kavya Reddy, MD (Paed) Ph: 040-2334 5566\nPatient: Master Rohan K Date: 30/08/2026 Wt: 14 kg\nFever 102 F since 2 days, cough, cold\nImp: Viral URTI\nSyp Calpol 250 mg/5 ml 5 ml TDS x 3d\nSyp Ascoril LS 2.5 ml BD x 5d\nNasal saline drops 2 drops each nostril TDS\nReview SOS",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "prescription",
+     "ok": true
+    },
+    "fields": {
+     "patient_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "doctor_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.duration": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "diagnoses": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "symptoms": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 3,
+      "found": 3
+     },
+     "dosage": {
+      "expected": 4,
+      "found": 4
+     },
+     "frequency": {
+      "expected": 3,
+      "found": 3
+     },
+     "duration": {
+      "expected": 2,
+      "found": 2
+     },
+     "header": {
+      "expected": 2,
+      "found": 2
+     },
+     "date": {
+      "expected": 1,
+      "found": 1
+     }
+    },
+    "critical_total": {
+     "expected": 15,
+     "found": 15
+    },
+    "missing": [],
+    "cer": 0.0,
+    "unsupported_lines": [],
+    "substitutions": []
+   },
+   "closest_other_source": {
+    "document": "prescription",
+    "cer": 0.702,
+    "own_cer": 0.0,
+    "own_is_closest": true
+   }
+  },
+  "invoice_pharmacy_gst.png": {
+   "file": "invoice_pharmacy_gst.png",
+   "truth": "invoice_pharmacy_gst",
+   "crashed": false,
+   "seconds": 23.17,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "SHREE MEDICALS & GENERAL STORE\nGSTIN: 29ABCDE1234F1Z5 Tax Invoice\nInvoice No: SM/2026/0417 Date: 03/09/2026\nBill To: Ramesh Kumar Mobile: 98765 43210\nS.No Item HSN Qty Rate Amount\n1 Paracetamol 500mg Tablet 3004 10 2.50 25.00\n2 Cough Syrup 100ml 3004 1 85.00 85.00\n3 Face Mask (3 ply) 6307 5 5.00 25.00\nSub Total 135.00\nCGST 6% 8.10\nSGST 6% 8.10\nGrand Total 151.20\nBank Details\nBank: State Bank of India\nA/c No: 3021 5566 7788\nIFSC: SBIN0004321\nBranch: Jayanagar\nName: Kamal",
+   "extraction": {
+    "document_type": {
+     "expected": "medical_invoice",
+     "got": "medical_invoice",
+     "ok": true
+    },
+    "fields": {
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication_mention": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication_mention.dosage": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 2,
+      "found": 2
+     },
+     "dosage": {
+      "expected": 2,
+      "found": 2
+     },
+     "date": {
+      "expected": 1,
+      "found": 1
+     }
+    },
+    "critical_total": {
+     "expected": 5,
+     "found": 5
+    },
+    "missing": [],
+    "cer": 0.0,
+    "unsupported_lines": [],
+    "substitutions": []
+   },
+   "closest_other_source": {
+    "document": "pharma_info_minipress_letter",
+    "cer": 0.788,
+    "own_cer": 0.0,
+    "own_is_closest": true
+   }
+  },
   "lab_report.pdf": {
    "file": "lab_report.pdf",
    "truth": "lab_report",
    "crashed": false,
-   "seconds": 0.33,
+   "seconds": 0.34,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1126,8 +1464,8 @@
     "substitutions": []
    },
    "closest_other_source": {
-    "document": "lab_haematology_table",
-    "cer": 0.711,
+    "document": "hx_lab_biochem",
+    "cer": 0.708,
     "own_cer": 0.0,
     "own_is_closest": true
    }
@@ -1136,7 +1474,7 @@
    "file": "lab_report_degraded.png",
    "truth": "lab_report",
    "crashed": false,
-   "seconds": 12.05,
+   "seconds": 16.12,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1242,8 +1580,8 @@
     ]
    },
    "closest_other_source": {
-    "document": "lab_haematology_table",
-    "cer": 0.708,
+    "document": "hx_lab_biochem",
+    "cer": 0.705,
     "own_cer": 0.003,
     "own_is_closest": true
    }
@@ -1252,7 +1590,7 @@
    "file": "lab_report_scan.png",
    "truth": "lab_report",
    "crashed": false,
-   "seconds": 12.1,
+   "seconds": 17.12,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1358,8 +1696,8 @@
     ]
    },
    "closest_other_source": {
-    "document": "lab_haematology_table",
-    "cer": 0.708,
+    "document": "hx_lab_biochem",
+    "cer": 0.705,
     "own_cer": 0.003,
     "own_is_closest": true
    }
@@ -1368,7 +1706,7 @@
    "file": "mixed_printed_handwritten.png",
    "truth": "mixed_printed_handwritten",
    "crashed": false,
-   "seconds": 9.43,
+   "seconds": 10.66,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1486,9 +1824,72 @@
     "substitutions": []
    },
    "closest_other_source": {
-    "document": "prescription",
-    "cer": 0.71,
+    "document": "hx_mixed_paed",
+    "cer": 0.664,
     "own_cer": 0.0,
+    "own_is_closest": true
+   }
+  },
+  "pharma_info_minipress_letter.png": {
+   "file": "pharma_info_minipress_letter.png",
+   "truth": "pharma_info_minipress_letter",
+   "crashed": false,
+   "seconds": 22.14,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "NEW MINIPRESS Capsules\n(prazosin HCl)\n1mg, 2mg, 5mg\n\nCOMPOSITION\nEach capsule contains prazosin hydrochloride equivalent to prazosin 1 mg, 2 mg or 5 mg.\n\nINDICATIONS\nHypertension. Benign prostatic hyperplasia.\n\nDOSAGE AND ADMINISTRATION\nThe initial dose is 0.5 mg at bedtime. Dosage may be increased gradually.\n\nWARNINGS AND PRECAUTIONS\nFirst-dose effect: postural hypotension may occur.\n\nADVERSE REACTIONS\nDizziness, headache, drowsiness.\n\nManufactured by Pfizer Limited, Mumbai 400 001\n\nFor the use only of a Registered Medical Practitioner.\n\nDear Amit,\n\nThank you for the books you sent last week. We are all\nRavi has started school again and the weather has fina\nPlease write back when you can.\n\nYours,\nSuresh",
+   "extraction": {
+    "document_type": {
+     "expected": "pharmaceutical_information",
+     "got": "pharmaceutical_information",
+     "ok": true
+    },
+    "fields": {
+     "medication_mention": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   },
+   "ocr": {
+    "critical_by_category": {
+     "medicine_name": {
+      "expected": 2,
+      "found": 2
+     }
+    },
+    "critical_total": {
+     "expected": 2,
+     "found": 2
+    },
+    "missing": [],
+    "cer": 0.037,
+    "unsupported_lines": [],
+    "substitutions": [
+     {
+      "op": "delete",
+      "written": "well here.",
+      "read": ""
+     },
+     {
+      "op": "replace",
+      "written": "finally cooled down.",
+      "read": "fina"
+     }
+    ]
+   },
+   "closest_other_source": {
+    "document": "discharge_copd",
+    "cer": 1.108,
+    "own_cer": 0.037,
     "own_is_closest": true
    }
   },
@@ -1496,7 +1897,7 @@
    "file": "prescription.pdf",
    "truth": "prescription",
    "crashed": false,
-   "seconds": 0.32,
+   "seconds": 0.35,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1617,7 +2018,7 @@
    "file": "prescription_degraded.png",
    "truth": "prescription",
    "crashed": false,
-   "seconds": 12.68,
+   "seconds": 22.82,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1738,7 +2139,7 @@
    "file": "prescription_handwritten.png",
    "truth": "prescription_handwritten",
    "crashed": false,
-   "seconds": 7.27,
+   "seconds": 10.8,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1878,7 +2279,7 @@
    "file": "prescription_photo_handheld.jpg",
    "truth": "prescription",
    "crashed": false,
-   "seconds": 12.99,
+   "seconds": 17.36,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1999,7 +2400,7 @@
    "file": "prescription_scan.png",
    "truth": "prescription",
    "crashed": false,
-   "seconds": 13.28,
+   "seconds": 18.64,
    "status": "ok",
    "error": null,
    "warnings": [],

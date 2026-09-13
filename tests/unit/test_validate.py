@@ -56,11 +56,30 @@ def test_consistent_text_passes():
     assert check.status == "ok" and not (check.withheld or check.page_reasons or check.warnings)
 
 
-def test_one_invented_line_more_than_the_page_shows_raises_a_page_doubt():
+def test_one_more_line_than_the_page_shows_is_doubted_without_overclaiming():
+    # A single extra line is worth a reviewer's attention, but the reason must name both possibilities
+    # rather than asserting invention: the estimate can also miss writing in a dense layout.
     text = "\n".join(THREE[:2] + ["Tab Warfarin 5 mg OD"] + THREE[2:])
     check = validate.check_page(page_with(THREE), text, 1)
     assert check.status == "ok" and not check.withheld           # still extracted...
+    assert check.page_reasons and "may have missed" in check.page_reasons[0]   # ...but doubted, honestly
+
+
+def test_many_more_lines_than_the_page_can_show_raises_a_page_doubt():
+    text = "\n".join(THREE + [f"Tab Drug{i} {i * 10} mg OD" for i in range(6)])   # 9 lines read, 3 visible
+    check = validate.check_page(page_with(THREE), text, 1)
+    assert check.status == "ok" and not check.withheld           # still extracted...
     assert check.page_reasons and "invented" in check.page_reasons[0]  # ...but every value on the page is doubted
+
+
+@pytest.mark.parametrize("name", ["invoice_pharmacy_gst.png", "pharma_info_minipress_letter.png",
+                                  "mixed_printed_handwritten.png"])
+def test_real_dense_pages_are_not_accused_of_inventing_text(name):
+    """A GST invoice whose table rows merge into single ink bands, a package insert followed by a handwritten
+    letter, and a mixed printed/handwritten page. Their own text must not be treated as invented."""
+    image = load_document((DEV / name).read_bytes())[0].image
+    check = validate.check_page(image, (DEV / name.replace(".png", ".txt")).read_text(), 1)
+    assert check.status == "ok" and not (check.withheld or check.page_reasons)
 
 
 def test_far_more_text_than_the_page_can_hold_is_withheld():
@@ -104,6 +123,15 @@ def test_lab_name_with_confusable_characters_is_flagged_but_not_changed():
     validate.flag_entities(e, raw, today=TODAY)
     assert result.name.text == "HbAlc" and result.name.needs_review
     assert "HbA1c" in result.name.review_reasons[0]
+
+
+def test_a_misread_dose_is_flagged_on_a_merely_mentioned_medicine_too():
+    raw = "1  Paracetamol 5OOmg Tablet  3004  10  2.50  25.00"
+    med = Medication(name=ent("Paracetamol", 3), dosage=ent("5OOmg", 15), source_line=raw)
+    e = Entities(medication_mentions=[med])
+    validate.flag_entities(e, raw, today=TODAY)
+    assert med.dosage.text == "5OOmg"                                  # never corrected
+    assert med.name.needs_review and any("digits" in r for r in med.dosage.review_reasons)
 
 
 def test_correct_lab_names_are_not_flagged():

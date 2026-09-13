@@ -20,7 +20,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-SCHEMA_VERSION = "2.0"
+SCHEMA_VERSION = "2.1"
 
 ERROR_CODES = {
     "empty_file": "The upload contained no bytes.",
@@ -42,9 +42,11 @@ class Status(str, Enum):
 
 
 class DocumentType(str, Enum):
-    prescription = "prescription"
+    prescription = "prescription"                          # a clinician prescribing to a patient
     lab_report = "lab_report"
     discharge_summary = "discharge_summary"
+    medical_invoice = "medical_invoice"                    # pharmacy/hospital bill: products sold, not prescribed
+    pharmaceutical_information = "pharmaceutical_information"  # product literature, package insert, advertising
     other_medical = "other_medical"
     unknown = "unknown"
 
@@ -92,7 +94,14 @@ class Entities(BaseModel):
     patient_name: Entity | None = None
     date: Entity | None = None
     doctor_name: Entity | None = None
-    medications: list[Medication] = []
+    medications: list[Medication] = Field(
+        default_factory=list,
+        description="Medicines the document presents as prescribed to / taken by a patient. Requires prescription "
+                    "context; a medicine name alone never qualifies.")
+    medication_mentions: list[Medication] = Field(
+        default_factory=list,
+        description="Medicines the document only MENTIONS -- invoice lines, product literature, advertising, "
+                    "educational text. Evidence that the name appears, NOT that anyone was prescribed it.")
     dosages: list[Entity] = Field(default_factory=list, description="The dosage of every medication, in order (same objects).")
     frequencies: list[Entity] = Field(default_factory=list, description="The frequency of every medication, in order (same objects).")
     diagnoses: list[Entity] = []
@@ -104,7 +113,7 @@ class Entities(BaseModel):
     def values(self) -> list[Entity]:
         """Every extracted value once (dosages/frequencies are the medication fields, not repeated)."""
         out = [self.patient_name, self.doctor_name, self.date, *self.diagnoses, *self.symptoms, *self.tests, *self.allergies]
-        for m in self.medications:
+        for m in [*self.medications, *self.medication_mentions]:
             out += [m.name, m.dosage, m.frequency, m.duration]
         for r in self.test_results:
             out += [r.name, r.value, r.unit, r.reference_range]
@@ -138,7 +147,7 @@ class ErrorInfo(BaseModel):
 
 
 class ExtractionResult(BaseModel):
-    schema_version: Literal["2.0"] = SCHEMA_VERSION
+    schema_version: Literal["2.1"] = SCHEMA_VERSION
     verification_required: Literal[True] = Field(True, description="Always true. Extracted values are unverified machine output.")
     status: Status
     document_type: DocumentType = DocumentType.unknown

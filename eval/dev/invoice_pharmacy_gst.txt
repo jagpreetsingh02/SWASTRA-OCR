@@ -1,0 +1,21 @@
+SHREE MEDICALS & GENERAL STORE
+GSTIN: 29ABCDE1234F1Z5          Tax Invoice
+Invoice No: SM/2026/0417        Date: 03/09/2026
+Bill To: Ramesh Kumar           Mobile: 98765 43210
+
+S.No  Item                       HSN    Qty   Rate    Amount
+1     Paracetamol 500mg Tablet   3004    10    2.50    25.00
+2     Cough Syrup 100ml          3004     1   85.00    85.00
+3     Face Mask (3 ply)          6307     5    5.00    25.00
+
+                                 Sub Total      135.00
+                                 CGST 6%          8.10
+                                 SGST 6%          8.10
+                                 Grand Total    151.20
+
+Bank Details
+Bank: State Bank of India
+A/c No: 3021 5566 7788
+IFSC: SBIN0004321
+Branch: Jayanagar
+Name: Kamal
