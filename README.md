@@ -9,7 +9,7 @@ document ─► preprocess ─► OCR (Qwen3-VL-2B) ─► page checks ─► ex
                                                    │                          │
                                      withhold text the page             review flags for values
                                      does not support                   that look misread
-                                                   └──────────► grounded JSON (ExtractionResult 2.0) ─► MediKiosk
+                                                   └──────────► grounded JSON (ExtractionResult 2.1) ─► MediKiosk
 ```
 
 It does not store anything, authenticate anyone, make clinical decisions, or know about patients,
@@ -72,17 +72,17 @@ The contract is [`medikiosk_ocr/schema.py`](medikiosk_ocr/schema.py), published 
 [`contract/extraction_result.schema.json`](contract/extraction_result.schema.json) (a unit test fails if
 they diverge). Nothing in it names a model.
 
-### `ExtractionResult` (schema_version `2.0`)
+### `ExtractionResult` (schema_version `2.1`)
 
 | Field | Meaning |
 |---|---|
-| `schema_version` | `"2.0"` |
+| `schema_version` | `"2.1"` |
 | `verification_required` | always `true` — nothing here is approved medical information |
 | `status` | `ok` · `low_confidence` (read, but something is doubtful — see `warnings`) · `unreadable` (blank, nothing legible, or text withheld as unsupported; no entities) · `failed` (see `error`) |
-| `document_type` | `prescription` · `lab_report` · `discharge_summary` · `other_medical` · `unknown` |
+| `document_type` | `prescription` · `lab_report` · `discharge_summary` · `medical_invoice` (a bill: products sold, not prescribed) · `pharmaceutical_information` (package insert, product literature, advertising) · `other_medical` · `unknown`. Decided from document-level evidence only — never from the entities found, so a medicine name can never turn a bill into a prescription |
 | `raw_text` | everything read, pages joined by a blank line; kept even when extraction fails or text is withheld |
 | `ocr_confidence` | mean generative token probability over OCR'd characters; `null` if no page was OCR'd. **Not a correctness score** |
-| `entities` | `patient_name`, `doctor_name`, `date`, `medications[]` (`name`, `dosage`, `frequency`, `duration`, `source_line`), `dosages[]`/`frequencies[]` (the same objects as in `medications`), `diagnoses[]`, `symptoms[]`, `tests[]` (mentioned without a result), `test_results[]` (`name`, `value`, `unit`, `reference_range`, `source_line`), `allergies[]` |
+| `entities` | `patient_name`, `doctor_name`, `date`, `medications[]` (`name`, `dosage`, `frequency`, `duration`, `source_line`) — only what the document presents as prescribed to or taken by a patient, `medication_mentions[]` (same shape) — medicines the document merely **names**: invoice line items, package inserts, advertising; evidence that the name appears, **not** that anyone was prescribed it, `dosages[]`/`frequencies[]` (the same objects as in `medications`), `diagnoses[]`, `symptoms[]`, `tests[]` (mentioned without a result), `test_results[]` (`name`, `value`, `unit`, `reference_range`, `source_line`), `allergies[]` |
 | `pages[]` | `index`, `source` (`text_layer` · `ocr` · `text`), `status` (`ok` · `blank` · `no_text` · `suspect`), `lines[]` (`text`, `start`, `end`, `ocr_confidence`, `review_reasons`) |
 | `warnings` | human-readable reasons for doubt, with page numbers |
 | `error` | `{code, message}` when `status=failed` |
@@ -135,8 +135,8 @@ Every value is an **Entity**:
 |---|---|---|
 | Preprocess | `preprocess.py` | PDF: digital pages use their text layer (exact, no OCR); scanned pages — including scans that carry an embedded OCR text layer, which is not trusted — are rendered at 200 dpi, capped at 3000 px. Images: JPEG decoded at reduced size, every frame of a multi-page TIFF, HEIC/HEIF, EXIF rotation, 16/32-bit greyscale rescaled, transparency → white, downscaled to ≤ 2400 px. Limits refuse bombs and non-page shapes. Blank pages are detected here and never sent to OCR. |
 | OCR | `ocr.py` | Qwen3-VL-2B transcribes each page (≤ 1.4 MP) with greedy decoding and a "copy exactly, add nothing" prompt; the probability of each emitted token is recorded. "No readable text" replies become empty text. |
-| Page checks | `validate.check_page` | Compares the text with the image: no visible lines of writing but text returned → the page is `suspect` and its text withheld from extraction; far fewer lines read than visible, or ≥ 2 more (≥ 25 %) → a doubt attached to every value on the page; lines repeated 3+ times (generation loops), lines in an unexpected script, and model commentary ("Here is the transcription:") → withheld. |
-| Extraction | `extract.py` | GLiNER-BioMed labels drugs, diseases, symptoms, lab/imaging tests and allergens (spans of the text only). Patterns take dose units, dosing codes (OD/BD/TDS/HS/SOS/1-0-1/q6h…), dosing phrases, durations, dates, lab values/units/ranges and `Dr …`/`Patient …` headers. Section labels (`Dx:`, `Imp:`, `c/o`, `Allergy:`) route values. A model-found drug becomes a medication only with prescription context on its line; a lab-shaped row is a result even when the model calls the analyte a drug or does not recognise it. |
+| Page checks | `validate.check_page` | Compares the text with the image: no visible lines of writing but text returned → the page is `suspect` and its text withheld from extraction; far fewer lines read than visible → a doubt attached to every value on the page. Reading **more** lines than the estimator sees is graded, because tables, columns, logos and mixed handwriting all make the estimate low: a few extra lines → an informational warning only, values untouched; clearly more than the page can show (≥ 1.5× visible + 4) → a doubt on every value; far more than it can hold (≥ 2× visible + 6) → withheld. Lines repeated 3+ times (generation loops), lines in an unexpected script, and model commentary ("Here is the transcription:") → withheld. |
+| Extraction | `extract.py` | GLiNER-BioMed labels drugs, diseases, symptoms, lab/imaging tests and allergens (spans of the text only). Patterns take dose units, dosing codes (OD/BD/TDS/HS/SOS/1-0-1/q6h…), dosing phrases, durations, dates, lab values/units/ranges and `Dr …`/`Patient …` headers. Section labels (`Dx:`, `Imp:`, `c/o`, `Allergy:`) route values. `classify_document` first scores document-level evidence (invoice/GST/HSN/totals, product-information headings and multiple strengths, `Rx` and dosing structure, lab rows, admission/discharge) and **what the document is decides what its content means**: only a prescription, discharge summary or clinical note can produce `medications`, while a bill or a package insert produces `medication_mentions`, and their indications and adverse reactions are never recorded as a patient's diagnoses or symptoms. A model-found drug becomes a medication only with prescription context on its line; a lab-shaped row is a result even when the model calls the analyte a drug or does not recognise it. A patient name needs an explicit patient label, or a bare `Name:` beside demographics with no payee/company words nearby — so bank details ending `Name: Kamal` yield no patient. |
 | Value checks | `validate.flag_entities` | Adds `review_reasons` (never edits values) for: lab names one confusable character away from a known analyte (`HbAlc`→`HbA1c`), doses with letters for digits (`SMG`), a dose followed by a stray capital (`400 D` from `40 OD`), dosing codes containing letters (`1-O-1`), dates that are impossible, in the future, 2-digit or `|`-separated, lab values > 10× outside their reference range (decimal slips), low OCR token probability, low extractor score, pattern-only names, and page-level doubts. |
 | Grounding + status | `pipeline.py` | Enforces grounding; `low_confidence` if any page/line doubt, withheld text, a line with mean token probability < 0.60, document mean < 0.80, or truncated OCR output. |
 | Interface | `api.py` | Upload size gate before parsing, one document processed at a time (`MEDIKIOSK_OCR_MAX_CONCURRENT`), models warmed at start-up (`MEDIKIOSK_OCR_PRELOAD=0` to disable). |
@@ -254,32 +254,41 @@ only held when it ran alone — it now asserts that `/health` does not change wh
 .venv/bin/python eval/run.py          # writes eval/reports/SUMMARY.md with every document and every error
 ```
 
-Measured 2026-09-12 on Apple M5 / 16 GB. Full per-document detail, with every error named and whether
+Measured 2026-09-13 on Apple M5 / 16 GB. Full per-document detail, with every error named and whether
 it was flagged, is in `eval/reports/SUMMARY.md`.
 
 | Split | Mode | Precision | Recall | Unflagged errors | Ungrounded | Crashes | Critical OCR tokens | CER | Invented lines | s/file |
 |---|---|---|---|---|---|---|---|---|---|---|
-| dev (16 docs, **tuned on**) | text | 0.996 | 1.000 | 0 | 0 | 0 | — | — | — | 0.3 |
-| dev (16 files, **tuned on**) | OCR | 0.978 | 0.978 | **0** | 0 | 0 | 0.982 | 0.005 | 0 | 9.1 |
-| **held-out (9 docs, never tuned on)** | text | **0.956** | **0.901** | 7 | 0 | 0 | — | — | — | 0.3 |
-| **held-out (11 files, never tuned on)** | OCR | **0.947** | **0.907** | 8 | 0 | 0 | **1.000** | 0.020 | 0 | 12.9 |
+| dev (20 docs, **tuned on**) | text | 0.994 | 1.000 | 1 | 0 | 0 | — | — | — | 1.3 |
+| dev (20 files, **tuned on**) | OCR | 0.979 | 0.982 | 1 | 0 | 0 | 0.984 | 0.006 | 0 | 14.1 |
+| **held-out (7 docs, never tuned on)** | text | **0.952** | **0.952** | 6 | 0 | 0 | — | — | — | 0.4 |
+| **held-out (9 files, never tuned on)** | OCR | **0.943** | **0.948** | 7 | 0 | 0 | **1.000** | 0.024 | 0 | 16.9 |
 | real_world | — | — | — | — | — | — | — | — | — | — |
 
-**Every clinically critical token on the held-out images was read exactly** (1.000: medicine names,
-doses, frequencies, durations, lab names, lab values, headers, dates); its extraction misses are
-formatting gaps, listed under Limitations. Dev OCR by category: dosage 38/38, frequency 40/40,
-duration 26/26, header 12/12, lab value 25/25, medicine name 39/40, date 15/16, lab name 20/22
-(the two misses are `HbA1c`→`HbAlc`, both flagged).
+Document-type accuracy is 1.000 on all four rows. The splits changed size this session: `hx_lab_biochem`
+and `hx_mixed_paed` moved from held-out to dev because they exposed two bugs (reference ranges written
+`[0.2 - 1.2]` were not parsed, and `250 mg/5 ml` was read as a product sold in several strengths). A
+document used to fix a bug is no longer held out, so the held-out set went from 9 documents / 11 files to
+7 / 9, and those two rows are **not** directly comparable with earlier measurements.
 
-**Distinctness:** every document's OCR text is closest to its own source (dev 16/16, held-out 11/11),
+**Every clinically critical token on the held-out images was read exactly** (1.000: medicine names 17/17,
+doses 15/15, frequencies 17/17, durations 7/7, lab names 24/24, lab values 25/25, headers 18/18,
+dates 9/9); its extraction misses are formatting gaps, listed under Limitations. Dev OCR by category
+(0.984): dosage 44/44, frequency 43/43, duration 28/28, header 15/15, lab value 32/32, medicine
+name 46/47, date 18/19, lab name 26/28 — the misses are `HbA1c` read as `HbAlc` on two pages, a
+`/`→`|` date separator, and `Augmtin` read as `Augmentin`; each is flagged for review and named
+per document in `eval/reports/SUMMARY.md`.
+
+**Distinctness:** every document's OCR text is closest to its own source (dev 20/20, held-out 9/9),
 so different documents do not collapse into one memorised output. **Invented lines:** 0 in both splits —
 no OCR line is absent from the page.
 
 **Reliability** (`eval/reports/reliability.json`): non-documents (white page, noise, dust, dark object,
 blurred/dark/table photos) → 7/7 `unreadable` with no entities. Invented-line detector (OCR stubbed with
-each page's true text plus one fabricated line): **19/23 detected, 0 false alarms** on clean text; the
+each page's true text plus one fabricated line): **21/25 detected, 0 false alarms** on clean text; the
 4 misses are pages where the line estimator over-counts by one, so the extra line fits in its slack
-(16 invented values unflagged there).
+(16 invented values unflagged there). Counting is the only signal available here — the stub gives every
+character a 0.99 probability — so detection depends entirely on how accurate the line estimate is.
 
 `real_world/` is empty: **no real document has been evaluated.** The workflow is ready
 (`eval/real_world/README.md`, `truth_template.json`, `eval/run.py --split real_world`).
@@ -350,11 +359,16 @@ fixes belong in a later pass, verified against a fresh held-out set.
 - **Confident misreadings are undetectable from text.** `HbA1c`→`HbAlc` came at token p = 0.999 (the
   lexicon check catches this one); `5 mg`→`50 mg`, `OD`→`BD`, `1-0-1`→`1-1-1`, `1.15`→`1.1` form
   plausible values and nothing in this engine can catch them. Human verification is the control.
-- **One invented line can still slip through** when the line estimator over-counts (4 of 23 measured);
-  the invented text is then extracted with a page-level doubt only if the count exceeds the estimate.
+- **One invented line can still slip through** when the line estimator over-counts by a line, which hides
+  the extra one: 4 of 25 measured pages (two photos of pages, a cursive prescription and a mixed
+  printed/handwritten page). On the other 21 the injected line is caught, and no clean page raised a false
+  alarm. The check compares counts, so it cannot say *which* line was invented — only that the page holds
+  more lines than it appears to.
 - A wide two-column header that OCR reflows into two lines makes a page look longer than it is, so some
   correct pages come back `low_confidence` (safe direction, extra review effort).
-- `document_type` is keyword-based. Line counting is coarse and tested on synthetic pages only.
+- `document_type` is weighted-signal heuristics over the text (no model, no entity feedback), so an
+  unusual layout or a document mixing two kinds can still land on `other_medical`/`unknown`. Line
+  counting is coarse and tested on synthetic pages only.
 - Values are grounded to the **OCR text**, not to the paper: a misread is faithfully preserved.
 - Throughput: one document at a time. A 10-page PDF takes ~2 minutes; HTTP clients need a long timeout.
 

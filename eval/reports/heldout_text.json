@@ -11,91 +11,91 @@
     "recall": 1.0
    },
    "date": {
-    "tp": 8,
+    "tp": 6,
     "fp": 1,
     "fn": 1,
-    "precision": 0.889,
-    "recall": 0.889
+    "precision": 0.857,
+    "recall": 0.857
    },
    "diagnoses": {
-    "tp": 7,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "doctor_name": {
-    "tp": 7,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "medication": {
-    "tp": 17,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "medication.dosage": {
-    "tp": 14,
-    "fp": 1,
-    "fn": 1,
-    "precision": 0.933,
-    "recall": 0.933
-   },
-   "medication.duration": {
-    "tp": 7,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "medication.frequency": {
-    "tp": 16,
-    "fp": 0,
-    "fn": 1,
-    "precision": 1.0,
-    "recall": 0.941
-   },
-   "patient_name": {
-    "tp": 8,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "symptoms": {
     "tp": 6,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
+   "doctor_name": {
+    "tp": 6,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication": {
+    "tp": 14,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication.dosage": {
+    "tp": 11,
+    "fp": 1,
+    "fn": 1,
+    "precision": 0.917,
+    "recall": 0.917
+   },
+   "medication.duration": {
+    "tp": 5,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication.frequency": {
+    "tp": 13,
+    "fp": 0,
+    "fn": 1,
+    "precision": 1.0,
+    "recall": 0.929
+   },
+   "patient_name": {
+    "tp": 6,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "symptoms": {
+    "tp": 3,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
    "test_result": {
-    "tp": 24,
+    "tp": 18,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "test_result.reference_range": {
-    "tp": 10,
-    "fp": 0,
-    "fn": 14,
-    "precision": 1.0,
-    "recall": 0.417
-   },
-   "test_result.unit": {
-    "tp": 22,
+    "tp": 16,
     "fp": 0,
     "fn": 2,
     "precision": 1.0,
-    "recall": 0.917
+    "recall": 0.889
+   },
+   "test_result.unit": {
+    "tp": 16,
+    "fp": 0,
+    "fn": 2,
+    "precision": 1.0,
+    "recall": 0.889
    },
    "test_result.value": {
-    "tp": 24,
+    "tp": 18,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
@@ -103,27 +103,27 @@
    },
    "tests": {
     "tp": 1,
-    "fp": 4,
+    "fp": 3,
     "fn": 0,
-    "precision": 0.2,
+    "precision": 0.25,
     "recall": 1.0
    }
   },
   "overall": {
-   "tp": 172,
-   "fp": 8,
-   "fn": 19,
-   "precision": 0.956,
-   "recall": 0.901
+   "tp": 140,
+   "fp": 7,
+   "fn": 7,
+   "precision": 0.952,
+   "recall": 0.952
   },
-  "false_positives": 6,
-  "false_negatives": 17,
+  "false_positives": 5,
+  "false_negatives": 5,
   "wrong_values": 2,
-  "unflagged_errors": 7,
+  "unflagged_errors": 6,
   "placement_errors": 0,
   "grounding_failures": 0,
   "document_type_accuracy": 1.0,
-  "documents": 9,
+  "documents": 7,
   "crashes": 0
  },
  "documents": {
@@ -131,7 +131,7 @@
    "file": "hx_discharge_kmc.txt",
    "truth": "hx_discharge_kmc",
    "crashed": false,
-   "seconds": 0.32,
+   "seconds": 0.38,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -236,141 +236,11 @@
     "ungrounded": []
    }
   },
-  "hx_lab_biochem.txt": {
-   "file": "hx_lab_biochem.txt",
-   "truth": "hx_lab_biochem",
-   "crashed": false,
-   "seconds": 0.33,
-   "status": "ok",
-   "error": null,
-   "warnings": [],
-   "raw_text": "CITY HOSPITAL LABORATORY\nName: Mr. Harish Kumar   UHID: 77120\nSample Date: 21-08-2026\nLIVER & KIDNEY FUNCTION\nSerum Bilirubin (Total) 1.8 mg/dL [0.2 - 1.2]\nSGPT (ALT) 64 U/L [7 - 56]\nSerum Creatinine 1.42 mg/dL [0.7 - 1.3]\nBlood Urea 48 mg/dL [15 - 40]\nHbA1c 6.9 % [4.0 - 5.6]\nSerum Potassium 5.1 mEq/L [3.5 - 5.1]\n",
-   "extraction": {
-    "document_type": {
-     "expected": "lab_report",
-     "got": "lab_report",
-     "ok": true
-    },
-    "fields": {
-     "patient_name": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "date": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "test_result": {
-      "tp": 6,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "test_result.value": {
-      "tp": 6,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "test_result.unit": {
-      "tp": 6,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "test_result.reference_range": {
-      "tp": 0,
-      "fp": 0,
-      "fn": 6,
-      "precision": null,
-      "recall": 0.0
-     },
-     "tests": {
-      "tp": 0,
-      "fp": 1,
-      "fn": 0,
-      "precision": 0.0,
-      "recall": null
-     }
-    },
-    "errors": [
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "0.2 - 1.2",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "7 - 56",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "0.7 - 1.3",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "15 - 40",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "4.0 - 5.6",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "3.5 - 5.1",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "false_positive",
-      "field": "tests",
-      "expected": null,
-      "got": "ALT",
-      "needs_review": false
-     }
-    ],
-    "unflagged_errors": [
-     {
-      "kind": "false_positive",
-      "field": "tests",
-      "expected": null,
-      "got": "ALT",
-      "needs_review": false
-     }
-    ],
-    "placement_errors": [],
-    "ungrounded": []
-   }
-  },
   "hx_lab_cbc.txt": {
    "file": "hx_lab_cbc.txt",
    "truth": "hx_lab_cbc",
    "crashed": false,
-   "seconds": 0.32,
+   "seconds": 0.37,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -479,7 +349,7 @@
    "file": "hx_labs_2page.txt",
    "truth": "hx_labs_2page",
    "crashed": false,
-   "seconds": 0.67,
+   "seconds": 0.89,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -534,11 +404,11 @@
       "recall": 0.917
      },
      "test_result.reference_range": {
-      "tp": 5,
+      "tp": 11,
       "fp": 0,
-      "fn": 7,
+      "fn": 1,
       "precision": 1.0,
-      "recall": 0.417
+      "recall": 0.917
      },
      "tests": {
       "tp": 0,
@@ -571,48 +441,6 @@
       "needs_review": null
      },
      {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "0.2 - 1.2",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "7 - 56",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "0.7 - 1.3",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "15 - 40",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "4.0 - 5.6",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "3.5 - 5.1",
-      "got": null,
-      "needs_review": null
-     },
-     {
       "kind": "false_positive",
       "field": "tests",
       "expected": null,
@@ -640,97 +468,11 @@
     "ungrounded": []
    }
   },
-  "hx_mixed_paed.txt": {
-   "file": "hx_mixed_paed.txt",
-   "truth": "hx_mixed_paed",
-   "crashed": false,
-   "seconds": 0.28,
-   "status": "ok",
-   "error": null,
-   "warnings": [],
-   "raw_text": "LIFELINE CHILDREN'S CLINIC\nDr. Kavya Reddy, MD (Paed)   Ph: 040-2334 5566\nPatient: Master Rohan K    Date: 30/08/2026    Wt: 14 kg\nFever 102 F since 2 days, cough, cold\nImp: Viral URTI\nSyp Calpol 250 mg/5 ml 5 ml TDS x 3d\nSyp Ascoril LS 2.5 ml BD x 5d\nNasal saline drops 2 drops each nostril TDS\nReview SOS\n",
-   "extraction": {
-    "document_type": {
-     "expected": "prescription",
-     "got": "prescription",
-     "ok": true
-    },
-    "fields": {
-     "patient_name": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "doctor_name": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "date": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication": {
-      "tp": 3,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication.dosage": {
-      "tp": 3,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication.frequency": {
-      "tp": 3,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication.duration": {
-      "tp": 2,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "diagnoses": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "symptoms": {
-      "tp": 3,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     }
-    },
-    "errors": [],
-    "unflagged_errors": [],
-    "placement_errors": [],
-    "ungrounded": []
-   }
-  },
   "hx_nonmedical_notice.txt": {
    "file": "hx_nonmedical_notice.txt",
    "truth": "hx_nonmedical_notice",
    "crashed": false,
-   "seconds": 0.24,
+   "seconds": 0.31,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -760,7 +502,7 @@
    "file": "hx_rx_hand_banerjee.txt",
    "truth": "hx_rx_hand_banerjee",
    "crashed": false,
-   "seconds": 0.23,
+   "seconds": 0.26,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -862,7 +604,7 @@
    "file": "hx_rx_hand_iqbal.txt",
    "truth": "hx_rx_hand_iqbal",
    "crashed": false,
-   "seconds": 0.23,
+   "seconds": 0.25,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -948,7 +690,7 @@
    "file": "hx_rx_printed_gp.txt",
    "truth": "hx_rx_printed_gp",
    "crashed": false,
-   "seconds": 0.31,
+   "seconds": 0.35,
    "status": "ok",
    "error": null,
    "warnings": [],

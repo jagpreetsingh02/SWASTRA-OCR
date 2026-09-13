@@ -51,6 +51,7 @@ For a document `<stem>`:
  "medications": [
   {"name": "Levocet", "dosage": "2.5ml", "frequency": "HS", "duration": "5 days"}
  ],
+ "medication_mentions": [],
  "test_results": [
   {"name": "HbA1c", "value": "8.2", "unit": "%", "reference_range": "4.0 - 5.6"}
  ],
@@ -62,8 +63,10 @@ For a document `<stem>`:
 }
 ```
 
-- Every key except `notes` is required; unknown keys are rejected (typos cannot silently score as misses).
-- `document_type`: `prescription`, `lab_report`, `discharge_summary`, `other_medical`, `unknown`.
+- Every key except `notes` and `medication_mentions` is required; unknown keys are rejected (typos cannot
+  silently score as misses).
+- `document_type`: `prescription`, `lab_report`, `discharge_summary`, `medical_invoice`,
+  `pharmaceutical_information`, `other_medical`, `unknown`.
 - Values are **as written on the page** — misspellings, abbreviations and units included
   (`"Augmtin"`, `"PCM"`, `"500MG"`). Never the corrected or expanded form.
 - `null` = not on the page. `[]` = none on the page.
@@ -71,6 +74,10 @@ For a document `<stem>`:
   (`["Mr. Vikram Rathod", "Vikram Rathod"]`). List items in `tests`/`diagnoses`/`symptoms`/`allergies`
   may themselves be alternatives lists.
 - `tests` are tests mentioned or advised without a result; `test_results` have a value.
+- `medications` are medicines the document presents as prescribed to or taken by a patient.
+  `medication_mentions` (same shape, optional) are medicines the document only **names** — invoice line
+  items, package inserts, advertising. A medicine belongs to one list or the other, never both; absent
+  means none expected.
 
 ## Matching (strict)
 

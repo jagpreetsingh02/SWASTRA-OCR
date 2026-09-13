@@ -256,6 +256,13 @@ function render(r) {
       ? e.medications.map((m) => `<tr><td>${ent(m.name)}</td><td>${ent(m.dosage)}</td><td>${ent(m.frequency)}</td><td>${ent(m.duration)}</td></tr>`).join("")
       : '<tr><td colspan="4" class="empty">none found</td></tr>') + `</table></div>`;
 
+  const mentions = e.medication_mentions || [];
+  html += `<h3>Medication mentions <span class="note">(named in the document — NOT evidence of a prescription)</span></h3>` +
+    `<div class="scroll"><table><tr><th>Name</th><th>Dose</th><th>Frequency</th><th>Duration</th></tr>` +
+    (mentions.length
+      ? mentions.map((m) => `<tr><td>${ent(m.name)}</td><td>${ent(m.dosage)}</td><td>${ent(m.frequency)}</td><td>${ent(m.duration)}</td></tr>`).join("")
+      : '<tr><td colspan="4" class="empty">none found</td></tr>') + `</table></div>`;
+
   html += `<h3>Lab results</h3><div class="scroll"><table><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference range</th></tr>` +
     ((e.test_results || []).length
       ? e.test_results.map((x) => `<tr><td>${ent(x.name)}</td><td>${ent(x.value)}</td><td>${ent(x.unit)}</td><td>${ent(x.reference_range)}</td></tr>`).join("")

@@ -31,11 +31,20 @@ from .schema import Entities, Entity
 
 MISSING_LINES_RATIO = 0.6    # fewer than 60% of visible lines read (minus one) -> text may be missing
 REPEATED_LINE_TIMES = 3      # the same line read this many times -> a generation loop
-# Any line more than the page appears to contain is a doubt on that page's values: a single invented
-# line is otherwise invisible to every other check. The estimator over-counts rather than under-counts
-# on the fixtures (it never reported fewer lines than a page really has), so this costs few false alarms.
-# Text that overwhelmingly exceeds what the page can hold is withheld from extraction altogether.
-WITHHOLD_LINES = lambda visible: 2 * max(1, visible) + 3
+
+# Reading MORE lines than the estimator sees is graded by how far beyond the estimate the text goes:
+#   any excess -> a doubt attached to every value on the page, worded as a disagreement: the text may
+#                 carry an invented line, or the estimate may have missed writing in a dense layout
+#   strong     -> the same doubt, stated as text the page cannot support
+#   extreme    -> the page's text is withheld from extraction entirely
+# The estimate is accurate to about a line on every test page, so even a one-line excess is worth a
+# reviewer's attention; the honest phrasing, not a higher threshold, is what keeps it from overclaiming.
+# Undercounting dense tables used to make this complain about invoices -- that is fixed in `_lines_in`,
+# where the measurement belongs, rather than by making the check less sensitive.
+# A page with no visible writing at all, generation loops, foreign script and model commentary are
+# handled separately and keep their full strength.
+STRONG_EXTRA_LINES = lambda visible: max(1.5 * visible + 4, visible + 6)
+WITHHOLD_LINES = lambda visible: 2 * max(1, visible) + 6
 
 META_COMMENTARY = re.compile(
     r"^\s*(?:here\s+is|here's|below\s+is|the\s+(?:image|text|document|page|photo)\s+(?:shows|contains|reads|says|is)"
@@ -71,17 +80,43 @@ def estimate_text_lines(img: Image.Image) -> int:
     for strip in np.array_split(ink, 5, axis=1):
         density = strip.mean(axis=1)
         rows = (density > 0.01) & (density < 0.75)
-        lines, run, gap = 0, 0, 0
+        runs, run, gap = [], 0, 0
         for has_ink in rows:
             if has_ink:
                 run, gap = run + 1, 0
             else:
                 gap += 1
                 if gap >= 3 and run:
-                    lines += 5 <= run <= tallest  # thinner = specks/rules; taller = not a line
+                    runs.append(run)
                     run = 0
-        best = max(best, lines + (5 <= run <= tallest))
+        if run:
+            runs.append(run)
+        best = max(best, _lines_in(runs, tallest))
     return best
+
+
+def _lines_in(runs: list[int], tallest: int) -> int:
+    """Count lines from ink-band heights. Bands too thin to be characters are specks or ruled lines; bands
+    far taller than a line are pictures. Every other band is divided by the height of a normal line on this
+    page, because rows of a dense table merge with their separators into one band -- counting such a band as
+    a single line is what made page checks accuse invoices of inventing text."""
+    normal = sorted(r for r in runs if 5 <= r <= tallest)
+    if not normal:
+        return 0
+    typical = max(1, normal[len(normal) // 2])
+    lines = 0
+    for run in runs:
+        # A band more than about six line-heights tall is not writing but a shadow, a dark edge or an object
+        # in a photo. Measured on the test pages: merged table rows reach ~5 lines (a 54 px band where a line
+        # is 11 px), while the smear down the side of a handheld photo was 116 px where a line is 10 px --
+        # dividing that one produced twelve lines that do not exist.
+        if run < 5 or run > 6 * typical:
+            continue
+        # Only a band clearly taller than a line holds several merged lines. Headings, ascenders and
+        # descenders make ordinary lines up to about 1.5x the median, and dividing those would inflate
+        # the estimate on handwriting -- which hides invented lines instead of revealing them.
+        lines += round(run / typical) if run >= 1.7 * typical else 1
+    return lines
 
 
 def check_page(image: Image.Image, text: str, page_number: int) -> PageCheck:
@@ -106,15 +141,18 @@ def check_page(image: Image.Image, text: str, page_number: int) -> PageCheck:
         check.page_reasons.append(reason)
         check.warnings.append(f"Page {page_number}: {reason}.")
     elif len(read) > visible:
-        reason = f"{len(read)} lines were read on page {page_number} but only about {visible} are visible; some text may be invented"
-        check.page_reasons.append(reason)
-        check.warnings.append(f"Page {page_number}: {reason}.")
+        counted = f"{len(read)} lines were read on page {page_number} but only about {visible} are visible"
         if len(read) >= WITHHOLD_LINES(visible):
             check.status = "suspect"
             check.withheld.append((0, len(text)))
             check.warnings.append(f"Page {page_number}: far more text was returned than the page can hold; "
                                   "nothing was extracted from this page.")
             return check
+        reason = (f"{counted}; some text may be invented" if len(read) >= STRONG_EXTRA_LINES(visible)
+                  else f"{counted}; the extra text may be invented, or the estimate may have missed "
+                       "writing in a dense layout")
+        check.page_reasons.append(reason)
+        check.warnings.append(f"Page {page_number}: {reason}.")
 
     counts: dict[str, int] = {}
     letters = [ch for ch in text if ch.isalpha()]
@@ -179,7 +217,9 @@ def flag_entities(entities: Entities, raw_text: str, context: list[tuple[int, in
     for test in entities.tests:
         _check_lab_name(test)
 
-    for med in entities.medications:
+    # Mentions get the same misreading checks: a dose on an invoice line can be misread exactly like a
+    # prescribed one, and the reader needs to see that either way.
+    for med in [*entities.medications, *entities.medication_mentions]:
         line_end = raw_text.find("\n", med.name.start)
         segment = raw_text[med.name.start: line_end if line_end != -1 else len(raw_text)]
         if m := CONFUSED_DOSE.search(segment):

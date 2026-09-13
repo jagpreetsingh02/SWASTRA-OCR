@@ -5,6 +5,8 @@
     "prescription",
     "lab_report",
     "discharge_summary",
+    "medical_invoice",
+    "pharmaceutical_information",
     "other_medical",
     "unknown"
    ],
@@ -47,11 +49,19 @@
      "default": null
     },
     "medications": {
-     "default": [],
+     "description": "Medicines the document presents as prescribed to / taken by a patient. Requires prescription context; a medicine name alone never qualifies.",
      "items": {
       "$ref": "#/$defs/Medication"
      },
      "title": "Medications",
+     "type": "array"
+    },
+    "medication_mentions": {
+     "description": "Medicines the document only MENTIONS -- invoice lines, product literature, advertising, educational text. Evidence that the name appears, NOT that anyone was prescribed it.",
+     "items": {
+      "$ref": "#/$defs/Medication"
+     },
+     "title": "Medication Mentions",
      "type": "array"
     },
     "dosages": {
@@ -418,8 +428,8 @@
  },
  "properties": {
   "schema_version": {
-   "const": "2.0",
-   "default": "2.0",
+   "const": "2.1",
+   "default": "2.1",
    "title": "Schema Version",
    "type": "string"
   },
@@ -463,6 +473,7 @@
     "date": null,
     "doctor_name": null,
     "medications": [],
+    "medication_mentions": [],
     "dosages": [],
     "frequencies": [],
     "diagnoses": [],

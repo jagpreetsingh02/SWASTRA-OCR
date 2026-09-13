@@ -210,7 +210,10 @@ api.py         POST /v1/extract, GET /health
 ```
 
 - The integration contract is `medikiosk_ocr/schema.py`, published as `contract/extraction_result.schema.json`
-  (schema_version 2.0). The conceptual "Expected Output" above maps to it: `confidence` is split into
+  (schema_version 2.1). `document_type` is decided from document-level evidence only, never from the
+  entities found, and it routes meaning: medicines a bill or a package insert merely names go to
+  `medication_mentions`, never to `medications`, which is reserved for what a document presents as
+  prescribed to a patient. The conceptual "Expected Output" above maps to it: `confidence` is split into
   `ocr_confidence` (generative token probability) and per-value `extractor_score`, and every value
   carries offsets, page, `needs_review` and `review_reasons`. `verification_required` is always true.
 - Evaluation: `eval/run.py`. `eval/dev` may be used for tuning; `eval/heldout` (frozen by

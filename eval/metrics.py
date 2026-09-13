@@ -18,10 +18,13 @@ import json
 import re
 from pathlib import Path
 
-DOC_TYPES = {"prescription", "lab_report", "discharge_summary", "other_medical", "unknown"}
+DOC_TYPES = {"prescription", "lab_report", "discharge_summary", "medical_invoice", "pharmaceutical_information",
+             "other_medical", "unknown"}
 TRUTH_KEYS = {"document_type", "patient_name", "doctor_name", "date", "medications", "test_results",
               "tests", "diagnoses", "symptoms", "allergies"}
-OPTIONAL_KEYS = {"notes"}
+# medication_mentions: medicines the document only names (invoice lines, product literature). Optional so
+# that truth files for documents without any mention stay short; absent means "none expected".
+OPTIONAL_KEYS = {"notes", "medication_mentions"}
 MED_KEYS = {"name", "dosage", "frequency", "duration"}
 RESULT_KEYS = {"name", "value", "unit", "reference_range"}
 LIST_FIELDS = ("diagnoses", "symptoms", "tests", "allergies")
@@ -39,9 +42,10 @@ def load_truth(path: Path | str) -> dict:
         problems.append(f"missing keys {sorted(missing)}")
     if t.get("document_type") not in DOC_TYPES:
         problems.append(f"document_type must be one of {sorted(DOC_TYPES)}")
-    for m in t.get("medications", []):
-        if set(m) != MED_KEYS:
-            problems.append(f"medication keys must be {sorted(MED_KEYS)}: {m}")
+    for field in ("medications", "medication_mentions"):
+        for m in t.get(field, []):
+            if set(m) != MED_KEYS:
+                problems.append(f"{field} keys must be {sorted(MED_KEYS)}: {m}")
     for r in t.get("test_results", []):
         if set(r) != RESULT_KEYS:
             problems.append(f"test_result keys must be {sorted(RESULT_KEYS)}: {r}")
@@ -95,10 +99,10 @@ def critical_tokens(truth: dict, transcription: str | None) -> list[tuple[str, s
         return options[0] if options else None
 
     out = []
-    for m in truth["medications"]:
+    for m in [*truth["medications"], *truth.get("medication_mentions", [])]:
         for category, field in (("medicine_name", "name"), ("dosage", "dosage"), ("frequency", "frequency"),
                                 ("duration", "duration")):
-            if (token := pick(m[field])) is not None:
+            if (token := pick(m.get(field))) is not None:
                 out.append((category, token))
     for r in truth["test_results"]:
         for category, field in (("lab_name", "name"), ("lab_value", "value")):
@@ -227,22 +231,26 @@ def score_extraction(result, truth: dict) -> dict:
     compare("doctor_name", e.doctor_name, truth["doctor_name"], name_match)
     compare("date", e.date, truth["date"], value_match)
 
-    # medications: one-to-one by exact name, then each field of matched pairs
-    remaining = list(range(len(e.medications)))
-    for tm in truth["medications"]:
-        idx = next((i for i in remaining if name_match(e.medications[i].name.text, tm["name"])), None)
-        if idx is None:
-            bump("medication", "fn")
-            err("missing", "medication", tm["name"], None)
-            continue
-        remaining.remove(idx)
-        bump("medication", "tp")
-        pm = e.medications[idx]
-        for field in ("dosage", "frequency", "duration"):
-            compare(f"medication.{field}", getattr(pm, field), tm[field], value_match)
-    for i in remaining:
-        bump("medication", "fp")
-        err("false_positive", "medication", None, e.medications[i].name.text, e.medications[i].name)
+    # medications (prescribed) and medication_mentions (named only): one-to-one by exact name, then fields.
+    # Scored separately on purpose -- a mention promoted to a prescription is a safety error, not a near miss.
+    for field, predicted, expected in (("medication", e.medications, truth["medications"]),
+                                       ("medication_mention", e.medication_mentions, truth.get("medication_mentions", []))):
+        remaining = list(range(len(predicted)))
+        for tm in expected:
+            idx = next((i for i in remaining if name_match(predicted[i].name.text, tm["name"])), None)
+            if idx is None:
+                bump(field, "fn")
+                err("missing", field, tm["name"], None)
+                continue
+            remaining.remove(idx)
+            bump(field, "tp")
+            pm = predicted[idx]
+            for sub in ("dosage", "frequency", "duration"):
+                if sub in tm:
+                    compare(f"{field}.{sub}", getattr(pm, sub), tm[sub], value_match)
+        for i in remaining:
+            bump(field, "fp")
+            err("false_positive", field, None, predicted[i].name.text, predicted[i].name)
 
     # lab results
     remaining = list(range(len(e.test_results)))
@@ -311,10 +319,11 @@ def _truth_values(truth: dict) -> dict[str, list[str]]:
 
     for field in ("patient_name", "doctor_name", "date"):
         add(field, truth[field])
-    for m in truth["medications"]:
-        add("medication", m["name"])
-        for f in ("dosage", "frequency", "duration"):
-            add(f"medication.{f}", m[f])
+    for field, items in (("medication", truth["medications"]), ("medication_mention", truth.get("medication_mentions", []))):
+        for m in items:
+            add(field, m["name"])
+            for f in ("dosage", "frequency", "duration"):
+                add(f"{field}.{f}", m.get(f))
     for r in truth["test_results"]:
         add("test_result", r["name"])
         for f in ("value", "unit", "reference_range"):

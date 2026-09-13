@@ -11,91 +11,91 @@
     "recall": 1.0
    },
    "date": {
-    "tp": 10,
+    "tp": 8,
     "fp": 1,
     "fn": 1,
-    "precision": 0.909,
-    "recall": 0.909
+    "precision": 0.889,
+    "recall": 0.889
    },
    "diagnoses": {
-    "tp": 9,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "doctor_name": {
-    "tp": 9,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "medication": {
-    "tp": 20,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "medication.dosage": {
-    "tp": 17,
-    "fp": 1,
-    "fn": 1,
-    "precision": 0.944,
-    "recall": 0.944
-   },
-   "medication.duration": {
-    "tp": 9,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "medication.frequency": {
-    "tp": 19,
-    "fp": 0,
-    "fn": 1,
-    "precision": 1.0,
-    "recall": 0.95
-   },
-   "patient_name": {
-    "tp": 9,
-    "fp": 1,
-    "fn": 1,
-    "precision": 0.9,
-    "recall": 0.9
-   },
-   "symptoms": {
     "tp": 8,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
+   "doctor_name": {
+    "tp": 8,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication": {
+    "tp": 17,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication.dosage": {
+    "tp": 14,
+    "fp": 1,
+    "fn": 1,
+    "precision": 0.933,
+    "recall": 0.933
+   },
+   "medication.duration": {
+    "tp": 7,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication.frequency": {
+    "tp": 16,
+    "fp": 0,
+    "fn": 1,
+    "precision": 1.0,
+    "recall": 0.941
+   },
+   "patient_name": {
+    "tp": 7,
+    "fp": 1,
+    "fn": 1,
+    "precision": 0.875,
+    "recall": 0.875
+   },
+   "symptoms": {
+    "tp": 5,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
    "test_result": {
-    "tp": 30,
+    "tp": 24,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "test_result.reference_range": {
-    "tp": 15,
-    "fp": 0,
-    "fn": 15,
-    "precision": 1.0,
-    "recall": 0.5
-   },
-   "test_result.unit": {
-    "tp": 27,
+    "tp": 21,
     "fp": 0,
     "fn": 3,
     "precision": 1.0,
-    "recall": 0.9
+    "recall": 0.875
+   },
+   "test_result.unit": {
+    "tp": 21,
+    "fp": 0,
+    "fn": 3,
+    "precision": 1.0,
+    "recall": 0.875
    },
    "test_result.value": {
-    "tp": 30,
+    "tp": 24,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
@@ -103,85 +103,85 @@
    },
    "tests": {
     "tp": 2,
-    "fp": 5,
+    "fp": 4,
     "fn": 0,
-    "precision": 0.286,
+    "precision": 0.333,
     "recall": 1.0
    }
   },
   "overall": {
-   "tp": 215,
-   "fp": 12,
-   "fn": 22,
-   "precision": 0.947,
-   "recall": 0.907
+   "tp": 183,
+   "fp": 11,
+   "fn": 10,
+   "precision": 0.943,
+   "recall": 0.948
   },
-  "false_positives": 9,
-  "false_negatives": 19,
+  "false_positives": 8,
+  "false_negatives": 7,
   "wrong_values": 3,
-  "unflagged_errors": 8,
+  "unflagged_errors": 7,
   "placement_errors": 0,
   "grounding_failures": 0,
   "document_type_accuracy": 1.0,
-  "documents": 11,
+  "documents": 9,
   "crashes": 0,
-  "outputs_closest_to_own_source": "11/11",
+  "outputs_closest_to_own_source": "9/9",
   "output_distinctness_problems": [],
   "ocr_critical_tokens": {
    "by_category": {
     "medicine_name": {
-     "expected": 20,
-     "found": 20,
+     "expected": 17,
+     "found": 17,
      "accuracy": 1.0
     },
     "dosage": {
-     "expected": 19,
-     "found": 19,
+     "expected": 15,
+     "found": 15,
      "accuracy": 1.0
     },
     "frequency": {
-     "expected": 20,
-     "found": 20,
+     "expected": 17,
+     "found": 17,
      "accuracy": 1.0
     },
     "duration": {
+     "expected": 7,
+     "found": 7,
+     "accuracy": 1.0
+    },
+    "header": {
+     "expected": 18,
+     "found": 18,
+     "accuracy": 1.0
+    },
+    "date": {
      "expected": 9,
      "found": 9,
      "accuracy": 1.0
     },
-    "header": {
-     "expected": 21,
-     "found": 21,
-     "accuracy": 1.0
-    },
-    "date": {
-     "expected": 11,
-     "found": 11,
-     "accuracy": 1.0
-    },
     "lab_name": {
-     "expected": 30,
-     "found": 30,
+     "expected": 24,
+     "found": 24,
      "accuracy": 1.0
     },
     "lab_value": {
-     "expected": 32,
-     "found": 32,
+     "expected": 25,
+     "found": 25,
      "accuracy": 1.0
     }
    },
    "accuracy": 1.0
   },
   "ocr_unsupported_lines": 0,
-  "ocr_mean_cer": 0.0195,
-  "mean_seconds_per_file": 12.93
+  "ocr_mean_cer": 0.0238,
+  "mean_seconds_per_file": 16.85
  },
  "documents": {
   "hx_discharge_kmc.png": {
    "file": "hx_discharge_kmc.png",
    "truth": "hx_discharge_kmc",
    "crashed": false,
-   "seconds": 13.08,
+   "seconds": 21.38,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -342,179 +342,15 @@
     "own_is_closest": true
    }
   },
-  "hx_lab_biochem.png": {
-   "file": "hx_lab_biochem.png",
-   "truth": "hx_lab_biochem",
-   "crashed": false,
-   "seconds": 12.9,
-   "status": "ok",
-   "error": null,
-   "warnings": [],
-   "raw_text": "CITY HOSPITAL LABORATORY\nName: Mr. Harish Kumar  UHID: 77120\nSample Date: 21-08-2026\nLIVER & KIDNEY FUNCTION\nSerum Bilirubin (Total) 1.8 mg/dL [0.2 - 1.2]\nSGPT (ALT) 64 U/L [7 - 56]\nSerum Creatinine 1.42 mg/dL [0.7 - 1.3]\nBlood Urea 48 mg/dL [15 - 40]\nHbA1c 6.9 % [4.0 - 5.6]\nSerum Potassium 5.1 mEq/L [3.5 - 5.1]",
-   "extraction": {
-    "document_type": {
-     "expected": "lab_report",
-     "got": "lab_report",
-     "ok": true
-    },
-    "fields": {
-     "patient_name": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "date": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "test_result": {
-      "tp": 6,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "test_result.value": {
-      "tp": 6,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "test_result.unit": {
-      "tp": 6,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "test_result.reference_range": {
-      "tp": 0,
-      "fp": 0,
-      "fn": 6,
-      "precision": null,
-      "recall": 0.0
-     },
-     "tests": {
-      "tp": 0,
-      "fp": 1,
-      "fn": 0,
-      "precision": 0.0,
-      "recall": null
-     }
-    },
-    "errors": [
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "0.2 - 1.2",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "7 - 56",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "0.7 - 1.3",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "15 - 40",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "4.0 - 5.6",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "3.5 - 5.1",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "false_positive",
-      "field": "tests",
-      "expected": null,
-      "got": "ALT",
-      "needs_review": false
-     }
-    ],
-    "unflagged_errors": [
-     {
-      "kind": "false_positive",
-      "field": "tests",
-      "expected": null,
-      "got": "ALT",
-      "needs_review": false
-     }
-    ],
-    "placement_errors": [],
-    "ungrounded": []
-   },
-   "ocr": {
-    "critical_by_category": {
-     "lab_name": {
-      "expected": 6,
-      "found": 6
-     },
-     "lab_value": {
-      "expected": 7,
-      "found": 7
-     },
-     "header": {
-      "expected": 1,
-      "found": 1
-     },
-     "date": {
-      "expected": 1,
-      "found": 1
-     }
-    },
-    "critical_total": {
-     "expected": 15,
-     "found": 15
-    },
-    "missing": [],
-    "cer": 0.0,
-    "unsupported_lines": [],
-    "substitutions": []
-   },
-   "closest_other_source": {
-    "document": "hx_labs_2page",
-    "cer": 0.542,
-    "own_cer": 0.0,
-    "own_is_closest": true
-   }
-  },
   "hx_lab_cbc.png": {
    "file": "hx_lab_cbc.png",
    "truth": "hx_lab_cbc",
    "crashed": false,
-   "seconds": 13.89,
+   "seconds": 20.92,
    "status": "low_confidence",
    "error": null,
    "warnings": [
-    "Page 1: 13 lines were read on page 1 but only about 11 are visible; some text may be invented."
+    "Page 1: 13 lines were read on page 1 but only about 11 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
    ],
    "raw_text": "SRL DIAGNOSTICS PVT LTD\nPatient : Mrs. Kavita Rao\nRef. By : Dr. P. Menon\nAge : 36 Y Sex : F\nReported : 09/08/2026\nCOMPLETE BLOOD COUNT\nInvestigation Result Units Reference Range\nHaemoglobin 10.8 g/dL 12.0 - 15.0\nRBC Count 4.12 mill/cumm 3.8 - 4.8\nPCV 33.5 % 36 - 46\nMCV 81.3 fL 83 - 101\nTotal WBC Count 11500 /cumm 4000 - 10000\nPlatelet Count 1.15 lakhs/cumm 1.5 - 4.1",
    "extraction": {
@@ -658,11 +494,11 @@
    "file": "hx_lab_cbc_degraded.jpg",
    "truth": "hx_lab_cbc",
    "crashed": false,
-   "seconds": 14.02,
+   "seconds": 17.43,
    "status": "low_confidence",
    "error": null,
    "warnings": [
-    "Page 1: 13 lines were read on page 1 but only about 11 are visible; some text may be invented."
+    "Page 1: 13 lines were read on page 1 but only about 11 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
    ],
    "raw_text": "SRL DIAGNOSTICS PVT LTD\nPatient : Mrs. Kavita Rao\nRef. By : Dr. P. Menon\nAge : 36 Y Sex : F\nReported : 09/08/2026\nCOMPLETE BLOOD COUNT\nInvestigation Result Units Reference Range\nHaemoglobin 10.8 g/dL 12.0 - 15.0\nRBC Count 4.12 mill/cumm 3.8 - 4.8\nPCV 33.5 % 36 - 46\nMCV 81.3 fL 83 - 101\nTotal WBC Count 11500 /cumm 4000 - 10000\nPlatelet Count 1.15 lakhs/cumm 1.5 - 4.1",
    "extraction": {
@@ -806,11 +642,11 @@
    "file": "hx_labs_2page.pdf",
    "truth": "hx_labs_2page",
    "crashed": false,
-   "seconds": 26.86,
+   "seconds": 30.55,
    "status": "low_confidence",
    "error": null,
    "warnings": [
-    "Page 1: 13 lines were read on page 1 but only about 11 are visible; some text may be invented."
+    "Page 1: 13 lines were read on page 1 but only about 11 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
    ],
    "raw_text": "SRL DIAGNOSTICS PVT LTD\nPatient : Mrs. Kavita Rao\nRef. By : Dr. P. Menon\nAge : 36 Y Sex : F\nReported : 09/08/2026\nCOMPLETE BLOOD COUNT\nInvestigation Result Units Reference Range\nHaemoglobin 10.8 g/dL 12.0 - 15.0\nRBC Count 4.12 mill/cumm 3.8 - 4.8\nPCV 33.5 % 36 - 46\nMCV 81.3 fL 83 - 101\nTotal WBC Count 11500 /cumm 4000 - 10000\nPlatelet Count 1.15 lakhs/cumm 1.5 - 4.1\n\nCITY HOSPITAL LABORATORY\nName: Mr. Harish Kumar  UHID: 77120\nSample Date: 21-08-2026\nLIVER & KIDNEY FUNCTION\nSerum Bilirubin (Total) 1.8 mg/dL [0.2 - 1.2]\nSGPT (ALT) 64 U/L [7 - 56]\nSerum Creatinine 1.42 mg/dL [0.7 - 1.3]\nBlood Urea 48 mg/dL [15 - 40]\nHbA1c 6.9 % [4.0 - 5.6]\nSerum Potassium 5.1 mEq/L [3.5 - 5.1]",
    "extraction": {
@@ -863,11 +699,11 @@
       "recall": 0.917
      },
      "test_result.reference_range": {
-      "tp": 5,
+      "tp": 11,
       "fp": 0,
-      "fn": 7,
+      "fn": 1,
       "precision": 1.0,
-      "recall": 0.417
+      "recall": 0.917
      },
      "tests": {
       "tp": 0,
@@ -896,48 +732,6 @@
       "kind": "missing",
       "field": "test_result.reference_range",
       "expected": "3.8 - 4.8",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "0.2 - 1.2",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "7 - 56",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "0.7 - 1.3",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "15 - 40",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "4.0 - 5.6",
-      "got": null,
-      "needs_review": null
-     },
-     {
-      "kind": "missing",
-      "field": "test_result.reference_range",
-      "expected": "3.5 - 5.1",
       "got": null,
       "needs_review": null
      },
@@ -1014,139 +808,11 @@
     "own_is_closest": true
    }
   },
-  "hx_mixed_paed.png": {
-   "file": "hx_mixed_paed.png",
-   "truth": "hx_mixed_paed",
-   "crashed": false,
-   "seconds": 11.39,
-   "status": "ok",
-   "error": null,
-   "warnings": [],
-   "raw_text": "LIFELINE CHILDREN'S CLINIC\nDr. Kavya Reddy, MD (Paed) Ph: 040-2334 5566\nPatient: Master Rohan K Date: 30/08/2026 Wt: 14 kg\nFever 102 F since 2 days, cough, cold\nImp: Viral URTI\nSyp Calpol 250 mg/5 ml 5 ml TDS x 3d\nSyp Ascoril LS 2.5 ml BD x 5d\nNasal saline drops 2 drops each nostril TDS\nReview SOS",
-   "extraction": {
-    "document_type": {
-     "expected": "prescription",
-     "got": "prescription",
-     "ok": true
-    },
-    "fields": {
-     "patient_name": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "doctor_name": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "date": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication": {
-      "tp": 3,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication.dosage": {
-      "tp": 3,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication.frequency": {
-      "tp": 3,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "medication.duration": {
-      "tp": 2,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "diagnoses": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     },
-     "symptoms": {
-      "tp": 3,
-      "fp": 0,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0
-     }
-    },
-    "errors": [],
-    "unflagged_errors": [],
-    "placement_errors": [],
-    "ungrounded": []
-   },
-   "ocr": {
-    "critical_by_category": {
-     "medicine_name": {
-      "expected": 3,
-      "found": 3
-     },
-     "dosage": {
-      "expected": 4,
-      "found": 4
-     },
-     "frequency": {
-      "expected": 3,
-      "found": 3
-     },
-     "duration": {
-      "expected": 2,
-      "found": 2
-     },
-     "header": {
-      "expected": 2,
-      "found": 2
-     },
-     "date": {
-      "expected": 1,
-      "found": 1
-     }
-    },
-    "critical_total": {
-     "expected": 15,
-     "found": 15
-    },
-    "missing": [],
-    "cer": 0.0,
-    "unsupported_lines": [],
-    "substitutions": []
-   },
-   "closest_other_source": {
-    "document": "hx_rx_printed_gp",
-    "cer": 0.712,
-    "own_cer": 0.0,
-    "own_is_closest": true
-   }
-  },
   "hx_nonmedical_notice.png": {
    "file": "hx_nonmedical_notice.png",
    "truth": "hx_nonmedical_notice",
    "crashed": false,
-   "seconds": 8.74,
+   "seconds": 11.12,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1198,7 +864,7 @@
    "file": "hx_rx_hand_banerjee.png",
    "truth": "hx_rx_hand_banerjee",
    "crashed": false,
-   "seconds": 7.89,
+   "seconds": 11.27,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1342,7 +1008,7 @@
    "file": "hx_rx_hand_iqbal.png",
    "truth": "hx_rx_hand_iqbal",
    "crashed": false,
-   "seconds": 7.73,
+   "seconds": 9.53,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1466,8 +1132,8 @@
     ]
    },
    "closest_other_source": {
-    "document": "hx_mixed_paed",
-    "cer": 0.758,
+    "document": "hx_rx_printed_gp",
+    "cer": 0.78,
     "own_cer": 0.0,
     "own_is_closest": true
    }
@@ -1476,7 +1142,7 @@
    "file": "hx_rx_printed_gp.png",
    "truth": "hx_rx_printed_gp",
    "crashed": false,
-   "seconds": 12.74,
+   "seconds": 15.5,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1641,7 +1307,7 @@
    "file": "hx_rx_printed_gp_photo.heic",
    "truth": "hx_rx_printed_gp",
    "crashed": false,
-   "seconds": 12.99,
+   "seconds": 13.95,
    "status": "ok",
    "error": null,
    "warnings": [],

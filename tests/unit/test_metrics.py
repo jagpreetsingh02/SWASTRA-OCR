@@ -72,6 +72,38 @@ def test_wrong_dose_counts_as_an_error_and_unflagged_errors_are_listed():
     assert [e["got"] for e in score["unflagged_errors"]] == ["400"]
 
 
+def invoice_truth(**fields) -> dict:
+    truth = {"document_type": "medical_invoice", "patient_name": None, "doctor_name": None, "date": None,
+             "medications": [], "test_results": [], "tests": [], "diagnoses": [], "symptoms": [], "allergies": []}
+    return {**truth, **fields}
+
+
+MENTION = [{"name": "Paracetamol", "dosage": "500mg", "frequency": None, "duration": None}]
+INVOICE_LINE = "1  Paracetamol 500mg Tablet  3004  10  2.50  25.00"
+
+
+def paracetamol() -> Medication:
+    return Medication(name=ent("Paracetamol", 3), dosage=ent("500mg", 15), source_line=INVOICE_LINE)
+
+
+def test_a_mention_promoted_to_a_prescription_is_an_error_not_a_match():
+    """The safety error this field exists to catch: claiming a patient was prescribed what a bill merely sold."""
+    result = ExtractionResult(status=Status.ok, raw_text=INVOICE_LINE, document_type=DocumentType.medical_invoice,
+                              entities=Entities(medications=[paracetamol()]))
+    score = metrics.score_extraction(result, invoice_truth(medication_mentions=MENTION))
+    assert score["fields"]["medication"]["fp"] == 1             # prescribed something nobody prescribed
+    assert score["fields"]["medication_mention"]["fn"] == 1     # and the mention itself went unrecorded
+
+
+def test_a_correctly_recorded_mention_scores_as_a_mention():
+    result = ExtractionResult(status=Status.ok, raw_text=INVOICE_LINE, document_type=DocumentType.medical_invoice,
+                              entities=Entities(medication_mentions=[paracetamol()]))
+    score = metrics.score_extraction(result, invoice_truth(medication_mentions=MENTION))
+    assert score["fields"]["medication_mention"]["tp"] == 1
+    assert score["fields"]["medication_mention.dosage"]["tp"] == 1
+    assert score["fields"].get("medication", {"fp": 0})["fp"] == 0
+
+
 def test_value_predicted_in_the_wrong_field_is_a_placement_error():
     raw = "HbA1c 8.2 %"
     result = ExtractionResult(status=Status.ok, raw_text=raw, entities=Entities(

@@ -55,7 +55,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 8 lines were read on page 1 but only about 7 are visible; some text may be invented."
+     "Page 1: 8 lines were read on page 1 but only about 7 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -89,7 +89,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 8 lines were read on page 1 but only about 7 are visible; some text may be invented."
+     "Page 1: 8 lines were read on page 1 but only about 7 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -123,7 +123,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 11 lines were read on page 1 but only about 10 are visible; some text may be invented."
+     "Page 1: 11 lines were read on page 1 but only about 10 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -157,7 +157,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 7 lines were read on page 1 but only about 6 are visible; some text may be invented."
+     "Page 1: 7 lines were read on page 1 but only about 6 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -191,7 +191,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 8 lines were read on page 1 but only about 7 are visible; some text may be invented."
+     "Page 1: 8 lines were read on page 1 but only about 7 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -225,7 +225,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 9 lines were read on page 1 but only about 8 are visible; some text may be invented."
+     "Page 1: 9 lines were read on page 1 but only about 8 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -250,7 +250,7 @@
    "false_alarm": false,
    "unflagged_invented_entities": []
   },
-  "dev/lab_report_degraded.png": {
+  "dev/hx_lab_biochem.png": {
    "clean": {
     "status": "ok",
     "suspicion_warnings": [],
@@ -259,7 +259,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 10 lines were read on page 1 but only about 9 are visible; some text may be invented."
+     "Page 1: 11 lines were read on page 1 but only about 10 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -284,7 +284,7 @@
    "false_alarm": false,
    "unflagged_invented_entities": []
   },
-  "dev/lab_report_scan.png": {
+  "dev/hx_mixed_paed.png": {
    "clean": {
     "status": "ok",
     "suspicion_warnings": [],
@@ -293,7 +293,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 10 lines were read on page 1 but only about 9 are visible; some text may be invented."
+     "Page 1: 10 lines were read on page 1 but only about 9 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -310,6 +310,91 @@
      },
      {
       "text": "3.5 - 5.1",
+      "needs_review": true
+     }
+    ]
+   },
+   "detected": true,
+   "false_alarm": false,
+   "unflagged_invented_entities": []
+  },
+  "dev/invoice_pharmacy_gst.png": {
+   "clean": {
+    "status": "ok",
+    "suspicion_warnings": [],
+    "invented_line_entities": []
+   },
+   "injected": {
+    "status": "low_confidence",
+    "suspicion_warnings": [
+     "Page 1: 19 lines were read on page 1 but only about 18 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
+    ],
+    "invented_line_entities": []
+   },
+   "detected": true,
+   "false_alarm": false,
+   "unflagged_invented_entities": []
+  },
+  "dev/lab_report_degraded.png": {
+   "clean": {
+    "status": "ok",
+    "suspicion_warnings": [],
+    "invented_line_entities": []
+   },
+   "injected": {
+    "status": "low_confidence",
+    "suspicion_warnings": [
+     "Page 1: 10 lines were read on page 1 but only about 9 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
+    ],
+    "invented_line_entities": [
+     {
+      "text": "Serum Potassium",
+      "needs_review": true
+     },
+     {
+      "text": "7.9",
+      "needs_review": true
+     },
+     {
+      "text": "mEq/L",
+      "needs_review": true
+     },
+     {
+      "text": "3.5 - 5.1",
+      "needs_review": true
+     }
+    ]
+   },
+   "detected": true,
+   "false_alarm": false,
+   "unflagged_invented_entities": []
+  },
+  "dev/lab_report_scan.png": {
+   "clean": {
+    "status": "ok",
+    "suspicion_warnings": [],
+    "invented_line_entities": []
+   },
+   "injected": {
+    "status": "low_confidence",
+    "suspicion_warnings": [
+     "Page 1: 10 lines were read on page 1 but only about 9 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
+    ],
+    "invented_line_entities": [
+     {
+      "text": "Warfarin",
+      "needs_review": true
+     },
+     {
+      "text": "5 mg",
+      "needs_review": true
+     },
+     {
+      "text": "OD",
+      "needs_review": true
+     },
+     {
+      "text": "10 days",
       "needs_review": true
      }
     ]
@@ -329,19 +414,19 @@
     "suspicion_warnings": [],
     "invented_line_entities": [
      {
-      "text": "Warfarin",
+      "text": "Serum Potassium",
       "needs_review": false
      },
      {
-      "text": "5 mg",
+      "text": "7.9",
       "needs_review": false
      },
      {
-      "text": "OD",
+      "text": "mEq/L",
       "needs_review": false
      },
      {
-      "text": "10 days",
+      "text": "3.5 - 5.1",
       "needs_review": false
      }
     ]
@@ -350,22 +435,39 @@
    "false_alarm": false,
    "unflagged_invented_entities": [
     {
-     "text": "Warfarin",
+     "text": "Serum Potassium",
      "needs_review": false
     },
     {
-     "text": "5 mg",
+     "text": "7.9",
      "needs_review": false
     },
     {
-     "text": "OD",
+     "text": "mEq/L",
      "needs_review": false
     },
     {
-     "text": "10 days",
+     "text": "3.5 - 5.1",
      "needs_review": false
     }
    ]
+  },
+  "dev/pharma_info_minipress_letter.png": {
+   "clean": {
+    "status": "ok",
+    "suspicion_warnings": [],
+    "invented_line_entities": []
+   },
+   "injected": {
+    "status": "low_confidence",
+    "suspicion_warnings": [
+     "Page 1: 22 lines were read on page 1 but only about 21 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
+    ],
+    "invented_line_entities": []
+   },
+   "detected": true,
+   "false_alarm": false,
+   "unflagged_invented_entities": []
   },
   "dev/prescription_degraded.png": {
    "clean": {
@@ -376,7 +478,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 12 lines were read on page 1 but only about 11 are visible; some text may be invented."
+     "Page 1: 12 lines were read on page 1 but only about 11 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -410,7 +512,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 10 lines were read on page 1 but only about 9 are visible; some text may be invented."
+     "Page 1: 10 lines were read on page 1 but only about 9 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -493,7 +595,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 12 lines were read on page 1 but only about 11 are visible; some text may be invented."
+     "Page 1: 12 lines were read on page 1 but only about 11 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -527,7 +629,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 13 lines were read on page 1 but only about 12 are visible; some text may be invented."
+     "Page 1: 13 lines were read on page 1 but only about 12 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -544,40 +646,6 @@
      },
      {
       "text": "3.5 - 5.1",
-      "needs_review": true
-     }
-    ]
-   },
-   "detected": true,
-   "false_alarm": false,
-   "unflagged_invented_entities": []
-  },
-  "heldout/hx_lab_biochem.png": {
-   "clean": {
-    "status": "ok",
-    "suspicion_warnings": [],
-    "invented_line_entities": []
-   },
-   "injected": {
-    "status": "low_confidence",
-    "suspicion_warnings": [
-     "Page 1: 11 lines were read on page 1 but only about 10 are visible; some text may be invented."
-    ],
-    "invented_line_entities": [
-     {
-      "text": "Warfarin",
-      "needs_review": true
-     },
-     {
-      "text": "5 mg",
-      "needs_review": true
-     },
-     {
-      "text": "OD",
-      "needs_review": true
-     },
-     {
-      "text": "10 days",
       "needs_review": true
      }
     ]
@@ -595,41 +663,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 12 lines were read on page 1 but only about 11 are visible; some text may be invented."
-    ],
-    "invented_line_entities": [
-     {
-      "text": "Serum Potassium",
-      "needs_review": true
-     },
-     {
-      "text": "7.9",
-      "needs_review": true
-     },
-     {
-      "text": "mEq/L",
-      "needs_review": true
-     },
-     {
-      "text": "3.5 - 5.1",
-      "needs_review": true
-     }
-    ]
-   },
-   "detected": true,
-   "false_alarm": false,
-   "unflagged_invented_entities": []
-  },
-  "heldout/hx_lab_cbc_degraded.jpg": {
-   "clean": {
-    "status": "ok",
-    "suspicion_warnings": [],
-    "invented_line_entities": []
-   },
-   "injected": {
-    "status": "low_confidence",
-    "suspicion_warnings": [
-     "Page 1: 12 lines were read on page 1 but only about 11 are visible; some text may be invented."
+     "Page 1: 12 lines were read on page 1 but only about 11 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -654,7 +688,7 @@
    "false_alarm": false,
    "unflagged_invented_entities": []
   },
-  "heldout/hx_mixed_paed.png": {
+  "heldout/hx_lab_cbc_degraded.jpg": {
    "clean": {
     "status": "ok",
     "suspicion_warnings": [],
@@ -663,7 +697,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 10 lines were read on page 1 but only about 9 are visible; some text may be invented."
+     "Page 1: 12 lines were read on page 1 but only about 11 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -697,7 +731,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 7 lines were read on page 1 but only about 6 are visible; some text may be invented."
+     "Page 1: 7 lines were read on page 1 but only about 6 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -731,7 +765,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 9 lines were read on page 1 but only about 8 are visible; some text may be invented."
+     "Page 1: 9 lines were read on page 1 but only about 8 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -814,7 +848,7 @@
    "injected": {
     "status": "low_confidence",
     "suspicion_warnings": [
-     "Page 1: 13 lines were read on page 1 but only about 12 are visible; some text may be invented."
+     "Page 1: 13 lines were read on page 1 but only about 12 are visible; the extra text may be invented, or the estimate may have missed writing in a dense layout."
     ],
     "invented_line_entities": [
      {
@@ -889,8 +923,8 @@
    ]
   }
  },
- "detector_detected": 19,
+ "detector_detected": 21,
  "detector_unflagged_invented_entities": 16,
  "detector_false_alarms": 0,
- "detector_total": 23
+ "detector_total": 25
 }

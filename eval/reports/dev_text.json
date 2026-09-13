@@ -11,91 +11,105 @@
     "recall": 1.0
    },
    "date": {
-    "tp": 16,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "diagnoses": {
-    "tp": 14,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "doctor_name": {
-    "tp": 11,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "medication": {
-    "tp": 41,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "medication.dosage": {
-    "tp": 38,
-    "fp": 0,
-    "fn": 0,
-    "precision": 1.0,
-    "recall": 1.0
-   },
-   "medication.duration": {
     "tp": 19,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
-   "medication.frequency": {
+   "diagnoses": {
+    "tp": 15,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "doctor_name": {
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication": {
+    "tp": 44,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication.dosage": {
     "tp": 41,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
-   "patient_name": {
-    "tp": 7,
+   "medication.duration": {
+    "tp": 21,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
-   "symptoms": {
+   "medication.frequency": {
+    "tp": 44,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication_mention": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "medication_mention.dosage": {
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "patient_name": {
     "tp": 9,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
+   "symptoms": {
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
    "test_result": {
-    "tp": 17,
+    "tp": 23,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "test_result.reference_range": {
-    "tp": 13,
+    "tp": 19,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "test_result.unit": {
-    "tp": 16,
+    "tp": 22,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
     "recall": 1.0
    },
    "test_result.value": {
-    "tp": 17,
+    "tp": 23,
     "fp": 0,
     "fn": 0,
     "precision": 1.0,
@@ -103,27 +117,27 @@
    },
    "tests": {
     "tp": 8,
-    "fp": 1,
+    "fp": 2,
     "fn": 0,
-    "precision": 0.889,
+    "precision": 0.8,
     "recall": 1.0
    }
   },
   "overall": {
-   "tp": 270,
-   "fp": 1,
+   "tp": 321,
+   "fp": 2,
    "fn": 0,
-   "precision": 0.996,
+   "precision": 0.994,
    "recall": 1.0
   },
-  "false_positives": 1,
+  "false_positives": 2,
   "false_negatives": 0,
   "wrong_values": 0,
-  "unflagged_errors": 0,
+  "unflagged_errors": 1,
   "placement_errors": 0,
   "grounding_failures": 0,
   "document_type_accuracy": 1.0,
-  "documents": 16,
+  "documents": 20,
   "crashes": 0
  },
  "documents": {
@@ -131,7 +145,7 @@
    "file": "discharge.txt",
    "truth": "discharge",
    "crashed": false,
-   "seconds": 12.26,
+   "seconds": 18.92,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -196,7 +210,7 @@
    "file": "discharge_copd.txt",
    "truth": "discharge_copd",
    "crashed": false,
-   "seconds": 0.32,
+   "seconds": 0.41,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -275,7 +289,7 @@
    "file": "hw_rx_bradley.txt",
    "truth": "hw_rx_bradley",
    "crashed": false,
-   "seconds": 0.25,
+   "seconds": 0.33,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -368,7 +382,7 @@
    "file": "hw_rx_brush_hard.txt",
    "truth": "hw_rx_brush_hard",
    "crashed": false,
-   "seconds": 0.2,
+   "seconds": 0.24,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -447,7 +461,7 @@
    "file": "hw_rx_chalkboard.txt",
    "truth": "hw_rx_chalkboard",
    "crashed": false,
-   "seconds": 0.21,
+   "seconds": 0.25,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -519,7 +533,7 @@
    "file": "hw_rx_cursive.txt",
    "truth": "hw_rx_cursive",
    "crashed": false,
-   "seconds": 0.21,
+   "seconds": 0.25,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -587,11 +601,229 @@
     "ungrounded": []
    }
   },
+  "hx_lab_biochem.txt": {
+   "file": "hx_lab_biochem.txt",
+   "truth": "hx_lab_biochem",
+   "crashed": false,
+   "seconds": 0.52,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "CITY HOSPITAL LABORATORY\nName: Mr. Harish Kumar   UHID: 77120\nSample Date: 21-08-2026\nLIVER & KIDNEY FUNCTION\nSerum Bilirubin (Total) 1.8 mg/dL [0.2 - 1.2]\nSGPT (ALT) 64 U/L [7 - 56]\nSerum Creatinine 1.42 mg/dL [0.7 - 1.3]\nBlood Urea 48 mg/dL [15 - 40]\nHbA1c 6.9 % [4.0 - 5.6]\nSerum Potassium 5.1 mEq/L [3.5 - 5.1]\n",
+   "extraction": {
+    "document_type": {
+     "expected": "lab_report",
+     "got": "lab_report",
+     "ok": true
+    },
+    "fields": {
+     "patient_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result.value": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result.unit": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "test_result.reference_range": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "tests": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": null
+     }
+    },
+    "errors": [
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "ALT",
+      "needs_review": false
+     }
+    ],
+    "unflagged_errors": [
+     {
+      "kind": "false_positive",
+      "field": "tests",
+      "expected": null,
+      "got": "ALT",
+      "needs_review": false
+     }
+    ],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "hx_mixed_paed.txt": {
+   "file": "hx_mixed_paed.txt",
+   "truth": "hx_mixed_paed",
+   "crashed": false,
+   "seconds": 0.36,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "LIFELINE CHILDREN'S CLINIC\nDr. Kavya Reddy, MD (Paed)   Ph: 040-2334 5566\nPatient: Master Rohan K    Date: 30/08/2026    Wt: 14 kg\nFever 102 F since 2 days, cough, cold\nImp: Viral URTI\nSyp Calpol 250 mg/5 ml 5 ml TDS x 3d\nSyp Ascoril LS 2.5 ml BD x 5d\nNasal saline drops 2 drops each nostril TDS\nReview SOS\n",
+   "extraction": {
+    "document_type": {
+     "expected": "prescription",
+     "got": "prescription",
+     "ok": true
+    },
+    "fields": {
+     "patient_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "doctor_name": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.dosage": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.frequency": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication.duration": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "diagnoses": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "symptoms": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
+  "invoice_pharmacy_gst.txt": {
+   "file": "invoice_pharmacy_gst.txt",
+   "truth": "invoice_pharmacy_gst",
+   "crashed": false,
+   "seconds": 0.53,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "SHREE MEDICALS & GENERAL STORE\nGSTIN: 29ABCDE1234F1Z5          Tax Invoice\nInvoice No: SM/2026/0417        Date: 03/09/2026\nBill To: Ramesh Kumar           Mobile: 98765 43210\n\nS.No  Item                       HSN    Qty   Rate    Amount\n1     Paracetamol 500mg Tablet   3004    10    2.50    25.00\n2     Cough Syrup 100ml          3004     1   85.00    85.00\n3     Face Mask (3 ply)          6307     5    5.00    25.00\n\n                                 Sub Total      135.00\n                                 CGST 6%          8.10\n                                 SGST 6%          8.10\n                                 Grand Total    151.20\n\nBank Details\nBank: State Bank of India\nA/c No: 3021 5566 7788\nIFSC: SBIN0004321\nBranch: Jayanagar\nName: Kamal\n",
+   "extraction": {
+    "document_type": {
+     "expected": "medical_invoice",
+     "got": "medical_invoice",
+     "ok": true
+    },
+    "fields": {
+     "date": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication_mention": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "medication_mention.dosage": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
   "lab_haematology_table.txt": {
    "file": "lab_haematology_table.txt",
    "truth": "lab_haematology_table",
    "crashed": false,
-   "seconds": 0.35,
+   "seconds": 0.39,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -656,7 +888,7 @@
    "file": "lab_report.txt",
    "truth": "lab_report",
    "crashed": false,
-   "seconds": 0.33,
+   "seconds": 0.44,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -714,7 +946,7 @@
    "file": "mixed_printed_handwritten.txt",
    "truth": "mixed_printed_handwritten",
    "crashed": false,
-   "seconds": 0.25,
+   "seconds": 0.39,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -800,7 +1032,7 @@
    "file": "nonmedical_invoice.txt",
    "truth": "nonmedical_invoice",
    "crashed": false,
-   "seconds": 0.21,
+   "seconds": 0.26,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -826,11 +1058,41 @@
     "ungrounded": []
    }
   },
+  "pharma_info_minipress_letter.txt": {
+   "file": "pharma_info_minipress_letter.txt",
+   "truth": "pharma_info_minipress_letter",
+   "crashed": false,
+   "seconds": 0.49,
+   "status": "ok",
+   "error": null,
+   "warnings": [],
+   "raw_text": "NEW MINIPRESS Capsules\n(prazosin HCl)\n1mg, 2mg, 5mg\n\nCOMPOSITION\nEach capsule contains prazosin hydrochloride equivalent to prazosin 1 mg, 2 mg or 5 mg.\n\nINDICATIONS\nHypertension. Benign prostatic hyperplasia.\n\nDOSAGE AND ADMINISTRATION\nThe initial dose is 0.5 mg at bedtime. Dosage may be increased gradually.\n\nWARNINGS AND PRECAUTIONS\nFirst-dose effect: postural hypotension may occur.\n\nADVERSE REACTIONS\nDizziness, headache, drowsiness.\n\nManufactured by Pfizer Limited, Mumbai 400 001\nFor the use only of a Registered Medical Practitioner.\n\nDear Amit,\nThank you for the books you sent last week. We are all well here.\nRavi has started school again and the weather has finally cooled down.\nPlease write back when you can.\nYours,\nSuresh\n",
+   "extraction": {
+    "document_type": {
+     "expected": "pharmaceutical_information",
+     "got": "pharmaceutical_information",
+     "ok": true
+    },
+    "fields": {
+     "medication_mention": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     }
+    },
+    "errors": [],
+    "unflagged_errors": [],
+    "placement_errors": [],
+    "ungrounded": []
+   }
+  },
   "prescription.txt": {
    "file": "prescription.txt",
    "truth": "prescription",
    "crashed": false,
-   "seconds": 0.32,
+   "seconds": 0.38,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -909,7 +1171,7 @@
    "file": "prescription_handwritten.txt",
    "truth": "prescription_handwritten",
    "crashed": false,
-   "seconds": 0.23,
+   "seconds": 0.32,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -974,7 +1236,7 @@
    "file": "probe_false_positives.txt",
    "truth": "probe_false_positives",
    "crashed": false,
-   "seconds": 0.29,
+   "seconds": 0.4,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1061,7 +1323,7 @@
    "file": "probe_medication_formats.txt",
    "truth": "probe_medication_formats",
    "crashed": false,
-   "seconds": 0.27,
+   "seconds": 0.34,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1126,7 +1388,7 @@
    "file": "rx_clinic_uti.txt",
    "truth": "rx_clinic_uti",
    "crashed": false,
-   "seconds": 0.29,
+   "seconds": 0.35,
    "status": "ok",
    "error": null,
    "warnings": [],
@@ -1226,7 +1488,7 @@
    "file": "rx_paediatric_opd.txt",
    "truth": "rx_paediatric_opd",
    "crashed": false,
-   "seconds": 0.24,
+   "seconds": 0.38,
    "status": "ok",
    "error": null,
    "warnings": [],
