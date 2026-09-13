@@ -1,0 +1,298 @@
+{
+ "label": "baseline",
+ "memory_start": {
+  "max_rss_mb": 201.6,
+  "mps_allocated_mb": 0.0,
+  "mps_driver_mb": 0.4
+ },
+ "cold_load_ocr_s": 14.4,
+ "cold_load_extractor_s": 11.3,
+ "memory_after_load": {
+  "max_rss_mb": 3890.4,
+  "mps_allocated_mb": 4072.9,
+  "mps_driver_mb": 4712.4
+ },
+ "requests": [
+  {
+   "file": "prescription_scan.png",
+   "status": "ok",
+   "total_s": 14.52,
+   "stages_s": {
+    "extract.gliner": 0.461,
+    "ocr.char_confidence_mapping": 0.023,
+    "ocr.generate": 13.745,
+    "ocr.image_processing+template": 0.086,
+    "preprocess.is_blank": 0.016,
+    "preprocess.load_document": 0.018,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.0,
+    "mps_driver_mb": 4715.8
+   }
+  },
+  {
+   "file": "prescription_photo_handheld.jpg",
+   "status": "ok",
+   "total_s": 13.51,
+   "stages_s": {
+    "extract.gliner": 0.383,
+    "ocr.char_confidence_mapping": 0.006,
+    "ocr.generate": 12.845,
+    "ocr.image_processing+template": 0.022,
+    "preprocess.is_blank": 0.013,
+    "preprocess.load_document": 0.17,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.0,
+    "mps_driver_mb": 4715.8
+   }
+  },
+  {
+   "file": "lab_report_scan.png",
+   "status": "ok",
+   "total_s": 13.13,
+   "stages_s": {
+    "extract.gliner": 0.372,
+    "ocr.char_confidence_mapping": 0.009,
+    "ocr.generate": 12.665,
+    "ocr.image_processing+template": 0.019,
+    "preprocess.is_blank": 0.009,
+    "preprocess.load_document": 0.003,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.1,
+    "mps_driver_mb": 4715.8
+   }
+  },
+  {
+   "file": "prescription_handwritten.png",
+   "status": "ok",
+   "total_s": 7.97,
+   "stages_s": {
+    "extract.gliner": 0.459,
+    "ocr.char_confidence_mapping": 0.005,
+    "ocr.generate": 7.418,
+    "ocr.image_processing+template": 0.02,
+    "preprocess.is_blank": 0.009,
+    "preprocess.load_document": 0.008,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.1,
+    "mps_driver_mb": 4715.8
+   }
+  },
+  {
+   "file": "hw_rx_bradley.png",
+   "status": "low_confidence",
+   "total_s": 8.71,
+   "stages_s": {
+    "extract.gliner": 0.266,
+    "ocr.char_confidence_mapping": 0.008,
+    "ocr.generate": 8.289,
+    "ocr.image_processing+template": 0.031,
+    "preprocess.is_blank": 0.01,
+    "preprocess.load_document": 0.049,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.0,
+    "mps_driver_mb": 4715.8
+   }
+  },
+  {
+   "file": "mixed_printed_handwritten.png",
+   "status": "ok",
+   "total_s": 9.52,
+   "stages_s": {
+    "extract.gliner": 0.27,
+    "ocr.char_confidence_mapping": 0.005,
+    "ocr.generate": 9.122,
+    "ocr.image_processing+template": 0.019,
+    "preprocess.is_blank": 0.009,
+    "preprocess.load_document": 0.044,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.0,
+    "mps_driver_mb": 4715.8
+   }
+  },
+  {
+   "file": "pharma_info_minipress_letter.png",
+   "status": "ok",
+   "total_s": 14.62,
+   "stages_s": {
+    "extract.gliner": 0.404,
+    "ocr.char_confidence_mapping": 0.012,
+    "ocr.generate": 14.073,
+    "ocr.image_processing+template": 0.019,
+    "preprocess.is_blank": 0.01,
+    "preprocess.load_document": 0.046,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.0,
+    "mps_driver_mb": 4715.8
+   }
+  },
+  {
+   "file": "prescription.pdf",
+   "status": "ok",
+   "total_s": 0.65,
+   "stages_s": {
+    "extract.gliner": 0.327,
+    "preprocess.load_document": 0.32,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.0,
+    "mps_driver_mb": 4715.8
+   }
+  },
+  {
+   "file": "2page_scan.tiff (synthesised)",
+   "status": "ok",
+   "total_s": 24.83,
+   "stages_s": {
+    "extract.gliner": 0.66,
+    "ocr.char_confidence_mapping": 0.011,
+    "ocr.generate": 23.931,
+    "ocr.image_processing+template": 0.046,
+    "preprocess.is_blank": 0.02,
+    "preprocess.load_document": 0.003,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.1,
+    "mps_driver_mb": 4715.8
+   }
+  },
+  {
+   "file": "prescription_scan.png",
+   "status": "ok",
+   "total_s": 12.78,
+   "stages_s": {
+    "extract.gliner": 0.363,
+    "ocr.char_confidence_mapping": 0.007,
+    "ocr.generate": 12.313,
+    "ocr.image_processing+template": 0.026,
+    "preprocess.is_blank": 0.009,
+    "preprocess.load_document": 0.004,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.1,
+    "mps_driver_mb": 4715.8
+   }
+  },
+  {
+   "file": "prescription_scan.png",
+   "status": "ok",
+   "total_s": 12.73,
+   "stages_s": {
+    "extract.gliner": 0.333,
+    "ocr.char_confidence_mapping": 0.005,
+    "ocr.generate": 12.313,
+    "ocr.image_processing+template": 0.019,
+    "preprocess.is_blank": 0.01,
+    "preprocess.load_document": 0.004,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.0,
+    "mps_driver_mb": 4715.8
+   }
+  },
+  {
+   "file": "prescription_scan.png",
+   "status": "ok",
+   "total_s": 12.81,
+   "stages_s": {
+    "extract.gliner": 0.343,
+    "ocr.char_confidence_mapping": 0.008,
+    "ocr.generate": 12.374,
+    "ocr.image_processing+template": 0.019,
+    "preprocess.is_blank": 0.009,
+    "preprocess.load_document": 0.003,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.1,
+    "mps_driver_mb": 4715.8
+   }
+  },
+  {
+   "file": "prescription_scan.png",
+   "status": "ok",
+   "total_s": 12.76,
+   "stages_s": {
+    "extract.gliner": 0.34,
+    "ocr.char_confidence_mapping": 0.008,
+    "ocr.generate": 12.326,
+    "ocr.image_processing+template": 0.019,
+    "preprocess.is_blank": 0.009,
+    "preprocess.load_document": 0.003,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.1,
+    "mps_driver_mb": 4723.8
+   }
+  },
+  {
+   "file": "prescription_scan.png",
+   "status": "ok",
+   "total_s": 12.73,
+   "stages_s": {
+    "extract.gliner": 0.352,
+    "ocr.char_confidence_mapping": 0.006,
+    "ocr.generate": 12.295,
+    "ocr.image_processing+template": 0.019,
+    "preprocess.is_blank": 0.009,
+    "preprocess.load_document": 0.003,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.2,
+    "mps_driver_mb": 4723.8
+   }
+  },
+  {
+   "file": "prescription_scan.png",
+   "status": "ok",
+   "total_s": 12.79,
+   "stages_s": {
+    "extract.gliner": 0.353,
+    "ocr.char_confidence_mapping": 0.007,
+    "ocr.generate": 12.345,
+    "ocr.image_processing+template": 0.019,
+    "preprocess.is_blank": 0.009,
+    "preprocess.load_document": 0.003,
+    "validate.flag_entities": 0.0
+   },
+   "memory": {
+    "max_rss_mb": 3890.4,
+    "mps_allocated_mb": 4073.2,
+    "mps_driver_mb": 4723.8
+   }
+  }
+ ]
+}
