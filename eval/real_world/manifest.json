@@ -173,5 +173,58 @@
   "172.jpeg",
   "80.jpeg"
  ],
- "holdout_note": "Deliberately NOT staged, annotated or inspected in this session. Reserved to verify future fixes."
+ "holdout_note": "Deliberately NOT staged, annotated or inspected in this session. Reserved to verify future fixes.",
+ "splits": {
+  "real_world_dev": {
+   "count": 21,
+   "files": [
+    "rw_001",
+    "rw_002",
+    "rw_003",
+    "rw_004",
+    "rw_005",
+    "rw_006",
+    "rw_007",
+    "rw_008",
+    "rw_009",
+    "rw_010",
+    "rw_011",
+    "rw_012",
+    "rw_013",
+    "rw_014",
+    "rw_015",
+    "rw_016",
+    "rw_017",
+    "rw_018",
+    "rw_019",
+    "rw_020",
+    "rw_021"
+   ],
+   "status": "EVALUATED. Used for the real-world validation baseline and now available for OCR model selection. These 21 pages may be inspected and scored freely."
+  },
+  "real_world_holdout": {
+   "count": 9,
+   "source_images": [
+    "37.jpeg",
+    "104.jpeg",
+    "126.jpeg",
+    "110.jpeg",
+    "32.jpeg",
+    "66.jpeg",
+    "22.jpeg",
+    "172.jpeg",
+    "80.jpeg"
+   ],
+   "status": "UNTOUCHED. Never staged, never annotated, never inspected, never run through any model. Reserved for ONE final evaluation after an OCR model is chosen and frozen.",
+   "runs_to_date": 0
+  }
+ },
+ "baseline_renamed_to": "real_world_dev",
+ "privacy": {
+  "images_committed": false,
+  "note": "Raw prescription images are gitignored. Only truth, manifest, hashes and provenance are committed.",
+  "quarantine": {
+   "rw_013": "The page carries a handwritten patient name despite the corpus being described as de-identified. The name is NOT transcribed into any committed file, and the image is gitignored like every other page. Do not redistribute this image."
+  }
+ }
 }

@@ -1,0 +1,262 @@
+{
+ "documents": 21,
+ "split": "real_world_dev",
+ "holdout_runs": 0,
+ "failed_engines": {
+  "paddleocr-vl": {
+   "model_id": "PaddlePaddle/PaddleOCR-VL-1.6",
+   "status": "INCOMPLETE - RUN DIED",
+   "completed": 5,
+   "verdict": "UNUSABLE IN THIS ENVIRONMENT. 216-1072 s/page (mean 603 s) for a 0.9B model, against 30 s/page for Qwen3-VL-2B and 12 s/page for GOT-OCR2 -- roughly 20x slower than the incumbent, so the full 21 pages would need ~3.5 hours. A 0.9B model this slow on MPS suggests an unsupported operation falling back to CPU. Latency alone disqualifies it here; its partial accuracy was also below the incumbent on the same pages."
+  }
+ },
+ "engines": {
+  "glm-ocr": {
+   "model_id": "zai-org/GLM-OCR",
+   "licence": "mit",
+   "critical": {
+    "expected": 175,
+    "found": 114,
+    "accuracy": 0.651
+   },
+   "by_category": {
+    "medicine_name": {
+     "expected": 77,
+     "found": 38,
+     "accuracy": 0.494
+    },
+    "dosage": {
+     "expected": 59,
+     "found": 44,
+     "accuracy": 0.746
+    },
+    "frequency": {
+     "expected": 29,
+     "found": 22,
+     "accuracy": 0.759
+    },
+    "date": {
+     "expected": 6,
+     "found": 6,
+     "accuracy": 1.0
+    },
+    "duration": {
+     "expected": 4,
+     "found": 4,
+     "accuracy": 1.0
+    }
+   },
+   "loops": 0,
+   "empty": 0,
+   "errors": 0,
+   "seconds_per_page": 80.21,
+   "cold_load_s": 23.3,
+   "memory_after_load": {
+    "max_rss_mb": 438.5,
+    "mps_allocated_mb": 2117.4,
+    "mps_driver_mb": 2856.4
+   }
+  },
+  "got-ocr2": {
+   "model_id": "stepfun-ai/GOT-OCR-2.0-hf",
+   "licence": "apache-2.0",
+   "critical": {
+    "expected": 175,
+    "found": 48,
+    "accuracy": 0.274
+   },
+   "by_category": {
+    "medicine_name": {
+     "expected": 77,
+     "found": 13,
+     "accuracy": 0.169
+    },
+    "dosage": {
+     "expected": 59,
+     "found": 21,
+     "accuracy": 0.356
+    },
+    "frequency": {
+     "expected": 29,
+     "found": 10,
+     "accuracy": 0.345
+    },
+    "date": {
+     "expected": 6,
+     "found": 4,
+     "accuracy": 0.667
+    },
+    "duration": {
+     "expected": 4,
+     "found": 0,
+     "accuracy": 0.0
+    }
+   },
+   "loops": 5,
+   "empty": 0,
+   "errors": 0,
+   "seconds_per_page": 11.75,
+   "cold_load_s": 12.1,
+   "memory_after_load": {
+    "max_rss_mb": 624.4,
+    "mps_allocated_mb": 1079.0,
+    "mps_driver_mb": 1224.5
+   }
+  },
+  "qwen3-vl-2b-prod": {
+   "model_id": "Qwen/Qwen3-VL-2B-Instruct",
+   "licence": "apache-2.0",
+   "critical": {
+    "expected": 175,
+    "found": 103,
+    "accuracy": 0.589
+   },
+   "by_category": {
+    "medicine_name": {
+     "expected": 77,
+     "found": 32,
+     "accuracy": 0.416
+    },
+    "dosage": {
+     "expected": 59,
+     "found": 45,
+     "accuracy": 0.763
+    },
+    "frequency": {
+     "expected": 29,
+     "found": 20,
+     "accuracy": 0.69
+    },
+    "date": {
+     "expected": 6,
+     "found": 5,
+     "accuracy": 0.833
+    },
+    "duration": {
+     "expected": 4,
+     "found": 1,
+     "accuracy": 0.25
+    }
+   },
+   "loops": 6,
+   "empty": 0,
+   "errors": 0,
+   "seconds_per_page": null,
+   "cold_load_s": null,
+   "memory_after_load": {
+    "mps_allocated_mb": 4072.9,
+    "note": "from the clean benchmark-prompt run of the same model"
+   }
+  },
+  "qwen3-vl-2b": {
+   "model_id": "Qwen/Qwen3-VL-2B-Instruct",
+   "licence": "apache-2.0",
+   "critical": {
+    "expected": 175,
+    "found": 94,
+    "accuracy": 0.537
+   },
+   "by_category": {
+    "medicine_name": {
+     "expected": 77,
+     "found": 27,
+     "accuracy": 0.351
+    },
+    "dosage": {
+     "expected": 59,
+     "found": 40,
+     "accuracy": 0.678
+    },
+    "frequency": {
+     "expected": 29,
+     "found": 21,
+     "accuracy": 0.724
+    },
+    "date": {
+     "expected": 6,
+     "found": 5,
+     "accuracy": 0.833
+    },
+    "duration": {
+     "expected": 4,
+     "found": 1,
+     "accuracy": 0.25
+    }
+   },
+   "loops": 5,
+   "empty": 0,
+   "errors": 0,
+   "seconds_per_page": 30.37,
+   "cold_load_s": 17.0,
+   "memory_after_load": {
+    "max_rss_mb": 467.0,
+    "mps_allocated_mb": 4072.9,
+    "mps_driver_mb": 4712.4
+   }
+  }
+ },
+ "dangerous_substitutions": {
+  "glm-ocr": 29,
+  "got-ocr2": 16,
+  "qwen3-vl-2b-prod": 30,
+  "qwen3-vl-2b": 27
+ },
+ "pipeline": {
+  "glm-ocr": {
+   "precision": 0.367,
+   "recall": 0.235,
+   "tp": 40,
+   "fp": 69,
+   "fn": 130,
+   "medication": {
+    "tp": 8,
+    "fp": 19,
+    "fn": 69
+   },
+   "placement_errors": 5,
+   "grounding_failures": 0
+  },
+  "got-ocr2": {
+   "precision": 0.316,
+   "recall": 0.041,
+   "tp": 6,
+   "fp": 13,
+   "fn": 141,
+   "medication": {
+    "tp": 1,
+    "fp": 3,
+    "fn": 76
+   },
+   "placement_errors": 2,
+   "grounding_failures": 0
+  },
+  "qwen3-vl-2b-prod": {
+   "precision": 0.35,
+   "recall": 0.249,
+   "tp": 42,
+   "fp": 78,
+   "fn": 127,
+   "medication": {
+    "tp": 13,
+    "fp": 25,
+    "fn": 64
+   },
+   "placement_errors": 3,
+   "grounding_failures": 0
+  },
+  "qwen3-vl-2b": {
+   "precision": 0.328,
+   "recall": 0.244,
+   "tp": 41,
+   "fp": 84,
+   "fn": 127,
+   "medication": {
+    "tp": 12,
+    "fp": 26,
+    "fn": 65
+   },
+   "placement_errors": 4,
+   "grounding_failures": 0
+  }
+ }
+}
