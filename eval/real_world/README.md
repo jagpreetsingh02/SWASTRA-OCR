@@ -1,7 +1,36 @@
 # Real-world validation set
 
-**Empty.** No real documents have been evaluated. Until this folder has samples, nothing in this
-repository shows how the engine performs on real doctors' handwriting or real clinic paperwork.
+Real, de-identified prescriptions from a third-party corpus — see `DATASET.md` for source, licence and
+hashes. The images are **gitignored**: only truth files, the manifest and provenance are committed.
+
+## Splits
+
+| split | documents | may be used for | state |
+|---|---|---|---|
+| `real_world_dev` | 21 (`rw_001`–`rw_021`) | validation, and OCR **model selection** | evaluated — results in `eval/reports/` |
+| `real_world_holdout` | 9 (listed in `manifest.json`) | ONE final check after a model is chosen and frozen | **untouched**: never staged, annotated, inspected or run |
+
+The holdout pages are not in this directory at all — they exist only inside the source archive — so no
+benchmark here can reach them even by accident. `manifest.json` records `runs_to_date: 0` for the
+holdout; keep it that way until a model has been selected.
+
+**Privacy:** `rw_013` carries a handwritten patient name despite the corpus being described as
+de-identified. The image is gitignored like every other page, and no truth file records the name
+(`patient_name` is null for all 21 pages).
+
+> **Known incident — the name reached a public commit.** An earlier version of this file claimed the
+> name "is not transcribed into any committed file". That was wrong. OCR transcribes what it sees, so
+> the name appeared in `raw_text` for `rw_013` inside `eval/reports/real_world_ocr.json`, which was
+> committed in `840ded5` and pushed to a public GitHub remote. The check that produced the false
+> all-clear searched for the name as one word, but the model wrote it letter-spaced, so the search
+> could not match. The working tree is now redacted, but **rewriting the pushed history is a separate,
+> still-outstanding step** — until it is done, the name remains reachable in that commit.
+
+**Rule this incident establishes:** any file holding verbatim OCR output of a real page is
+patient data, regardless of what the source corpus calls itself. Such files stay local. Only
+aggregates with no free text are committed — see the `model_selection_real_world` rules in
+`.gitignore`. When checking for an identifier, normalise the text first (drop non-letters);
+OCR output routinely mangles spacing.
 
 ## Before adding anything
 

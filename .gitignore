@@ -27,3 +27,11 @@ tmp/
 eval/real_world/rw_*.jpeg
 eval/real_world/rw_*.jpg
 eval/real_world/rw_*.png
+
+# OCR model-selection runs over those pages: the per-engine files embed each model's
+# verbatim transcription of a real prescription, which can carry patient identifiers
+# (rw_013 does). Only the aggregate scores, which contain no free text, are committed.
+eval/reports/model_selection_real_world/*.json
+!eval/reports/model_selection_real_world/summary.json
+!eval/reports/model_selection_real_world/dangerous_errors.json
+!eval/reports/model_selection_real_world/paddleocr-vl.INCOMPLETE.json
