@@ -4,34 +4,46 @@ __pycache__/
 .pytest_cache/
 .DS_Store
 
-# local secrets and settings: never commit a real token
+# Environment and credentials remain local.
 .env
 .env.*
 !.env.example
 
-# model weights and Hugging Face caches (gigabytes; fetched on demand)
+# Model weights, caches and archives are never repository artifacts.
 hf_cache/
 huggingface/
+.cache/
 models/
 *.safetensors
 *.gguf
 *.pt
+*.pth
+*.ckpt
 *.bin
+*.zip
+*.tar
+*.gz
+*.7z
+*.bundle
 
-# uploaded or temporary documents (may contain patient data)
+# Private documents, external datasets and recovery copies.
+/prescription-data/
+/external-data/
+/datasets/
 uploads/
 tmp/
+privacy-recovery/
 
-# real-world validation documents: real (CC BY 4.0) de-identified medical images.
-# Kept local by default -- manifest.json, hashes, truth files and docs are committed instead.
-eval/real_world/rw_*.jpeg
-eval/real_world/rw_*.jpg
-eval/real_world/rw_*.png
+# Every real-world source, transcription and annotation stays local, regardless of filename.
+/eval/real_world*/**
+!/eval/real_world*/README.md
+!/eval/real_world*/DATASET.md
+!/eval/real_world*/manifest.json
+!/eval/real_world*/truth_template.json
 
-# OCR model-selection runs over those pages: the per-engine files embed each model's
-# verbatim transcription of a real prescription, which can carry patient identifiers
-# (rw_013 does). Only the aggregate scores, which contain no free text, are committed.
-eval/reports/model_selection_real_world/*.json
-!eval/reports/model_selection_real_world/summary.json
-!eval/reports/model_selection_real_world/dangerous_errors.json
-!eval/reports/model_selection_real_world/paddleocr-vl.INCOMPLETE.json
+# Generated reports may embed identifiers, even when a run is incomplete.
+/eval/reports/real_world*
+/eval/reports/SUMMARY.md
+/eval/reports/model_selection_real_world/**
+!/eval/reports/model_selection_real_world/summary.json
+# The exception is numeric aggregates only, checked by tools/check_privacy.py.

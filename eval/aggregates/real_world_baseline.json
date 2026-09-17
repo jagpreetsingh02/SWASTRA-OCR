@@ -1,0 +1,130 @@
+{
+  "fields": {
+    "date": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 2,
+      "precision": 1.0,
+      "recall": 0.667
+    },
+    "diagnoses": {
+      "tp": 2,
+      "fp": 7,
+      "fn": 10,
+      "precision": 0.222,
+      "recall": 0.167
+    },
+    "medication": {
+      "tp": 10,
+      "fp": 14,
+      "fn": 67,
+      "precision": 0.417,
+      "recall": 0.13
+    },
+    "medication.dosage": {
+      "tp": 3,
+      "fp": 2,
+      "fn": 4,
+      "precision": 0.6,
+      "recall": 0.429
+    },
+    "medication.duration": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    "medication.frequency": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 3,
+      "precision": 1.0,
+      "recall": 0.4
+    },
+    "symptoms": {
+      "tp": 2,
+      "fp": 6,
+      "fn": 1,
+      "precision": 0.25,
+      "recall": 0.667
+    },
+    "tests": {
+      "tp": 5,
+      "fp": 27,
+      "fn": 28,
+      "precision": 0.156,
+      "recall": 0.152
+    },
+    "vital": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 11,
+      "precision": 1.0,
+      "recall": 0.214
+    },
+    "vital.unit": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "vital.value": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.667,
+      "recall": 0.667
+    }
+  },
+  "overall": {
+    "tp": 36,
+    "fp": 58,
+    "fn": 129,
+    "precision": 0.383,
+    "recall": 0.218
+  },
+  "false_positives": 55,
+  "false_negatives": 126,
+  "wrong_values": 3,
+  "unflagged_errors": 4,
+  "placement_errors": 3,
+  "grounding_failures": 0,
+  "document_type_accuracy": 0.095,
+  "documents": 21,
+  "crashes": 0,
+  "ocr_critical_tokens": {
+    "by_category": {
+      "medicine_name": {
+        "expected": 77,
+        "found": 32,
+        "accuracy": 0.416
+      },
+      "dosage": {
+        "expected": 59,
+        "found": 45,
+        "accuracy": 0.763
+      },
+      "frequency": {
+        "expected": 29,
+        "found": 20,
+        "accuracy": 0.69
+      },
+      "date": {
+        "expected": 6,
+        "found": 5,
+        "accuracy": 0.833
+      },
+      "duration": {
+        "expected": 4,
+        "found": 1,
+        "accuracy": 0.25
+      }
+    },
+    "accuracy": 0.589
+  },
+  "ocr_unsupported_lines": 0,
+  "ocr_mean_cer": null,
+  "mean_seconds_per_file": 50.42
+}
