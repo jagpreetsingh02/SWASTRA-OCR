@@ -1,32 +1,27 @@
 # Real-world validation set
 
-**Empty.** No real documents have been evaluated. Until this folder has samples, nothing in this
-repository shows how the engine performs on real doctors' handwriting or real clinic paperwork.
+Real external prescriptions require local privacy controls even when a source claims de-identification.
+See `DATASET.md` for provenance and `manifest.json` for sampling and split metadata.
 
-## Before adding anything
+- `real_world_dev`: 21 pages already used for validation/model selection.
+- `real_world_holdout`: 9 pages in the source archive only; never opened, annotated or evaluated in
+  the privacy-remediation pass. Do not inspect them until the model decision is frozen.
 
-Only add a document when all of these are true:
+Images, transcriptions and truth annotations are ignored by path and remain local. Preserve local
+copies when re-cloning after the history rewrite. The source archive itself is also ignored.
+Only reviewed metadata and numeric aggregates may be committed. Per-document outputs from
+`eval/run.py` and `eval/model_selection/real_handwriting.py` stay local, including incomplete runs
+and `eval/reports/SUMMARY.md`. Removing historical artifacts did not rerun or tune any benchmark.
 
-- [ ] The patient (or guardian) consented to its use for software validation.
-- [ ] It is de-identified: patient name, phone, address, ID/UHID/ABHA numbers, faces and signatures
-      are removed or replaced with fictitious values **on the image itself**, not only in the truth file.
-- [ ] It has not been used to write or tune any rule, prompt or threshold in this repository.
-- [ ] Files stay local to this evaluation; they are not uploaded to external services.
+A patient identifier previously reached a public commit through raw OCR output. The privacy pass
+removes historical raw artifacts wholesale; working-tree redaction alone was insufficient. Old
+GitHub objects may still require Support cleanup after branch rewriting. See `../../PRIVACY.md`.
 
-Check your organisation's data-governance rules before committing any real document to version control.
+Before using additional samples, obtain appropriate permission and remove identifiers from the
+images themselves. Do not rely on searching for names: OCR can corrupt spelling and spacing.
+Write local truth annotations from the image before examining model output, and arrange independent
+review of critical values. Never treat AI-authored truth as clinician-verified ground truth.
 
-## Adding a document
-
-1. Put the file here as `rw_<id>.<ext>` (or `rw_<id>_<variant>.<ext>` for several photos of one page).
-2. Copy `truth_template.json` to `rw_<id>.truth.json` and fill it in from the **image**, value by value,
-   exactly as written (see `eval/README.md`, "Truth format"). Do not look at the engine's output while
-   annotating — it biases the truth towards what the model read.
-3. Recommended: add `rw_<id>.txt`, an exact line-by-line transcription, to enable OCR scoring.
-4. Have a second person check the truth file for clinically critical values (names, doses, frequencies, lab numbers).
-5. Run: `.venv/bin/python eval/run.py --split real_world`
-
-Results appear under "real_world" in `eval/reports/SUMMARY.md`, per document, with every error that
-was not flagged for review listed by name.
-
-If a real document reveals a bug and you change code because of it, move it to `eval/dev/` and note
-why — from then on it is tuning data, not validation data.
+The existing local workflow remains `.venv/bin/python eval/run.py --split real_world`.
+Do not run it as part of privacy remediation. Documents used to tune the engine belong to a local
+real-world development split, never an untouched holdout or the public synthetic fixture folders.
